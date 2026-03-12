@@ -5,25 +5,21 @@ const trainers = [
     name: 'Michael Lingner',
     role: 'Leitung der Tennisschule',
     license: 'A-Trainer',
-    gradient: 'linear-gradient(135deg, #0b2538, #163d5e)',
   },
   {
     name: 'Jana Hladka-Kissal',
     role: 'Trainerin',
     license: 'B-Trainer',
-    gradient: 'linear-gradient(135deg, #163d5e, #1e5575)',
   },
   {
     name: 'Zlatan Palazov',
     role: 'Trainer',
     license: 'B-Trainer',
-    gradient: 'linear-gradient(135deg, #0b2538, #1a4d6b)',
   },
   {
     name: 'Artur Ivanenko',
     role: 'Trainer',
     license: 'B-Trainer',
-    gradient: 'linear-gradient(135deg, #163d5e, #2a6d8a)',
   },
 ];
 
@@ -50,7 +46,7 @@ export default function Trainer() {
           <div className="trainer-grid">
             {trainers.map((t, i) => (
               <div className="trainer-card" key={i}>
-                <div className="trainer-photo" style={{ background: t.gradient }}>
+                <div className="trainer-photo">
                   <div className="trainer-photo-placeholder">
                     <User size={48} />
                   </div>

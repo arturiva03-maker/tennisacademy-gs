@@ -34,33 +34,28 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="hero">
-        <div className="hero-bg-pattern" />
-        <div className="hero-court-lines" />
         <div className="hero-content">
           <div className="hero-text">
             <div className="hero-badge">
               DTB/VDT anerkannte Tennisschule
             </div>
             <h1 className="hero-title">
-              Willkommen bei der<br />
-              Tennisschule <span>Grand Slam</span>
+              Tennisschule<br />
+              <span>Grand Slam</span>
             </h1>
             <p className="hero-subtitle">
-              Michael Lingner, Jana Hladka-Kissal, Zlatan Palazov und Artur Ivanenko
-              – jahrelange Erfahrung und erfolgreiche Kompetenz im Tennissport.
               Professionelles Training für jedes Alter und jede Spielstärke.
+              Michael Lingner, Jana Hladka-Kissal, Zlatan Palazov und Artur Ivanenko
+              – jahrelange Erfahrung und Kompetenz im Tennissport.
             </p>
             <div className="hero-cta">
               <Link to="/preise" className="btn btn-primary">
                 Preise ansehen
               </Link>
               <Link to="/trainer" className="btn btn-outline">
-                Unser Team kennenlernen
+                Unser Team
               </Link>
             </div>
-          </div>
-          <div className="hero-visual">
-            <div className="hero-ball" />
           </div>
         </div>
       </section>
@@ -107,8 +102,8 @@ export default function Home() {
             </div>
           </div>
           <div style={{ textAlign: 'center' }}>
-            <Link to="/dtb-vdt" className="btn btn-primary" style={{ background: 'var(--tennis-green)', color: 'white' }}>
-              Mehr über DTB/VDT erfahren
+            <Link to="/dtb-vdt" className="btn btn-primary">
+              Mehr erfahren
             </Link>
           </div>
         </div>

@@ -36,9 +36,7 @@ const kidsFeatures = [
 export default function KidsOnCourt() {
   return (
     <>
-      <section className="page-header" style={{
-        background: 'linear-gradient(135deg, var(--tennis-green-dark), var(--tennis-green), var(--tennis-green-light))'
-      }}>
+      <section className="page-header">
         <div className="container">
           <h1>Kids on Court</h1>
           <p>Tennis für Kinder von 4 bis 7 Jahren</p>
