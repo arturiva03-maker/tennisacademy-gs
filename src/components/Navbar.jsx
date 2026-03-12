@@ -31,7 +31,7 @@ export default function Navbar() {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="navbar-inner">
           <Link to="/" className="nav-logo">
-            <div className="nav-logo-icon">🎾</div>
+            <img src="/logo.png" alt="Tennisschule Grand Slam" className="nav-logo-img" />
             <span>Tennisschule Grand Slam</span>
           </Link>
           <ul className="nav-links">

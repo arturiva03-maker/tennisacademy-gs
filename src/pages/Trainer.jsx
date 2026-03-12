@@ -5,25 +5,25 @@ const trainers = [
     name: 'Michael Lingner',
     role: 'Leitung der Tennisschule',
     license: 'A-Trainer',
-    gradient: 'linear-gradient(135deg, #1a4d1b, #2d6a2e)',
+    gradient: 'linear-gradient(135deg, #0f1f35, #1f3a5f)',
   },
   {
     name: 'Jana Hladka-Kissal',
     role: 'Trainerin',
     license: 'B-Trainer',
-    gradient: 'linear-gradient(135deg, #2d6a2e, #4a8f4b)',
+    gradient: 'linear-gradient(135deg, #1f3a5f, #2d4f7a)',
   },
   {
     name: 'Zlatan Palazov',
     role: 'Trainer',
     license: 'B-Trainer',
-    gradient: 'linear-gradient(135deg, #1a4d1b, #3a7a3b)',
+    gradient: 'linear-gradient(135deg, #0f1f35, #274a6e)',
   },
   {
     name: 'Artur Ivanenko',
     role: 'Trainer',
     license: 'B-Trainer',
-    gradient: 'linear-gradient(135deg, #2d6a2e, #5a9f5b)',
+    gradient: 'linear-gradient(135deg, #1f3a5f, #3a6590)',
   },
 ];
 

@@ -1,33 +1,33 @@
-import { Star } from 'lucide-react';
+import { Star, Gamepad2, Award, TreePine, Sun, Users, Trophy } from 'lucide-react';
 
 const kidsFeatures = [
   {
-    icon: '🎾',
+    icon: <Gamepad2 size={28} />,
     title: 'Spielerisch lernen',
     text: 'Kinder ab 4 Jahren lernen bei uns spielerisch die Grundlagen des Tennis. Koordination, Ballgefühl und Spaß stehen im Vordergrund.',
   },
   {
-    icon: '⭐',
+    icon: <Award size={28} />,
     title: 'Tests & Abzeichen',
     text: 'Regelmäßig abgehaltene Tests motivieren die Kids und zeigen ihren Fortschritt. Jedes bestandene Level wird mit einem Abzeichen belohnt.',
   },
   {
-    icon: '🎄',
+    icon: <TreePine size={28} />,
     title: 'Weihnachtstennis',
     text: 'Das große Weihnachts-Tennis-Event ist unser Jahreshighlight – ein Fest für alle kleinen Tennisspieler zum Jahresabschluss.',
   },
   {
-    icon: '☀️',
+    icon: <Sun size={28} />,
     title: 'Feriencamps',
     text: 'In den Sommerferien bieten wir beliebte Tenniscamps an, in denen Kinder neue Spielpartner und Freunde kennenlernen.',
   },
   {
-    icon: '👫',
+    icon: <Users size={28} />,
     title: 'Neue Freunde',
     text: 'Tennis ist Teamwork! Bei unseren Camps und Gruppentrainings entstehen Freundschaften, die über den Platz hinausgehen.',
   },
   {
-    icon: '🏆',
+    icon: <Trophy size={28} />,
     title: 'Wettkampfvorbereitung',
     text: 'Für die ambitionierten Kids bieten wir altersgerechte Wettkampfvorbereitung und die Teilnahme an Turnieren.',
   },
@@ -37,7 +37,7 @@ export default function KidsOnCourt() {
   return (
     <>
       <section className="page-header" style={{
-        background: 'linear-gradient(135deg, #e85d26, #ff6b35, #ff9a56)'
+        background: 'linear-gradient(135deg, var(--tennis-green-dark), var(--tennis-green), var(--tennis-green-light))'
       }}>
         <div className="container">
           <h1>Kids on Court</h1>
