@@ -37,10 +37,10 @@ export default function Preise() {
                   </td>
                   <td><span className="preis-amount">48,00 €</span></td>
                   <td><span className="preis-amount">25,00 €</span></td>
-                  <td><span className="preis-amount">17,33 €</span></td>
-                  <td><span className="preis-amount">13,50 €</span></td>
-                  <td><span className="preis-amount">11,20 €</span></td>
-                  <td><span className="preis-amount">9,67 €</span></td>
+                  <td><span className="preis-amount">18,00 €</span></td>
+                  <td><span className="preis-amount">15,00 €</span></td>
+                  <td><span className="preis-amount">13,00 €</span></td>
+                  <td><span className="preis-amount">12,00 €</span></td>
                 </tr>
                 <tr>
                   <td className="trainer-cell">
@@ -48,10 +48,10 @@ export default function Preise() {
                   </td>
                   <td><span className="preis-amount">54,00 €</span></td>
                   <td><span className="preis-amount">28,00 €</span></td>
-                  <td><span className="preis-amount">19,33 €</span></td>
+                  <td><span className="preis-amount">20,00 €</span></td>
+                  <td><span className="preis-amount">18,00 €</span></td>
                   <td><span className="preis-amount">15,00 €</span></td>
-                  <td><span className="preis-amount">12,40 €</span></td>
-                  <td><span className="preis-amount">10,67 €</span></td>
+                  <td><span className="preis-amount">14,00 €</span></td>
                 </tr>
               </tbody>
             </table>
