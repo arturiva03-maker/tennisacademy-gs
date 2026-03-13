@@ -2,10 +2,9 @@ import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 
-// TODO: Diese Werte mit deinen EmailJS-Daten ersetzen
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+const EMAILJS_SERVICE_ID = 'service_091i5hs';
+const EMAILJS_TEMPLATE_ID = 'template_hnp1hzu';
+const EMAILJS_PUBLIC_KEY = 'WSL2MqkbUAhk_MLK8';
 
 export default function Kontakt() {
   const formRef = useRef();
