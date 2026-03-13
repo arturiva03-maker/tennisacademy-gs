@@ -186,7 +186,9 @@ img {
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: var(--bg);
+  background: linear-gradient(rgba(11, 37, 56, 0.75), rgba(11, 37, 56, 0.8)), url('/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
   margin-top: 64px;
 }
 
@@ -216,7 +218,7 @@ img {
 }
 
 .hero-text {
-  color: var(--text-dark);
+  color: var(--white);
   max-width: 700px;
 }
 
@@ -256,13 +258,13 @@ img {
   font-size: clamp(3rem, 6vw, 4.5rem);
   font-weight: 900;
   margin-bottom: 20px;
-  color: var(--text-dark);
+  color: var(--white);
   letter-spacing: -0.03em;
   line-height: 1.05;
 }
 
 .hero-title-large span {
-  color: var(--navy);
+  color: var(--gold);
   display: block;
 }
 
@@ -270,20 +272,20 @@ img {
   font-size: clamp(2.5rem, 5vw, 3.8rem);
   font-weight: 900;
   margin-bottom: 16px;
-  color: var(--text-dark);
+  color: var(--white);
   letter-spacing: -0.03em;
   line-height: 1.1;
 }
 
 .hero-title span {
-  color: var(--navy);
+  color: var(--gold);
   font-style: normal;
 }
 
 .hero-subtitle {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: var(--text-medium);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 32px;
   font-weight: 400;
 }
@@ -321,13 +323,13 @@ img {
 
 .btn-outline {
   background: transparent;
-  color: var(--text-dark);
-  border: 1.5px solid var(--border);
+  color: var(--white);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
 }
 
 .btn-outline:hover {
-  border-color: var(--text-dark);
-  background: var(--white);
+  border-color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .hero-visual {
