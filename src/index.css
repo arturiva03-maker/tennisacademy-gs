@@ -816,6 +816,33 @@ img {
   line-height: 1.6;
 }
 
+/* Kids Content - Fließtext */
+.kids-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.kids-content h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-top: 32px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--gold);
+  display: inline-block;
+}
+
+.kids-content h3:first-child {
+  margin-top: 0;
+}
+
+.kids-content p {
+  font-size: 1rem;
+  color: var(--text-medium);
+  line-height: 1.8;
+}
+
 /* Kids Gallery */
 .kids-gallery {
   display: grid;

@@ -1,47 +1,4 @@
-import { Star, Gamepad2, Award, TreePine, Sun, Users, Trophy, Activity, Target } from 'lucide-react';
-
-const kidsFeatures = [
-  {
-    icon: <Activity size={28} />,
-    title: 'Koordination & Bewegung',
-    text: 'Verschiedene Laufarten (vorwärts, rückwärts, Side-Steps, Hopserlauf), intensive Ball-Schule sowie Schulung aller koordinativen Fähigkeiten.',
-  },
-  {
-    icon: <Target size={28} />,
-    title: 'Grundlagen schaffen',
-    text: 'Wir schaffen die Grundvoraussetzungen für das spätere Erlernen einer guten Tennis-Technik: Gleichgewicht, Orientierung, Rhythmik, Differenzierung und Reaktion.',
-  },
-  {
-    icon: <Gamepad2 size={28} />,
-    title: 'Spielerisch lernen',
-    text: 'Spielerisch und vor allem mit viel Spaß und Freude an der Bewegung werden die Trainingsinhalte ständig geübt und verbessert.',
-  },
-  {
-    icon: <Award size={28} />,
-    title: 'Tennis-Technik',
-    text: 'Je nach Lernalter steigert sich der zeitliche Anteil des reinen Tennis-Trainings. Dabei werden alle Schläge erlernt: Vorhand, Rückhand, Volley, Aufschlag und Schmetterball.',
-  },
-  {
-    icon: <Trophy size={28} />,
-    title: 'Tests & Motivation',
-    text: 'Regelmäßig stattfindende Tests motivieren die Kids und zeigen ihren Fortschritt. Jedes bestandene Level wird mit einem Abzeichen belohnt.',
-  },
-  {
-    icon: <TreePine size={28} />,
-    title: 'Weihnachtstennis',
-    text: 'Das große Weihnachts-Tennis-Event ist unser Jahreshighlight – ein Fest für alle kleinen Tennisspieler zum Jahresabschluss.',
-  },
-  {
-    icon: <Sun size={28} />,
-    title: 'Feriencamps',
-    text: 'In den Sommerferien bieten wir beliebte Tenniscamps an, in denen Kinder neue Spielpartner und Freunde kennenlernen.',
-  },
-  {
-    icon: <Users size={28} />,
-    title: 'Ehrgeiz & Spaß',
-    text: 'Unser großes Ziel: Die Kinder lernen Tennis zu spielen, entwickeln einen gesunden Ehrgeiz und haben dabei viel Spaß.',
-  },
-];
+import { Star } from 'lucide-react';
 
 export default function KidsOnCourt() {
   return (
@@ -85,22 +42,37 @@ export default function KidsOnCourt() {
             </div>
           </div>
 
-          <div className="section-header">
-            <h2 className="section-title">Was Kids on Court bietet</h2>
-            <p className="section-subtitle">
-              Ein vielseitiges Programm, das Kinder begeistert und fördert – neben allem
-              ernsthaften Training steht bei uns aber auch immer der Spaß im Vordergrund!
+          <div className="kids-content">
+            <h3>Koordination & Bewegung</h3>
+            <p>
+              Dazu gehören die verschiedenen Laufarten (vorwärts, rückwärts, Side-Steps, Hopserlauf, etc.),
+              eine intensive und ausgeprägte Ball-Schule sowie die Schulung sämtlicher koordinativer
+              Fähigkeiten wie Gleichgewicht, Orientierung, Rhythmik, Differenzierung und Reaktion.
+              Spielerisch und vor allem mit viel Spaß und Freude an der Bewegung werden diese
+              Trainingsinhalte ständig geübt und verbessert.
             </p>
-          </div>
 
-          <div className="kids-features">
-            {kidsFeatures.map((f, i) => (
-              <div className="kids-card" key={i}>
-                <div className="kids-card-icon">{f.icon}</div>
-                <h3>{f.title}</h3>
-                <p>{f.text}</p>
-              </div>
-            ))}
+            <h3>Tennis-Technik</h3>
+            <p>
+              Natürlich kommt auch das spezifische Tennis-Training nicht zu kurz: Je nach Lernalter
+              steigert sich der zeitliche Anteil des reinen Tennis-Trainings im Unterricht. Dabei
+              werden nach und nach alle Schläge erlernt: Vorhand, Rückhand, Volley, Aufschlag und
+              sogar der Schmetterball.
+            </p>
+
+            <h3>Unser Ziel</h3>
+            <p>
+              Unser großes Ziel ist es, dass die Kinder lernen Tennis zu spielen, einen gesunden
+              Ehrgeiz entwickeln und dabei viel Spaß haben.
+            </p>
+
+            <h3>Events & Highlights</h3>
+            <p>
+              Neben allem ernsthaften Training steht bei uns aber auch immer der Spaß im Vordergrund:
+              Regelmäßig stattfindende Tests sowie das große Weihnachtstennis als Jahresabschluss
+              gehören ebenso zu unserem Angebot wie die beliebten Tenniscamps in den Sommerferien,
+              bei denen Kinder neue Spielpartner und Freunde kennenlernen.
+            </p>
           </div>
         </div>
       </section>
