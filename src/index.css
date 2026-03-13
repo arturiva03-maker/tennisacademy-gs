@@ -186,10 +186,21 @@ img {
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: linear-gradient(rgba(11, 37, 56, 0.75), rgba(11, 37, 56, 0.8)), url('/hero-bg.jpg');
+  background: url('/hero-bg.jpg');
   background-size: cover;
   background-position: center;
   margin-top: 64px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(11, 37, 56, 0.9) 0%, rgba(11, 37, 56, 0.7) 70%, transparent 100%);
+  z-index: 1;
 }
 
 .hero-bg-pattern {
