@@ -262,6 +262,7 @@ img {
   font-weight: 700;
   margin-bottom: 24px;
   letter-spacing: 0.02em;
+  text-shadow: none;
   text-transform: uppercase;
 }
 
@@ -733,13 +734,24 @@ img {
   background: var(--white);
 }
 
+.kids-hero-image {
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.kids-hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .kids-hero {
   background: var(--bg);
   border-radius: var(--radius);
   padding: 48px 40px;
   margin-bottom: 36px;
   border: 1px solid var(--border);
-  border-left: 4px solid var(--gold);
 }
 
 .kids-hero h2 {

@@ -10,6 +10,10 @@ export default function KidsOnCourt() {
 
       <section className="kids-section">
         <div className="container">
+          <div className="kids-hero-image">
+            <img src="/kids-2.jpg" alt="Kinder beim Lauftraining" />
+          </div>
+
           <div className="kids-hero">
             <div className="age-badge">
               Für Kinder ab 4 Jahren
@@ -30,9 +34,6 @@ export default function KidsOnCourt() {
           <div className="kids-gallery">
             <div className="kids-gallery-item">
               <img src="/kids-1.jpg" alt="Kids on Court Gruppenfoto" />
-            </div>
-            <div className="kids-gallery-item">
-              <img src="/kids-2.jpg" alt="Kinder beim Lauftraining" />
             </div>
             <div className="kids-gallery-item">
               <img src="/kids-3.jpg" alt="Tennis-Training mit Trainerin" />

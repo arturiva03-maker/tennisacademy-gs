@@ -12,6 +12,11 @@ const trainers = [
     license: 'B-Trainer',
   },
   {
+    name: 'Zlatan Palazov',
+    role: 'Leitung der Tennis Academy',
+    license: 'B-Trainer',
+  },
+  {
     name: 'Artur Ivanenko',
     role: 'Leitung der Tennis Academy',
     license: 'B-Trainer',

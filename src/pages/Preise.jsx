@@ -53,30 +53,6 @@ export default function Preise() {
                   <td><span className="preis-amount">12,40 €</span></td>
                   <td><span className="preis-amount">10,67 €</span></td>
                 </tr>
-                <tr className="highlight-row">
-                  <td className="trainer-cell">
-                    <strong>Michael Lingner</strong>
-                    <span className="trainer-badge-inline">A-Trainer</span>
-                  </td>
-                  <td><span className="preis-amount">62,00 €</span></td>
-                  <td><span className="preis-amount">32,00 €</span></td>
-                  <td><span className="preis-amount">22,00 €</span></td>
-                  <td><span className="preis-amount">17,00 €</span></td>
-                  <td className="not-available">–</td>
-                  <td className="not-available">–</td>
-                </tr>
-                <tr className="highlight-row">
-                  <td className="trainer-cell">
-                    <strong>Jana und Artur</strong>
-                    <span className="trainer-badge-inline">B-Trainer</span>
-                  </td>
-                  <td><span className="preis-amount">58,00 €</span></td>
-                  <td><span className="preis-amount">30,00 €</span></td>
-                  <td><span className="preis-amount">20,67 €</span></td>
-                  <td><span className="preis-amount">16,00 €</span></td>
-                  <td className="not-available">–</td>
-                  <td className="not-available">–</td>
-                </tr>
               </tbody>
             </table>
           </div>
