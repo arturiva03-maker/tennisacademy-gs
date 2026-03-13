@@ -13,9 +13,8 @@ export default function DtbVdt() {
       <section className="dtb-section">
         <div className="container">
           <div className="dtb-banner">
-            <div className="dtb-seal">
-              <span className="seal-label">Anerkannt von</span>
-              <span className="seal-title">DTB / VDT</span>
+            <div className="dtb-logo-container">
+              <img src="/vdt-logo.png" alt="VDT - Verband Deutscher Tennislehrer" className="dtb-logo" />
             </div>
             <div className="dtb-banner-text">
               <h2>Qualität hat einen Namen</h2>
