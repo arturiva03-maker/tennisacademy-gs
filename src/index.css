@@ -4,6 +4,7 @@
   --navy: #163d5e;
   --navy-light: #1e5575;
   --navy-dark: #0b2538;
+  --gold: #c9a227;
   --bg: #f5f6f7;
   --text-dark: #111111;
   --text-medium: #555555;
@@ -240,7 +241,7 @@ img {
   align-items: center;
   gap: 8px;
   background: var(--navy);
-  color: var(--white);
+  color: var(--gold);
   padding: 12px 24px;
   border-radius: var(--radius);
   font-size: 1rem;
@@ -498,7 +499,7 @@ img {
 }
 
 .slider-dot.active {
-  background: var(--navy);
+  background: var(--gold);
   transform: scale(1.2);
 }
 
