@@ -250,8 +250,8 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--navy);
-  color: var(--gold);
+  background: var(--gold);
+  color: var(--navy);
   padding: 12px 24px;
   border-radius: var(--radius);
   font-size: 1rem;
@@ -764,7 +764,7 @@ img {
   font-size: 0.8rem;
   font-weight: 600;
   margin-bottom: 16px;
-  color: var(--gold);
+  color: var(--white);
 }
 
 .kids-hero p {
