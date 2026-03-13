@@ -1,5 +1,3 @@
-import { Star } from 'lucide-react';
-
 export default function KidsOnCourt() {
   return (
     <>
@@ -14,7 +12,6 @@ export default function KidsOnCourt() {
         <div className="container">
           <div className="kids-hero">
             <div className="age-badge">
-              <Star size={14} />
               Für Kinder ab 4 Jahren
             </div>
             <h2>Was bedeutet Kids on Court?</h2>
