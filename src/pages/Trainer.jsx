@@ -12,11 +12,6 @@ const trainers = [
     license: 'B-Trainer',
   },
   {
-    name: 'Zlatan Palazov',
-    role: 'Leitung der Tennis Academy',
-    license: 'B-Trainer',
-  },
-  {
     name: 'Artur Ivanenko',
     role: 'Leitung der Tennis Academy',
     license: 'B-Trainer',
@@ -35,8 +30,6 @@ export default function Trainer() {
       <section className="trainer-section">
         <div className="container">
           <div className="section-header">
-            <div className="section-tag">Das Team</div>
-            <h2 className="section-title">Ihre Trainer</h2>
             <p className="section-subtitle">
               Unser qualifiziertes Team steht Ihnen mit jahrelanger Erfahrung
               und Leidenschaft für den Tennissport zur Verfügung.

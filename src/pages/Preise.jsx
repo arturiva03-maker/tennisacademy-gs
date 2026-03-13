@@ -67,7 +67,7 @@ export default function Preise() {
                 </tr>
                 <tr className="highlight-row">
                   <td className="trainer-cell">
-                    <strong>Jana, Zlatan, Artur</strong>
+                    <strong>Jana und Artur</strong>
                     <span className="trainer-badge-inline">B-Trainer</span>
                   </td>
                   <td><span className="preis-amount">58,00 €</span></td>
