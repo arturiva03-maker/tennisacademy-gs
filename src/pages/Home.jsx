@@ -5,28 +5,28 @@ import { useState } from 'react';
 const features = [
   {
     icon: <Target size={32} />,
-    title: 'Tennis ist toll',
-    text: 'Erlernen und trainieren Sie bei uns die optimale Tennistechnik. Unsere erfahrenen Trainer bringen Sie auf das nächste Level.',
+    title: 'Techniktraining',
+    text: 'Systematisches Erlernen und Verfeinern aller Schläge: Vorhand, Rückhand, Volley, Aufschlag und Schmetterball. Vom Technikerwerbstraining bis zur Anwendung in Spielsituationen.',
   },
   {
     icon: <Zap size={32} />,
-    title: 'Tennis ist spannend',
-    text: 'Das Spielverständnis und die taktische Ausbildung werden bei uns groß geschrieben. Strategie gewinnt Matches.',
+    title: 'Taktiktraining',
+    text: 'Spielverständnis entwickeln und taktische Entscheidungen trainieren. Standardsituationen meistern, Spielzüge automatisieren und den Gegner lesen lernen.',
   },
   {
     icon: <Users size={32} />,
-    title: 'Tennis entdecken',
-    text: 'Spiel und Spaß erleben Ihre Kinder (4–7 Jahre) bei Kids on Court. Der perfekte Einstieg in den Tennissport.',
-  },
-  {
-    icon: <Heart size={32} />,
-    title: 'Tennis tut gut',
-    text: 'Wir machen Ihnen Beine: arbeiten Sie mit uns an Ihrer Beinarbeit und Fitness. Bewegung, die Spaß macht.',
+    title: 'Gruppentraining',
+    text: 'Spaß und Motivation in der Gruppe. Wettkampf untereinander, verschiedene Spieltypen kennenlernen und voneinander profitieren. Ideal für Kinder, Jugendliche und Erwachsene.',
   },
   {
     icon: <Award size={32} />,
-    title: 'Tennis ist Teamwork',
-    text: 'Bei den Tenniscamps lernen Ihre Kinder viele neue Spielpartner und Freunde kennen.',
+    title: 'Einzeltraining',
+    text: '100% individuelle Betreuung durch Ihren Trainer. Gezielte Technikarbeit, persönlich abgestimmte Trainingsinhalte und maximale Aufmerksamkeit für Ihre Entwicklung.',
+  },
+  {
+    icon: <Heart size={32} />,
+    title: 'Athletik & Kondition',
+    text: 'Die athletische Basis für erfolgreiches Tennis: Beinarbeit, Koordination, Schnelligkeit und Ausdauer. Komplextraining, das Technik und Fitness verbindet.',
   },
 ];
 
