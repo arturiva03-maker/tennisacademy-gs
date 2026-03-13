@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <h3>Tennisschule Grand Slam</h3>
+            <h3>Tennis Academy Grand Slam</h3>
             <p>
               Deutsche Tennisschule anerkannt von DTB/VDT. Professionelles
               Tennistraining für alle Altersgruppen und Spielstärken.
@@ -30,7 +30,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          &copy; {new Date().getFullYear()} Tennisschule Grand Slam. Alle Rechte vorbehalten.
+          &copy; {new Date().getFullYear()} Tennis Academy Grand Slam. Alle Rechte vorbehalten.
         </div>
       </div>
     </footer>

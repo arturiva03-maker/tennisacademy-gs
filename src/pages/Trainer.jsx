@@ -3,22 +3,22 @@ import { User } from 'lucide-react';
 const trainers = [
   {
     name: 'Michael Lingner',
-    role: 'Leitung der Tennisschule',
+    role: 'Leitung der Tennis Academy',
     license: 'A-Trainer',
   },
   {
     name: 'Jana Hladka-Kissal',
-    role: 'Leitung der Tennisschule',
+    role: 'Leitung der Tennis Academy',
     license: 'B-Trainer',
   },
   {
     name: 'Zlatan Palazov',
-    role: 'Leitung der Tennisschule',
+    role: 'Leitung der Tennis Academy',
     license: 'B-Trainer',
   },
   {
     name: 'Artur Ivanenko',
-    role: 'Leitung der Tennisschule',
+    role: 'Leitung der Tennis Academy',
     license: 'B-Trainer',
   },
 ];

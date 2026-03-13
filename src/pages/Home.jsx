@@ -48,7 +48,7 @@ export default function Home() {
         <div className="hero-content">
           <div className="hero-text">
             <div className="hero-badge-large">
-              DTB/VDT anerkannte Tennisschule
+              DTB/VDT anerkannte Tennis Academy
             </div>
             <h1 className="hero-title-large">
               Tennis Academy<br />
@@ -143,7 +143,7 @@ export default function Home() {
             <div className="dtb-content">
               <h2>Deutsche Tennisschule</h2>
               <p>
-                Unsere Tennisschule erfüllt die fachlichen und organisatorischen
+                Unsere Tennis Academy erfüllt die fachlichen und organisatorischen
                 Voraussetzungen der Deutschen Tennisschule, anerkannt vom Deutschen
                 Tennis Bund (DTB) und dem Verband Deutscher Tennislehrer (VDT).
               </p>

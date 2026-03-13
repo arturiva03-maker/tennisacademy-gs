@@ -19,7 +19,7 @@ export default function DtbVdt() {
             <div className="dtb-banner-text">
               <h2>Qualität hat einen Namen</h2>
               <p>
-                Die Tennisschule Grand Slam erfüllt alle fachlichen und organisatorischen
+                Die Tennis Academy Grand Slam erfüllt alle fachlichen und organisatorischen
                 Voraussetzungen der Deutschen Tennisschule, anerkannt vom Deutschen Tennis
                 Bund (DTB) und dem Verband Deutscher Tennislehrer (VDT). Dieses Qualitätssiegel
                 ist für unsere Kunden zu einem Markenzeichen geworden.

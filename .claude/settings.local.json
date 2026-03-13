@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "mcp__filesystem__directory_tree",
+      "Bash(npm run build:*)",
+      "Bash(npx vite build:*)",
+      "Bash(npm install:*)",
+      "WebFetch(domain:trainer.tennis.de)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "filesystem"
+  ]
+}

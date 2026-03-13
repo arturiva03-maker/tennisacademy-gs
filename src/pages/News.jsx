@@ -17,7 +17,7 @@ export default function News() {
       <section className="page-header">
         <div className="container">
           <h1>News & Events</h1>
-          <p>Neuigkeiten und Veranstaltungen der Tennisschule Grand Slam</p>
+          <p>Neuigkeiten und Veranstaltungen der Tennis Academy Grand Slam</p>
         </div>
       </section>
 
