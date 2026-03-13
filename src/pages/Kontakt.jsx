@@ -94,7 +94,6 @@ export default function Kontakt() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        placeholder="Ihr Name"
                       />
                     </div>
                     <div className="form-group">
@@ -106,7 +105,6 @@ export default function Kontakt() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        placeholder="ihre@email.de"
                       />
                     </div>
                   </div>
@@ -120,7 +118,6 @@ export default function Kontakt() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="Optional"
                       />
                     </div>
                     <div className="form-group">
@@ -151,7 +148,6 @@ export default function Kontakt() {
                       onChange={handleChange}
                       required
                       rows="5"
-                      placeholder="Ihre Nachricht an uns..."
                     />
                   </div>
 
