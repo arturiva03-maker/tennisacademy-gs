@@ -8,17 +8,17 @@ const trainers = [
   },
   {
     name: 'Jana Hladka-Kissal',
-    role: 'Trainerin',
+    role: 'Leitung der Tennisschule',
     license: 'B-Trainer',
   },
   {
     name: 'Zlatan Palazov',
-    role: 'Trainer',
+    role: 'Leitung der Tennisschule',
     license: 'B-Trainer',
   },
   {
     name: 'Artur Ivanenko',
-    role: 'Trainer',
+    role: 'Leitung der Tennisschule',
     license: 'B-Trainer',
   },
 ];
@@ -29,7 +29,6 @@ export default function Trainer() {
       <section className="page-header">
         <div className="container">
           <h1>Unser Trainerteam</h1>
-          <p>Erfahrung, Leidenschaft und Kompetenz auf dem Platz</p>
         </div>
       </section>
 

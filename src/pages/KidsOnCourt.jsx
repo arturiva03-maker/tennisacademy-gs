@@ -1,15 +1,30 @@
-import { Star, Gamepad2, Award, TreePine, Sun, Users, Trophy } from 'lucide-react';
+import { Star, Gamepad2, Award, TreePine, Sun, Users, Trophy, Activity, Target } from 'lucide-react';
 
 const kidsFeatures = [
   {
+    icon: <Activity size={28} />,
+    title: 'Koordination & Bewegung',
+    text: 'Verschiedene Laufarten (vorwärts, rückwärts, Side-Steps, Hopserlauf), intensive Ball-Schule sowie Schulung aller koordinativen Fähigkeiten.',
+  },
+  {
+    icon: <Target size={28} />,
+    title: 'Grundlagen schaffen',
+    text: 'Wir schaffen die Grundvoraussetzungen für das spätere Erlernen einer guten Tennis-Technik: Gleichgewicht, Orientierung, Rhythmik, Differenzierung und Reaktion.',
+  },
+  {
     icon: <Gamepad2 size={28} />,
     title: 'Spielerisch lernen',
-    text: 'Kinder ab 4 Jahren lernen bei uns spielerisch die Grundlagen des Tennis. Koordination, Ballgefühl und Spaß stehen im Vordergrund.',
+    text: 'Spielerisch und vor allem mit viel Spaß und Freude an der Bewegung werden die Trainingsinhalte ständig geübt und verbessert.',
   },
   {
     icon: <Award size={28} />,
-    title: 'Tests & Abzeichen',
-    text: 'Regelmäßig abgehaltene Tests motivieren die Kids und zeigen ihren Fortschritt. Jedes bestandene Level wird mit einem Abzeichen belohnt.',
+    title: 'Tennis-Technik',
+    text: 'Je nach Lernalter steigert sich der zeitliche Anteil des reinen Tennis-Trainings. Dabei werden alle Schläge erlernt: Vorhand, Rückhand, Volley, Aufschlag und Schmetterball.',
+  },
+  {
+    icon: <Trophy size={28} />,
+    title: 'Tests & Motivation',
+    text: 'Regelmäßig stattfindende Tests motivieren die Kids und zeigen ihren Fortschritt. Jedes bestandene Level wird mit einem Abzeichen belohnt.',
   },
   {
     icon: <TreePine size={28} />,
@@ -23,13 +38,8 @@ const kidsFeatures = [
   },
   {
     icon: <Users size={28} />,
-    title: 'Neue Freunde',
-    text: 'Tennis ist Teamwork! Bei unseren Camps und Gruppentrainings entstehen Freundschaften, die über den Platz hinausgehen.',
-  },
-  {
-    icon: <Trophy size={28} />,
-    title: 'Wettkampfvorbereitung',
-    text: 'Für die ambitionierten Kids bieten wir altersgerechte Wettkampfvorbereitung und die Teilnahme an Turnieren.',
+    title: 'Ehrgeiz & Spaß',
+    text: 'Unser großes Ziel: Die Kinder lernen Tennis zu spielen, entwickeln einen gesunden Ehrgeiz und haben dabei viel Spaß.',
   },
 ];
 
@@ -39,7 +49,7 @@ export default function KidsOnCourt() {
       <section className="page-header">
         <div className="container">
           <h1>Kids on Court</h1>
-          <p>Tennis für Kinder von 4 bis 7 Jahren</p>
+          <p>Tennis für Kinder ab 4 Jahren</p>
         </div>
       </section>
 
@@ -48,21 +58,26 @@ export default function KidsOnCourt() {
           <div className="kids-hero">
             <div className="age-badge">
               <Star size={14} />
-              Für Kinder von 4–7 Jahren
+              Für Kinder ab 4 Jahren
             </div>
-            <h2>Tennis spielerisch entdecken</h2>
+            <h2>Was bedeutet Kids on Court?</h2>
             <p>
-              Viele Erwachsene sagen, dass sie mit dem Tennissport zu spät angefangen haben.
-              Heute haben Kinder die Möglichkeit, bereits ab 4 Jahren bei uns den Tennissport
-              kennenzulernen. Neben dem seriösen Training kommt der Spaß bei uns nie zu kurz!
+              Vielleicht erinnern Sie sich daran, in welchem Alter Sie mit dem Tennis begonnen haben
+              und denken dabei: „Viel zu spät!". Heute bieten wir schon Kindern im Alter von 4 Jahren
+              die Möglichkeit, unseren schönen Sport zu erlernen – eben bei Kids on Court.
+            </p>
+            <p style={{ marginTop: '16px' }}>
+              Tennis ist ein koordinativ sehr anspruchsvoller Sport und daher ist gerade die Technik
+              für Kinder eher schwer zu erlernen. Wichtig ist in diesem Alter, die Grundvoraussetzungen
+              für das spätere Erlernen einer guten Tennis-Technik zu schaffen.
             </p>
           </div>
 
           <div className="section-header">
-            <div className="section-tag">Programm</div>
             <h2 className="section-title">Was Kids on Court bietet</h2>
             <p className="section-subtitle">
-              Ein vielseitiges Programm, das Kinder begeistert und fördert.
+              Ein vielseitiges Programm, das Kinder begeistert und fördert – neben allem
+              ernsthaften Training steht bei uns aber auch immer der Spaß im Vordergrund!
             </p>
           </div>
 
