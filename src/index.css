@@ -734,25 +734,18 @@ img {
 }
 
 .kids-hero {
-  background: linear-gradient(rgba(11, 37, 56, 0.75), rgba(11, 37, 56, 0.8)), url('/kids-2.jpg');
-  background-size: cover;
-  background-position: center;
+  background: var(--bg);
   border-radius: var(--radius);
   padding: 48px 40px;
-  color: var(--white);
   margin-bottom: 36px;
-  position: relative;
-  overflow: hidden;
-}
-
-.kids-hero::after {
-  display: none;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
 }
 
 .kids-hero h2 {
   font-size: 2rem;
-  margin-bottom: 8px;
-  color: var(--white);
+  margin-bottom: 16px;
+  color: var(--text-dark);
   letter-spacing: -0.02em;
 }
 
@@ -761,7 +754,6 @@ img {
   align-items: center;
   gap: 6px;
   background: var(--navy);
-  border: none;
   padding: 6px 14px;
   border-radius: var(--radius-sm);
   font-size: 0.8rem;
@@ -772,8 +764,8 @@ img {
 
 .kids-hero p {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 600px;
+  color: var(--text-medium);
+  max-width: 700px;
   line-height: 1.7;
 }
 
