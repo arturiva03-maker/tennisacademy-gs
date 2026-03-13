@@ -262,7 +262,6 @@ img {
   font-weight: 700;
   margin-bottom: 24px;
   letter-spacing: 0.02em;
-  box-shadow: var(--shadow-md);
   text-transform: uppercase;
 }
 
@@ -927,7 +926,7 @@ img {
   bottom: 10px;
   right: 10px;
   background: var(--navy);
-  color: var(--gold);
+  color: var(--white);
   padding: 4px 10px;
   border-radius: var(--radius-sm);
   font-size: 0.7rem;
