@@ -8,7 +8,8 @@
       "Bash(npm run build:*)",
       "Bash(npx vite build:*)",
       "Bash(npm install:*)",
-      "WebFetch(domain:trainer.tennis.de)"
+      "WebFetch(domain:trainer.tennis.de)",
+      "WebSearch"
     ]
   },
   "enableAllProjectMcpServers": true,

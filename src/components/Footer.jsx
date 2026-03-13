@@ -26,6 +26,13 @@ export default function Footer() {
             <ul>
               <li><Link to="/dtb-vdt">DTB/VDT</Link></li>
               <li><Link to="/news">News & Events</Link></li>
+              <li><Link to="/kontakt">Kontakt</Link></li>
+            </ul>
+          </div>
+          <div className="footer-links">
+            <h4>Rechtliches</h4>
+            <ul>
+              <li><Link to="/impressum">Impressum</Link></li>
             </ul>
           </div>
         </div>
