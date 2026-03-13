@@ -1,30 +1,30 @@
 import { Link } from 'react-router-dom';
-import { Award, Target, Users, Heart, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Award, Target, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 
 const features = [
   {
-    icon: <Target size={32} />,
+    image: '/technik.jpg',
     title: 'Techniktraining',
     text: 'Systematisches Erlernen und Verfeinern aller Schläge: Vorhand, Rückhand, Volley, Aufschlag und Schmetterball. Vom Technikerwerbstraining bis zur Anwendung in Spielsituationen.',
   },
   {
-    icon: <Zap size={32} />,
+    image: '/taktik.jpg',
     title: 'Taktiktraining',
     text: 'Spielverständnis entwickeln und taktische Entscheidungen trainieren. Standardsituationen meistern, Spielzüge automatisieren und den Gegner lesen lernen.',
   },
   {
-    icon: <Users size={32} />,
+    image: '/gruppentraining.jpg',
     title: 'Gruppentraining',
     text: 'Spaß und Motivation in der Gruppe. Wettkampf untereinander, verschiedene Spieltypen kennenlernen und voneinander profitieren. Ideal für Kinder, Jugendliche und Erwachsene.',
   },
   {
-    icon: <Award size={32} />,
+    image: '/einzel.jpg',
     title: 'Einzeltraining',
     text: '100% individuelle Betreuung durch Ihren Trainer. Gezielte Technikarbeit, persönlich abgestimmte Trainingsinhalte und maximale Aufmerksamkeit für Ihre Entwicklung.',
   },
   {
-    icon: <Heart size={32} />,
+    image: '/athletik.jpg',
     title: 'Athletik & Kondition',
     text: 'Die athletische Basis für erfolgreiches Tennis: Beinarbeit, Koordination, Schnelligkeit und Ausdauer. Komplextraining, das Technik und Fitness verbindet.',
   },
@@ -95,7 +95,9 @@ export default function Home() {
                   style={{ transform: `translateX(${(i - currentSlide) * 100}%)` }}
                 >
                   <div className="slider-card">
-                    <div className="slider-icon">{f.icon}</div>
+                    <div className="slider-image">
+                      <img src={f.image} alt={f.title} />
+                    </div>
                     <h3>{f.title}</h3>
                     <p>{f.text}</p>
                   </div>
@@ -120,7 +122,9 @@ export default function Home() {
           <div className="features-grid-mobile">
             {features.map((f, i) => (
               <div className="feature-card" key={i}>
-                <div className="feature-icon">{f.icon}</div>
+                <div className="feature-image">
+                  <img src={f.image} alt={f.title} />
+                </div>
                 <h3>{f.title}</h3>
                 <p>{f.text}</p>
               </div>
