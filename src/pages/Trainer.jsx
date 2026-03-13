@@ -7,7 +7,7 @@ const trainers = [
     license: 'A-Trainer',
   },
   {
-    name: 'Jana Hladka-Kissal',
+    name: 'Jana Hladká-Kissal',
     role: 'Leitung der Tennis Academy',
     license: 'B-Trainer',
   },

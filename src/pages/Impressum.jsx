@@ -20,7 +20,7 @@ export default function Impressum() {
             <h3>Vertreten durch</h3>
             <p>
               Michael Lingner<br />
-              Jana Hladka-Kissal<br />
+              Jana Hladká-Kissal<br />
               Zlatan Palazov<br />
               Artur Ivanenko
             </p>
