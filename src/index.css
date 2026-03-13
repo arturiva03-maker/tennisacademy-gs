@@ -193,7 +193,14 @@ img {
 }
 
 .hero::before {
-  display: none;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(11, 37, 56, 0.92) 0%, rgba(11, 37, 56, 0.75) 60%, transparent 100%);
+  z-index: 1;
 }
 
 .hero-bg-pattern {
@@ -224,10 +231,7 @@ img {
 .hero-text {
   color: var(--white);
   max-width: 700px;
-  background: rgba(11, 37, 56, 0.85);
-  padding: 40px;
-  border-radius: var(--radius);
-  backdrop-filter: blur(8px);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-badge {
