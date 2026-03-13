@@ -9,6 +9,7 @@ const navItems = [
   { path: '/kids-on-court', label: 'Kids on Court' },
   { path: '/dtb-vdt', label: 'DTB/VDT' },
   { path: '/news', label: 'News & Events' },
+  { path: '/kontakt', label: 'Kontakt' },
 ];
 
 export default function Navbar() {

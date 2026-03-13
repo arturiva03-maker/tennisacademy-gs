@@ -1,0 +1,188 @@
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+
+// TODO: Diese Werte mit deinen EmailJS-Daten ersetzen
+const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+
+export default function Kontakt() {
+  const formRef = useRef();
+  const [status, setStatus] = useState('idle'); // idle, sending, success, error
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY
+      );
+      setStatus('success');
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setStatus('error');
+    }
+  };
+
+  return (
+    <>
+      <section className="page-header">
+        <div className="container">
+          <h1>Kontakt</h1>
+          <p>Wir freuen uns auf Ihre Nachricht</p>
+        </div>
+      </section>
+
+      <section className="kontakt-section">
+        <div className="container">
+          <div className="kontakt-grid">
+            <div className="kontakt-info">
+              <h2>So erreichen Sie uns</h2>
+              <p>
+                Haben Sie Fragen zu unserem Trainingsangebot oder möchten Sie
+                ein Probetraining vereinbaren? Schreiben Sie uns!
+              </p>
+
+              <div className="kontakt-details">
+                <div className="kontakt-item">
+                  <strong>Tennis Academy Grand Slam</strong>
+                </div>
+                <div className="kontakt-item">
+                  <span>E-Mail: info@tennisacademy-gs.de</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="kontakt-form-container">
+              {status === 'success' ? (
+                <div className="form-success">
+                  <CheckCircle size={48} />
+                  <h3>Nachricht gesendet!</h3>
+                  <p>Vielen Dank für Ihre Anfrage. Wir melden uns schnellstmöglich bei Ihnen.</p>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => setStatus('idle')}
+                  >
+                    Neue Nachricht
+                  </button>
+                </div>
+              ) : (
+                <form ref={formRef} onSubmit={handleSubmit} className="kontakt-form">
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label htmlFor="name">Name *</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        placeholder="Ihr Name"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="email">E-Mail *</label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        placeholder="ihre@email.de"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label htmlFor="phone">Telefon</label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="Optional"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="subject">Betreff *</label>
+                      <select
+                        id="subject"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        required
+                      >
+                        <option value="">Bitte wählen...</option>
+                        <option value="Probetraining">Probetraining anfragen</option>
+                        <option value="Einzeltraining">Einzeltraining</option>
+                        <option value="Gruppentraining">Gruppentraining</option>
+                        <option value="Kids on Court">Kids on Court</option>
+                        <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="message">Nachricht *</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      rows="5"
+                      placeholder="Ihre Nachricht an uns..."
+                    />
+                  </div>
+
+                  {status === 'error' && (
+                    <div className="form-error">
+                      <AlertCircle size={20} />
+                      <span>Es gab einen Fehler. Bitte versuchen Sie es erneut.</span>
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    className="btn btn-primary btn-submit"
+                    disabled={status === 'sending'}
+                  >
+                    {status === 'sending' ? (
+                      'Wird gesendet...'
+                    ) : (
+                      <>
+                        <Send size={18} />
+                        Nachricht senden
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

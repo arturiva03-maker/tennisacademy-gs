@@ -8,6 +8,7 @@ import Preise from './pages/Preise';
 import KidsOnCourt from './pages/KidsOnCourt';
 import DtbVdt from './pages/DtbVdt';
 import News from './pages/News';
+import Kontakt from './pages/Kontakt';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -30,6 +31,7 @@ function App() {
           <Route path="/kids-on-court" element={<KidsOnCourt />} />
           <Route path="/dtb-vdt" element={<DtbVdt />} />
           <Route path="/news" element={<News />} />
+          <Route path="/kontakt" element={<Kontakt />} />
         </Routes>
       </main>
       <Footer />
