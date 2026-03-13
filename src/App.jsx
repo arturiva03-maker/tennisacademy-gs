@@ -10,6 +10,7 @@ import DtbVdt from './pages/DtbVdt';
 import News from './pages/News';
 import Kontakt from './pages/Kontakt';
 import Impressum from './pages/Impressum';
+import Datenschutz from './pages/Datenschutz';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -34,6 +35,7 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/impressum" element={<Impressum />} />
+          <Route path="/datenschutz" element={<Datenschutz />} />
         </Routes>
       </main>
       <Footer />

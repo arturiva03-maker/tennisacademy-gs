@@ -1455,6 +1455,17 @@ img {
   margin-bottom: 16px;
 }
 
+.legal-content ul {
+  color: var(--text-medium);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  padding-left: 24px;
+}
+
+.legal-content li {
+  margin-bottom: 8px;
+}
+
 @media (max-width: 600px) {
   .legal-content {
     padding: 24px;

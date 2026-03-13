@@ -33,6 +33,7 @@ export default function Footer() {
             <h4>Rechtliches</h4>
             <ul>
               <li><Link to="/impressum">Impressum</Link></li>
+              <li><Link to="/datenschutz">Datenschutz</Link></li>
             </ul>
           </div>
         </div>
