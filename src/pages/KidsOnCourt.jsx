@@ -73,6 +73,18 @@ export default function KidsOnCourt() {
             </p>
           </div>
 
+          <div className="kids-gallery">
+            <div className="kids-gallery-item">
+              <img src="/kids-1.jpg" alt="Kids on Court Gruppenfoto" />
+            </div>
+            <div className="kids-gallery-item">
+              <img src="/kids-2.jpg" alt="Kinder beim Lauftraining" />
+            </div>
+            <div className="kids-gallery-item">
+              <img src="/kids-3.jpg" alt="Tennis-Training mit Trainerin" />
+            </div>
+          </div>
+
           <div className="section-header">
             <h2 className="section-title">Was Kids on Court bietet</h2>
             <p className="section-subtitle">
