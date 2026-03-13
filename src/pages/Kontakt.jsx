@@ -122,20 +122,14 @@ export default function Kontakt() {
                     </div>
                     <div className="form-group">
                       <label htmlFor="subject">Betreff *</label>
-                      <select
+                      <input
+                        type="text"
                         id="subject"
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
                         required
-                      >
-                        <option value="">Bitte wählen...</option>
-                        <option value="Probetraining">Probetraining anfragen</option>
-                        <option value="Einzeltraining">Einzeltraining</option>
-                        <option value="Gruppentraining">Gruppentraining</option>
-                        <option value="Kids on Court">Kids on Court</option>
-                        <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
-                      </select>
+                      />
                     </div>
                   </div>
 
