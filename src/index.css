@@ -638,27 +638,14 @@ img {
   box-shadow: var(--shadow-md);
 }
 
-.dtb-seal-badge {
+.dtb-logo-container {
   flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--navy);
-  padding: 24px 32px;
-  border-radius: var(--radius);
+  width: 160px;
 }
 
-.dtb-seal-badge .seal-icon {
-  font-size: 1.8rem;
-  font-weight: 900;
-  color: var(--gold);
-  letter-spacing: 0.02em;
-}
-
-.dtb-seal-badge .seal-divider {
-  font-size: 1.8rem;
-  font-weight: 300;
-  color: rgba(255,255,255,0.5);
+.dtb-logo {
+  width: 100%;
+  height: auto;
 }
 
 .dtb-content h2 {

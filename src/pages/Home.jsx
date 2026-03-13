@@ -137,10 +137,8 @@ export default function Home() {
       <section className="dtb-section">
         <div className="container">
           <div className="dtb-quality-seal">
-            <div className="dtb-seal-badge">
-              <span className="seal-icon">DTB</span>
-              <span className="seal-divider">/</span>
-              <span className="seal-icon">VDT</span>
+            <div className="dtb-logo-container">
+              <img src="/vdt-logo.png" alt="VDT - Verband Deutscher Tennislehrer" className="dtb-logo" />
             </div>
             <div className="dtb-content">
               <h2>Deutsche Tennisschule</h2>
