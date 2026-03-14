@@ -14,7 +14,8 @@ const events = [
 export default function News() {
   return (
     <>
-      <section className="page-header">
+      <section className="page-hero" style={{ backgroundImage: "url('/hero-bg.jpg')" }}>
+        <div className="page-hero-overlay"></div>
         <div className="container">
           <h1>News & Events</h1>
           <p>Neuigkeiten und Veranstaltungen der Tennis Academy Grand Slam</p>

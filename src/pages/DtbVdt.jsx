@@ -3,7 +3,8 @@ import { ShieldCheck, BookOpen } from 'lucide-react';
 export default function DtbVdt() {
   return (
     <>
-      <section className="page-header">
+      <section className="page-hero" style={{ backgroundImage: "url('/hero-bg.jpg')" }}>
+        <div className="page-hero-overlay"></div>
         <div className="container">
           <h1>Deutsche Tennisschule</h1>
           <p>Anerkannt von DTB und VDT</p>

@@ -145,7 +145,8 @@ export default function Kontakt() {
 
   return (
     <>
-      <section className="page-header">
+      <section className="page-hero" style={{ backgroundImage: "url('/hero-bg.jpg')" }}>
+        <div className="page-hero-overlay"></div>
         <div className="container">
           <h1>Kontakt</h1>
           <p>Wir freuen uns auf Ihre Nachricht</p>

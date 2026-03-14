@@ -4,7 +4,8 @@ import { CalendarCheck, Users, CreditCard } from 'lucide-react';
 export default function Preise() {
   return (
     <>
-      <section className="page-header">
+      <section className="page-hero" style={{ backgroundImage: "url('/hero-bg.jpg')" }}>
+        <div className="page-hero-overlay"></div>
         <div className="container">
           <h1>Preise und Angebote</h1>
           <p>Transparente Preisgestaltung für Ihr Tennistraining</p>
