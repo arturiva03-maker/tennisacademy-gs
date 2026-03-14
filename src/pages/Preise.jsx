@@ -38,23 +38,23 @@ export default function Preise() {
                   <td className="trainer-cell">
                     <strong>C-Lizenz Trainer</strong>
                   </td>
-                  <td><span className="preis-amount">50,00 €</span></td>
-                  <td><span className="preis-amount">27,00 €</span></td>
-                  <td><span className="preis-amount">22,00 €</span></td>
-                  <td><span className="preis-amount">17,00 €</span></td>
-                  <td><span className="preis-amount">15,00 €</span></td>
-                  <td><span className="preis-amount">14,00 €</span></td>
+                  <td><span className="preis-amount">48 €</span></td>
+                  <td><span className="preis-amount">25 €</span></td>
+                  <td><span className="preis-amount">18 €</span></td>
+                  <td><span className="preis-amount">14 €</span></td>
+                  <td><span className="preis-amount">12 €</span></td>
+                  <td><span className="preis-amount">10 €</span></td>
                 </tr>
                 <tr>
                   <td className="trainer-cell">
                     <strong>B-Lizenz Trainer</strong>
                   </td>
-                  <td><span className="preis-amount">56,00 €</span></td>
-                  <td><span className="preis-amount">30,00 €</span></td>
-                  <td><span className="preis-amount">24,00 €</span></td>
-                  <td><span className="preis-amount">20,00 €</span></td>
-                  <td><span className="preis-amount">17,00 €</span></td>
-                  <td><span className="preis-amount">16,00 €</span></td>
+                  <td><span className="preis-amount">50 €</span></td>
+                  <td><span className="preis-amount">26 €</span></td>
+                  <td><span className="preis-amount">19 €</span></td>
+                  <td><span className="preis-amount">14,50 €</span></td>
+                  <td><span className="preis-amount">12 €</span></td>
+                  <td><span className="preis-amount">10,50 €</span></td>
                 </tr>
               </tbody>
             </table>

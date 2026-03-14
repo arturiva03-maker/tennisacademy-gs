@@ -1831,6 +1831,34 @@ img {
     padding: 48px 0;
   }
 
+  .preis-table-container {
+    margin: 0 -20px;
+    padding: 0 8px;
+  }
+
+  .preis-table-full {
+    font-size: 0.75rem;
+    min-width: 500px;
+  }
+
+  .preis-table-full th {
+    padding: 10px 6px;
+    font-size: 0.65rem;
+  }
+
+  .preis-table-full td {
+    padding: 12px 6px;
+    font-size: 0.8rem;
+  }
+
+  .preis-table-full .trainer-cell strong {
+    font-size: 0.75rem;
+  }
+
+  .preis-amount {
+    font-size: 0.8rem;
+  }
+
   .kids-split {
     grid-template-columns: 1fr;
     gap: 24px;
