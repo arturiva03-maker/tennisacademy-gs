@@ -62,7 +62,7 @@ export default function Preise() {
 
           <div className="preis-info">
             <p>
-              Die Tennis Academy Grand Slam bietet Training für alle Altersgruppen und Spielstärken.
+              Die Tennis Academy Grand Slam bietet Training für alle Altersgruppen und Spielstärken an.
               Im Winter fallen zuzüglich Hallengebühren an.
             </p>
           </div>
