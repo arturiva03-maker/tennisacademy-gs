@@ -1,7 +1,8 @@
 export default function KidsOnCourt() {
   return (
     <>
-      <section className="page-header">
+      <section className="page-hero" style={{ backgroundImage: "url('/kids-1.jpg')" }}>
+        <div className="page-hero-overlay"></div>
         <div className="container">
           <h1>Kids on Court</h1>
           <p>Tennis für Kinder ab 4 Jahren</p>
