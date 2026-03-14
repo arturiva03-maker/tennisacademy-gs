@@ -19,7 +19,8 @@
       "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" add -A)",
       "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"Preise: +2€ pro Person, 3er Gruppe +4€\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")",
       "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" push)",
-      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"Preise korrigiert + Mobile-Optimierung für Preistabelle\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")"
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"Preise korrigiert + Mobile-Optimierung für Preistabelle\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")",
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"Preise: 0,50€ aufgerundet \\(14,50→15, 10,50→11\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")"
     ]
   },
   "enableAllProjectMcpServers": true,

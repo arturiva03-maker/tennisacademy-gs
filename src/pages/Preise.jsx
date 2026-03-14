@@ -52,9 +52,9 @@ export default function Preise() {
                   <td><span className="preis-amount">50 €</span></td>
                   <td><span className="preis-amount">26 €</span></td>
                   <td><span className="preis-amount">19 €</span></td>
-                  <td><span className="preis-amount">14,50 €</span></td>
+                  <td><span className="preis-amount">15 €</span></td>
                   <td><span className="preis-amount">12 €</span></td>
-                  <td><span className="preis-amount">10,50 €</span></td>
+                  <td><span className="preis-amount">11 €</span></td>
                 </tr>
               </tbody>
             </table>
