@@ -9,7 +9,13 @@
       "Bash(npx vite build:*)",
       "Bash(npm install:*)",
       "WebFetch(domain:trainer.tennis.de)",
-      "WebSearch"
+      "WebSearch",
+      "mcp__filesystem__read_text_file",
+      "mcp__filesystem__list_directory",
+      "Bash(npm audit:*)",
+      "Bash(cd:*)",
+      "mcp__filesystem__search_files",
+      "Bash(findstr:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
