@@ -5,7 +5,7 @@ import { Menu, X } from 'lucide-react';
 const navItems = [
   { path: '/', label: 'Home' },
   { path: '/trainer', label: 'Trainerteam' },
-  { path: '/preise', label: 'Preise' },
+  { path: '/preise', label: 'Preise und Angebote' },
   { path: '/kids-on-court', label: 'Kids on Court' },
   { path: '/dtb-vdt', label: 'DTB/VDT' },
   { path: '/news', label: 'News & Events' },

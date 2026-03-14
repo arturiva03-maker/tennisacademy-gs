@@ -6,7 +6,7 @@ export default function Preise() {
     <>
       <section className="page-header">
         <div className="container">
-          <h1>Preise</h1>
+          <h1>Preise und Angebote</h1>
           <p>Transparente Preisgestaltung für Ihr Tennistraining</p>
         </div>
       </section>
