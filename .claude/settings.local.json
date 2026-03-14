@@ -27,7 +27,8 @@
       "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"Preise: Hero entfernt, zurück zum normalen Header\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")",
       "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"Kids on Court: Hero entfernt, Bild zurück in Galerie\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")",
       "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"Alle Seiten: Hero-Bild \\(hero-bg.jpg\\) hinzugefügt\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")",
-      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"SEO: Meta-Beschreibung aktualisiert \\(Berlin-Wilmersdorf\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")"
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"SEO: Meta-Beschreibung aktualisiert \\(Berlin-Wilmersdorf\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")",
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"SEO: Strukturierte Daten \\(Schema.org LocalBusiness\\) hinzugefügt\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")"
     ]
   },
   "enableAllProjectMcpServers": true,
