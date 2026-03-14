@@ -35,9 +35,6 @@ export default function KidsOnCourt() {
 
           <div className="kids-gallery">
             <div className="kids-gallery-item">
-              <img src="/kids-1.jpg" alt="Kids on Court Gruppenfoto" />
-            </div>
-            <div className="kids-gallery-item">
               <img src="/kids-3.jpg" alt="Tennis-Training mit Trainerin" />
             </div>
           </div>
