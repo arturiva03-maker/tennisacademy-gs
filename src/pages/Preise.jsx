@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+import { CalendarCheck, Users, CreditCard } from 'lucide-react';
+
 export default function Preise() {
   return (
     <>
@@ -62,6 +65,66 @@ export default function Preise() {
               Die Tennis Academy Grand Slam bietet Training für alle Altersgruppen und Spielstärken.
               Gruppentraining ist besonders für Kinder und Einsteiger empfehlenswert.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="einstieg-section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">So funktioniert dein Einstieg</h2>
+          </div>
+
+          <div className="einstieg-steps">
+            <div className="einstieg-step">
+              <div className="step-icon">
+                <CalendarCheck size={32} />
+              </div>
+              <div className="step-number">1</div>
+              <h3>Probestunden vereinbaren</h3>
+              <p>
+                So lernen wir uns kennen und finden gemeinsam heraus, welche Trainingsform
+                am besten passt – ob Einzel-, Individual- oder Gruppentraining.
+              </p>
+            </div>
+
+            <div className="einstieg-step">
+              <div className="step-icon">
+                <Users size={32} />
+              </div>
+              <div className="step-number">2</div>
+              <h3>Training abstimmen</h3>
+              <p>
+                Wir besprechen deinen Trainingsplan und stimmen Termine ab,
+                die optimal zu deinem Alltag passen.
+              </p>
+            </div>
+
+            <div className="einstieg-step">
+              <div className="step-icon">
+                <CreditCard size={32} />
+              </div>
+              <div className="step-number">3</div>
+              <h3>Vereinsmitglied werden</h3>
+              <p>
+                Mit dem Start in das wöchentliche Training ist auch die Mitgliedschaft
+                in unseren Partnervereinen verbunden. Diese ist Voraussetzung, um die
+                Vereinsanlagen und Tennisplätze zu nutzen.
+              </p>
+            </div>
+          </div>
+
+          <div className="einstieg-hinweis">
+            <p>
+              Training ohne Vereinsmitgliedschaft ist nur in seltenen Ausnahmen möglich
+              (z.B. Tenniscamp).
+            </p>
+          </div>
+
+          <div className="einstieg-cta">
+            <Link to="/kontakt" className="btn btn-primary btn-lg">
+              Probetraining anfragen
+            </Link>
           </div>
         </div>
       </section>

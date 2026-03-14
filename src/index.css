@@ -1156,6 +1156,101 @@ img {
   line-height: 1.6;
 }
 
+/* ========== EINSTIEG ========== */
+.einstieg-section {
+  padding: 80px 0;
+  background: var(--bg);
+}
+
+.einstieg-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.einstieg-step {
+  background: var(--white);
+  padding: 32px 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  text-align: center;
+  position: relative;
+}
+
+.step-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: var(--white);
+}
+
+.step-number {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 28px;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.einstieg-step h3 {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.einstieg-step p {
+  color: var(--text-medium);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.einstieg-hinweis {
+  text-align: center;
+  margin-top: 32px;
+  padding: 16px 24px;
+  background: var(--white);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--primary);
+}
+
+.einstieg-hinweis p {
+  color: var(--text-medium);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.einstieg-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn-lg {
+  padding: 16px 32px;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 900px) {
+  .einstieg-steps {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
 /* ========== NEWS ========== */
 .news-section {
   padding: 80px 0;
