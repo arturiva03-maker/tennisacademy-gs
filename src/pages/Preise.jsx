@@ -108,7 +108,7 @@ export default function Preise() {
               <h3>Vereinsmitglied werden</h3>
               <p>
                 Mit dem Start in das wöchentliche Training ist auch die Mitgliedschaft
-                in unseren Partnervereinen verbunden. Diese ist Voraussetzung, um die
+                in unserem Partnerverein verbunden. Diese ist Voraussetzung, um die
                 Vereinsanlagen und Tennisplätze zu nutzen.
               </p>
             </div>
