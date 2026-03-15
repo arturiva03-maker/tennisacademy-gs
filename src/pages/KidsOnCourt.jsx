@@ -25,7 +25,7 @@ export default function KidsOnCourt() {
           <AnimatedSection>
             <div className="kids-split">
               <div className="kids-split-image">
-                <img src="/kids-2.jpg" alt="Kinder beim Lauftraining" />
+                <img src="/kids-gallery/img1.jpg" alt="Kids on Court Training" />
               </div>
               <div className="kids-split-text">
                 <div className="age-badge">
