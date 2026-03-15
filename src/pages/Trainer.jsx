@@ -40,6 +40,13 @@ const trainers = [
     name: 'Artur Ivanenko',
     role: 'Leitung der Tennis Academy',
     license: 'B-Trainer',
+    bullets: [
+      'Spielt seit früher Kindheit leidenschaftlich Tennis',
+      'Trainiert Kinder, Jugendliche und Erwachsene',
+      'Breiten- und Leistungssport, Einzel und Gruppe',
+      'Mini-Tennis ab 3 Jahren, Fitness-Tennis',
+      'Aktiver Spieler der 1. Herrenmannschaft',
+    ],
   },
 ];
 
