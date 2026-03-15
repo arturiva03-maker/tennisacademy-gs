@@ -163,7 +163,7 @@ export default function KidsOnCourt() {
             <div className="video-gallery">
               {galleryVideos.map((src, i) => (
                 <div className="video-gallery-item" key={i}>
-                  <video controls preload="metadata">
+                  <video controls loop preload="metadata">
                     <source src={src} type="video/mp4" />
                   </video>
                 </div>
