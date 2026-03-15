@@ -5,6 +5,7 @@ const trainers = [
     name: 'Michael Lingner',
     role: 'Leitung der Tennis Academy',
     license: 'A-Trainer',
+    description: 'Verbandstrainer des TVBB, DTB Vereinsmanager, TVBB Lehrteam, VDT Mitglied und langjähriger Regionalliga-Spieler. Er hat Jura studiert, ehe er 1998 den Tennisshop Grand Slam eröffnete, wo er auch als IHK-Ausbilder für Kaufleute im Einzelhandel fungiert. Ehemaliger Lehrbeauftragter für Sportwissenschaft an der FU Berlin.',
   },
   {
     name: 'Jana Hladká-Kissal',
@@ -53,7 +54,7 @@ export default function Trainer() {
                 <div className="trainer-info">
                   <h3>{t.name}</h3>
                   <div className="trainer-role">{t.role}</div>
-                  <p>Foto und Beschreibung folgen in Kürze.</p>
+                  <p>{t.description || 'Foto und Beschreibung folgen in Kürze.'}</p>
                 </div>
               </div>
             ))}
