@@ -5,19 +5,36 @@ const trainers = [
     name: 'Michael Lingner',
     role: 'Leitung der Tennis Academy',
     license: 'A-Trainer',
-    description: 'Verbandstrainer des TVBB, DTB Vereinsmanager, TVBB Lehrteam, VDT Mitglied. Langjähriger Regionalliga-Spieler. Inhaber des Tennisshop Grand Slam seit 1998, IHK-Ausbilder. Ehem. Lehrbeauftragter für Sportwissenschaft an der FU Berlin.',
+    bullets: [
+      'Verbandstrainer des TVBB, DTB Vereinsmanager',
+      'TVBB Lehrteam, VDT Mitglied',
+      'Langjähriger Regionalliga-Spieler',
+      'Inhaber Tennisshop Grand Slam seit 1998',
+      'IHK-Ausbilder, ehem. Lehrbeauftragter FU Berlin',
+    ],
   },
   {
     name: 'Jana Hladká-Kissal',
     role: 'Leitung der Tennis Academy',
     license: 'B-Trainer',
-    description: 'Ehemalige Profispielerin aus der Slowakei. 10 Jahre Regionalliga beim TC Grunewald als Nr. 1. Deutsche Mannschaftsmeisterin Damen 40+ (2014), Verbandsmeisterin 50+ (2021 & 2024). Trainerin seit 1994. Schwerpunkt: Kids on Court.',
+    bullets: [
+      'Ehemalige Profispielerin aus der Slowakei',
+      '10 Jahre Regionalliga beim TC Grunewald als Nr. 1',
+      'Deutsche Mannschaftsmeisterin Damen 40+ (2014)',
+      'Verbandsmeisterin 50+ (2021 & 2024)',
+      'Trainerin seit 1994 – Schwerpunkt: Kids on Court',
+    ],
   },
   {
     name: 'Zlatan Palazov',
     role: 'Leitung der Tennis Academy',
     license: 'B-Trainer',
-    description: 'Ehemaliger Profispieler aus Bulgarien. Seit sechs Jahren in Berlin als Tennistrainer tätig. Trainiert mit großer Leidenschaft talentierte Kinder und Jugendliche, um seine Erfahrungen an die nächste Generation weiterzugeben. Arbeitet ebenso gerne mit Erwachsenen, die ihre Technik oder Taktik verbessern möchten. Aktiver Spieler der 1. Herrenmannschaft.',
+    bullets: [
+      'Ehemaliger Profispieler aus Bulgarien',
+      'Seit sechs Jahren Tennistrainer in Berlin',
+      'Trainiert Kinder, Jugendliche und Erwachsene',
+      'Aktiver Spieler der 1. Herrenmannschaft',
+    ],
   },
   {
     name: 'Artur Ivanenko',
@@ -56,7 +73,13 @@ export default function Trainer() {
                 <div className="trainer-info">
                   <h3>{t.name}</h3>
                   <div className="trainer-role">{t.role}</div>
-                  <p>{t.description || 'Foto und Beschreibung folgen in Kürze.'}</p>
+                  {t.bullets ? (
+                    <ul className="trainer-bullets">
+                      {t.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                    </ul>
+                  ) : (
+                    <p>Foto und Beschreibung folgen in Kürze.</p>
+                  )}
                 </div>
               </div>
             ))}

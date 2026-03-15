@@ -967,6 +967,27 @@ img {
   font-style: normal;
 }
 
+.trainer-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.trainer-bullets li {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 4px;
+}
+
+.trainer-bullets li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
 /* ========== PREISE ========== */
 .preise-section {
   padding: 80px 0;
