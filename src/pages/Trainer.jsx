@@ -18,6 +18,7 @@ const trainers = [
     name: 'Jana Hladká-Kissal',
     role: 'Leitung der Tennis Academy',
     license: 'B-Trainer',
+    image: '/jana.jpg',
     bullets: [
       'Ehemalige Profispielerin aus der Slowakei',
       '10 Jahre Regionalliga beim TC Grunewald als Nr. 1',
