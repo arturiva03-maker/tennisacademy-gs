@@ -6,6 +6,7 @@ const trainers = [
     role: 'Leitung der Tennis Academy',
     license: 'A-Trainer',
     image: '/michael.jpg',
+    imagePosition: 'center 10%',
     bullets: [
       'Verbandstrainer des TVBB, DTB Vereinsmanager',
       'TVBB Lehrteam, VDT Mitglied',
@@ -43,6 +44,7 @@ const trainers = [
     role: 'Leitung der Tennis Academy',
     license: 'B-Trainer',
     image: '/artur.jpg',
+    imagePosition: 'center 10%',
     bullets: [
       'Spielt seit früher Kindheit leidenschaftlich Tennis',
       'Trainiert Kinder, Jugendliche und Erwachsene',
@@ -76,7 +78,7 @@ export default function Trainer() {
               <div className="trainer-card" key={i}>
                 <div className="trainer-photo">
                   {t.image ? (
-                    <img src={t.image} alt={t.name} className="trainer-img" />
+                    <img src={t.image} alt={t.name} className="trainer-img" style={t.imagePosition ? { objectPosition: t.imagePosition } : undefined} />
                   ) : (
                     <div className="trainer-photo-placeholder">
                       <User size={48} />
