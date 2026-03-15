@@ -5,13 +5,13 @@ const trainers = [
     name: 'Michael Lingner',
     role: 'Leitung der Tennis Academy',
     license: 'A-Trainer',
-    description: 'Verbandstrainer des TVBB, DTB Vereinsmanager, TVBB Lehrteam, VDT Mitglied und langjähriger Regionalliga-Spieler. Er hat Jura studiert, ehe er 1998 den Tennisshop Grand Slam eröffnete, wo er auch als IHK-Ausbilder für Kaufleute im Einzelhandel fungiert. Ehemaliger Lehrbeauftragter für Sportwissenschaft an der FU Berlin.',
+    description: 'Verbandstrainer des TVBB, DTB Vereinsmanager, TVBB Lehrteam, VDT Mitglied. Langjähriger Regionalliga-Spieler. Inhaber des Tennisshop Grand Slam seit 1998, IHK-Ausbilder. Ehem. Lehrbeauftragter für Sportwissenschaft an der FU Berlin.',
   },
   {
     name: 'Jana Hladká-Kissal',
     role: 'Leitung der Tennis Academy',
     license: 'B-Trainer',
-    description: 'Ehemalige Profispielerin aus der Slowakei. Mehrfache Siegerin bei slowakischen Jugendmeisterschaften im Einzel, Doppel und Mixed. Mit 15 Jahren Stammspielerin in der slowakischen Nationalliga, 2x Vizemeister. 10 Jahre Regionalliga beim TC Grunewald als Nr. 1. Deutsche Mannschaftsmeisterin Damen 40+ (2014), Deutsche Verbandsmeisterin 50+ (2021 & 2024). Trainerlizenz seit 1994. Tätigkeitsschwerpunkt: Kids on Court.',
+    description: 'Ehemalige Profispielerin aus der Slowakei. 10 Jahre Regionalliga beim TC Grunewald als Nr. 1. Deutsche Mannschaftsmeisterin Damen 40+ (2014), Verbandsmeisterin 50+ (2021 & 2024). Trainerin seit 1994. Schwerpunkt: Kids on Court.',
   },
   {
     name: 'Zlatan Palazov',
