@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Award, Target, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
+import { AnimatedSection } from '../hooks/useScrollAnimation';
 
 const features = [
   {
@@ -74,13 +75,15 @@ export default function Home() {
       {/* FEATURES SLIDER */}
       <section className="features">
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Unser Angebot für Sie</h2>
-            <p className="section-subtitle">
-              Von der Technik bis zur Taktik, vom Kinderprogramm bis zum Leistungstraining
-              – wir begleiten Sie auf Ihrem Tennisweg.
-            </p>
-          </div>
+          <AnimatedSection>
+            <div className="section-header">
+              <h2 className="section-title">Unser Angebot für Sie</h2>
+              <p className="section-subtitle">
+                Von der Technik bis zur Taktik, vom Kinderprogramm bis zum Leistungstraining
+                – wir begleiten Sie auf Ihrem Tennisweg.
+              </p>
+            </div>
+          </AnimatedSection>
 
           {/* Slider für Desktop */}
           <div className="features-slider">
@@ -136,36 +139,38 @@ export default function Home() {
       {/* DTB/VDT TEASER */}
       <section className="dtb-section">
         <div className="container">
-          <div className="dtb-quality-seal">
-            <div className="dtb-logo-container">
-              <img src="/vdt-logo.png" alt="VDT - Verband Deutscher Tennislehrer" className="dtb-logo" />
-            </div>
-            <div className="dtb-content">
-              <h2>Deutsche Tennisschule</h2>
-              <p>
-                Unsere Tennis Academy erfüllt die fachlichen und organisatorischen
-                Voraussetzungen der Deutschen Tennisschule, anerkannt vom Deutschen
-                Tennis Bund (DTB) und dem Verband Deutscher Tennislehrer (VDT).
-              </p>
-              <div className="dtb-features">
-                <div className="dtb-feature">
-                  <Award size={20} />
-                  <span>Zertifizierte Trainer</span>
-                </div>
-                <div className="dtb-feature">
-                  <Target size={20} />
-                  <span>Qualitätsstandards</span>
-                </div>
-                <div className="dtb-feature">
-                  <Users size={20} />
-                  <span>Professionelle Ausbildung</span>
-                </div>
+          <AnimatedSection animation="scale">
+            <div className="dtb-quality-seal">
+              <div className="dtb-logo-container">
+                <img src="/vdt-logo.png" alt="VDT - Verband Deutscher Tennislehrer" className="dtb-logo" />
               </div>
-              <Link to="/dtb-vdt" className="btn btn-primary">
-                Mehr erfahren
-              </Link>
+              <div className="dtb-content">
+                <h2>Deutsche Tennisschule</h2>
+                <p>
+                  Unsere Tennis Academy erfüllt die fachlichen und organisatorischen
+                  Voraussetzungen der Deutschen Tennisschule, anerkannt vom Deutschen
+                  Tennis Bund (DTB) und dem Verband Deutscher Tennislehrer (VDT).
+                </p>
+                <div className="dtb-features">
+                  <div className="dtb-feature">
+                    <Award size={20} />
+                    <span>Zertifizierte Trainer</span>
+                  </div>
+                  <div className="dtb-feature">
+                    <Target size={20} />
+                    <span>Qualitätsstandards</span>
+                  </div>
+                  <div className="dtb-feature">
+                    <Users size={20} />
+                    <span>Professionelle Ausbildung</span>
+                  </div>
+                </div>
+                <Link to="/dtb-vdt" className="btn btn-primary">
+                  Mehr erfahren
+                </Link>
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
     </>

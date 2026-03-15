@@ -1,4 +1,5 @@
 import { User } from 'lucide-react';
+import { AnimatedSection } from '../hooks/useScrollAnimation';
 
 const trainers = [
   {
@@ -75,29 +76,31 @@ export default function Trainer() {
           </div>
           <div className="trainer-grid">
             {trainers.map((t, i) => (
-              <div className="trainer-card" key={i}>
-                <div className="trainer-photo">
-                  {t.image ? (
-                    <img src={t.image} alt={t.name} className="trainer-img" style={t.imagePosition ? { objectPosition: t.imagePosition } : undefined} />
-                  ) : (
-                    <div className="trainer-photo-placeholder">
-                      <User size={48} />
-                    </div>
-                  )}
-                  <span className="trainer-badge">{t.license}</span>
+              <AnimatedSection key={i} delay={i * 0.1}>
+                <div className="trainer-card">
+                  <div className="trainer-photo">
+                    {t.image ? (
+                      <img src={t.image} alt={t.name} className="trainer-img" style={t.imagePosition ? { objectPosition: t.imagePosition } : undefined} />
+                    ) : (
+                      <div className="trainer-photo-placeholder">
+                        <User size={48} />
+                      </div>
+                    )}
+                    <span className="trainer-badge">{t.license}</span>
+                  </div>
+                  <div className="trainer-info">
+                    <h3>{t.name}</h3>
+                    <div className="trainer-role">{t.role}</div>
+                    {t.bullets ? (
+                      <ul className="trainer-bullets">
+                        {t.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                      </ul>
+                    ) : (
+                      <p>Foto und Beschreibung folgen in Kürze.</p>
+                    )}
+                  </div>
                 </div>
-                <div className="trainer-info">
-                  <h3>{t.name}</h3>
-                  <div className="trainer-role">{t.role}</div>
-                  {t.bullets ? (
-                    <ul className="trainer-bullets">
-                      {t.bullets.map((b, j) => <li key={j}>{b}</li>)}
-                    </ul>
-                  ) : (
-                    <p>Foto und Beschreibung folgen in Kürze.</p>
-                  )}
-                </div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>

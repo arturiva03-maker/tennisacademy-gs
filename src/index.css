@@ -19,6 +19,149 @@
   --transition: 0.2s ease;
 }
 
+/* ========== ANIMATIONS ========== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation utility classes */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-fade-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-fade-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-fade-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-fade-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Staggered animation delays */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+
+/* Page transitions */
+.page-wrapper {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.page-wrapper.fadeOut {
+  animation: fadeOut 0.2s ease forwards;
+}
+
+.page-wrapper.fadeIn {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.main-content {
+  min-height: calc(100vh - 64px);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -149,7 +292,6 @@ img {
 }
 
 .mobile-nav {
-  display: none;
   position: fixed;
   top: 64px;
   left: 0;
@@ -159,12 +301,19 @@ img {
   backdrop-filter: blur(12px);
   z-index: 999;
   padding: 24px;
-}
-
-.mobile-nav.open {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-nav.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .mobile-nav a {
@@ -173,13 +322,30 @@ img {
   font-weight: 500;
   color: var(--text-medium);
   border-radius: var(--radius-sm);
-  transition: var(--transition);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(-20px);
 }
+
+.mobile-nav.open a {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-nav.open a:nth-child(1) { transition-delay: 0.05s; }
+.mobile-nav.open a:nth-child(2) { transition-delay: 0.1s; }
+.mobile-nav.open a:nth-child(3) { transition-delay: 0.15s; }
+.mobile-nav.open a:nth-child(4) { transition-delay: 0.2s; }
+.mobile-nav.open a:nth-child(5) { transition-delay: 0.25s; }
+.mobile-nav.open a:nth-child(6) { transition-delay: 0.3s; }
+.mobile-nav.open a:nth-child(7) { transition-delay: 0.35s; }
+.mobile-nav.open a:nth-child(8) { transition-delay: 0.4s; }
 
 .mobile-nav a:hover,
 .mobile-nav a.active {
-  background: var(--bg);
-  color: var(--text-dark);
+  background: var(--navy);
+  color: var(--white);
+  transform: translateX(10px);
 }
 
 /* ========== HERO ========== */
@@ -192,7 +358,33 @@ img {
   background: url('/hero-bg.jpg');
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   margin-top: 64px;
+}
+
+.hero-text {
+  animation: fadeInUp 0.8s ease 0.2s forwards;
+  opacity: 0;
+}
+
+.hero-badge-large {
+  animation: fadeInUp 0.6s ease 0.1s forwards;
+  opacity: 0;
+}
+
+.hero-title-large {
+  animation: fadeInUp 0.7s ease 0.3s forwards;
+  opacity: 0;
+}
+
+.hero-subtitle {
+  animation: fadeInUp 0.7s ease 0.5s forwards;
+  opacity: 0;
+}
+
+.hero-cta {
+  animation: fadeInUp 0.7s ease 0.7s forwards;
+  opacity: 0;
 }
 
 .hero::before {
@@ -331,8 +523,37 @@ img {
   font-weight: 600;
   cursor: pointer;
   border: none;
-  transition: var(--transition);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.btn:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 .btn-primary {
@@ -446,6 +667,20 @@ img {
   flex-direction: column;
   align-items: center;
   border: 1px solid var(--border);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.slider-card:hover .slider-image img {
+  transform: scale(1.05);
+}
+
+.slider-image img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .slider-image {
@@ -912,13 +1147,21 @@ img {
   background: var(--white);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: var(--transition);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid var(--border);
 }
 
 .trainer-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.trainer-card:hover .trainer-img {
+  transform: scale(1.05);
+}
+
+.trainer-img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .trainer-photo {

@@ -41,7 +41,8 @@
       "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"$\\(cat <<''EOF''\nTrainer: Beschreibungen als Stichpunkte formatiert\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"$\\(cat <<''EOF''\nTrainer: Beschreibung für Artur Ivanenko hinzugefügt\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" add .)",
-      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"$\\(cat <<''EOF''\nTrainer: Bild für Artur Ivanenko hinzugefügt\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"$\\(cat <<''EOF''\nTrainer: Bild für Artur Ivanenko hinzugefügt\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(copy:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

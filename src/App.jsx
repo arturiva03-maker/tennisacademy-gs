@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -21,24 +21,59 @@ function ScrollToTop() {
   return null;
 }
 
+function PageTransition({ children }) {
+  const location = useLocation();
+  const [displayChildren, setDisplayChildren] = useState(children);
+  const [transitionStage, setTransitionStage] = useState('fadeIn');
+
+  useEffect(() => {
+    if (children !== displayChildren) {
+      setTransitionStage('fadeOut');
+    }
+  }, [children, displayChildren]);
+
+  const handleAnimationEnd = () => {
+    if (transitionStage === 'fadeOut') {
+      setDisplayChildren(children);
+      setTransitionStage('fadeIn');
+    }
+  };
+
+  return (
+    <div
+      className={`page-wrapper ${transitionStage}`}
+      onAnimationEnd={handleAnimationEnd}
+      key={location.pathname}
+    >
+      {displayChildren}
+    </div>
+  );
+}
+
+function AnimatedRoutes() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/trainer" element={<Trainer />} />
+      <Route path="/preise" element={<Preise />} />
+      <Route path="/kids-on-court" element={<KidsOnCourt />} />
+      <Route path="/dtb-vdt" element={<DtbVdt />} />
+      <Route path="/news" element={<News />} />
+      <Route path="/kontakt" element={<Kontakt />} />
+      <Route path="/impressum" element={<Impressum />} />
+      <Route path="/datenschutz" element={<Datenschutz />} />
+      <Route path="/tenniscamps" element={<Tenniscamps />} />
+    </Routes>
+  );
+}
+
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
       <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/trainer" element={<Trainer />} />
-          <Route path="/preise" element={<Preise />} />
-          <Route path="/kids-on-court" element={<KidsOnCourt />} />
-          <Route path="/dtb-vdt" element={<DtbVdt />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/kontakt" element={<Kontakt />} />
-          <Route path="/impressum" element={<Impressum />} />
-          <Route path="/datenschutz" element={<Datenschutz />} />
-          <Route path="/tenniscamps" element={<Tenniscamps />} />
-        </Routes>
+      <main className="main-content">
+        <AnimatedRoutes />
       </main>
       <Footer />
     </BrowserRouter>
