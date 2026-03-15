@@ -17,6 +17,7 @@ const trainers = [
     name: 'Zlatan Palazov',
     role: 'Leitung der Tennis Academy',
     license: 'B-Trainer',
+    description: 'Ehemaliger Profispieler aus Bulgarien. Seit sechs Jahren in Berlin als Tennistrainer tätig. Trainiert mit großer Leidenschaft talentierte Kinder und Jugendliche, um seine Erfahrungen an die nächste Generation weiterzugeben. Arbeitet ebenso gerne mit Erwachsenen, die ihre Technik oder Taktik verbessern möchten. Aktiver Spieler der 1. Herrenmannschaft.',
   },
   {
     name: 'Artur Ivanenko',
