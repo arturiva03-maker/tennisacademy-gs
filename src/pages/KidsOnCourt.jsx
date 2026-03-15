@@ -10,9 +10,6 @@ export default function KidsOnCourt() {
       <section className="hero hero-kids">
         <div className="hero-content">
           <div className="hero-text" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
-            <div className="hero-badge-large">
-              Ab 4 Jahren
-            </div>
             <h1 className="hero-title-large">
               Kids on Court
             </h1>
