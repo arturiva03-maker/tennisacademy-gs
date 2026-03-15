@@ -85,7 +85,7 @@ export default function Preise() {
               <h3>Probestunden vereinbaren</h3>
               <p>
                 So lernen wir uns kennen und finden gemeinsam heraus, welche Trainingsform
-                am besten passt – ob Einzel-, Individual- oder Gruppentraining.
+                am besten passt – ob Einzel- oder Gruppentraining.
               </p>
             </div>
 
@@ -96,8 +96,7 @@ export default function Preise() {
               <div className="step-number">2</div>
               <h3>Training abstimmen</h3>
               <p>
-                Wir besprechen deinen Trainingsplan und stimmen Termine ab,
-                die optimal zu deinem Alltag passen.
+                Wir besprechen deinen Trainingsplan und stimmen Termine ab.
               </p>
             </div>
 
