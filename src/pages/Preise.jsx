@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { CalendarCheck, Users, CreditCard } from 'lucide-react';
+import { AnimatedSection } from '../hooks/useScrollAnimation';
 
 export default function Preise() {
   return (
@@ -14,14 +15,17 @@ export default function Preise() {
 
       <section className="preise-section">
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Trainingspreise pro Person / Stunde</h2>
-            <p className="section-subtitle">
-              Alle Preise verstehen sich pro Person und Trainingsstunde (60 Minuten).
-            </p>
-          </div>
+          <AnimatedSection>
+            <div className="section-header">
+              <h2 className="section-title">Trainingspreise pro Person / Stunde</h2>
+              <p className="section-subtitle">
+                Alle Preise verstehen sich pro Person und Trainingsstunde (60 Minuten).
+              </p>
+            </div>
+          </AnimatedSection>
 
-          <div className="preis-table-container">
+          <AnimatedSection delay={0.1}>
+            <div className="preis-table-container">
             <table className="preis-table-full">
               <thead>
                 <tr>
@@ -67,51 +71,60 @@ export default function Preise() {
               Im Winter fallen zuzüglich Hallengebühren an.
             </p>
           </div>
+          </AnimatedSection>
         </div>
       </section>
 
       <section className="einstieg-section">
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">So funktioniert dein Einstieg</h2>
-          </div>
+          <AnimatedSection>
+            <div className="section-header">
+              <h2 className="section-title">So funktioniert dein Einstieg</h2>
+            </div>
+          </AnimatedSection>
 
           <div className="einstieg-steps">
-            <div className="einstieg-step">
-              <div className="step-icon">
-                <CalendarCheck size={32} />
+            <AnimatedSection delay={0.1}>
+              <div className="einstieg-step">
+                <div className="step-icon">
+                  <CalendarCheck size={32} />
+                </div>
+                <div className="step-number">1</div>
+                <h3>Probestunden vereinbaren</h3>
+                <p>
+                  So lernen wir uns kennen und finden gemeinsam heraus, welche Trainingsform
+                  am besten passt – ob Einzel- oder Gruppentraining.
+                </p>
               </div>
-              <div className="step-number">1</div>
-              <h3>Probestunden vereinbaren</h3>
-              <p>
-                So lernen wir uns kennen und finden gemeinsam heraus, welche Trainingsform
-                am besten passt – ob Einzel- oder Gruppentraining.
-              </p>
-            </div>
+            </AnimatedSection>
 
-            <div className="einstieg-step">
-              <div className="step-icon">
-                <Users size={32} />
+            <AnimatedSection delay={0.2}>
+              <div className="einstieg-step">
+                <div className="step-icon">
+                  <Users size={32} />
+                </div>
+                <div className="step-number">2</div>
+                <h3>Training abstimmen</h3>
+                <p>
+                  Wir besprechen deinen Trainingsplan und stimmen Termine ab.
+                </p>
               </div>
-              <div className="step-number">2</div>
-              <h3>Training abstimmen</h3>
-              <p>
-                Wir besprechen deinen Trainingsplan und stimmen Termine ab.
-              </p>
-            </div>
+            </AnimatedSection>
 
-            <div className="einstieg-step">
-              <div className="step-icon">
-                <CreditCard size={32} />
+            <AnimatedSection delay={0.3}>
+              <div className="einstieg-step">
+                <div className="step-icon">
+                  <CreditCard size={32} />
+                </div>
+                <div className="step-number">3</div>
+                <h3>Vereinsmitglied werden</h3>
+                <p>
+                  Mit dem Start in das wöchentliche Training ist auch die Mitgliedschaft
+                  in unserem Partnerverein verbunden. Diese ist Voraussetzung, um die
+                  Vereinsanlagen und Tennisplätze zu nutzen.
+                </p>
               </div>
-              <div className="step-number">3</div>
-              <h3>Vereinsmitglied werden</h3>
-              <p>
-                Mit dem Start in das wöchentliche Training ist auch die Mitgliedschaft
-                in unserem Partnerverein verbunden. Diese ist Voraussetzung, um die
-                Vereinsanlagen und Tennisplätze zu nutzen.
-              </p>
-            </div>
+            </AnimatedSection>
           </div>
 
           <div className="einstieg-hinweis">

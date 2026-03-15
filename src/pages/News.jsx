@@ -1,4 +1,5 @@
 import { Calendar, MapPin } from 'lucide-react';
+import { AnimatedSection } from '../hooks/useScrollAnimation';
 
 const events = [
   {
@@ -26,20 +27,22 @@ export default function News() {
         <div className="container">
           <div className="news-list">
             {events.map((event, i) => (
-              <div className="news-card" key={i}>
-                <div className="news-card-image">
-                  <img src={event.image} alt={event.title} />
-                </div>
-                <div className="news-card-content">
-                  <h2>{event.title}</h2>
-                  <p className="news-card-subtitle">{event.subtitle}</p>
-                  <div className="news-card-meta">
-                    <span><Calendar size={16} /> {event.date}</span>
-                    <span><MapPin size={16} /> {event.location}</span>
+              <AnimatedSection key={i} delay={i * 0.1}>
+                <div className="news-card">
+                  <div className="news-card-image">
+                    <img src={event.image} alt={event.title} />
                   </div>
-                  <p className="news-card-text">{event.description}</p>
+                  <div className="news-card-content">
+                    <h2>{event.title}</h2>
+                    <p className="news-card-subtitle">{event.subtitle}</p>
+                    <div className="news-card-meta">
+                      <span><Calendar size={16} /> {event.date}</span>
+                      <span><MapPin size={16} /> {event.location}</span>
+                    </div>
+                    <p className="news-card-text">{event.description}</p>
+                  </div>
                 </div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>

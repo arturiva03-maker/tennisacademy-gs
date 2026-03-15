@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { AnimatedSection } from '../hooks/useScrollAnimation';
 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -156,8 +157,9 @@ export default function Kontakt() {
       <section className="kontakt-section">
         <div className="container">
           <div className="kontakt-grid">
-            <div className="kontakt-info">
-              <h2>So erreichen Sie uns</h2>
+            <AnimatedSection>
+              <div className="kontakt-info">
+                <h2>So erreichen Sie uns</h2>
               <p>
                 Haben Sie Fragen zu unserem Trainingsangebot oder möchten Sie
                 ein Probetraining vereinbaren? Schreiben Sie uns!
@@ -171,9 +173,11 @@ export default function Kontakt() {
                   <span>E-Mail: info@tennisacademy-gs.de</span>
                 </div>
               </div>
-            </div>
+              </div>
+            </AnimatedSection>
 
-            <div className="kontakt-form-container">
+            <AnimatedSection delay={0.1}>
+              <div className="kontakt-form-container">
               {status === 'success' ? (
                 <div className="form-success">
                   <CheckCircle size={48} />
@@ -308,7 +312,8 @@ export default function Kontakt() {
                   </button>
                 </form>
               )}
-            </div>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>

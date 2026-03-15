@@ -1,4 +1,5 @@
 import { ShieldCheck, BookOpen } from 'lucide-react';
+import { AnimatedSection } from '../hooks/useScrollAnimation';
 
 export default function DtbVdt() {
   return (
@@ -13,27 +14,30 @@ export default function DtbVdt() {
 
       <section className="dtb-section">
         <div className="container">
-          <div className="dtb-banner">
-            <div className="dtb-logo-container">
-              <img src="/vdt-logo.png" alt="VDT - Verband Deutscher Tennislehrer" className="dtb-logo" />
+          <AnimatedSection>
+            <div className="dtb-banner">
+              <div className="dtb-logo-container">
+                <img src="/vdt-logo.png" alt="VDT - Verband Deutscher Tennislehrer" className="dtb-logo" />
+              </div>
+              <div className="dtb-banner-text">
+                <h2>Qualität hat einen Namen</h2>
+                <p>
+                  Die Tennis Academy Grand Slam erfüllt alle fachlichen und organisatorischen
+                  Voraussetzungen der Deutschen Tennisschule, anerkannt vom Deutschen Tennis
+                  Bund (DTB) und dem Verband Deutscher Tennislehrer (VDT). Dieses Qualitätssiegel
+                  ist für unsere Kunden zu einem Markenzeichen geworden.
+                </p>
+              </div>
             </div>
-            <div className="dtb-banner-text">
-              <h2>Qualität hat einen Namen</h2>
-              <p>
-                Die Tennis Academy Grand Slam erfüllt alle fachlichen und organisatorischen
-                Voraussetzungen der Deutschen Tennisschule, anerkannt vom Deutschen Tennis
-                Bund (DTB) und dem Verband Deutscher Tennislehrer (VDT). Dieses Qualitätssiegel
-                ist für unsere Kunden zu einem Markenzeichen geworden.
-              </p>
-            </div>
-          </div>
+          </AnimatedSection>
 
           <div className="dtb-grid">
-            <div className="dtb-card">
-              <h3>
-                <ShieldCheck size={20} />
-                Fachliche Voraussetzungen
-              </h3>
+            <AnimatedSection delay={0.1}>
+              <div className="dtb-card">
+                <h3>
+                  <ShieldCheck size={20} />
+                  Fachliche Voraussetzungen
+                </h3>
               <ul>
                 <li>Mindestens zwei Lehrkräfte müssen ganzjährig in der Tennisschule tätig sein.</li>
                 <li>Der Leiter / die Leiterin muss Mitglied im VDT sein.</li>
@@ -52,29 +56,32 @@ export default function DtbVdt() {
                   Qualitätsstandards (Lehrplänen) des DTB und VDT zu erteilen.
                 </li>
               </ul>
-            </div>
+              </div>
+            </AnimatedSection>
 
-            <div className="dtb-card">
-              <h3>
-                <BookOpen size={20} />
-                Organisatorische Voraussetzungen
-              </h3>
-              <ul>
-                <li>Die Tennisschule muss als Unternehmen geführt werden.</li>
-                <li>
-                  Die Tennisschule muss mittels eines Prospekts und einer Preisliste
-                  ihre Leistungen anbieten.
-                </li>
-                <li>
-                  Der Tennisunterricht muss auf mindestens zwei Plätzen ganzjährig
-                  und wetterunabhängig durchführbar sein.
-                </li>
-                <li>
-                  Der Tennisunterricht muss in angemessenem Rahmen über moderne
-                  Hilfsmittel zur Unterrichtsgestaltung verfügen.
-                </li>
-              </ul>
-            </div>
+            <AnimatedSection delay={0.2}>
+              <div className="dtb-card">
+                <h3>
+                  <BookOpen size={20} />
+                  Organisatorische Voraussetzungen
+                </h3>
+                <ul>
+                  <li>Die Tennisschule muss als Unternehmen geführt werden.</li>
+                  <li>
+                    Die Tennisschule muss mittels eines Prospekts und einer Preisliste
+                    ihre Leistungen anbieten.
+                  </li>
+                  <li>
+                    Der Tennisunterricht muss auf mindestens zwei Plätzen ganzjährig
+                    und wetterunabhängig durchführbar sein.
+                  </li>
+                  <li>
+                    Der Tennisunterricht muss in angemessenem Rahmen über moderne
+                    Hilfsmittel zur Unterrichtsgestaltung verfügen.
+                  </li>
+                </ul>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>

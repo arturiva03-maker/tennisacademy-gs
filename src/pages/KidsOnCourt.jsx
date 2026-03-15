@@ -1,3 +1,5 @@
+import { AnimatedSection } from '../hooks/useScrollAnimation';
+
 export default function KidsOnCourt() {
   return (
     <>
@@ -11,38 +13,43 @@ export default function KidsOnCourt() {
 
       <section className="kids-section">
         <div className="container">
-          <div className="kids-split">
-            <div className="kids-split-image">
-              <img src="/kids-2.jpg" alt="Kinder beim Lauftraining" />
-            </div>
-            <div className="kids-split-text">
-              <div className="age-badge">
-                Für Kinder ab 4 Jahren
+          <AnimatedSection>
+            <div className="kids-split">
+              <div className="kids-split-image">
+                <img src="/kids-2.jpg" alt="Kinder beim Lauftraining" />
               </div>
-              <h2>Was bedeutet Kids on Court?</h2>
-              <p>
-                Vielleicht erinnern Sie sich daran, in welchem Alter Sie mit dem Tennis begonnen haben
-                und denken dabei: „Viel zu spät!". Heute bieten wir schon Kindern im Alter von 4 Jahren
-                die Möglichkeit, unseren schönen Sport zu erlernen – eben bei Kids on Court.
-              </p>
-              <p>
-                Tennis ist ein koordinativ sehr anspruchsvoller Sport und daher ist gerade die Technik
-                für Kinder eher schwer zu erlernen. Wichtig ist in diesem Alter, die Grundvoraussetzungen
-                für das spätere Erlernen einer guten Tennis-Technik zu schaffen.
-              </p>
+              <div className="kids-split-text">
+                <div className="age-badge">
+                  Für Kinder ab 4 Jahren
+                </div>
+                <h2>Was bedeutet Kids on Court?</h2>
+                <p>
+                  Vielleicht erinnern Sie sich daran, in welchem Alter Sie mit dem Tennis begonnen haben
+                  und denken dabei: „Viel zu spät!". Heute bieten wir schon Kindern im Alter von 4 Jahren
+                  die Möglichkeit, unseren schönen Sport zu erlernen – eben bei Kids on Court.
+                </p>
+                <p>
+                  Tennis ist ein koordinativ sehr anspruchsvoller Sport und daher ist gerade die Technik
+                  für Kinder eher schwer zu erlernen. Wichtig ist in diesem Alter, die Grundvoraussetzungen
+                  für das spätere Erlernen einer guten Tennis-Technik zu schaffen.
+                </p>
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
 
-          <div className="kids-gallery">
-            <div className="kids-gallery-item">
-              <img src="/kids-1.jpg" alt="Kids on Court Gruppenfoto" />
+          <AnimatedSection delay={0.1}>
+            <div className="kids-gallery">
+              <div className="kids-gallery-item">
+                <img src="/kids-1.jpg" alt="Kids on Court Gruppenfoto" />
+              </div>
+              <div className="kids-gallery-item">
+                <img src="/kids-3.jpg" alt="Tennis-Training mit Trainerin" />
+              </div>
             </div>
-            <div className="kids-gallery-item">
-              <img src="/kids-3.jpg" alt="Tennis-Training mit Trainerin" />
-            </div>
-          </div>
+          </AnimatedSection>
 
-          <div className="kids-content">
+          <AnimatedSection delay={0.2}>
+            <div className="kids-content">
             <h3>Koordination & Bewegung</h3>
             <p>
               Dazu gehören die verschiedenen Laufarten (vorwärts, rückwärts, Side-Steps, Hopserlauf, etc.),
@@ -73,7 +80,8 @@ export default function KidsOnCourt() {
               gehören ebenso zu unserem Angebot wie die beliebten Tenniscamps in den Sommerferien,
               bei denen Kinder neue Spielpartner und Freunde kennenlernen.
             </p>
-          </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
     </>
