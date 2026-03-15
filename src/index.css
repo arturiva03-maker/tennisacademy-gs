@@ -597,7 +597,6 @@ img {
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  background: var(--navy-dark);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
