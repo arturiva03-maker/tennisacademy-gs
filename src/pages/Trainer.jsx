@@ -5,6 +5,7 @@ const trainers = [
     name: 'Michael Lingner',
     role: 'Leitung der Tennis Academy',
     license: 'A-Trainer',
+    image: '/michael.jpg',
     bullets: [
       'Verbandstrainer des TVBB, DTB Vereinsmanager',
       'TVBB Lehrteam, VDT Mitglied',
