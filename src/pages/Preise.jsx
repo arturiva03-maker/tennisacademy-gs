@@ -43,7 +43,7 @@ export default function Preise() {
                   <td><span className="preis-amount">25 €</span></td>
                   <td><span className="preis-amount">18 €</span></td>
                   <td><span className="preis-amount">14 €</span></td>
-                  <td><span className="preis-amount">12 €</span></td>
+                  <td><span className="preis-amount">11,60 €</span></td>
                   <td><span className="preis-amount">10 €</span></td>
                 </tr>
                 <tr>
@@ -52,10 +52,10 @@ export default function Preise() {
                   </td>
                   <td><span className="preis-amount">50 €</span></td>
                   <td><span className="preis-amount">26 €</span></td>
-                  <td><span className="preis-amount">19 €</span></td>
+                  <td><span className="preis-amount">18,67 €</span></td>
                   <td><span className="preis-amount">15 €</span></td>
-                  <td><span className="preis-amount">12 €</span></td>
-                  <td><span className="preis-amount">11 €</span></td>
+                  <td><span className="preis-amount">12,40 €</span></td>
+                  <td><span className="preis-amount">10,67 €</span></td>
                 </tr>
               </tbody>
             </table>
