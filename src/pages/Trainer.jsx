@@ -44,7 +44,7 @@ const trainers = [
     role: 'Leitung der Tennis Academy',
     license: 'B-Trainer',
     image: '/artur.jpg',
-    imagePosition: 'center 10%',
+    imagePosition: 'center 20%',
     bullets: [
       'Spielt seit früher Kindheit leidenschaftlich Tennis',
       'Trainiert Kinder, Jugendliche und Erwachsene',
