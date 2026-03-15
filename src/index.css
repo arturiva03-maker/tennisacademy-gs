@@ -411,7 +411,7 @@ img {
 .hero-kids {
   background: url('/kids-hero.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center top;
 }
 
 .hero-kids::before {
