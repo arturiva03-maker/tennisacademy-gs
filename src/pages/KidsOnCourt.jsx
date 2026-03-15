@@ -2,6 +2,7 @@ import { AnimatedSection } from '../hooks/useScrollAnimation';
 
 const galleryImages = Array.from({ length: 18 }, (_, i) => `/kids-gallery/img${i + 1}.jpg`);
 const galleryVideos = Array.from({ length: 12 }, (_, i) => `/kids-gallery/vid${i + 1}.mp4`);
+const winterrundeImages = Array.from({ length: 4 }, (_, i) => `/kids-gallery/winterrunde${i + 1}.jpg`);
 
 export default function KidsOnCourt() {
   return (
@@ -72,6 +73,59 @@ export default function KidsOnCourt() {
                 gehören ebenso zu unserem Angebot wie die beliebten Tenniscamps in den Sommerferien,
                 bei denen Kinder neue Spielpartner und Freunde kennenlernen.
               </p>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <section className="winterrunde-section">
+        <div className="container">
+          <AnimatedSection>
+            <div className="section-header">
+              <h2 className="section-title">U8 Winterrunde</h2>
+              <p className="section-subtitle">Mini-Tennis in Berlin</p>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.1}>
+            <div className="winterrunde-content">
+              <div className="winterrunde-text">
+                <h3>Was ist die Winterrunde?</h3>
+                <p>
+                  Über den Winter bietet der Tennis-Verband Berlin-Brandenburg (TVBB) monatlich
+                  eine Mini-Tennisrunde U8 für die Jüngsten im Verbandsgebiet an. Die Winterrunde
+                  der Mini-Tennis-Runde U8 findet zum Start des neuen Jahres statt.
+                </p>
+
+                <h3>Wer darf mitspielen?</h3>
+                <p>
+                  Spielberechtigt sind alle Kinder der Altersklasse U8 (Jahrgang 2018 und jünger),
+                  die einem Berliner Tennisverein angehören. Die Kids spielen altersgerecht im
+                  Kleinfeld mit den passenden Methodikbällen.
+                </p>
+
+                <h3>Spielformat</h3>
+                <p>
+                  Kleinfeldtennis ist eine altersgerechte Vorbereitung auf das reguläre Tennis.
+                  Durch die Verkleinerung des Spielfeldes und Verwendung eines weichen Methodikballes
+                  wird das Entwicklungsstadium der Kinder berücksichtigt und es werden frühzeitig
+                  Erfolgserlebnisse erreicht. Im Mannschaftswettbewerb lernen die Kinder soziale
+                  Aspekte wie Teamgeist, Fair Play und positives Verhalten.
+                </p>
+                <p>
+                  Gespielt wird auf dem Kleinfeld mit Stage-3-Bällen (rot, 75 % langsamer).
+                  Neben Tennis-Einzel und Doppel finden zusätzlich Motorikübungen statt,
+                  die koordinative und konditionelle Fähigkeiten der Kinder fördern.
+                </p>
+              </div>
+
+              <div className="winterrunde-gallery">
+                {winterrundeImages.map((src, i) => (
+                  <div className="winterrunde-gallery-item" key={i}>
+                    <img src={src} alt={`U8 Winterrunde ${i + 1}`} loading="lazy" />
+                  </div>
+                ))}
+              </div>
             </div>
           </AnimatedSection>
         </div>
