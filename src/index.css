@@ -2131,11 +2131,15 @@ img {
   color: var(--white);
   letter-spacing: -0.02em;
   font-weight: 800;
+  animation: fadeInUp 0.7s ease 0.2s forwards;
+  opacity: 0;
 }
 
 .page-hero p {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.9);
+  animation: fadeInUp 0.7s ease 0.4s forwards;
+  opacity: 0;
 }
 
 /* ========== RESPONSIVE ========== */
