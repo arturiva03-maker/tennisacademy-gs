@@ -7,7 +7,7 @@ const winterrundeImages = Array.from({ length: 4 }, (_, i) => `/kids-gallery/win
 export default function KidsOnCourt() {
   return (
     <>
-      <section className="page-hero" style={{ backgroundImage: "url('/hero-bg.jpg')" }}>
+      <section className="page-hero" style={{ backgroundImage: "url('/kids-hero.jpg')" }}>
         <div className="page-hero-overlay"></div>
         <div className="container">
           <h1>Kids on Court</h1>
