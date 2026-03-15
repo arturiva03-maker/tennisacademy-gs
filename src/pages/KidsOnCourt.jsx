@@ -1,3 +1,4 @@
+import { Activity, Target, Trophy, Calendar } from 'lucide-react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 
 const galleryImages = Array.from({ length: 18 }, (_, i) => `/kids-gallery/img${i + 1}.jpg`);
@@ -47,37 +48,69 @@ export default function KidsOnCourt() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <div className="kids-content">
-              <h3>Koordination & Bewegung</h3>
-              <p>
-                Dazu gehören die verschiedenen Laufarten (vorwärts, rückwärts, Side-Steps, Hopserlauf, etc.),
-                eine intensive und ausgeprägte Ball-Schule sowie die Schulung sämtlicher koordinativer
-                Fähigkeiten wie Gleichgewicht, Orientierung, Rhythmik, Differenzierung und Reaktion.
-                Spielerisch und vor allem mit viel Spaß und Freude an der Bewegung werden diese
-                Trainingsinhalte ständig geübt und verbessert.
-              </p>
+            <div className="flip-cards-grid">
+              <div className="flip-card">
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <Activity size={48} />
+                    <h3>Koordination & Bewegung</h3>
+                  </div>
+                  <div className="flip-card-back">
+                    <p>
+                      Dazu gehören die verschiedenen Laufarten (vorwärts, rückwärts, Side-Steps, Hopserlauf, etc.),
+                      eine intensive und ausgeprägte Ball-Schule sowie die Schulung sämtlicher koordinativer
+                      Fähigkeiten wie Gleichgewicht, Orientierung, Rhythmik, Differenzierung und Reaktion.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-              <h3>Tennis-Technik</h3>
-              <p>
-                Natürlich kommt auch das spezifische Tennis-Training nicht zu kurz: Je nach Lernalter
-                steigert sich der zeitliche Anteil des reinen Tennis-Trainings im Unterricht. Dabei
-                werden nach und nach alle Schläge erlernt: Vorhand, Rückhand, Volley, Aufschlag und
-                sogar der Schmetterball.
-              </p>
+              <div className="flip-card">
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <Target size={48} />
+                    <h3>Tennis-Technik</h3>
+                  </div>
+                  <div className="flip-card-back">
+                    <p>
+                      Je nach Lernalter steigert sich der zeitliche Anteil des reinen Tennis-Trainings.
+                      Dabei werden nach und nach alle Schläge erlernt: Vorhand, Rückhand, Volley,
+                      Aufschlag und sogar der Schmetterball.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-              <h3>Unser Ziel</h3>
-              <p>
-                Unser großes Ziel ist es, dass die Kinder lernen Tennis zu spielen, einen gesunden
-                Ehrgeiz entwickeln und dabei viel Spaß haben.
-              </p>
+              <div className="flip-card">
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <Trophy size={48} />
+                    <h3>Unser Ziel</h3>
+                  </div>
+                  <div className="flip-card-back">
+                    <p>
+                      Unser großes Ziel ist es, dass die Kinder lernen Tennis zu spielen,
+                      einen gesunden Ehrgeiz entwickeln und dabei viel Spaß haben.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-              <h3>Events & Highlights</h3>
-              <p>
-                Neben allem ernsthaften Training steht bei uns aber auch immer der Spaß im Vordergrund:
-                Regelmäßig stattfindende Tests sowie das große Weihnachtstennis als Jahresabschluss
-                gehören ebenso zu unserem Angebot wie die beliebten Tenniscamps in den Sommerferien,
-                bei denen Kinder neue Spielpartner und Freunde kennenlernen.
-              </p>
+              <div className="flip-card">
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <Calendar size={48} />
+                    <h3>Events & Highlights</h3>
+                  </div>
+                  <div className="flip-card-back">
+                    <p>
+                      Regelmäßige Tests, das große Weihnachtstennis als Jahresabschluss und
+                      die beliebten Tenniscamps in den Sommerferien, bei denen Kinder neue
+                      Spielpartner und Freunde kennenlernen.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </AnimatedSection>
         </div>
