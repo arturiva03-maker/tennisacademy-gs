@@ -587,12 +587,13 @@ img {
 }
 
 .video-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  columns: 3;
+  column-gap: 16px;
 }
 
 .video-gallery-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
   position: relative;
   border-radius: var(--radius);
   overflow: hidden;
@@ -633,7 +634,7 @@ img {
     columns: 3;
   }
   .video-gallery {
-    grid-template-columns: repeat(2, 1fr);
+    columns: 2;
   }
 }
 
@@ -642,7 +643,7 @@ img {
     columns: 2;
   }
   .video-gallery {
-    grid-template-columns: 1fr;
+    columns: 1;
   }
 }
 
