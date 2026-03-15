@@ -105,35 +105,32 @@ img {
 
 .nav-links {
   display: flex;
-  gap: 2px;
+  gap: 4px;
   list-style: none;
 }
 
 .nav-links a {
-  padding: 8px 14px;
-  border-radius: var(--radius-sm);
-  font-size: 0.88rem;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-medium);
-  transition: var(--transition);
+  transition: all 0.2s ease;
   position: relative;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--text-dark);
-  background: var(--bg);
+.nav-links a:hover {
+  color: var(--navy);
+  background: rgba(11, 37, 56, 0.05);
 }
 
-.nav-links a.active::after {
-  content: '';
-  position: absolute;
-  bottom: 2px;
-  left: 14px;
-  right: 14px;
-  height: 2px;
+.nav-links a.active {
+  color: var(--white);
   background: var(--navy);
-  border-radius: 2px;
+}
+
+.nav-links a.active:hover {
+  background: var(--navy);
 }
 
 .mobile-toggle {
@@ -201,6 +198,16 @@ img {
   height: 100%;
   background: linear-gradient(to right, rgba(11, 37, 56, 0.8) 0%, rgba(11, 37, 56, 0.5) 50%, rgba(11, 37, 56, 0.25) 100%);
   z-index: 1;
+}
+
+.hero-tenniscamp {
+  background: url('/tenniscamp.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-tenniscamp::before {
+  background: linear-gradient(to bottom, rgba(11, 37, 56, 0.7) 0%, rgba(11, 37, 56, 0.5) 100%);
 }
 
 .hero-bg-pattern {
