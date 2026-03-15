@@ -11,6 +11,7 @@ import News from './pages/News';
 import Kontakt from './pages/Kontakt';
 import Impressum from './pages/Impressum';
 import Datenschutz from './pages/Datenschutz';
+import Tenniscamps from './pages/Tenniscamps';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -36,6 +37,7 @@ function App() {
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
+          <Route path="/tenniscamps" element={<Tenniscamps />} />
         </Routes>
       </main>
       <Footer />
