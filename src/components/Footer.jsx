@@ -37,6 +37,20 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+        <div className="footer-sponsors">
+          <h4>Unsere Partner</h4>
+          <div className="sponsor-logos">
+            <a href="https://www.tennisshop-grandslam.de" target="_blank" rel="noopener noreferrer">
+              <img src="/sponsor-grandslam.jpg" alt="Tennisshop Grand Slam" />
+            </a>
+            <a href="https://www.dunlopsports.com" target="_blank" rel="noopener noreferrer">
+              <img src="/sponsor-dunlop.jpg" alt="Dunlop Sport" />
+            </a>
+            <a href="https://www.babolat.com" target="_blank" rel="noopener noreferrer">
+              <img src="/sponsor-babolat.jpg" alt="Babolat" />
+            </a>
+          </div>
+        </div>
         <div className="footer-bottom">
           &copy; {new Date().getFullYear()} Tennis Academy Grand Slam. Alle Rechte vorbehalten.
         </div>
