@@ -11,6 +11,7 @@ const trainers = [
     name: 'Jana Hladká-Kissal',
     role: 'Leitung der Tennis Academy',
     license: 'B-Trainer',
+    description: 'Ehemalige Profispielerin aus Tschechien. Mehrfache Siegerin bei slowakischen Jugendmeisterschaften im Einzel, Doppel und Mixed. Mit 15 Jahren Stammspielerin in der slowakischen Nationalliga, 2x Vizemeister. 10 Jahre Regionalliga beim TC Grunewald als Nr. 1. Deutsche Mannschaftsmeisterin Damen 40+ (2014), Deutsche Verbandsmeisterin 50+ (2021 & 2024). Trainerlizenz seit 1994. Tätigkeitsschwerpunkt: Kids on Court.',
   },
   {
     name: 'Zlatan Palazov',
