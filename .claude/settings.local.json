@@ -28,7 +28,20 @@
       "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"Kids on Court: Hero entfernt, Bild zurück in Galerie\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")",
       "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"Alle Seiten: Hero-Bild \\(hero-bg.jpg\\) hinzugefügt\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")",
       "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"SEO: Meta-Beschreibung aktualisiert \\(Berlin-Wilmersdorf\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")",
-      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"SEO: Strukturierte Daten \\(Schema.org LocalBusiness\\) hinzugefügt\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")"
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"SEO: Strukturierte Daten \\(Schema.org LocalBusiness\\) hinzugefügt\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\")",
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" add src/pages/Preise.jsx)",
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"$\\(cat <<''EOF''\nPreise aktualisiert: C-Trainer 5er 11,60€, B-Trainer 3er 18,67€, 5er 12,40€, 6er 10,67€\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"$\\(cat <<''EOF''\nPreise: Texte gekürzt \\(Individual entfernt, Alltag-Satz gekürzt\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" add src/pages/Trainer.jsx)",
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"$\\(cat <<''EOF''\nTrainer: Beschreibung für Michael Lingner hinzugefügt\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"$\\(cat <<''EOF''\nTrainer: Beschreibung für Jana Hladká-Kissal hinzugefügt\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"$\\(cat <<''EOF''\nTrainer: Jana - Tschechien zu Slowakei korrigiert\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"$\\(cat <<''EOF''\nTrainer: Beschreibungen Michael & Jana gekürzt\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" add:*)",
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"$\\(cat <<''EOF''\nTrainer: Beschreibungen als Stichpunkte formatiert\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"$\\(cat <<''EOF''\nTrainer: Beschreibung für Artur Ivanenko hinzugefügt\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" add .)",
+      "Bash(git -C \"C:\\\\Users\\\\artur\\\\tennisacademy-gs\" commit -m \"$\\(cat <<''EOF''\nTrainer: Bild für Artur Ivanenko hinzugefügt\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
   },
   "enableAllProjectMcpServers": true,

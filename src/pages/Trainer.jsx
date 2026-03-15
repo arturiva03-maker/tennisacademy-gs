@@ -40,6 +40,7 @@ const trainers = [
     name: 'Artur Ivanenko',
     role: 'Leitung der Tennis Academy',
     license: 'B-Trainer',
+    image: '/artur.jpg',
     bullets: [
       'Spielt seit früher Kindheit leidenschaftlich Tennis',
       'Trainiert Kinder, Jugendliche und Erwachsene',
@@ -72,9 +73,13 @@ export default function Trainer() {
             {trainers.map((t, i) => (
               <div className="trainer-card" key={i}>
                 <div className="trainer-photo">
-                  <div className="trainer-photo-placeholder">
-                    <User size={48} />
-                  </div>
+                  {t.image ? (
+                    <img src={t.image} alt={t.name} className="trainer-img" />
+                  ) : (
+                    <div className="trainer-photo-placeholder">
+                      <User size={48} />
+                    </div>
+                  )}
                   <span className="trainer-badge">{t.license}</span>
                 </div>
                 <div className="trainer-info">
