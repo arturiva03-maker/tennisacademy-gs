@@ -1,4 +1,5 @@
-import { Activity, Target, Trophy, Calendar } from 'lucide-react';
+import { useState } from 'react';
+import { Activity, Target, Trophy, Calendar, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 
 const galleryImages = Array.from({ length: 18 }, (_, i) => `/kids-gallery/img${i + 1}.jpg`);
@@ -6,6 +7,19 @@ const galleryVideos = Array.from({ length: 12 }, (_, i) => `/kids-gallery/vid${i
 const winterrundeImages = Array.from({ length: 4 }, (_, i) => `/kids-gallery/winterrunde${i + 1}.jpg`);
 
 export default function KidsOnCourt() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const openLightbox = (index) => {
+    setCurrentImage(index);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => setLightboxOpen(false);
+
+  const nextImage = () => setCurrentImage((prev) => (prev + 1) % galleryImages.length);
+  const prevImage = () => setCurrentImage((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+
   return (
     <>
       <section className="hero hero-kids">
@@ -184,7 +198,7 @@ export default function KidsOnCourt() {
             <h3 className="gallery-subtitle">Fotos</h3>
             <div className="media-gallery">
               {galleryImages.map((src, i) => (
-                <div className="media-gallery-item" key={i}>
+                <div className="media-gallery-item" key={i} onClick={() => openLightbox(i)}>
                   <img src={src} alt={`Kids on Court ${i + 1}`} loading="lazy" />
                 </div>
               ))}
@@ -205,6 +219,23 @@ export default function KidsOnCourt() {
           </AnimatedSection>
         </div>
       </section>
+
+      {lightboxOpen && (
+        <div className="lightbox" onClick={closeLightbox}>
+          <button className="lightbox-close" onClick={closeLightbox}>
+            <X size={32} />
+          </button>
+          <button className="lightbox-prev" onClick={(e) => { e.stopPropagation(); prevImage(); }}>
+            <ChevronLeft size={40} />
+          </button>
+          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <img src={galleryImages[currentImage]} alt={`Kids on Court ${currentImage + 1}`} />
+          </div>
+          <button className="lightbox-next" onClick={(e) => { e.stopPropagation(); nextImage(); }}>
+            <ChevronRight size={40} />
+          </button>
+        </div>
+      )}
     </>
   );
 }
