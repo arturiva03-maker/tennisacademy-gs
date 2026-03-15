@@ -2142,6 +2142,71 @@ img {
   opacity: 0;
 }
 
+/* ========== COMING SOON ========== */
+.coming-soon {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+  padding: 40px 20px;
+}
+
+.coming-soon-content {
+  text-align: center;
+  max-width: 500px;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.coming-soon-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  background: white;
+  padding: 15px;
+}
+
+.coming-soon h1 {
+  color: var(--white);
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.coming-soon p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.coming-soon-contact {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 24px;
+  border-radius: var(--radius);
+  backdrop-filter: blur(10px);
+}
+
+.coming-soon-contact p {
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.coming-soon-contact a {
+  color: var(--gold);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.coming-soon-contact a:hover {
+  color: var(--white);
+}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 900px) {
   .hero-content {
