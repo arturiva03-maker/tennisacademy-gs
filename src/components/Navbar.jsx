@@ -4,12 +4,12 @@ import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { path: '/', label: 'Home' },
-  { path: '/trainer', label: 'Trainerteam' },
-  { path: '/preise', label: 'Preise und Angebote' },
+  { path: '/trainer', label: 'Trainer' },
+  { path: '/preise', label: 'Preise' },
   { path: '/kids-on-court', label: 'Kids on Court' },
-  { path: '/tenniscamps', label: 'Tenniscamps' },
+  { path: '/tenniscamps', label: 'Camps' },
   { path: '/dtb-vdt', label: 'DTB/VDT' },
-  { path: '/news', label: 'News & Events' },
+  { path: '/news', label: 'News' },
   { path: '/kontakt', label: 'Kontakt' },
 ];
 

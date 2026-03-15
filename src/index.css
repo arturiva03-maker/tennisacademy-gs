@@ -105,28 +105,34 @@ img {
 
 .nav-links {
   display: flex;
-  gap: 4px;
+  gap: 2px;
   list-style: none;
+  align-items: center;
+}
+
+.nav-links li {
+  display: flex;
 }
 
 .nav-links a {
-  padding: 10px 16px;
-  border-radius: var(--radius);
-  font-size: 0.9rem;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
   font-weight: 500;
   color: var(--text-medium);
   transition: all 0.2s ease;
-  position: relative;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
   color: var(--navy);
-  background: rgba(11, 37, 56, 0.05);
+  background: rgba(11, 37, 56, 0.06);
 }
 
 .nav-links a.active {
   color: var(--white);
   background: var(--navy);
+  font-weight: 600;
 }
 
 .nav-links a.active:hover {
