@@ -7,11 +7,19 @@ const winterrundeImages = Array.from({ length: 4 }, (_, i) => `/kids-gallery/win
 export default function KidsOnCourt() {
   return (
     <>
-      <section className="page-hero" style={{ backgroundImage: "url('/kids-hero.jpg')" }}>
-        <div className="page-hero-overlay"></div>
-        <div className="container">
-          <h1>Kids on Court</h1>
-          <p>Tennis für Kinder ab 4 Jahren</p>
+      <section className="hero hero-kids">
+        <div className="hero-content">
+          <div className="hero-text" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+            <div className="hero-badge-large">
+              Ab 4 Jahren
+            </div>
+            <h1 className="hero-title-large">
+              Kids on Court
+            </h1>
+            <p className="hero-subtitle">
+              Tennis für Kinder ab 4 Jahren
+            </p>
+          </div>
         </div>
       </section>
 
