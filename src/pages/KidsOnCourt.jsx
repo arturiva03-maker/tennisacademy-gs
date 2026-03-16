@@ -134,8 +134,7 @@ export default function KidsOnCourt() {
         <div className="container">
           <AnimatedSection>
             <div className="section-header">
-              <h2 className="section-title">U8 Winterrunde</h2>
-              <p className="section-subtitle">Mini-Tennis in Berlin</p>
+              <h2 className="section-title">U8 Winterrunde – Mini-Tennis in Berlin</h2>
             </div>
           </AnimatedSection>
 
@@ -144,9 +143,8 @@ export default function KidsOnCourt() {
               <div className="winterrunde-text">
                 <h3>Was ist die Winterrunde?</h3>
                 <p>
-                  Über den Winter bietet der Tennis-Verband Berlin-Brandenburg (TVBB) monatlich
-                  eine Mini-Tennisrunde U8 für die Jüngsten im Verbandsgebiet an. Die Winterrunde
-                  der Mini-Tennis-Runde U8 findet zum Start des neuen Jahres statt.
+                  Der Tennis-Verband Berlin-Brandenburg (TVBB) bietet jede Wintersaison monatliche
+                  Spieltage der Mini-Tennisrunde U8 für die Jüngsten im Verbandsgebiet an.
                 </p>
 
                 <h3>Wer darf mitspielen?</h3>
@@ -160,14 +158,23 @@ export default function KidsOnCourt() {
                 <p>
                   Kleinfeldtennis ist eine altersgerechte Vorbereitung auf das reguläre Tennis.
                   Durch die Verkleinerung des Spielfeldes und Verwendung eines weichen Methodikballes
-                  wird das Entwicklungsstadium der Kinder berücksichtigt und es werden frühzeitig
-                  Erfolgserlebnisse erreicht. Im Mannschaftswettbewerb lernen die Kinder soziale
-                  Aspekte wie Teamgeist, Fair Play und positives Verhalten.
+                  (Stage 3, rot) wird das Entwicklungsstadium der Kinder berücksichtigt und frühzeitig
+                  Erfolgserlebnisse ermöglicht. Neben Tennis-Einzel und Doppel finden zusätzlich
+                  Motorikübungen statt, die koordinative und konditionelle Fähigkeiten fördern.
                 </p>
                 <p>
-                  Gespielt wird auf dem Kleinfeld mit Stage-3-Bällen (rot, 75 % langsamer).
-                  Neben Tennis-Einzel und Doppel finden zusätzlich Motorikübungen statt,
-                  die koordinative und konditionelle Fähigkeiten der Kinder fördern.
+                  Ein wichtiger Bestandteil ist das Erlernen der Zählweise – einschließlich Tiebreak
+                  und Match-Tiebreak – unter Anleitung von Schiedsrichtern, die die Kinder durch die
+                  Matches begleiten.
+                </p>
+
+                <h3>Der nächste Schritt: Midcourt</h3>
+                <p>
+                  Nach der U8 folgt der Wechsel auf den Midcourt. Hier spielen die Kinder auf einem
+                  vergrößerten Feld und übernehmen deutlich mehr Eigenverantwortung: Sie müssen
+                  selbstständig erkennen, ob ein Ball gut oder aus ist, und die Zählweise eigenständig
+                  anwenden. Begleitet werden die Matches lediglich von einem Spielleiter – ein wichtiger
+                  Schritt in der Entwicklung zur Selbstständigkeit auf dem Platz.
                 </p>
               </div>
 
