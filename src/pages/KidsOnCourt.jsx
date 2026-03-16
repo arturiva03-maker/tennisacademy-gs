@@ -176,6 +176,11 @@ export default function KidsOnCourt() {
                   anwenden. Begleitet werden die Matches lediglich von einem Spielleiter – ein wichtiger
                   Schritt in der Entwicklung zur Selbstständigkeit auf dem Platz.
                 </p>
+                <p>
+                  Im Midcourt-Bereich werden auch die ersten taktischen Elemente erlernt sowie die
+                  Variation des Schlägerimpulses: Den Ball weicher und sicher spielen oder härter
+                  und gefährlicher – je nach Spielsituation.
+                </p>
               </div>
 
               <div className="winterrunde-gallery">
