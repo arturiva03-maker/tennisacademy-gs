@@ -142,7 +142,7 @@ export default function Home() {
           <AnimatedSection animation="scale">
             <div className="dtb-quality-seal">
               <div className="dtb-logo-container">
-                <img src="/vdt-logo.png" alt="VDT - Verband Deutscher Tennislehrer" className="dtb-logo" />
+                <img src="/vdt-dtb-logo.jpg" alt="Deutsche Tennisschule - anerkannt von DTB und VDT" className="dtb-logo" />
               </div>
               <div className="dtb-content">
                 <h2>Deutsche Tennisschule</h2>

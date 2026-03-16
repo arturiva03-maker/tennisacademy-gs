@@ -17,7 +17,7 @@ export default function DtbVdt() {
           <AnimatedSection>
             <div className="dtb-banner">
               <div className="dtb-logo-container">
-                <img src="/vdt-logo.png" alt="VDT - Verband Deutscher Tennislehrer" className="dtb-logo" />
+                <img src="/vdt-dtb-logo.jpg" alt="Deutsche Tennisschule - anerkannt von DTB und VDT" className="dtb-logo" />
               </div>
               <div className="dtb-banner-text">
                 <h2>Qualität hat einen Namen</h2>
