@@ -5,27 +5,22 @@ import { AnimatedSection } from '../hooks/useScrollAnimation';
 
 const features = [
   {
-    image: '/technik.jpg',
     title: 'Techniktraining',
     text: 'Systematisches Erlernen und Verfeinern aller Schläge: Vorhand, Rückhand, Volley, Aufschlag und Schmetterball. Vom Technikerwerbstraining bis zur Anwendung in Spielsituationen.',
   },
   {
-    image: '/taktik.jpg',
     title: 'Taktiktraining',
     text: 'Spielverständnis entwickeln und taktische Entscheidungen trainieren. Standardsituationen meistern, Spielzüge automatisieren und den Gegner lesen lernen.',
   },
   {
-    image: '/gruppentraining.jpg',
     title: 'Gruppentraining',
     text: 'Spaß und Motivation in der Gruppe. Wettkampf untereinander, verschiedene Spieltypen kennenlernen und voneinander profitieren. Ideal für Kinder, Jugendliche und Erwachsene.',
   },
   {
-    image: '/einzel.jpg',
     title: 'Einzeltraining',
     text: '100% individuelle Betreuung durch Ihren Trainer. Gezielte Technikarbeit, persönlich abgestimmte Trainingsinhalte und maximale Aufmerksamkeit für Ihre Entwicklung.',
   },
   {
-    image: '/athletik.jpg',
     title: 'Athletik & Kondition',
     text: 'Die athletische Basis für erfolgreiches Tennis: Beinarbeit, Koordination, Schnelligkeit und Ausdauer. Komplextraining, das Technik und Fitness verbindet.',
   },
@@ -98,9 +93,6 @@ export default function Home() {
                   style={{ transform: `translateX(${(i - currentSlide) * 100}%)` }}
                 >
                   <div className="slider-card">
-                    <div className="slider-image">
-                      <img src={f.image} alt={f.title} />
-                    </div>
                     <h3>{f.title}</h3>
                     <p>{f.text}</p>
                   </div>
@@ -125,9 +117,6 @@ export default function Home() {
           <div className="features-grid-mobile">
             {features.map((f, i) => (
               <div className="feature-card" key={i}>
-                <div className="feature-image">
-                  <img src={f.image} alt={f.title} />
-                </div>
                 <h3>{f.title}</h3>
                 <p>{f.text}</p>
               </div>
