@@ -2703,4 +2703,9 @@ img {
   .kids-split-text h2 {
     font-size: 1.6rem;
   }
+
+  .hero-kids {
+    min-height: 50vh;
+    background-position: center center;
+  }
 }
