@@ -54,12 +54,12 @@ export default function Preise() {
                   <td className="trainer-cell">
                     <strong>B-Lizenz Trainer</strong>
                   </td>
-                  <td><span className="preis-amount">50 €</span></td>
-                  <td><span className="preis-amount">26 €</span></td>
-                  <td><span className="preis-amount">18,67 €</span></td>
-                  <td><span className="preis-amount">15 €</span></td>
-                  <td><span className="preis-amount">12,40 €</span></td>
-                  <td><span className="preis-amount">10,67 €</span></td>
+                  <td><span className="preis-amount">52 €</span></td>
+                  <td><span className="preis-amount">28 €</span></td>
+                  <td><span className="preis-amount">20,67 €</span></td>
+                  <td><span className="preis-amount">17 €</span></td>
+                  <td><span className="preis-amount">14,40 €</span></td>
+                  <td><span className="preis-amount">12,67 €</span></td>
                 </tr>
               </tbody>
             </table>
