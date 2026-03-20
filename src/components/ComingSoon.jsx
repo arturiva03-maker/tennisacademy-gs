@@ -26,7 +26,7 @@ export default function ComingSoon() {
           <p>Bei Fragen erreichen Sie uns unter:</p>
           <a href="mailto:info@tennisacademy-gs.de">info@tennisacademy-gs.de</a>
           <address className="coming-soon-address">
-            Buschkrugallee 54, 12359 Berlin
+            Trainingsort: BSV 92 – Fritz-Wildung-Str. 23, 14199 Berlin
           </address>
         </div>
       </div>
