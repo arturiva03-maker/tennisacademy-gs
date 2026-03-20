@@ -26,22 +26,29 @@ const features = [
   },
 ];
 
-function TennisNewsWidget({ tenant, id }) {
-  const widgetRef = useRef(null);
+function TennisNewsWidgets() {
+  const containerRef = useRef(null);
 
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://www.tennis.de/content/dam/services/news-widget/widget.js';
     script.async = true;
-    widgetRef.current?.appendChild(script);
+    document.body.appendChild(script);
     return () => {
       script.remove();
     };
   }, []);
 
   return (
-    <div ref={widgetRef}>
-      <div id={id} data-tenant={tenant} data-design="modern"></div>
+    <div ref={containerRef} className="tennis-news-widgets">
+      <div className="tennis-news-widget-col">
+        <h3>tennis.de</h3>
+        <div id="tennis-news-widget" data-tenant="dtb" data-design="modern"></div>
+      </div>
+      <div className="tennis-news-widget-col">
+        <h3>TVBB</h3>
+        <div id="tennis-news-widget-tvbb" data-tenant="tvbb" data-design="modern"></div>
+      </div>
     </div>
   );
 }
@@ -194,16 +201,7 @@ export default function Home() {
             </div>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
-            <div className="tennis-news-widgets">
-              <div className="tennis-news-widget-col">
-                <h3>tennis.de</h3>
-                <TennisNewsWidget tenant="dtb" id="tennis-news-widget-dtb" />
-              </div>
-              <div className="tennis-news-widget-col">
-                <h3>TVBB</h3>
-                <TennisNewsWidget tenant="tvbb" id="tennis-news-widget-tvbb" />
-              </div>
-            </div>
+            <TennisNewsWidgets />
           </AnimatedSection>
         </div>
       </section>
