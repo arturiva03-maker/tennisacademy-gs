@@ -1398,6 +1398,12 @@ img {
   background: var(--navy);
 }
 
+/* ========== TENNIS NEWS WIDGET ========== */
+.tennis-news-section {
+  padding: 80px 0;
+  background: var(--white);
+}
+
 /* ========== KIDS ON COURT ========== */
 .kids-section {
   padding: 80px 0;

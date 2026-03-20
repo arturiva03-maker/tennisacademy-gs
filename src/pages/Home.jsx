@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Award, Target, Users, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 
 const features = [
@@ -25,6 +25,26 @@ const features = [
     text: 'Die athletische Basis für erfolgreiches Tennis: Beinarbeit, Koordination, Schnelligkeit und Ausdauer. Komplextraining, das Technik und Fitness verbindet.',
   },
 ];
+
+function TennisNewsWidget() {
+  const widgetRef = useRef(null);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://www.tennis.de/content/dam/services/news-widget/widget.js';
+    script.async = true;
+    widgetRef.current?.appendChild(script);
+    return () => {
+      script.remove();
+    };
+  }, []);
+
+  return (
+    <div ref={widgetRef}>
+      <div id="tennis-news-widget" data-tenant="dtb" data-design="modern"></div>
+    </div>
+  );
+}
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -71,7 +91,7 @@ export default function Home() {
         <div className="container">
           <AnimatedSection>
             <div className="section-header">
-              <h2 className="section-title">Unser Angebot für Sie</h2>
+              <h2 className="section-title">Unser Angebot für dich</h2>
               <p className="section-subtitle">
                 Von der Technik bis zur Taktik, vom Kinderprogramm bis zum Leistungstraining
                 – wir begleiten dich auf deinem Tennisweg.
@@ -158,6 +178,23 @@ export default function Home() {
                 </Link>
               </div>
             </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* TENNIS.DE NEWS */}
+      <section className="tennis-news-section">
+        <div className="container">
+          <AnimatedSection>
+            <div className="section-header">
+              <h2 className="section-title">Tennis News</h2>
+              <p className="section-subtitle">
+                Aktuelle Nachrichten aus der Tenniswelt via tennis.de
+              </p>
+            </div>
+          </AnimatedSection>
+          <AnimatedSection delay={0.1}>
+            <TennisNewsWidget />
           </AnimatedSection>
         </div>
       </section>
