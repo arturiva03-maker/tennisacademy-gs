@@ -38,7 +38,7 @@ function TennisNewsWidget() {
   }, []);
 
   return (
-    <div id="tennis-news-widget" data-tenant="tvbb" data-design="modern"></div>
+    <div id="tennis-news-widget" data-tenant="dtb" data-design="modern"></div>
   );
 }
 
