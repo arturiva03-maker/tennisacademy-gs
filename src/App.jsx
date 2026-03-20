@@ -62,11 +62,11 @@ function AnimatedRoutes() {
 }
 
 function App() {
-  const hasAccess = usePreviewAccess();
-
-  if (!hasAccess) {
-    return <ComingSoon />;
-  }
+  // const hasAccess = usePreviewAccess();
+  //
+  // if (!hasAccess) {
+  //   return <ComingSoon />;
+  // }
 
   return (
     <BrowserRouter>
