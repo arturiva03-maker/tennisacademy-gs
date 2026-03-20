@@ -23,7 +23,7 @@ export default function ComingSoon() {
         </div>
 
         <div className="coming-soon-contact">
-          <p>Bei Fragen erreichen Sie uns unter:</p>
+          <p>Bei Fragen erreichst du uns unter:</p>
           <a href="mailto:info@tennisacademy-gs.de">info@tennisacademy-gs.de</a>
           <address className="coming-soon-address">
             Trainingsort: BSV 92 – Fritz-Wildung-Str. 23, 14199 Berlin

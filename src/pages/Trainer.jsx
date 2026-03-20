@@ -70,7 +70,7 @@ export default function Trainer() {
         <div className="container">
           <div className="section-header">
             <p className="section-subtitle">
-              Unser qualifiziertes Team steht Ihnen mit jahrelanger Erfahrung
+              Unser qualifiziertes Team steht dir mit jahrelanger Erfahrung
               und Leidenschaft für den Tennissport zur Verfügung.
             </p>
           </div>

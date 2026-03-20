@@ -18,7 +18,7 @@ const features = [
   },
   {
     title: 'Einzeltraining',
-    text: '100% individuelle Betreuung durch Ihren Trainer. Gezielte Technikarbeit, persönlich abgestimmte Trainingsinhalte und maximale Aufmerksamkeit für Ihre Entwicklung.',
+    text: '100% individuelle Betreuung durch deinen Trainer. Gezielte Technikarbeit, persönlich abgestimmte Trainingsinhalte und maximale Aufmerksamkeit für deine Entwicklung.',
   },
   {
     title: 'Athletik & Kondition',
@@ -74,7 +74,7 @@ export default function Home() {
               <h2 className="section-title">Unser Angebot für Sie</h2>
               <p className="section-subtitle">
                 Von der Technik bis zur Taktik, vom Kinderprogramm bis zum Leistungstraining
-                – wir begleiten Sie auf Ihrem Tennisweg.
+                – wir begleiten dich auf deinem Tennisweg.
               </p>
             </div>
           </AnimatedSection>

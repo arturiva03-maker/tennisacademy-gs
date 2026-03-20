@@ -48,8 +48,8 @@ export default function KidsOnCourt() {
                 </div>
                 <h2>Was bedeutet Kids on Court?</h2>
                 <p>
-                  Vielleicht erinnern Sie sich daran, in welchem Alter Sie mit dem Tennis begonnen haben
-                  und denken dabei: „Viel zu spät!". Heute bieten wir schon Kindern im Alter von 4 Jahren
+                  Vielleicht erinnerst du dich daran, in welchem Alter du mit dem Tennis begonnen hast
+                  und denkst dabei: „Viel zu spät!". Heute bieten wir schon Kindern im Alter von 4 Jahren
                   die Möglichkeit, unseren schönen Sport zu erlernen – eben bei Kids on Court.
                 </p>
                 <p>

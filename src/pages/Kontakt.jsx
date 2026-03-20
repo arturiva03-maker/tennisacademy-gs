@@ -22,11 +22,11 @@ const validateForm = (data) => {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!data.email || !emailRegex.test(data.email)) {
-    errors.email = 'Bitte geben Sie eine gültige E-Mail-Adresse ein';
+    errors.email = 'Bitte gib eine gültige E-Mail-Adresse ein';
   }
 
   if (data.phone && !/^[\d\s\-+()]*$/.test(data.phone)) {
-    errors.phone = 'Bitte geben Sie eine gültige Telefonnummer ein';
+    errors.phone = 'Bitte gib eine gültige Telefonnummer ein';
   }
 
   if (!data.subject || data.subject.trim().length < 3) {
@@ -42,7 +42,7 @@ const validateForm = (data) => {
   }
 
   if (!data.privacy) {
-    errors.privacy = 'Bitte akzeptieren Sie die Datenschutzerklärung';
+    errors.privacy = 'Bitte akzeptiere die Datenschutzerklärung';
   }
 
   return errors;
@@ -107,7 +107,7 @@ export default function Kontakt() {
 
     if (isRateLimited()) {
       setErrors({
-        form: 'Zu viele Anfragen. Bitte warten Sie einen Moment.'
+        form: 'Zu viele Anfragen. Bitte warte einen Moment.'
       });
       return;
     }
@@ -150,7 +150,7 @@ export default function Kontakt() {
         <div className="page-hero-overlay"></div>
         <div className="container">
           <h1>Kontakt</h1>
-          <p>Wir freuen uns auf Ihre Nachricht</p>
+          <p>Wir freuen uns auf deine Nachricht</p>
         </div>
       </section>
 
@@ -159,10 +159,10 @@ export default function Kontakt() {
           <div className="kontakt-grid">
             <AnimatedSection>
               <div className="kontakt-info">
-                <h2>So erreichen Sie uns</h2>
+                <h2>So erreichst du uns</h2>
               <p>
-                Haben Sie Fragen zu unserem Trainingsangebot oder möchten Sie
-                ein Probetraining vereinbaren? Schreiben Sie uns!
+                Hast du Fragen zu unserem Trainingsangebot oder möchtest du
+                ein Probetraining vereinbaren? Schreib uns!
               </p>
 
               <div className="kontakt-details">
@@ -182,7 +182,7 @@ export default function Kontakt() {
                 <div className="form-success">
                   <CheckCircle size={48} />
                   <h3>Nachricht gesendet!</h3>
-                  <p>Vielen Dank für Ihre Anfrage. Wir melden uns schnellstmöglich bei Ihnen.</p>
+                  <p>Vielen Dank für deine Anfrage. Wir melden uns schnellstmöglich bei dir.</p>
                   <button
                     className="btn btn-primary"
                     onClick={() => setStatus('idle')}
@@ -292,7 +292,7 @@ export default function Kontakt() {
                   {(status === 'error' || errors.form) && (
                     <div className="form-error">
                       <AlertCircle size={20} />
-                      <span>{errors.form || 'Es gab einen Fehler. Bitte versuchen Sie es erneut.'}</span>
+                      <span>{errors.form || 'Es gab einen Fehler. Bitte versuche es erneut.'}</span>
                     </div>
                   )}
 
