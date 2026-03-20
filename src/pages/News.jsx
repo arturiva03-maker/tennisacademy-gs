@@ -9,7 +9,7 @@ export const events = [
     date: 'Frist: 10. April 2026',
     location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
     description: 'Liebe Trainingsteilnehmerinnen und Trainingsteilnehmer,\n\ndie aktuelle Wintersaison neigt sich dem Ende zu. Daher benötigen wir von allen zukünftigen Trainingsteilnehmerinnen und Trainingsteilnehmern das ausgefüllte Trainingswunschformular.\n\nSende uns eine kurze Nachricht, um das Formular zu erhalten.',
-    image: '/logo.png',
+    image: '/anmeldung.jpg',
     cta: { label: 'Nachricht senden', link: '/kontakt' },
   },
   {
