@@ -26,7 +26,7 @@ const features = [
   },
 ];
 
-function TennisNewsWidget() {
+function TennisNewsWidget({ tenant, id }) {
   const widgetRef = useRef(null);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ function TennisNewsWidget() {
 
   return (
     <div ref={widgetRef}>
-      <div id="tennis-news-widget" data-tenant="dtb" data-design="modern"></div>
+      <div id={id} data-tenant={tenant} data-design="modern"></div>
     </div>
   );
 }
@@ -194,7 +194,16 @@ export default function Home() {
             </div>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
-            <TennisNewsWidget />
+            <div className="tennis-news-widgets">
+              <div className="tennis-news-widget-col">
+                <h3>tennis.de</h3>
+                <TennisNewsWidget tenant="dtb" id="tennis-news-widget-dtb" />
+              </div>
+              <div className="tennis-news-widget-col">
+                <h3>TVBB</h3>
+                <TennisNewsWidget tenant="tvbb" id="tennis-news-widget-tvbb" />
+              </div>
+            </div>
           </AnimatedSection>
         </div>
       </section>
