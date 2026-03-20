@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Award, Target, Users, ChevronLeft, ChevronRight, Calendar, MapPin } from 'lucide-react';
+import { Award, Target, Users, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import { events } from './News';
@@ -160,7 +160,6 @@ export default function Home() {
                   <p className="news-card-subtitle">{events[0].subtitle}</p>
                   <div className="news-card-meta">
                     <span><Calendar size={16} /> {events[0].date}</span>
-                    <span><MapPin size={16} /> {events[0].location}</span>
                   </div>
                   {events[0].description.split('\n\n').map((paragraph, j) => (
                     <p className="news-card-text" key={j}>{paragraph}</p>

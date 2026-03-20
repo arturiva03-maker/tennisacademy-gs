@@ -1,4 +1,4 @@
-import { Calendar, MapPin } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 
@@ -55,7 +55,6 @@ export default function News() {
                     <p className="news-card-subtitle">{event.subtitle}</p>
                     <div className="news-card-meta">
                       <span><Calendar size={16} /> {event.date}</span>
-                      <span><MapPin size={16} /> {event.location}</span>
                     </div>
                     {event.description.split('\n\n').map((paragraph, j) => (
                       <p className="news-card-text" key={j}>{paragraph}</p>
