@@ -2139,10 +2139,11 @@ img {
   object-fit: cover;
 }
 
-.news-card-image img[src$=".png"] {
+.news-card-image img[src$=".png"],
+.news-card-image img[src$="anmeldung.jpg"] {
   object-fit: contain;
-  padding: 32px;
-  background: var(--navy-dark);
+  padding: 48px;
+  background: var(--white);
 }
 
 .news-card-content {
