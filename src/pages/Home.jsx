@@ -26,9 +26,7 @@ const features = [
   },
 ];
 
-function TennisNewsWidgets() {
-  const containerRef = useRef(null);
-
+function TennisNewsWidget() {
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://www.tennis.de/content/dam/services/news-widget/widget.js';
@@ -40,16 +38,7 @@ function TennisNewsWidgets() {
   }, []);
 
   return (
-    <div ref={containerRef} className="tennis-news-widgets">
-      <div className="tennis-news-widget-col">
-        <h3>tennis.de</h3>
-        <div id="tennis-news-widget" data-tenant="dtb" data-design="modern"></div>
-      </div>
-      <div className="tennis-news-widget-col">
-        <h3>TVBB</h3>
-        <div id="tennis-news-widget-tvbb" data-tenant="tvbb" data-design="modern"></div>
-      </div>
-    </div>
+    <div id="tennis-news-widget" data-tenant="tvbb" data-design="modern"></div>
   );
 }
 
@@ -201,7 +190,7 @@ export default function Home() {
             </div>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
-            <TennisNewsWidgets />
+            <TennisNewsWidget />
           </AnimatedSection>
         </div>
       </section>
