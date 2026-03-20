@@ -53,7 +53,6 @@ export default function Home() {
             <p className="hero-subtitle">
               Wir, Michael Lingner, Jana Hladká-Kissal, Zlatan Palazov und Artur Ivanenko, haben uns der Förderung
               des Jugendsports verschrieben – im Breiten- sowie im Leistungsbereich.
-              Zusammen gründeten wir zum Sommer 2026 die Tennis Academy Grand Slam.
             </p>
             <div className="hero-cta">
               <Link to="/preise" className="btn btn-primary">
