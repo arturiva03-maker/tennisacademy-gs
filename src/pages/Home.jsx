@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Award, Target, Users, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Award, Target, Users, ChevronLeft, ChevronRight, Calendar, MapPin } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
+import { events } from './News';
 
 const features = [
   {
@@ -139,6 +140,42 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* LATEST NEWS */}
+      {events[0] && (
+        <section className="latest-news-section">
+          <div className="container">
+            <AnimatedSection>
+              <div className="section-header">
+                <h2 className="section-title">Aktuelles</h2>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={0.1}>
+              <div className="news-card">
+                <div className="news-card-image">
+                  <img src={events[0].image} alt={events[0].title} />
+                </div>
+                <div className="news-card-content">
+                  <h2>{events[0].title}</h2>
+                  <p className="news-card-subtitle">{events[0].subtitle}</p>
+                  <div className="news-card-meta">
+                    <span><Calendar size={16} /> {events[0].date}</span>
+                    <span><MapPin size={16} /> {events[0].location}</span>
+                  </div>
+                  {events[0].description.split('\n\n').map((paragraph, j) => (
+                    <p className="news-card-text" key={j}>{paragraph}</p>
+                  ))}
+                  {events[0].cta && (
+                    <Link to={events[0].cta.link} className="btn btn-primary" style={{ marginTop: '20px' }}>
+                      {events[0].cta.label}
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+      )}
 
       {/* DTB/VDT TEASER */}
       <section className="dtb-section">

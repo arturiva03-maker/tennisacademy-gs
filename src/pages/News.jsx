@@ -1,7 +1,17 @@
 import { Calendar, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 
-const events = [
+export const events = [
+  {
+    title: 'Anmeldung Tennistraining Sommersaison',
+    subtitle: 'Trainingswunschformular bis 10. April einreichen',
+    date: 'Frist: 10. April 2026',
+    location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
+    description: 'Liebe Trainingsteilnehmerinnen und Trainingsteilnehmer,\n\ndie aktuelle Wintersaison neigt sich dem Ende zu. Daher benötigen wir von allen zukünftigen Trainingsteilnehmerinnen und Trainingsteilnehmern das ausgefüllte Trainingswunschformular.\n\nSende uns eine kurze Nachricht, um das Formular zu erhalten.',
+    image: '/logo.png',
+    cta: { label: 'Nachricht senden', link: '/kontakt' },
+  },
   {
     title: 'Aus Tennisschule wird Academy',
     subtitle: 'Die Tennis Academy Grand Slam ist da',
@@ -50,6 +60,11 @@ export default function News() {
                     {event.description.split('\n\n').map((paragraph, j) => (
                       <p className="news-card-text" key={j}>{paragraph}</p>
                     ))}
+                    {event.cta && (
+                      <Link to={event.cta.link} className="btn btn-primary" style={{ marginTop: '20px' }}>
+                        {event.cta.label}
+                      </Link>
+                    )}
                   </div>
                 </div>
               </AnimatedSection>

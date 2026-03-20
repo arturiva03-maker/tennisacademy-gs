@@ -1398,6 +1398,12 @@ img {
   background: var(--navy);
 }
 
+/* ========== LATEST NEWS (HOME) ========== */
+.latest-news-section {
+  padding: 80px 0;
+  background: var(--bg);
+}
+
 /* ========== TENNIS NEWS WIDGET ========== */
 .tennis-news-section {
   padding: 80px 0;
