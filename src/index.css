@@ -2126,6 +2126,12 @@ img {
   object-fit: cover;
 }
 
+.news-card-image img[src$=".png"] {
+  object-fit: contain;
+  padding: 32px;
+  background: var(--navy-dark);
+}
+
 .news-card-content {
   padding: 32px;
 }

@@ -3,6 +3,14 @@ import { AnimatedSection } from '../hooks/useScrollAnimation';
 
 const events = [
   {
+    title: 'Aus Tennisschule wird Academy',
+    subtitle: 'Die Tennis Academy Grand Slam ist da',
+    date: 'März 2026',
+    location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
+    description: 'Nach über 16 Jahren erfolgreicher Arbeit geht die Tennisschule Ritter & Lingner einen großen Schritt weiter: Passend zum 125-jährigen Jubiläum des BSV 92 wird aus der bewährten Tennisschule die neugegründete TENNIS ACADEMY GRAND SLAM.\n\nMit Jana Hladka-Kissal, Artur Ivanenko, Zlatan Palazov und Michael Lingner als Gesellschaftern und einem starken Team im Rücken ist das Ziel klar – die Qualität im Kinder- und Jugendbereich noch weiter zu steigern.\n\nWas als Tennisschule begann, wird jetzt zur Akademie. Das nächste Kapitel beginnt.\n\nWir freuen uns auf eine erfolgreiche Sommersaison 2026.\n\nEure TENNIS ACADEMY GRAND SLAM & Team',
+    image: '/logo.png',
+  },
+  {
     title: '15. Čujić-Mini-Cup 2025',
     subtitle: 'Kleinfeldturnier mit Mehrkampf',
     date: 'Sonntag, 07.09.2025',
@@ -39,7 +47,9 @@ export default function News() {
                       <span><Calendar size={16} /> {event.date}</span>
                       <span><MapPin size={16} /> {event.location}</span>
                     </div>
-                    <p className="news-card-text">{event.description}</p>
+                    {event.description.split('\n\n').map((paragraph, j) => (
+                      <p className="news-card-text" key={j}>{paragraph}</p>
+                    ))}
                   </div>
                 </div>
               </AnimatedSection>
