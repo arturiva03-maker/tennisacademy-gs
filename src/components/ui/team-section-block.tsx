@@ -196,7 +196,7 @@ function TeamMemberCard({
         />
 
         {/* Large photo */}
-        <div className="relative h-72 overflow-hidden">
+        <div className="relative h-60 overflow-hidden">
           {member.image ? (
             <motion.img
               src={member.image}
@@ -349,7 +349,7 @@ export function TeamSectionBlock() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2"
+          className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
         >
           {teamMembers.map((member, index) => (
             <TeamMemberCard key={member.name} member={member} index={index} />
