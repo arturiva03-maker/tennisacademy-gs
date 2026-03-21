@@ -1,6 +1,7 @@
 import { Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
+import ButtonWithIcon from '@/components/ui/button-with-icon';
 
 export const events = [
   {
@@ -60,9 +61,11 @@ export default function News() {
                       <p className="news-card-text" key={j}>{paragraph}</p>
                     ))}
                     {event.cta && (
-                      <Link to={event.cta.link} className="btn btn-primary" style={{ marginTop: '20px' }}>
-                        {event.cta.label}
-                      </Link>
+                      <div style={{ marginTop: '20px' }}>
+                        <ButtonWithIcon href={event.cta.link}>
+                          {event.cta.label}
+                        </ButtonWithIcon>
+                      </div>
                     )}
                   </div>
                 </div>

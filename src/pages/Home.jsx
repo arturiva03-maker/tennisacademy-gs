@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import { events } from './News';
 import { FeatureCarousel } from '@/components/ui/feature-carousel';
+import ButtonWithIcon from '@/components/ui/button-with-icon';
 
 function TennisNewsWidget() {
   useEffect(() => {
@@ -40,12 +41,12 @@ export default function Home() {
               des Jugendsports verschrieben – im Breiten- sowie im Leistungsbereich.
             </p>
             <div className="hero-cta">
-              <Link to="/preise" className="btn btn-primary">
+              <ButtonWithIcon href="/preise">
                 Preise ansehen
-              </Link>
-              <Link to="/trainer" className="btn btn-outline">
+              </ButtonWithIcon>
+              <ButtonWithIcon href="/trainer" variant="outline">
                 Unser Team
-              </Link>
+              </ButtonWithIcon>
             </div>
           </div>
         </div>
@@ -91,9 +92,11 @@ export default function Home() {
                     <p className="news-card-text" key={j}>{paragraph}</p>
                   ))}
                   {events[0].cta && (
-                    <Link to={events[0].cta.link} className="btn btn-primary" style={{ marginTop: '20px' }}>
-                      {events[0].cta.label}
-                    </Link>
+                    <div style={{ marginTop: '20px' }}>
+                      <ButtonWithIcon href={events[0].cta.link}>
+                        {events[0].cta.label}
+                      </ButtonWithIcon>
+                    </div>
                   )}
                 </div>
               </div>
@@ -131,9 +134,9 @@ export default function Home() {
                     <span>Professionelle Ausbildung</span>
                   </div>
                 </div>
-                <Link to="/dtb-vdt" className="btn btn-primary">
+                <ButtonWithIcon href="/dtb-vdt">
                   Mehr erfahren
-                </Link>
+                </ButtonWithIcon>
               </div>
             </div>
           </AnimatedSection>

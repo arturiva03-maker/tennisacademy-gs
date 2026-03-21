@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { CalendarCheck, Users, CreditCard } from 'lucide-react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
+import ButtonWithIcon from '@/components/ui/button-with-icon';
 
 export default function Preise() {
   return (
@@ -135,9 +136,9 @@ export default function Preise() {
           </div>
 
           <div className="einstieg-cta">
-            <Link to="/kontakt" className="btn btn-primary btn-lg">
+            <ButtonWithIcon href="/kontakt">
               Probetraining anfragen
-            </Link>
+            </ButtonWithIcon>
           </div>
         </div>
       </section>

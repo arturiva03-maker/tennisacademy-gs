@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
+import ButtonWithIcon from '@/components/ui/button-with-icon';
 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -183,12 +184,9 @@ export default function Kontakt() {
                   <CheckCircle size={48} />
                   <h3>Nachricht gesendet!</h3>
                   <p>Vielen Dank für deine Anfrage. Wir melden uns schnellstmöglich bei dir.</p>
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => setStatus('idle')}
-                  >
+                  <ButtonWithIcon onClick={() => setStatus('idle')}>
                     Neue Nachricht
-                  </button>
+                  </ButtonWithIcon>
                 </div>
               ) : (
                 <form ref={formRef} onSubmit={handleSubmit} className="kontakt-form" noValidate>
@@ -296,20 +294,16 @@ export default function Kontakt() {
                     </div>
                   )}
 
-                  <button
+                  <ButtonWithIcon
                     type="submit"
-                    className="btn btn-primary btn-submit"
                     disabled={status === 'sending'}
                   >
                     {status === 'sending' ? (
                       'Wird gesendet...'
                     ) : (
-                      <>
-                        <Send size={18} />
-                        Nachricht senden
-                      </>
+                      'Nachricht senden'
                     )}
-                  </button>
+                  </ButtonWithIcon>
                 </form>
               )}
               </div>

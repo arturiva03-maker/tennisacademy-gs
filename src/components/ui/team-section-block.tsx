@@ -9,6 +9,7 @@ import {
   type Variants,
 } from "framer-motion";
 import { User } from "lucide-react";
+import ButtonWithIcon from "@/components/ui/button-with-icon";
 import { useState } from "react";
 
 const teamMembers = [
@@ -375,13 +376,9 @@ export function TeamSectionBlock() {
               Kontaktiere uns für ein unverbindliches Probetraining mit einem
               unserer erfahrenen Trainer.
             </p>
-            <a
-              href="/kontakt"
-              className="inline-block rounded-full px-10 py-3 font-medium text-white transition-transform duration-300 hover:translate-y-[-2px]"
-              style={{ backgroundColor: 'var(--navy)', boxShadow: 'var(--shadow-md)' }}
-            >
-              Kontakt aufnehmen →
-            </a>
+            <ButtonWithIcon href="/kontakt">
+              Kontakt aufnehmen
+            </ButtonWithIcon>
           </Card>
         </motion.div>
       </div>
