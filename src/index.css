@@ -1,6 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
+  --tw-background: 240 10% 3.9%;
+  --tw-foreground: 0 0% 98%;
+  --tw-card: 240 10% 3.9%;
+  --tw-card-foreground: 0 0% 98%;
+  --tw-primary: 210 50% 23%;
+  --tw-primary-foreground: 0 0% 98%;
+  --tw-secondary: 240 3.7% 15.9%;
+  --tw-secondary-foreground: 0 0% 98%;
+  --tw-muted: 240 3.7% 15.9%;
+  --tw-muted-foreground: 240 5% 64.9%;
+  --tw-accent: 240 3.7% 15.9%;
+  --tw-accent-foreground: 0 0% 98%;
+  --tw-border: 240 3.7% 15.9%;
+  --tw-input: 240 3.7% 15.9%;
+  --tw-ring: 210 50% 23%;
+  --tw-radius: 0.5rem;
+
   --navy: #163d5e;
   --navy-light: #1e5575;
   --navy-dark: #0b2538;

@@ -1,0 +1,501 @@
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+  type Variants,
+} from "framer-motion";
+import {
+  Mail,
+  MapPin,
+  Sparkles,
+  User,
+} from "lucide-react";
+import { useState } from "react";
+
+const teamMembers = [
+  {
+    name: "Michael Lingner",
+    role: "Leitung der Tennis Academy",
+    bio: "A-Trainer · Verbandstrainer des TVBB, DTB Vereinsmanager",
+    image: "/michael.jpg",
+    imagePosition: "center 10%",
+    location: "Berlin",
+    skills: ["A-Trainer", "TVBB Lehrteam", "VDT"],
+    gradient: "from-white/10 via-white/5 to-transparent",
+    bullets: [
+      "Verbandstrainer des TVBB, DTB Vereinsmanager",
+      "TVBB Lehrteam, VDT Mitglied",
+      "Langjähriger Regionalliga-Spieler",
+      "Inhaber Tennisshop Grand Slam seit 1998",
+      "IHK-Ausbilder, ehem. Lehrbeauftragter FU Berlin",
+    ],
+    social: {
+      email: "info@tennisacademy-gs.de",
+    },
+  },
+  {
+    name: "Jana Hladká-Kissal",
+    role: "Leitung der Tennis Academy",
+    bio: "B-Trainer · Ehemalige Profispielerin aus der Slowakei",
+    image: "/jana.jpg",
+    location: "Berlin",
+    skills: ["B-Trainer", "Kids on Court", "Profi"],
+    gradient: "from-white/12 via-white/5 to-transparent",
+    bullets: [
+      "Ehemalige Profispielerin aus der Slowakei",
+      "10 Jahre Regionalliga beim TC Grunewald als Nr. 1",
+      "Deutsche Mannschaftsmeisterin Damen 40+ (2014)",
+      "Verbandsmeisterin 50+ (2021 & 2024)",
+      "Trainerin seit 1994 – Schwerpunkt: Kids on Court",
+    ],
+    social: {
+      email: "info@tennisacademy-gs.de",
+    },
+  },
+  {
+    name: "Zlatan Palazov",
+    role: "Leitung der Tennis Academy",
+    bio: "B-Trainer · Ehemaliger Profispieler aus Bulgarien",
+    image: "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?w=400&h=400&fit=crop",
+    location: "Berlin",
+    skills: ["B-Trainer", "Kinder", "Erwachsene"],
+    gradient: "from-white/12 via-white/5 to-transparent",
+    bullets: [
+      "Ehemaliger Profispieler aus Bulgarien",
+      "Seit sechs Jahren Tennistrainer in Berlin",
+      "Trainiert Kinder, Jugendliche und Erwachsene",
+      "Aktiver Spieler der 1. Herrenmannschaft",
+    ],
+    social: {
+      email: "info@tennisacademy-gs.de",
+    },
+  },
+  {
+    name: "Artur Ivanenko",
+    role: "Leitung der Tennis Academy",
+    bio: "B-Trainer · Spielt seit früher Kindheit leidenschaftlich Tennis",
+    image: "/artur.jpg",
+    imagePosition: "center 30%",
+    location: "Berlin",
+    skills: ["B-Trainer", "Fitness", "Mini-Tennis"],
+    gradient: "from-white/12 via-white/5 to-transparent",
+    bullets: [
+      "Spielt seit früher Kindheit leidenschaftlich Tennis",
+      "Trainiert Kinder, Jugendliche und Erwachsene",
+      "Breiten- und Leistungssport, Einzel und Gruppe",
+      "Mini-Tennis ab 3 Jahren, Fitness-Tennis",
+      "Aktiver Spieler der 1. Herrenmannschaft",
+    ],
+    social: {
+      email: "info@tennisacademy-gs.de",
+    },
+  },
+];
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15,
+    },
+  },
+};
+
+function TeamMemberCard({
+  member,
+  index,
+}: {
+  member: (typeof teamMembers)[0];
+  index: number;
+}) {
+  const [isHovered, setIsHovered] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const springConfig = { stiffness: 150, damping: 15, mass: 0.1 };
+  const xSpring = useSpring(x, springConfig);
+  const ySpring = useSpring(y, springConfig);
+
+  const rotateX = useTransform(ySpring, [-0.5, 0.5], ["7deg", "-7deg"]);
+  const rotateY = useTransform(xSpring, [-0.5, 0.5], ["-7deg", "7deg"]);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (shouldReduceMotion) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const xPos = (event.clientX - rect.left) / rect.width - 0.5;
+    const yPos = (event.clientY - rect.top) / rect.height - 0.5;
+    x.set(xPos);
+    y.set(yPos);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+    setIsHovered(false);
+  };
+
+  return (
+    <motion.div
+      variants={itemVariants}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={handleMouseLeave}
+      style={
+        shouldReduceMotion
+          ? undefined
+          : {
+              rotateX,
+              rotateY,
+              transformStyle: "preserve-3d",
+            }
+      }
+      className="perspective-1000"
+    >
+      <Card
+        className={`group relative overflow-hidden border-white/10 bg-gradient-to-b ${member.gradient}
+          backdrop-blur-xl transition-all duration-500
+          ${isHovered ? "border-white/20 shadow-2xl shadow-primary/10" : "shadow-lg"}`}
+      >
+        {/* Animated background gradient */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5"
+          animate={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  background: isHovered
+                    ? [
+                        "radial-gradient(circle at 20% 50%, rgba(var(--tw-primary), 0.1) 0%, transparent 50%)",
+                        "radial-gradient(circle at 80% 50%, rgba(var(--tw-primary), 0.1) 0%, transparent 50%)",
+                        "radial-gradient(circle at 20% 50%, rgba(var(--tw-primary), 0.1) 0%, transparent 50%)",
+                      ]
+                    : undefined,
+                }
+          }
+          transition={
+            shouldReduceMotion
+              ? undefined
+              : { duration: 4, repeat: Infinity, ease: "linear" }
+          }
+        />
+
+        <div className="relative p-6">
+          {/* Avatar and info */}
+          <div className="flex items-start gap-4">
+            <motion.div
+              className="relative"
+              animate={
+                shouldReduceMotion
+                  ? undefined
+                  : { scale: isHovered ? 1.05 : 1 }
+              }
+              transition={
+                shouldReduceMotion
+                  ? undefined
+                  : { type: "spring", stiffness: 300, damping: 20 }
+              }
+            >
+              <div
+                className="relative h-20 w-20 overflow-hidden rounded-2xl border-2 border-white/10
+                shadow-lg shadow-black/20"
+              >
+                {member.image ? (
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="h-full w-full object-cover"
+                    style={
+                      member.imagePosition
+                        ? { objectPosition: member.imagePosition }
+                        : undefined
+                    }
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-muted">
+                    <User className="h-8 w-8 text-muted-foreground" />
+                  </div>
+                )}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
+                  animate={
+                    shouldReduceMotion
+                      ? undefined
+                      : { opacity: isHovered ? 0 : 1 }
+                  }
+                />
+              </div>
+              {/* Online indicator */}
+              <motion.div
+                className="absolute -bottom-1 -right-1 h-5 w-5 rounded-full border-2 border-background"
+                style={{ background: "hsl(var(--tw-primary))" }}
+                animate={
+                  shouldReduceMotion
+                    ? undefined
+                    : { scale: [1, 1.2, 1] }
+                }
+                transition={
+                  shouldReduceMotion
+                    ? undefined
+                    : { repeat: Infinity, duration: 2 }
+                }
+              />
+            </motion.div>
+
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2">
+                <h3 className="text-lg font-semibold text-foreground">
+                  {member.name}
+                </h3>
+                <motion.div
+                  animate={
+                    shouldReduceMotion
+                      ? undefined
+                      : { rotate: isHovered ? 360 : 0 }
+                  }
+                  transition={
+                    shouldReduceMotion ? undefined : { duration: 0.5 }
+                  }
+                >
+                  <Sparkles className="h-4 w-4 text-yellow-400" />
+                </motion.div>
+              </div>
+              <p className="text-sm font-medium text-primary">{member.role}</p>
+              <div className="mt-1 flex items-center gap-1 text-xs text-muted-foreground">
+                <MapPin className="h-3 w-3" />
+                {member.location}
+              </div>
+            </div>
+          </div>
+
+          {/* Bio */}
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+            {member.bio}
+          </p>
+
+          {/* Bullets */}
+          {member.bullets && (
+            <ul className="mt-3 space-y-1">
+              {member.bullets.map((bullet, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-2 text-xs text-muted-foreground"
+                >
+                  <span className="mt-1 h-1 w-1 flex-shrink-0 rounded-full bg-primary" />
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* Skills */}
+          <div className="mt-4 flex flex-wrap gap-2">
+            {member.skills.map((skill) => (
+              <Badge
+                key={skill}
+                variant="secondary"
+                className="bg-white/5 text-xs hover:bg-white/10"
+              >
+                {skill}
+              </Badge>
+            ))}
+          </div>
+
+          {/* Social links */}
+          <motion.div
+            className="mt-4 flex gap-2"
+            initial={false}
+            animate={
+              shouldReduceMotion
+                ? undefined
+                : { opacity: isHovered ? 1 : 0.6 }
+            }
+          >
+            {member.social.email && (
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-8 w-8 rounded-full hover:bg-white/10"
+                asChild
+              >
+                <a href={`mailto:${member.social.email}`}>
+                  <Mail className="h-4 w-4" />
+                </a>
+              </Button>
+            )}
+          </motion.div>
+        </div>
+
+        {/* Bottom gradient line */}
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-px"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, hsl(var(--tw-primary)), transparent)",
+          }}
+          animate={
+            shouldReduceMotion
+              ? undefined
+              : { opacity: isHovered ? 1 : 0 }
+          }
+        />
+      </Card>
+    </motion.div>
+  );
+}
+
+export function TeamSectionBlock() {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <section className="relative overflow-hidden bg-background px-4 py-20 sm:px-6 lg:px-8">
+      {/* Ambient background effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute -left-1/4 top-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl"
+          animate={
+            shouldReduceMotion
+              ? undefined
+              : { x: [0, 100, 0], y: [0, -50, 0] }
+          }
+          transition={
+            shouldReduceMotion
+              ? undefined
+              : { repeat: Infinity, duration: 20, ease: "linear" }
+          }
+        />
+        <motion.div
+          className="absolute -right-1/4 bottom-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl"
+          animate={
+            shouldReduceMotion
+              ? undefined
+              : { x: [0, -100, 0], y: [0, 50, 0] }
+          }
+          transition={
+            shouldReduceMotion
+              ? undefined
+              : { repeat: Infinity, duration: 25, ease: "linear" }
+          }
+        />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl">
+        {/* Header */}
+        <motion.div
+          initial={shouldReduceMotion ? undefined : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={shouldReduceMotion ? undefined : { duration: 0.6 }}
+          className="mb-16 text-center"
+        >
+          <Badge
+            variant="secondary"
+            className="mb-4 bg-primary/10 text-primary hover:bg-primary/20"
+          >
+            <Sparkles className="mr-1 h-3 w-3" />
+            Unser Trainerteam
+          </Badge>
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            Erfahrung trifft Leidenschaft
+          </h2>
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+            Unser qualifiziertes Team steht dir mit jahrelanger Erfahrung und
+            Leidenschaft für den Tennissport zur Verfügung.
+          </p>
+        </motion.div>
+
+        {/* Team grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2"
+        >
+          {teamMembers.map((member, index) => (
+            <TeamMemberCard key={member.name} member={member} index={index} />
+          ))}
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial={shouldReduceMotion ? undefined : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={
+            shouldReduceMotion ? undefined : { duration: 0.6, delay: 0.4 }
+          }
+          className="mt-16 text-center"
+        >
+          <Card className="mx-auto max-w-2xl border-white/10 bg-gradient-to-b from-white/5 to-transparent p-8 backdrop-blur-xl">
+            <h3 className="mb-2 text-xl font-semibold text-foreground">
+              Interesse an einem Probetraining?
+            </h3>
+            <p className="mb-6 text-muted-foreground">
+              Kontaktiere uns für ein unverbindliches Probetraining mit einem
+              unserer erfahrenen Trainer.
+            </p>
+            <Button
+              size="lg"
+              className="group relative overflow-hidden rounded-full bg-primary px-10 py-6 text-primary-foreground
+shadow-lg shadow-primary/25 transition-transform duration-300 hover:translate-y-[-2px]"
+              asChild
+            >
+              <a href="/kontakt">
+                <motion.span
+                  className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/20 to-white/10 opacity-0
+transition-opacity duration-300 group-hover:opacity-100"
+                  animate={
+                    shouldReduceMotion
+                      ? undefined
+                      : { x: ["-120%", "120%"] }
+                  }
+                  transition={
+                    shouldReduceMotion
+                      ? undefined
+                      : { repeat: Infinity, duration: 2, ease: "linear" }
+                  }
+                />
+                <span className="relative font-medium">Kontakt aufnehmen</span>
+                <motion.span
+                  className="relative ml-2"
+                  animate={
+                    shouldReduceMotion ? undefined : { x: [0, 5, 0] }
+                  }
+                  transition={
+                    shouldReduceMotion
+                      ? undefined
+                      : { repeat: Infinity, duration: 1.5 }
+                  }
+                >
+                  →
+                </motion.span>
+              </a>
+            </Button>
+          </Card>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
