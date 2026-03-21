@@ -1,5 +1,4 @@
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
   motion,
@@ -9,11 +8,7 @@ import {
   useTransform,
   type Variants,
 } from "framer-motion";
-import {
-  Mail,
-  MapPin,
-  User,
-} from "lucide-react";
+import { User } from "lucide-react";
 import { useState } from "react";
 
 const teamMembers = [
@@ -201,11 +196,18 @@ function TeamMemberCard({
           }
         />
 
-        <div className="relative p-6">
-          {/* Avatar and info */}
-          <div className="flex items-start gap-4">
-            <motion.div
-              className="relative"
+        {/* Large photo */}
+        <div className="relative h-72 overflow-hidden">
+          {member.image ? (
+            <motion.img
+              src={member.image}
+              alt={member.name}
+              className="h-full w-full object-cover"
+              style={
+                member.imagePosition
+                  ? { objectPosition: member.imagePosition }
+                  : undefined
+              }
               animate={
                 shouldReduceMotion
                   ? undefined
@@ -216,54 +218,25 @@ function TeamMemberCard({
                   ? undefined
                   : { type: "spring", stiffness: 300, damping: 20 }
               }
-            >
-              <div
-                className="relative h-20 w-20 overflow-hidden rounded-2xl border-2 border-[--border]
-                shadow-lg"
-              >
-                {member.image ? (
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="h-full w-full object-cover"
-                    style={
-                      member.imagePosition
-                        ? { objectPosition: member.imagePosition }
-                        : undefined
-                    }
-                  />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center bg-muted">
-                    <User className="h-8 w-8 text-[--text-medium]" />
-                  </div>
-                )}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
-                  animate={
-                    shouldReduceMotion
-                      ? undefined
-                      : { opacity: isHovered ? 0 : 1 }
-                  }
-                />
-              </div>
-            </motion.div>
-
-            <div className="flex-1 min-w-0">
-              <h3 className="text-lg font-semibold text-[--text-dark]">
-                {member.name}
-              </h3>
-              <p className="text-sm font-medium text-primary">{member.role}</p>
-              <div className="mt-1 flex items-center gap-1 text-xs text-[--text-medium]">
-                <MapPin className="h-3 w-3" />
-                {member.location}
-              </div>
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center bg-[--bg]">
+              <User className="h-16 w-16 text-[--text-light]" />
             </div>
-          </div>
+          )}
+          <Badge
+            className="absolute top-4 right-4 bg-[--navy] text-white border-0 text-xs"
+          >
+            {member.skills[0]}
+          </Badge>
+        </div>
 
-          {/* Bio */}
-          <p className="mt-4 text-sm leading-relaxed text-[--text-medium]">
-            {member.bio}
-          </p>
+        {/* Info */}
+        <div className="relative p-6">
+          <h3 className="text-lg font-semibold text-[--text-dark]">
+            {member.name}
+          </h3>
+          <p className="text-sm font-medium text-primary">{member.role}</p>
 
           {/* Bullets */}
           {member.bullets && (
@@ -271,9 +244,9 @@ function TeamMemberCard({
               {member.bullets.map((bullet, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-2 text-xs text-[--text-medium]"
+                  className="flex items-start gap-2 text-sm text-[--text-medium]"
                 >
-                  <span className="mt-1 h-1 w-1 flex-shrink-0 rounded-full bg-primary" />
+                  <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-[--navy]" />
                   {bullet}
                 </li>
               ))}
@@ -282,7 +255,7 @@ function TeamMemberCard({
 
           {/* Skills */}
           <div className="mt-4 flex flex-wrap gap-2">
-            {member.skills.map((skill) => (
+            {member.skills.slice(1).map((skill) => (
               <Badge
                 key={skill}
                 variant="secondary"
@@ -292,30 +265,6 @@ function TeamMemberCard({
               </Badge>
             ))}
           </div>
-
-          {/* Social links */}
-          <motion.div
-            className="mt-4 flex gap-2"
-            initial={false}
-            animate={
-              shouldReduceMotion
-                ? undefined
-                : { opacity: isHovered ? 1 : 0.6 }
-            }
-          >
-            {member.social.email && (
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-8 w-8 rounded-full hover:bg-gray-100"
-                asChild
-              >
-                <a href={`mailto:${member.social.email}`}>
-                  <Mail className="h-4 w-4" />
-                </a>
-              </Button>
-            )}
-          </motion.div>
         </div>
 
         {/* Bottom gradient line */}
@@ -426,43 +375,13 @@ export function TeamSectionBlock() {
               Kontaktiere uns für ein unverbindliches Probetraining mit einem
               unserer erfahrenen Trainer.
             </p>
-            <Button
-              size="lg"
-              className="group relative overflow-hidden rounded-full bg-primary px-10 py-6 text-primary-foreground
-shadow-lg shadow-primary/25 transition-transform duration-300 hover:translate-y-[-2px]"
-              asChild
+            <a
+              href="/kontakt"
+              className="inline-block rounded-full px-10 py-3 font-medium text-white transition-transform duration-300 hover:translate-y-[-2px]"
+              style={{ backgroundColor: 'var(--navy)', boxShadow: 'var(--shadow-md)' }}
             >
-              <a href="/kontakt">
-                <motion.span
-                  className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/20 to-white/10 opacity-0
-transition-opacity duration-300 group-hover:opacity-100"
-                  animate={
-                    shouldReduceMotion
-                      ? undefined
-                      : { x: ["-120%", "120%"] }
-                  }
-                  transition={
-                    shouldReduceMotion
-                      ? undefined
-                      : { repeat: Infinity, duration: 2, ease: "linear" }
-                  }
-                />
-                <span className="relative font-medium">Kontakt aufnehmen</span>
-                <motion.span
-                  className="relative ml-2"
-                  animate={
-                    shouldReduceMotion ? undefined : { x: [0, 5, 0] }
-                  }
-                  transition={
-                    shouldReduceMotion
-                      ? undefined
-                      : { repeat: Infinity, duration: 1.5 }
-                  }
-                >
-                  →
-                </motion.span>
-              </a>
-            </Button>
+              Kontakt aufnehmen →
+            </a>
           </Card>
         </motion.div>
       </div>
