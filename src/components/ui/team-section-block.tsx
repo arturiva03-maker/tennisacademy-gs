@@ -12,7 +12,6 @@ import {
 import {
   Mail,
   MapPin,
-  Sparkles,
   User,
 } from "lucide-react";
 import { useState } from "react";
@@ -43,6 +42,7 @@ const teamMembers = [
     role: "Leitung der Tennis Academy",
     bio: "B-Trainer · Ehemalige Profispielerin aus der Slowakei",
     image: "/jana.jpg",
+    imagePosition: "center 30%",
     location: "Berlin",
     skills: ["B-Trainer", "Kids on Court", "Profi"],
     gradient: "from-white/12 via-white/5 to-transparent",
@@ -174,9 +174,9 @@ function TeamMemberCard({
       className="perspective-1000"
     >
       <Card
-        className={`group relative overflow-hidden border-white/10 bg-gradient-to-b ${member.gradient}
-          backdrop-blur-xl transition-all duration-500
-          ${isHovered ? "border-white/20 shadow-2xl shadow-primary/10" : "shadow-lg"}`}
+        className={`group relative overflow-hidden border-[--border] bg-white
+          transition-all duration-500
+          ${isHovered ? "shadow-2xl" : "shadow-lg"}`}
       >
         {/* Animated background gradient */}
         <motion.div
@@ -218,8 +218,8 @@ function TeamMemberCard({
               }
             >
               <div
-                className="relative h-20 w-20 overflow-hidden rounded-2xl border-2 border-white/10
-                shadow-lg shadow-black/20"
+                className="relative h-20 w-20 overflow-hidden rounded-2xl border-2 border-[--border]
+                shadow-lg"
               >
                 {member.image ? (
                   <img
@@ -234,7 +234,7 @@ function TeamMemberCard({
                   />
                 ) : (
                   <div className="flex h-full w-full items-center justify-center bg-muted">
-                    <User className="h-8 w-8 text-muted-foreground" />
+                    <User className="h-8 w-8 text-[--text-medium]" />
                   </div>
                 )}
                 <motion.div
@@ -246,43 +246,14 @@ function TeamMemberCard({
                   }
                 />
               </div>
-              {/* Online indicator */}
-              <motion.div
-                className="absolute -bottom-1 -right-1 h-5 w-5 rounded-full border-2 border-background"
-                style={{ background: "hsl(var(--tw-primary))" }}
-                animate={
-                  shouldReduceMotion
-                    ? undefined
-                    : { scale: [1, 1.2, 1] }
-                }
-                transition={
-                  shouldReduceMotion
-                    ? undefined
-                    : { repeat: Infinity, duration: 2 }
-                }
-              />
             </motion.div>
 
             <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2">
-                <h3 className="text-lg font-semibold text-foreground">
-                  {member.name}
-                </h3>
-                <motion.div
-                  animate={
-                    shouldReduceMotion
-                      ? undefined
-                      : { rotate: isHovered ? 360 : 0 }
-                  }
-                  transition={
-                    shouldReduceMotion ? undefined : { duration: 0.5 }
-                  }
-                >
-                  <Sparkles className="h-4 w-4 text-yellow-400" />
-                </motion.div>
-              </div>
+              <h3 className="text-lg font-semibold text-[--text-dark]">
+                {member.name}
+              </h3>
               <p className="text-sm font-medium text-primary">{member.role}</p>
-              <div className="mt-1 flex items-center gap-1 text-xs text-muted-foreground">
+              <div className="mt-1 flex items-center gap-1 text-xs text-[--text-medium]">
                 <MapPin className="h-3 w-3" />
                 {member.location}
               </div>
@@ -290,7 +261,7 @@ function TeamMemberCard({
           </div>
 
           {/* Bio */}
-          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-4 text-sm leading-relaxed text-[--text-medium]">
             {member.bio}
           </p>
 
@@ -300,7 +271,7 @@ function TeamMemberCard({
               {member.bullets.map((bullet, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-2 text-xs text-muted-foreground"
+                  className="flex items-start gap-2 text-xs text-[--text-medium]"
                 >
                   <span className="mt-1 h-1 w-1 flex-shrink-0 rounded-full bg-primary" />
                   {bullet}
@@ -315,7 +286,7 @@ function TeamMemberCard({
               <Badge
                 key={skill}
                 variant="secondary"
-                className="bg-white/5 text-xs hover:bg-white/10"
+                className="bg-[--bg] text-xs hover:bg-gray-200"
               >
                 {skill}
               </Badge>
@@ -336,7 +307,7 @@ function TeamMemberCard({
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-8 w-8 rounded-full hover:bg-white/10"
+                className="h-8 w-8 rounded-full hover:bg-gray-100"
                 asChild
               >
                 <a href={`mailto:${member.social.email}`}>
@@ -369,11 +340,11 @@ export function TeamSectionBlock() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-background px-4 py-20 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8" style={{ backgroundColor: '#fff' }}>
       {/* Ambient background effects */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute -left-1/4 top-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl"
+          className="absolute -left-1/4 top-0 h-96 w-96 rounded-full blur-3xl" style={{ backgroundColor: 'rgba(22,61,94,0.04)' }}
           animate={
             shouldReduceMotion
               ? undefined
@@ -386,7 +357,7 @@ export function TeamSectionBlock() {
           }
         />
         <motion.div
-          className="absolute -right-1/4 bottom-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl"
+          className="absolute -right-1/4 bottom-0 h-96 w-96 rounded-full blur-3xl" style={{ backgroundColor: 'rgba(22,61,94,0.04)' }}
           animate={
             shouldReduceMotion
               ? undefined
@@ -413,13 +384,12 @@ export function TeamSectionBlock() {
             variant="secondary"
             className="mb-4 bg-primary/10 text-primary hover:bg-primary/20"
           >
-            <Sparkles className="mr-1 h-3 w-3" />
             Unser Trainerteam
           </Badge>
-          <h2 className="mb-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-[--text-dark] sm:text-5xl">
             Erfahrung trifft Leidenschaft
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+          <p className="mx-auto max-w-2xl text-lg text-[--text-medium]">
             Unser qualifiziertes Team steht dir mit jahrelanger Erfahrung und
             Leidenschaft für den Tennissport zur Verfügung.
           </p>
@@ -448,11 +418,11 @@ export function TeamSectionBlock() {
           }
           className="mt-16 text-center"
         >
-          <Card className="mx-auto max-w-2xl border-white/10 bg-gradient-to-b from-white/5 to-transparent p-8 backdrop-blur-xl">
-            <h3 className="mb-2 text-xl font-semibold text-foreground">
+          <Card className="mx-auto max-w-2xl border-[--border] bg-[--bg] p-8">
+            <h3 className="mb-2 text-xl font-semibold text-[--text-dark]">
               Interesse an einem Probetraining?
             </h3>
-            <p className="mb-6 text-muted-foreground">
+            <p className="mb-6 text-[--text-medium]">
               Kontaktiere uns für ein unverbindliches Probetraining mit einem
               unserer erfahrenen Trainer.
             </p>
