@@ -1,31 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Award, Target, Users, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
+import { Award, Target, Users, Calendar } from 'lucide-react';
+import { useEffect } from 'react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import { events } from './News';
-
-const features = [
-  {
-    title: 'Techniktraining',
-    text: 'Systematisches Erlernen und Verfeinern aller Schläge: Vorhand, Rückhand, Volley, Aufschlag und Schmetterball. Vom Technikerwerbstraining bis zur Anwendung in Spielsituationen.',
-  },
-  {
-    title: 'Taktiktraining',
-    text: 'Spielverständnis entwickeln und taktische Entscheidungen trainieren. Standardsituationen meistern, Spielzüge automatisieren und den Gegner lesen lernen.',
-  },
-  {
-    title: 'Gruppentraining',
-    text: 'Spaß und Motivation in der Gruppe. Wettkampf untereinander, verschiedene Spieltypen kennenlernen und voneinander profitieren. Ideal für Kinder, Jugendliche und Erwachsene.',
-  },
-  {
-    title: 'Einzeltraining',
-    text: '100% individuelle Betreuung durch deinen Trainer. Gezielte Technikarbeit, persönlich abgestimmte Trainingsinhalte und maximale Aufmerksamkeit für deine Entwicklung.',
-  },
-  {
-    title: 'Athletik & Kondition',
-    text: 'Die athletische Basis für erfolgreiches Tennis: Beinarbeit, Koordination, Schnelligkeit und Ausdauer. Komplextraining, das Technik und Fitness verbindet.',
-  },
-];
+import { FeatureCarousel } from '@/components/ui/feature-carousel';
 
 function TennisNewsWidget() {
   useEffect(() => {
@@ -44,16 +22,6 @@ function TennisNewsWidget() {
 }
 
 export default function Home() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % features.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + features.length) % features.length);
-  };
-
   return (
     <>
       {/* HERO */}
@@ -83,7 +51,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURES SLIDER */}
+      {/* FEATURES CAROUSEL */}
       <section className="features">
         <div className="container">
           <AnimatedSection>
@@ -95,49 +63,7 @@ export default function Home() {
               </p>
             </div>
           </AnimatedSection>
-
-          {/* Slider für Desktop */}
-          <div className="features-slider">
-            <button className="slider-btn slider-btn-prev" onClick={prevSlide}>
-              <ChevronLeft size={24} />
-            </button>
-            <div className="slider-track">
-              {features.map((f, i) => (
-                <div
-                  className={`slider-slide ${i === currentSlide ? 'active' : ''}`}
-                  key={i}
-                  style={{ transform: `translateX(${(i - currentSlide) * 100}%)` }}
-                >
-                  <div className="slider-card">
-                    <h3>{f.title}</h3>
-                    <p>{f.text}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <button className="slider-btn slider-btn-next" onClick={nextSlide}>
-              <ChevronRight size={24} />
-            </button>
-            <div className="slider-dots">
-              {features.map((_, i) => (
-                <button
-                  key={i}
-                  className={`slider-dot ${i === currentSlide ? 'active' : ''}`}
-                  onClick={() => setCurrentSlide(i)}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Grid für Mobile */}
-          <div className="features-grid-mobile">
-            {features.map((f, i) => (
-              <div className="feature-card" key={i}>
-                <h3>{f.title}</h3>
-                <p>{f.text}</p>
-              </div>
-            ))}
-          </div>
+          <FeatureCarousel />
         </div>
       </section>
 
