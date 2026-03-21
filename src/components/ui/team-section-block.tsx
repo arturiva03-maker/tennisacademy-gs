@@ -37,7 +37,7 @@ const teamMembers = [
     role: "Leitung der Tennis Academy",
     bio: "B-Trainer · Ehemalige Profispielerin aus der Slowakei",
     image: "/jana.jpg",
-    imagePosition: "center 30%",
+    imagePosition: "center 60%",
     location: "Berlin",
     skills: ["B-Trainer", "Kids on Court", "Profi"],
     gradient: "from-white/12 via-white/5 to-transparent",
