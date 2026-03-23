@@ -10,7 +10,6 @@ import {
   Dumbbell,
   Baby,
   Sun,
-  Trophy,
   GraduationCap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -76,15 +75,6 @@ const FEATURES = [
     image: "/tenniscamp.jpg",
     description:
       "Intensive Trainingswochen in den Ferien für schnelle Fortschritte und viel Spaß.",
-  },
-  {
-    id: "wettkampf",
-    label: "Wettkampftraining",
-    icon: Trophy,
-    image:
-      "https://images.unsplash.com/photo-1551773188-d63590f81a23?q=80&w=1200",
-    description:
-      "Vorbereitung auf Turniere und Mannschaftsspiele im Leistungsbereich.",
   },
   {
     id: "ausbildung",
@@ -280,17 +270,6 @@ export function FeatureCarousel() {
                     )}
                   </AnimatePresence>
 
-                  <div
-                    className={cn(
-                      "absolute top-8 left-8 flex items-center gap-3 transition-opacity duration-300",
-                      isActive ? "opacity-100" : "opacity-0"
-                    )}
-                  >
-                    <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_white]" />
-                    <span className="text-white/80 text-[10px] font-normal uppercase tracking-[0.3em] font-mono">
-                      Tennis Academy
-                    </span>
-                  </div>
                 </motion.div>
               );
             })}
