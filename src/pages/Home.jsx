@@ -41,10 +41,10 @@ export default function Home() {
               des Jugendsports verschrieben – im Breiten- sowie im Leistungsbereich.
             </p>
             <div className="hero-cta">
-              <ButtonWithIcon href="/preise">
+              <ButtonWithIcon href="/preise" onDark>
                 Preise ansehen
               </ButtonWithIcon>
-              <ButtonWithIcon href="/trainer" variant="outline">
+              <ButtonWithIcon href="/trainer" variant="outline" onDark>
                 Unser Team
               </ButtonWithIcon>
             </div>

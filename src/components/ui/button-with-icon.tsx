@@ -10,6 +10,7 @@ interface ButtonWithIconProps {
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
   variant?: "primary" | "outline";
+  onDark?: boolean;
 }
 
 const ButtonWithIcon = ({
@@ -20,19 +21,28 @@ const ButtonWithIcon = ({
   type = "button",
   disabled = false,
   variant = "primary",
+  onDark = false,
 }: ButtonWithIconProps) => {
   const baseClasses =
     "relative text-sm font-medium rounded-full h-12 p-1 ps-6 pe-14 group transition-all duration-500 hover:ps-14 hover:pe-6 w-fit overflow-hidden cursor-pointer";
 
   const variantClasses =
     variant === "outline"
-      ? "bg-transparent border-2 border-[--navy] text-[--navy] hover:bg-transparent"
-      : "";
+      ? onDark
+        ? "bg-transparent border-2 border-white/80 text-white hover:bg-white/10"
+        : "bg-transparent border-2 border-[--navy] text-[--navy] hover:bg-transparent"
+      : onDark
+        ? "bg-white text-[--navy] hover:bg-white/90"
+        : "";
 
   const iconBg =
     variant === "outline"
-      ? "bg-[--navy] text-white"
-      : "bg-background text-foreground";
+      ? onDark
+        ? "bg-white text-[--navy]"
+        : "bg-[--navy] text-white"
+      : onDark
+        ? "bg-[--navy] text-white"
+        : "bg-background text-foreground";
 
   if (href) {
     return (
