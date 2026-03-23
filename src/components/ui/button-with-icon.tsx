@@ -29,7 +29,7 @@ const ButtonWithIcon = ({
   const variantClasses =
     variant === "outline"
       ? onDark
-        ? "bg-transparent border-2 border-white/80 text-white hover:bg-white/10"
+        ? "bg-white/15 border-2 border-white text-white hover:bg-white/25"
         : "bg-transparent border-2 border-[--navy] text-[--navy] hover:bg-transparent"
       : onDark
         ? "bg-white text-[--navy] hover:bg-white/90"
