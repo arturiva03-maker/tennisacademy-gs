@@ -11,7 +11,6 @@ import {
   Baby,
   Sun,
   Trophy,
-  Heart,
   GraduationCap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -66,8 +65,7 @@ const FEATURES = [
     id: "kids",
     label: "Kids on Court",
     icon: Baby,
-    image:
-      "https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=1200",
+    image: "/kids-hero.jpg",
     description:
       "Spielerisch Tennis entdecken – Mini-Tennis ab 3 Jahren mit altersgerechtem Training.",
   },
@@ -75,8 +73,7 @@ const FEATURES = [
     id: "camps",
     label: "Tenniscamps",
     icon: Sun,
-    image:
-      "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200",
+    image: "/tenniscamp.jpg",
     description:
       "Intensive Trainingswochen in den Ferien für schnelle Fortschritte und viel Spaß.",
   },
@@ -90,20 +87,10 @@ const FEATURES = [
       "Vorbereitung auf Turniere und Mannschaftsspiele im Leistungsbereich.",
   },
   {
-    id: "fitness",
-    label: "Fitness-Tennis",
-    icon: Heart,
-    image:
-      "https://images.unsplash.com/photo-1544298621-35a764866e40?q=80&w=1200",
-    description:
-      "Tennis als Ganzkörper-Workout – Fitness und Spaß auf dem Platz kombiniert.",
-  },
-  {
     id: "ausbildung",
     label: "DTB-Tennisschule",
     icon: GraduationCap,
-    image:
-      "https://images.unsplash.com/photo-1560012057-4372e14c5085?q=80&w=1200",
+    image: "/vdt-dtb-logo.jpg",
     description:
       "Zertifizierte Ausbildung nach den Standards des Deutschen Tennis Bundes.",
   },
