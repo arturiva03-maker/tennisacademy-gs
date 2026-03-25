@@ -52,7 +52,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURES CAROUSEL */}
+      {/* FEATURES CAROUSEL - temporarily hidden
       <section className="features">
         <div className="container">
           <AnimatedSection>
@@ -67,6 +67,7 @@ export default function Home() {
           <FeatureCarousel />
         </div>
       </section>
+      */}
 
       {/* LATEST NEWS */}
       {events[0] && (
