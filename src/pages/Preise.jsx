@@ -11,7 +11,7 @@ const trainerPreise = [
     preise: ['58 €', '31 €', '21,33 €', '16,50 €', '13,60 €', '11,67 €'],
   },
   {
-    name: 'Michael Lingener',
+    name: 'Michael Lingner',
     lizenz: '',
     preise: ['?', '?', '?', '?', '?', '?'],
   },
