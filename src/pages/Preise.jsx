@@ -1,9 +1,39 @@
 import { Link } from 'react-router-dom';
-import { CalendarCheck, Users, CreditCard } from 'lucide-react';
+import { useState } from 'react';
+import { CalendarCheck, Users, CreditCard, ChevronDown } from 'lucide-react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
 
+const trainerPreise = [
+  {
+    name: 'Zlatan',
+    lizenz: 'B-Lizenz Trainer',
+    preise: ['58 €', '31 €', '21,33 €', '16,50 €', '13,60 €', '11,67 €'],
+  },
+  {
+    name: 'Jana',
+    lizenz: 'B-Lizenz Trainer',
+    preise: ['58 €', '31 €', '21,33 €', '16,50 €', '13,60 €', '11,67 €'],
+  },
+  {
+    name: 'Artur',
+    lizenz: 'B-Lizenz Trainer',
+    preise: ['58 €', '31 €', '21,33 €', '16,50 €', '13,60 €', '11,67 €'],
+  },
+  {
+    name: 'Michael Lingener',
+    lizenz: '',
+    preise: ['?', '?', '?', '?', '?', '?'],
+  },
+];
+
 export default function Preise() {
+  const [openTrainer, setOpenTrainer] = useState(null);
+
+  const toggleTrainer = (name) => {
+    setOpenTrainer((prev) => (prev === name ? null : name));
+  };
+
   return (
     <>
       <section className="page-hero" style={{ backgroundImage: "url('/hero-bg.jpg')" }}>
@@ -53,8 +83,7 @@ export default function Preise() {
                 </tr>
                 <tr>
                   <td className="trainer-cell">
-                    <strong>Zlatan, Jana, Artur</strong><br />
-                    <span className="trainer-lizenz">B-Lizenz Trainer</span>
+                    <strong>B-Lizenz Trainer</strong>
                   </td>
                   <td><span className="preis-amount">58 €</span></td>
                   <td><span className="preis-amount">31 €</span></td>
@@ -62,17 +91,6 @@ export default function Preise() {
                   <td><span className="preis-amount">16,50 €</span></td>
                   <td><span className="preis-amount">13,60 €</span></td>
                   <td><span className="preis-amount">11,67 €</span></td>
-                </tr>
-                <tr>
-                  <td className="trainer-cell">
-                    <strong>Michael Lingener</strong>
-                  </td>
-                  <td><span className="preis-amount">?</span></td>
-                  <td><span className="preis-amount">?</span></td>
-                  <td><span className="preis-amount">?</span></td>
-                  <td><span className="preis-amount">?</span></td>
-                  <td><span className="preis-amount">?</span></td>
-                  <td><span className="preis-amount">?</span></td>
                 </tr>
               </tbody>
             </table>
@@ -84,6 +102,58 @@ export default function Preise() {
               Im Winter fallen zuzüglich Hallengebühren an.
             </p>
           </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.2}>
+            <div className="section-header" style={{ marginTop: '48px' }}>
+              <h2 className="section-title">Training bei unseren Trainern</h2>
+              <p className="section-subtitle">
+                Klicke auf einen Trainer, um die individuellen Preise zu sehen.
+              </p>
+            </div>
+
+            <div className="trainer-accordion">
+              {trainerPreise.map((trainer) => (
+                <div
+                  key={trainer.name}
+                  className={`trainer-accordion-item ${openTrainer === trainer.name ? 'open' : ''}`}
+                >
+                  <button
+                    className="trainer-accordion-header"
+                    onClick={() => toggleTrainer(trainer.name)}
+                  >
+                    <div className="trainer-accordion-info">
+                      <strong>{trainer.name}</strong>
+                      {trainer.lizenz && (
+                        <span className="trainer-badge-inline">{trainer.lizenz}</span>
+                      )}
+                    </div>
+                    <ChevronDown className="trainer-accordion-icon" size={20} />
+                  </button>
+                  <div className="trainer-accordion-body">
+                    <table className="preis-table-full">
+                      <thead>
+                        <tr>
+                          <th>Einzel</th>
+                          <th>2er Gruppe</th>
+                          <th>3er Gruppe</th>
+                          <th>4er Gruppe</th>
+                          <th>5er Gruppe</th>
+                          <th>6er Gruppe</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          {trainer.preise.map((preis, i) => (
+                            <td key={i}><span className="preis-amount">{preis}</span></td>
+                          ))}
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              ))}
+            </div>
           </AnimatedSection>
         </div>
       </section>

@@ -1996,6 +1996,86 @@ img {
   line-height: 1.6;
 }
 
+/* ========== TRAINER ACCORDION ========== */
+
+.trainer-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.trainer-accordion-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.3s ease;
+}
+
+.trainer-accordion-item:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.trainer-accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-dark);
+  transition: background 0.2s ease;
+}
+
+.trainer-accordion-header:hover {
+  background: rgba(22, 61, 94, 0.04);
+}
+
+.trainer-accordion-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trainer-accordion-info strong {
+  font-size: 1.05rem;
+}
+
+.trainer-accordion-icon {
+  transition: transform 0.3s ease;
+  color: var(--text-medium);
+}
+
+.trainer-accordion-item.open .trainer-accordion-icon {
+  transform: rotate(180deg);
+}
+
+.trainer-accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 24px;
+}
+
+.trainer-accordion-item.open .trainer-accordion-body {
+  max-height: 300px;
+  padding: 0 24px 24px;
+}
+
+.trainer-accordion-body .preis-table-full {
+  margin: 0;
+}
+
+.trainer-accordion-body .preis-table-full th {
+  text-align: center;
+}
+
 /* ========== EINSTIEG ========== */
 .einstieg-section {
   padding: 80px 0;
