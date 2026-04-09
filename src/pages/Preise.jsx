@@ -6,17 +6,7 @@ import ButtonWithIcon from '@/components/ui/button-with-icon';
 
 const trainerPreise = [
   {
-    name: 'Zlatan',
-    lizenz: 'B-Lizenz Trainer',
-    preise: ['58 €', '31 €', '21,33 €', '16,50 €', '13,60 €', '11,67 €'],
-  },
-  {
-    name: 'Jana',
-    lizenz: 'B-Lizenz Trainer',
-    preise: ['58 €', '31 €', '21,33 €', '16,50 €', '13,60 €', '11,67 €'],
-  },
-  {
-    name: 'Artur',
+    name: 'Zlatan, Jana, Artur',
     lizenz: 'B-Lizenz Trainer',
     preise: ['58 €', '31 €', '21,33 €', '16,50 €', '13,60 €', '11,67 €'],
   },
