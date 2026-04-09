@@ -53,14 +53,26 @@ export default function Preise() {
                 </tr>
                 <tr>
                   <td className="trainer-cell">
-                    <strong>B-Lizenz Trainer</strong>
+                    <strong>Zlatan, Jana, Artur</strong><br />
+                    <span className="trainer-lizenz">B-Lizenz Trainer</span>
                   </td>
-                  <td><span className="preis-amount">56 €</span></td>
-                  <td><span className="preis-amount">29 €</span></td>
-                  <td><span className="preis-amount">20,67 €</span></td>
-                  <td><span className="preis-amount">16 €</span></td>
-                  <td><span className="preis-amount">13,20 €</span></td>
-                  <td><span className="preis-amount">11,33 €</span></td>
+                  <td><span className="preis-amount">58 €</span></td>
+                  <td><span className="preis-amount">31 €</span></td>
+                  <td><span className="preis-amount">21,33 €</span></td>
+                  <td><span className="preis-amount">16,50 €</span></td>
+                  <td><span className="preis-amount">13,60 €</span></td>
+                  <td><span className="preis-amount">11,67 €</span></td>
+                </tr>
+                <tr>
+                  <td className="trainer-cell">
+                    <strong>Michael Lingener</strong>
+                  </td>
+                  <td><span className="preis-amount">?</span></td>
+                  <td><span className="preis-amount">?</span></td>
+                  <td><span className="preis-amount">?</span></td>
+                  <td><span className="preis-amount">?</span></td>
+                  <td><span className="preis-amount">?</span></td>
+                  <td><span className="preis-amount">?</span></td>
                 </tr>
               </tbody>
             </table>
