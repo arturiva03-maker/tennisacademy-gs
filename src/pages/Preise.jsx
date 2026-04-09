@@ -86,23 +86,7 @@ export default function Preise() {
             </table>
           </div>
 
-          <div className="preis-info">
-            <p>
-              Die Tennis Academy Grand Slam bietet Training für alle Altersgruppen und Spielstärken an.
-              Im Winter fallen zuzüglich Hallengebühren an.
-            </p>
-          </div>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.2}>
-            <div className="section-header" style={{ marginTop: '48px' }}>
-              <h2 className="section-title">Training bei unseren Trainern</h2>
-              <p className="section-subtitle">
-                Klicke auf einen Trainer, um die individuellen Preise zu sehen.
-              </p>
-            </div>
-
-            <div className="trainer-accordion">
+          <div className="trainer-accordion" style={{ marginTop: '24px' }}>
               {trainerPreise.map((trainer) => (
                 <div
                   key={trainer.name}
@@ -113,7 +97,7 @@ export default function Preise() {
                     onClick={() => toggleTrainer(trainer.name)}
                   >
                     <div className="trainer-accordion-info">
-                      <strong>{trainer.name}</strong>
+                      <strong>Training bei {trainer.name}</strong>
                       {trainer.lizenz && (
                         <span className="trainer-badge-inline">{trainer.lizenz}</span>
                       )}
@@ -144,6 +128,13 @@ export default function Preise() {
                 </div>
               ))}
             </div>
+
+          <div className="preis-info">
+            <p>
+              Die Tennis Academy Grand Slam bietet Training für alle Altersgruppen und Spielstärken an.
+              Im Winter fallen zuzüglich Hallengebühren an.
+            </p>
+          </div>
           </AnimatedSection>
         </div>
       </section>
