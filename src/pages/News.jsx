@@ -5,15 +5,6 @@ import ButtonWithIcon from '@/components/ui/button-with-icon';
 
 export const events = [
   {
-    title: 'Anmeldung Tennistraining Sommersaison',
-    subtitle: 'Trainingswunschformular bis 10. April einreichen',
-    date: 'Frist: 10. April 2026',
-    location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
-    description: 'Liebe Trainingsteilnehmerinnen und Trainingsteilnehmer,\n\ndie aktuelle Wintersaison neigt sich dem Ende zu. Daher benötigen wir von allen zukünftigen Trainingsteilnehmerinnen und Trainingsteilnehmern das ausgefüllte Trainingswunschformular.\n\nSende uns eine kurze Nachricht, um das Formular zu erhalten.',
-    image: '/anmeldung.jpg',
-    cta: { label: 'Nachricht senden', link: '/kontakt' },
-  },
-  {
     title: 'Aus Tennisschule wird Academy',
     subtitle: 'Die Tennis Academy Grand Slam ist da',
     date: 'März 2026',

@@ -6,14 +6,9 @@ import { events } from './News';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
 
 const MARQUEE_ITEMS = [
-  'DTB Anerkannt',
-  'VDT Zertifiziert',
-  'Berlin-Wilmersdorf',
-  'B-Lizenz Trainer',
-  'Kinder & Erwachsene',
-  'Einzel & Gruppe',
-  'Leistungsbereich',
-  'Breitensport',
+  'Jugendtraining',
+  'Tenniscamps',
+  'DTB-zertifizierte Trainer',
 ];
 
 const BENTO = [
