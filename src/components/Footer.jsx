@@ -34,6 +34,7 @@ export default function Footer() {
             <ul>
               <li><Link to="/impressum">Impressum</Link></li>
               <li><Link to="/datenschutz">Datenschutz</Link></li>
+              <li><Link to="/agb">AGB</Link></li>
             </ul>
           </div>
         </div>

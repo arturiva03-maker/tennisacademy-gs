@@ -12,6 +12,7 @@ import News from './pages/News';
 import Kontakt from './pages/Kontakt';
 import Impressum from './pages/Impressum';
 import Datenschutz from './pages/Datenschutz';
+import AGB from './pages/AGB';
 import Tenniscamps from './pages/Tenniscamps';
 
 const PREVIEW_KEY = 'gs2026';
@@ -56,6 +57,7 @@ function AnimatedRoutes() {
       <Route path="/kontakt" element={<Kontakt />} />
       <Route path="/impressum" element={<Impressum />} />
       <Route path="/datenschutz" element={<Datenschutz />} />
+      <Route path="/agb" element={<AGB />} />
       <Route path="/tenniscamps" element={<Tenniscamps />} />
     </Routes>
   );

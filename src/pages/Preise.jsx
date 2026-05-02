@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { CalendarCheck, Users, CreditCard } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
@@ -120,6 +121,10 @@ export default function Preise() {
               <p>
                 Alle Preise pro Person und Trainingsstunde (60 Minuten). Im Winter
                 fallen zuzüglich Hallengebühren an.
+              </p>
+              <p>
+                Es gelten unsere{' '}
+                <Link to="/agb">Allgemeinen Geschäftsbedingungen</Link>.
               </p>
             </div>
           </AnimatedSection>
