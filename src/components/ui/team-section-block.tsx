@@ -237,6 +237,21 @@ function TeamMemberCard({
           </h3>
           <p className="text-sm font-medium text-primary">{member.role}</p>
 
+          {/* Lizenzen */}
+          {member.skills && member.skills.length > 0 && (
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {member.skills.map((skill, i) => (
+                <Badge
+                  key={i}
+                  variant="secondary"
+                  className="border-0 bg-[--navy]/8 text-[--navy] font-medium"
+                >
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          )}
+
           {/* Bullets */}
           {member.bullets && (
             <ul className="mt-3 space-y-1">
