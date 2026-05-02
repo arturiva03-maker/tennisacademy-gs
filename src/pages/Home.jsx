@@ -12,50 +12,55 @@ const MARQUEE_ITEMS = [
   'DTB-zertifizierte Trainer',
 ];
 
-const BENTO = [
+const OFFERINGS = [
   {
     id: 'technik',
+    tag: 'Schlagtechnik',
     label: 'Technik',
     titleAccent: 'training',
     icon: Crosshair,
-    description: 'Systematisches Erlernen aller Schläge – von Vorhand bis Aufschlag.',
-    gridClass: 'gs-bento-large',
+    description:
+      'Systematisches Erlernen aller Schläge – von Vorhand und Rückhand bis zum Aufschlag und Volley. Präzise Bewegungsanalyse, individuelle Korrekturen und gezieltes Drillen für ein technisch sauberes Spiel.',
     href: '/preise',
   },
   {
     id: 'kinder',
+    tag: 'Ab 4 Jahren',
     label: 'Kids',
     titleAccent: 'on Court',
     icon: Baby,
-    description: 'Spielerisches Erlernen ab 4 Jahren.',
-    gridClass: 'gs-bento-sm',
+    description:
+      'Spielerisches Erlernen mit Methodik des DTB. Koordination, Ballgefühl und Spaß stehen im Mittelpunkt – kindgerechtes Equipment, kleine Felder, große Begeisterung.',
     href: '/kids-on-court',
   },
   {
     id: 'einzel',
+    tag: '1-auf-1',
     label: 'Einzel',
     titleAccent: 'training',
     icon: User,
-    description: '1-auf-1 mit maximalem Fokus auf dein Spiel.',
-    gridClass: 'gs-bento-sm',
+    description:
+      'Individuelles Coaching mit maximalem Fokus auf dein Spiel. Persönliche Trainingsziele, schnelle Fortschritte und volle Aufmerksamkeit deines Trainers für jede Stunde.',
     href: '/preise',
   },
   {
     id: 'camp',
+    tag: 'Schulferien',
     label: 'Sommer',
     titleAccent: 'camp',
     icon: Sun,
-    description: 'Intensive Trainingsblöcke in den Schulferien.',
-    gridClass: 'gs-bento-sm',
+    description:
+      'Intensive Trainingsblöcke während der Schulferien. Mehrere Stunden täglich auf dem Platz, abwechslungsreiche Inhalte und gemeinschaftliches Erlebnis im Sommer.',
     href: '/tenniscamps',
   },
   {
     id: 'gruppe',
+    tag: 'Alle Spielstärken',
     label: 'Gruppen',
     titleAccent: 'training',
     icon: Users,
-    description: 'Motivation in der Gruppe – für alle Altersklassen und Spielstärken.',
-    gridClass: 'gs-bento-wide',
+    description:
+      'Motivation in der Gruppe – für alle Altersklassen und Spielstärken. Spielfreude, gegenseitiges Pushen und gemeinsame Entwicklung in 2er- bis 6er-Gruppen.',
     href: '/preise',
   },
 ];
@@ -71,54 +76,51 @@ function TennisNewsWidget() {
   return <div id="tennis-news-widget" data-tenant="dtb" data-design="modern" />;
 }
 
-function BentoCard({ card, index }) {
+function OfferingRow({ offering, index, isLast }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
-  const Icon = card.icon;
+  const inView = useInView(ref, { once: true, margin: '-100px' });
+  const Icon = offering.icon;
   const num = String(index + 1).padStart(2, '0');
 
   return (
     <motion.div
       ref={ref}
-      className={`gs-bento-card-wrap ${card.gridClass}`}
-      initial={{ opacity: 0, y: 28, scale: 0.97 }}
-      animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+      className={`gs-offer-row-wrap${isLast ? ' is-last' : ''}`}
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{
-        duration: 0.65,
-        delay: index * 0.07,
+        duration: 0.75,
+        delay: index * 0.06,
         ease: [0.22, 1, 0.36, 1],
       }}
     >
-      <Link to={card.href} className="gs-bento-card" aria-label={`${card.label} ${card.titleAccent}`}>
-        <svg
-          className="gs-bento-court"
-          viewBox="0 0 400 260"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <rect x="20" y="20" width="360" height="220" />
-          <line x1="200" y1="20" x2="200" y2="240" />
-          <line x1="20" y1="130" x2="380" y2="130" />
-          <rect x="80" y="80" width="240" height="100" />
-          <line x1="200" y1="80" x2="200" y2="180" />
-        </svg>
-        <span className="gs-bento-num">{num}</span>
-        <span className="gs-bento-arrow" aria-hidden="true">
-          <ArrowUpRight size={18} />
-        </span>
-        <div className="gs-bento-card-content">
-          <div className="gs-bento-icon">
-            <Icon size={16} />
-          </div>
-          <div>
-            <h3 className="gs-bento-card-title">
-              {card.label}{' '}
-              <em>{card.titleAccent}</em>
-            </h3>
-            <p className="gs-bento-card-desc">{card.description}</p>
+      <Link to={offering.href} className="gs-offer-row" aria-label={`${offering.label} ${offering.titleAccent}`}>
+        <span className="gs-offer-num" aria-hidden="true">{num}</span>
+        <div className="gs-offer-body">
+          <span className="gs-offer-tag">{offering.tag}</span>
+          <h3 className="gs-offer-title">
+            {offering.label} <em>{offering.titleAccent}</em>
+          </h3>
+          <p className="gs-offer-desc">{offering.description}</p>
+          <span className="gs-offer-cta">
+            <span className="gs-offer-cta-label">Mehr erfahren</span>
+            <span className="gs-offer-cta-arrow">
+              <ArrowUpRight size={18} />
+            </span>
+          </span>
+        </div>
+        <div className="gs-offer-visual" aria-hidden="true">
+          <svg className="gs-offer-court" viewBox="0 0 200 260" preserveAspectRatio="none">
+            <rect x="20" y="20" width="160" height="220" />
+            <line x1="100" y1="20" x2="100" y2="240" />
+            <line x1="20" y1="130" x2="180" y2="130" />
+            <rect x="50" y="80" width="100" height="100" />
+            <line x1="100" y1="80" x2="100" y2="180" />
+          </svg>
+          <div className="gs-offer-icon-wrap">
+            <Icon size={48} strokeWidth={1.3} />
           </div>
         </div>
-        <span className="gs-bento-accent" aria-hidden="true" />
       </Link>
     </motion.div>
   );
@@ -217,20 +219,29 @@ export default function Home() {
         </div>
       </div>
 
-      {/* BENTO GRID */}
-      <section className="gs-bento-section">
+      {/* OFFERINGS — EDITORIAL STACK */}
+      <section className="gs-offer-section">
         <div className="container">
           <AnimatedSection>
-            <div className="section-header">
-              <h2 className="section-title">Unser Angebot</h2>
-              <p className="section-subtitle">
-                Von der Technik bis zur Taktik – wir begleiten dich auf deinem Tennisweg.
+            <div className="gs-offer-header">
+              <span className="gs-offer-eyebrow">Was wir anbieten</span>
+              <h2 className="gs-offer-headline">
+                Unser <em>Angebot</em>
+              </h2>
+              <p className="gs-offer-intro">
+                Von der ersten Schlagtechnik bis zum taktischen Feinschliff –
+                wir begleiten dich auf jedem Schritt deines Tennisweges.
               </p>
             </div>
           </AnimatedSection>
-          <div className="gs-bento-grid">
-            {BENTO.map((card, i) => (
-              <BentoCard key={card.id} card={card} index={i} />
+          <div className="gs-offer-stack">
+            {OFFERINGS.map((offering, i) => (
+              <OfferingRow
+                key={offering.id}
+                offering={offering}
+                index={i}
+                isLast={i === OFFERINGS.length - 1}
+              />
             ))}
           </div>
         </div>
