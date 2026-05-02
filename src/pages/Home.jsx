@@ -14,7 +14,7 @@ const MARQUEE_ITEMS = [
 const OFFERINGS = [
   {
     id: 'mini',
-    title: 'Mini Tennis (Ballschule)',
+    title: 'Mini Tennis – Ballschule (3–5 Jahre)',
     description:
       'Entwicklung der koordinativen Fähigkeiten und Erlernen erster Schlagtechniken.',
   },
