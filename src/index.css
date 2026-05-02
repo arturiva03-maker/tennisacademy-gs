@@ -3483,11 +3483,11 @@ img {
 }
 
 .gs-offer-row-wrap {
-  border-top: 1px solid rgba(11, 37, 56, 0.08);
+  border-top: 1px solid color-mix(in srgb, var(--navy-dark) 8%, transparent);
 }
 
-.gs-offer-row-wrap.is-last {
-  border-bottom: 1px solid rgba(11, 37, 56, 0.08);
+.gs-offer-row-wrap:last-child {
+  border-bottom: 1px solid color-mix(in srgb, var(--navy-dark) 8%, transparent);
 }
 
 .gs-offer-row {

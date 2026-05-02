@@ -55,21 +55,17 @@ function TennisNewsWidget() {
   return <div id="tennis-news-widget" data-tenant="dtb" data-design="modern" />;
 }
 
-function OfferingRow({ offering, index, isLast }) {
+function OfferingRow({ offering }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
     <motion.div
       ref={ref}
-      className={`gs-offer-row-wrap${isLast ? ' is-last' : ''}`}
+      className="gs-offer-row-wrap"
       initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{
-        duration: 0.7,
-        delay: index * 0.05,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="gs-offer-row">
         <h3 className="gs-offer-title">{offering.title}</h3>
@@ -185,13 +181,8 @@ export default function Home() {
             </div>
           </AnimatedSection>
           <div className="gs-offer-stack">
-            {OFFERINGS.map((offering, i) => (
-              <OfferingRow
-                key={offering.id}
-                offering={offering}
-                index={i}
-                isLast={i === OFFERINGS.length - 1}
-              />
+            {OFFERINGS.map((offering) => (
+              <OfferingRow key={offering.id} offering={offering} />
             ))}
           </div>
         </div>

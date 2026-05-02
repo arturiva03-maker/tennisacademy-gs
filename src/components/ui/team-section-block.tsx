@@ -63,6 +63,8 @@ const teamMembers = [
     gradient: "from-white/12 via-white/5 to-transparent",
     bullets: [
       "Ehemaliger Profispieler aus Bulgarien",
+      "Spieler der bulgarischen Nationalmannschaft",
+      "Teilnahme an den Europäischen Jugendmeisterschaften",
       "Seit sechs Jahren Tennistrainer in Berlin",
       "Trainiert Kinder, Jugendliche und Erwachsene",
       "Aktiver Spieler der 1. Herrenmannschaft",
@@ -82,6 +84,7 @@ const teamMembers = [
     gradient: "from-white/12 via-white/5 to-transparent",
     bullets: [
       "Spielt seit früher Kindheit leidenschaftlich Tennis",
+      "Berliner und Norddeutscher Jugendmeister",
       "Trainiert Kinder, Jugendliche und Erwachsene",
       "Breiten- und Leistungssport, Einzel und Gruppe",
       "Mini-Tennis ab 3 Jahren, Fitness-Tennis",
