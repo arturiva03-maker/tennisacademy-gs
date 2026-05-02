@@ -276,11 +276,11 @@ export function TeamSectionBlock() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8" style={{ backgroundColor: '#fff' }}>
+    <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--white)' }}>
       {/* Ambient background effects */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute -left-1/4 top-0 h-96 w-96 rounded-full blur-3xl" style={{ backgroundColor: 'rgba(22,61,94,0.04)' }}
+          className="absolute -left-1/4 top-0 h-96 w-96 rounded-full blur-3xl" style={{ backgroundColor: 'color-mix(in srgb, var(--navy) 4%, transparent)' }}
           animate={
             shouldReduceMotion
               ? undefined
@@ -293,7 +293,7 @@ export function TeamSectionBlock() {
           }
         />
         <motion.div
-          className="absolute -right-1/4 bottom-0 h-96 w-96 rounded-full blur-3xl" style={{ backgroundColor: 'rgba(22,61,94,0.04)' }}
+          className="absolute -right-1/4 bottom-0 h-96 w-96 rounded-full blur-3xl" style={{ backgroundColor: 'color-mix(in srgb, var(--navy) 4%, transparent)' }}
           animate={
             shouldReduceMotion
               ? undefined
