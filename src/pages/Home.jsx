@@ -138,14 +138,6 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <div className="gs-hero-scroll">
-          <motion.div
-            className="gs-scroll-line"
-            initial={{ scaleY: 0, originY: 0 }}
-            animate={{ scaleY: 1 }}
-            transition={{ duration: 1.4, delay: 1.6, ease: [0.22, 1, 0.36, 1] }}
-          />
-        </div>
       </section>
 
       {/* TRUST MARQUEE */}
