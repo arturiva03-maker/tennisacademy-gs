@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Calendar, Award, Target, Users, ArrowUpRight } from 'lucide-react';
+import { Calendar, Award, Target, Users } from 'lucide-react';
 import { motion } from 'motion/react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import { events } from './News';
@@ -19,7 +18,6 @@ const OFFERINGS = [
     title: 'Mini Tennis – Ballschule',
     description:
       'Entwicklung der koordinativen Fähigkeiten und Erlernen erster Schlagtechniken.',
-    link: '/kids-on-court',
   },
   {
     id: 'kids',
@@ -27,7 +25,6 @@ const OFFERINGS = [
     title: 'Kids on Court',
     description:
       'Entwicklung einer stabilen Schlagform sowie erste strategische Übungen.',
-    link: '/kids-on-court',
   },
   {
     id: 'jugend',
@@ -35,7 +32,6 @@ const OFFERINGS = [
     title: 'Kinder- und Jugendtraining',
     description:
       'Je nach Spielstärke Einteilung in Gruppen oder individuelles Einzeltraining.',
-    link: '/preise',
   },
   {
     id: 'camp',
@@ -43,7 +39,6 @@ const OFFERINGS = [
     title: 'Sommercamps',
     description:
       'Halbtägige Betreuung mit viel Sport und Verpflegung.',
-    link: '/tenniscamps',
   },
 ];
 
@@ -60,16 +55,15 @@ function TennisNewsWidget() {
 
 function OfferingRow({ offering }) {
   return (
-    <Link to={offering.link} className="gs-offer-row-wrap">
+    <div className="gs-offer-row-wrap">
       <div className="gs-offer-row">
         <span className="gs-offer-age">{offering.age}</span>
         <div className="gs-offer-body">
           <h3 className="gs-offer-title">{offering.title}</h3>
           <p className="gs-offer-desc">{offering.description}</p>
         </div>
-        <ArrowUpRight className="gs-offer-arrow" size={24} aria-hidden="true" />
       </div>
-    </Link>
+    </div>
   );
 }
 

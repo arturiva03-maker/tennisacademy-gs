@@ -3464,25 +3464,13 @@ img {
 .gs-offer-row-wrap {
   display: block;
   border-top: var(--offer-divider);
-  text-decoration: none;
-  color: inherit;
-  transition: background-color 220ms var(--ease-out);
-}
-
-.gs-offer-row-wrap:hover {
-  background: color-mix(in srgb, var(--gold) 5%, transparent);
-}
-
-.gs-offer-row-wrap:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: -2px;
 }
 
 .gs-offer-row {
   display: grid;
-  grid-template-columns: 160px 1fr auto;
+  grid-template-columns: 160px 1fr;
   gap: 32px;
-  align-items: center;
+  align-items: baseline;
   padding: 28px 12px;
 }
 
@@ -3492,7 +3480,7 @@ img {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold-dark);
+  color: var(--text-medium);
 }
 
 .gs-offer-body {
@@ -3509,7 +3497,6 @@ img {
   letter-spacing: -0.02em;
   line-height: 1.15;
   color: var(--navy-dark);
-  transition: color 220ms var(--ease-out);
 }
 
 .gs-offer-desc {
@@ -3520,21 +3507,6 @@ img {
   max-width: 720px;
 }
 
-.gs-offer-arrow {
-  color: var(--text-medium);
-  flex-shrink: 0;
-  transition: transform 220ms var(--ease-out), color 220ms var(--ease-out);
-}
-
-.gs-offer-row-wrap:hover .gs-offer-title {
-  color: var(--gold-dark);
-}
-
-.gs-offer-row-wrap:hover .gs-offer-arrow {
-  transform: translate(4px, -4px);
-  color: var(--gold-dark);
-}
-
 @media (max-width: 768px) {
   .gs-offer-section {
     padding: 64px 0 56px;
@@ -3543,25 +3515,8 @@ img {
     margin-bottom: 36px;
   }
   .gs-offer-row {
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      'age arrow'
-      'body body';
-    gap: 10px 16px;
+    grid-template-columns: 1fr;
+    gap: 8px;
     padding: 22px 12px;
-  }
-  .gs-offer-age {
-    grid-area: age;
-  }
-  .gs-offer-arrow {
-    grid-area: arrow;
-    align-self: start;
-  }
-  .gs-offer-body {
-    grid-area: body;
-  }
-  .gs-offer-arrow {
-    width: 22px;
-    height: 22px;
   }
 }
