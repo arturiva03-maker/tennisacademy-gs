@@ -2036,12 +2036,235 @@ img {
   background: var(--bg);
   border-radius: var(--radius-lg);
   border-left: 4px solid var(--gold);
+  margin-top: 48px;
 }
 
 .preis-info p {
   color: var(--text-medium);
   font-size: 0.95rem;
   line-height: 1.6;
+}
+
+/* ========== PREISE — PILL TABS + CARDS ========== */
+.preis-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  margin-bottom: 40px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.preis-pill {
+  appearance: none;
+  border: none;
+  background: transparent;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--text-medium);
+  padding: 10px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.preis-pill:hover {
+  color: var(--navy-dark);
+}
+
+.preis-pill.is-active {
+  background: var(--navy-dark);
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.preis-pill:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.preis-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.preis-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px 24px;
+  transition: box-shadow 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
+}
+
+.preis-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  border-color: rgba(201, 162, 39, 0.35);
+}
+
+.preis-card.is-highlight {
+  border-color: rgba(201, 162, 39, 0.55);
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(201, 162, 39, 0.06) 0%, transparent 60%),
+    var(--white);
+  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.12);
+}
+
+.preis-card.is-highlight:hover {
+  box-shadow: 0 14px 36px rgba(201, 162, 39, 0.2);
+}
+
+.preis-card-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold-dark);
+  background: rgba(201, 162, 39, 0.1);
+  border: 1px solid rgba(201, 162, 39, 0.28);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.preis-card.is-highlight .preis-card-badge {
+  color: var(--white);
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  border-color: transparent;
+}
+
+.preis-card-head {
+  margin-bottom: 24px;
+  padding-right: 70px;
+}
+
+.preis-card-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--navy-dark);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.preis-card-sub {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.preis-card-amount-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+  min-height: 90px;
+  position: relative;
+}
+
+.preis-card-amount {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3vw, 2.8rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--navy-dark);
+  margin-bottom: 6px;
+}
+
+.preis-card.is-highlight .preis-card-amount {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 55%, var(--gold-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.preis-card-meta {
+  font-family: var(--font-ui);
+  font-size: 0.74rem;
+  color: var(--text-light);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.preis-card-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--navy-dark);
+  text-decoration: none;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.preis-card-cta:hover {
+  background: var(--navy-dark);
+  border-color: var(--navy-dark);
+  color: var(--white);
+}
+
+.preis-card.is-highlight .preis-card-cta {
+  background: var(--navy-dark);
+  border-color: var(--navy-dark);
+  color: var(--white);
+}
+
+.preis-card.is-highlight .preis-card-cta:hover {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  border-color: transparent;
+}
+
+@media (max-width: 1100px) {
+  .preis-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .preis-pills {
+    width: 100%;
+    justify-content: center;
+    border-radius: 14px;
+    padding: 6px;
+  }
+  .preis-pill {
+    flex: 1 1 calc(33.333% - 6px);
+    padding: 8px 10px;
+    font-size: 0.74rem;
+    text-align: center;
+  }
+  .preis-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .preis-card {
+    padding: 24px 20px 20px;
+  }
 }
 
 /* ========== TRAINER ACCORDION ========== */

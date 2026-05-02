@@ -1,28 +1,58 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { CalendarCheck, Users, CreditCard, ChevronDown } from 'lucide-react';
+import { CalendarCheck, Users, CreditCard, ArrowUpRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
 
-const trainerPreise = [
+const SIZES = [
+  { key: 'einzel', label: 'Einzel', long: 'Einzeltraining' },
+  { key: '2er', label: '2er Gruppe', long: '2er Gruppe' },
+  { key: '3er', label: '3er Gruppe', long: '3er Gruppe' },
+  { key: '4er', label: '4er Gruppe', long: '4er Gruppe' },
+  { key: '5er', label: '5er Gruppe', long: '5er Gruppe' },
+  { key: '6er', label: '6er Gruppe', long: '6er Gruppe' },
+];
+
+const TRAINERS = [
   {
-    name: 'Zlatan, Jana, Artur',
-    lizenz: 'B-Lizenz Trainer',
-    preise: ['58 €', '31 €', '21,33 €', '16,50 €', '13,60 €', '11,67 €'],
+    id: 'c-lizenz',
+    name: 'C-Lizenz',
+    sub: 'Trainer',
+    badge: 'Standard',
+    prices: [48, 26, 18, 14, 11.6, 10],
   },
   {
+    id: 'b-lizenz',
+    name: 'B-Lizenz',
+    sub: 'Trainer',
+    badge: 'Erweitert',
+    prices: [56, 30, 20.67, 16, 13.2, 11.33],
+  },
+  {
+    id: 'zja',
+    name: 'Zlatan, Jana, Artur',
+    sub: 'B-Lizenz Trainer',
+    badge: 'Beliebt',
+    highlight: true,
+    prices: [58, 31, 21.33, 16.5, 13.6, 11.67],
+  },
+  {
+    id: 'lingner',
     name: 'Michael Lingner',
-    lizenz: '',
-    preise: ['62 €', '33 €', '22,67 €', '17,50 €', '14,40 €', '12,33 €'],
+    sub: 'Erfahrungs-Coach',
+    badge: 'Premium',
+    prices: [62, 33, 22.67, 17.5, 14.4, 12.33],
   },
 ];
 
-export default function Preise() {
-  const [openTrainer, setOpenTrainer] = useState(null);
+const formatPrice = (n) =>
+  Number.isInteger(n)
+    ? `${n} €`
+    : `${n.toFixed(2).replace('.', ',')} €`;
 
-  const toggleTrainer = (name) => {
-    setOpenTrainer((prev) => (prev === name ? null : name));
-  };
+export default function Preise() {
+  const [activeSize, setActiveSize] = useState(0);
 
   return (
     <>
@@ -46,95 +76,68 @@ export default function Preise() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <div className="preis-table-container">
-            <table className="preis-table-full">
-              <thead>
-                <tr>
-                  <th>Trainer</th>
-                  <th>Einzel</th>
-                  <th>2er Gruppe</th>
-                  <th>3er Gruppe</th>
-                  <th>4er Gruppe</th>
-                  <th>5er Gruppe</th>
-                  <th>6er Gruppe</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="trainer-cell">
-                    <strong>C-Lizenz Trainer</strong>
-                  </td>
-                  <td><span className="preis-amount">48 €</span></td>
-                  <td><span className="preis-amount">26 €</span></td>
-                  <td><span className="preis-amount">18 €</span></td>
-                  <td><span className="preis-amount">14 €</span></td>
-                  <td><span className="preis-amount">11,60 €</span></td>
-                  <td><span className="preis-amount">10 €</span></td>
-                </tr>
-                <tr>
-                  <td className="trainer-cell">
-                    <strong>B-Lizenz Trainer</strong>
-                  </td>
-                  <td><span className="preis-amount">56 €</span></td>
-                  <td><span className="preis-amount">30 €</span></td>
-                  <td><span className="preis-amount">20,67 €</span></td>
-                  <td><span className="preis-amount">16 €</span></td>
-                  <td><span className="preis-amount">13,20 €</span></td>
-                  <td><span className="preis-amount">11,33 €</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="trainer-accordion" style={{ marginTop: '24px' }}>
-              {trainerPreise.map((trainer) => (
-                <div
-                  key={trainer.name}
-                  className={`trainer-accordion-item ${openTrainer === trainer.name ? 'open' : ''}`}
+            <div className="preis-pills" role="tablist" aria-label="Gruppengröße auswählen">
+              {SIZES.map((size, i) => (
+                <button
+                  key={size.key}
+                  role="tab"
+                  aria-selected={activeSize === i}
+                  className={`preis-pill ${activeSize === i ? 'is-active' : ''}`}
+                  onClick={() => setActiveSize(i)}
                 >
-                  <button
-                    className="trainer-accordion-header"
-                    onClick={() => toggleTrainer(trainer.name)}
-                  >
-                    <div className="trainer-accordion-info">
-                      <strong>Training bei {trainer.name}</strong>
-                      {trainer.lizenz && (
-                        <span className="trainer-badge-inline">{trainer.lizenz}</span>
-                      )}
-                    </div>
-                    <ChevronDown className="trainer-accordion-icon" size={20} />
-                  </button>
-                  <div className="trainer-accordion-body">
-                    <table className="preis-table-full">
-                      <thead>
-                        <tr>
-                          <th>Einzel</th>
-                          <th>2er Gruppe</th>
-                          <th>3er Gruppe</th>
-                          <th>4er Gruppe</th>
-                          <th>5er Gruppe</th>
-                          <th>6er Gruppe</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          {trainer.preise.map((preis, i) => (
-                            <td key={i}><span className="preis-amount">{preis}</span></td>
-                          ))}
-                        </tr>
-                      </tbody>
-                    </table>
+                  {size.label}
+                </button>
+              ))}
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.2}>
+            <div className="preis-cards-grid">
+              {TRAINERS.map((trainer) => (
+                <div
+                  key={trainer.id}
+                  className={`preis-card ${trainer.highlight ? 'is-highlight' : ''}`}
+                >
+                  {trainer.badge && (
+                    <span className="preis-card-badge">{trainer.badge}</span>
+                  )}
+                  <div className="preis-card-head">
+                    <h3 className="preis-card-name">{trainer.name}</h3>
+                    <span className="preis-card-sub">{trainer.sub}</span>
                   </div>
+                  <div className="preis-card-amount-wrap">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={SIZES[activeSize].key}
+                        className="preis-card-amount"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                      >
+                        {formatPrice(trainer.prices[activeSize])}
+                      </motion.div>
+                    </AnimatePresence>
+                    <span className="preis-card-meta">
+                      pro Person · {SIZES[activeSize].long}
+                    </span>
+                  </div>
+                  <Link to="/kontakt" className="preis-card-cta">
+                    <span>Probestunde anfragen</span>
+                    <ArrowUpRight size={16} />
+                  </Link>
                 </div>
               ))}
             </div>
+          </AnimatedSection>
 
-          <div className="preis-info">
-            <p>
-              Die Tennis Academy Grand Slam bietet Training für alle Altersgruppen und Spielstärken an.
-              Im Winter fallen zuzüglich Hallengebühren an.
-            </p>
-          </div>
+          <AnimatedSection delay={0.3}>
+            <div className="preis-info">
+              <p>
+                Alle Preise pro Person und Trainingsstunde (60 Minuten). Im Winter
+                fallen zuzüglich Hallengebühren an.
+              </p>
+            </div>
           </AnimatedSection>
         </div>
       </section>
