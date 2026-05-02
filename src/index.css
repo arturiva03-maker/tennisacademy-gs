@@ -369,8 +369,12 @@ img {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
   color: var(--text-dark);
+  align-items: center;
+  justify-content: center;
 }
 
 .mobile-nav {
@@ -731,6 +735,11 @@ img {
   position: absolute;
   top: 20px;
   right: 20px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
   color: white;
@@ -3152,7 +3161,7 @@ img {
   }
 
   .mobile-toggle {
-    display: block;
+    display: flex;
   }
 
   .preis-table th,

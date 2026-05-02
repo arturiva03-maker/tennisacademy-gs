@@ -233,17 +233,35 @@ export default function KidsOnCourt() {
       </section>
 
       {lightboxOpen && (
-        <div className="lightbox" onClick={closeLightbox}>
-          <button className="lightbox-close" onClick={closeLightbox}>
+        <div
+          className="lightbox"
+          onClick={closeLightbox}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Galerie"
+        >
+          <button
+            className="lightbox-close"
+            onClick={closeLightbox}
+            aria-label="Galerie schließen"
+          >
             <X size={32} />
           </button>
-          <button className="lightbox-prev" onClick={(e) => { e.stopPropagation(); prevImage(); }}>
+          <button
+            className="lightbox-prev"
+            onClick={(e) => { e.stopPropagation(); prevImage(); }}
+            aria-label="Vorheriges Bild"
+          >
             <ChevronLeft size={40} />
           </button>
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
             <img src={galleryImages[currentImage]} alt={`Kids on Court ${currentImage + 1}`} />
           </div>
-          <button className="lightbox-next" onClick={(e) => { e.stopPropagation(); nextImage(); }}>
+          <button
+            className="lightbox-next"
+            onClick={(e) => { e.stopPropagation(); nextImage(); }}
+            aria-label="Nächstes Bild"
+          >
             <ChevronRight size={40} />
           </button>
         </div>
