@@ -2370,15 +2370,37 @@ img {
 
 .einstieg-agb-note {
   margin-top: 14px;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--text-medium);
   font-family: var(--font-body);
 }
 
-.einstieg-agb-note a {
+.agb-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   color: var(--navy-dark);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--navy-dark) 25%, transparent);
+  padding-bottom: 1px;
+  transition: gap 0.2s ease, border-color 0.2s ease;
+}
+
+.agb-link:hover,
+.agb-link:focus-visible {
+  gap: 10px;
+  border-bottom-color: var(--navy-dark);
+}
+
+.agb-link svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.agb-link:hover svg,
+.agb-link:focus-visible svg {
+  transform: translate(2px, -2px);
 }
 
 .btn-lg {

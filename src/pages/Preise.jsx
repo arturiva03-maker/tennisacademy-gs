@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CalendarCheck, Users, CreditCard } from 'lucide-react';
+import { CalendarCheck, Users, CreditCard, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
@@ -123,8 +123,10 @@ export default function Preise() {
                 fallen zuzüglich Hallengebühren an.
               </p>
               <p>
-                Es gelten unsere{' '}
-                <Link to="/agb">Allgemeinen Geschäftsbedingungen</Link>.
+                <Link to="/agb" className="agb-link">
+                  Allgemeine Geschäftsbedingungen
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </Link>
               </p>
             </div>
           </AnimatedSection>
@@ -195,8 +197,10 @@ export default function Preise() {
               Probetraining anfragen
             </ButtonWithIcon>
             <p className="einstieg-agb-note">
-              Mit der Anmeldung gelten unsere{' '}
-              <Link to="/agb">Allgemeinen Geschäftsbedingungen</Link>.
+              <Link to="/agb" className="agb-link">
+                Allgemeine Geschäftsbedingungen
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </Link>
             </p>
           </div>
         </div>
