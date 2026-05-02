@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { CalendarCheck, Users, CreditCard, ArrowUpRight } from 'lucide-react';
+import { CalendarCheck, Users, CreditCard } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
@@ -111,10 +110,6 @@ export default function Preise() {
                       pro Person · {SIZES[activeSize].long}
                     </span>
                   </div>
-                  <Link to="/kontakt" className="preis-card-cta">
-                    <span>Probestunde anfragen</span>
-                    <ArrowUpRight size={16} />
-                  </Link>
                 </div>
               ))}
             </div>

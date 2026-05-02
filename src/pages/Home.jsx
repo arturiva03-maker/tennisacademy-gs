@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Award, Target, Users, Crosshair, User, Baby, Sun, ArrowUpRight } from 'lucide-react';
+import { Calendar, Award, Target, Users, ArrowUpRight } from 'lucide-react';
 import { motion, useInView } from 'motion/react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import { events } from './News';
@@ -18,9 +18,8 @@ const OFFERINGS = [
     tag: 'Schlagtechnik',
     label: 'Technik',
     titleAccent: 'training',
-    icon: Crosshair,
     description:
-      'Systematisches Erlernen aller Schläge – von Vorhand und Rückhand bis zum Aufschlag und Volley. Präzise Bewegungsanalyse, individuelle Korrekturen und gezieltes Drillen für ein technisch sauberes Spiel.',
+      'Systematisches Erlernen aller Schläge – von Vorhand und Rückhand bis zum Aufschlag und Volley.',
     href: '/preise',
   },
   {
@@ -28,9 +27,8 @@ const OFFERINGS = [
     tag: 'Ab 4 Jahren',
     label: 'Kids',
     titleAccent: 'on Court',
-    icon: Baby,
     description:
-      'Spielerisches Erlernen mit Methodik des DTB. Koordination, Ballgefühl und Spaß stehen im Mittelpunkt – kindgerechtes Equipment, kleine Felder, große Begeisterung.',
+      'Spielerisches Erlernen nach DTB-Methodik. Koordination, Ballgefühl und Spaß im Mittelpunkt.',
     href: '/kids-on-court',
   },
   {
@@ -38,9 +36,8 @@ const OFFERINGS = [
     tag: '1-auf-1',
     label: 'Einzel',
     titleAccent: 'training',
-    icon: User,
     description:
-      'Individuelles Coaching mit maximalem Fokus auf dein Spiel. Persönliche Trainingsziele, schnelle Fortschritte und volle Aufmerksamkeit deines Trainers für jede Stunde.',
+      'Individuelles Coaching mit maximalem Fokus. Persönliche Trainingsziele und schnelle Fortschritte.',
     href: '/preise',
   },
   {
@@ -48,9 +45,8 @@ const OFFERINGS = [
     tag: 'Schulferien',
     label: 'Sommer',
     titleAccent: 'camp',
-    icon: Sun,
     description:
-      'Intensive Trainingsblöcke während der Schulferien. Mehrere Stunden täglich auf dem Platz, abwechslungsreiche Inhalte und gemeinschaftliches Erlebnis im Sommer.',
+      'Intensive Trainingsblöcke während der Schulferien – mehrere Stunden täglich auf dem Platz.',
     href: '/tenniscamps',
   },
   {
@@ -58,9 +54,8 @@ const OFFERINGS = [
     tag: 'Alle Spielstärken',
     label: 'Gruppen',
     titleAccent: 'training',
-    icon: Users,
     description:
-      'Motivation in der Gruppe – für alle Altersklassen und Spielstärken. Spielfreude, gegenseitiges Pushen und gemeinsame Entwicklung in 2er- bis 6er-Gruppen.',
+      'Motivation in der Gruppe – für alle Altersklassen und Spielstärken in 2er- bis 6er-Gruppen.',
     href: '/preise',
   },
 ];
@@ -79,46 +74,32 @@ function TennisNewsWidget() {
 function OfferingRow({ offering, index, isLast }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
-  const Icon = offering.icon;
 
   return (
     <motion.div
       ref={ref}
       className={`gs-offer-row-wrap${isLast ? ' is-last' : ''}`}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{
-        duration: 0.75,
-        delay: index * 0.06,
+        duration: 0.7,
+        delay: index * 0.05,
         ease: [0.22, 1, 0.36, 1],
       }}
     >
       <Link to={offering.href} className="gs-offer-row" aria-label={`${offering.label} ${offering.titleAccent}`}>
-        <div className="gs-offer-body">
+        <div className="gs-offer-meta">
           <span className="gs-offer-tag">{offering.tag}</span>
+        </div>
+        <div className="gs-offer-body">
           <h3 className="gs-offer-title">
             {offering.label} <em>{offering.titleAccent}</em>
           </h3>
           <p className="gs-offer-desc">{offering.description}</p>
-          <span className="gs-offer-cta">
-            <span className="gs-offer-cta-label">Mehr erfahren</span>
-            <span className="gs-offer-cta-arrow">
-              <ArrowUpRight size={18} />
-            </span>
-          </span>
         </div>
-        <div className="gs-offer-visual" aria-hidden="true">
-          <svg className="gs-offer-court" viewBox="0 0 200 260" preserveAspectRatio="none">
-            <rect x="20" y="20" width="160" height="220" />
-            <line x1="100" y1="20" x2="100" y2="240" />
-            <line x1="20" y1="130" x2="180" y2="130" />
-            <rect x="50" y="80" width="100" height="100" />
-            <line x1="100" y1="80" x2="100" y2="180" />
-          </svg>
-          <div className="gs-offer-icon-wrap">
-            <Icon size={48} strokeWidth={1.3} />
-          </div>
-        </div>
+        <span className="gs-offer-arrow" aria-hidden="true">
+          <ArrowUpRight size={18} />
+        </span>
       </Link>
     </motion.div>
   );
