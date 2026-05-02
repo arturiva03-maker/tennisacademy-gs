@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { Calendar, Award, Target, Users, ArrowUpRight } from 'lucide-react';
+import { Calendar, Award, Target, Users } from 'lucide-react';
 import { motion, useInView } from 'motion/react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import { events } from './News';
@@ -15,48 +14,33 @@ const MARQUEE_ITEMS = [
 const OFFERINGS = [
   {
     id: 'technik',
-    tag: 'Schlagtechnik',
-    label: 'Technik',
-    titleAccent: 'training',
+    title: 'Techniktraining',
     description:
       'Systematisches Erlernen aller Schläge – von Vorhand und Rückhand bis zum Aufschlag und Volley.',
-    href: '/preise',
   },
   {
     id: 'kinder',
-    tag: 'Ab 4 Jahren',
-    label: 'Kids',
-    titleAccent: 'on Court',
+    title: 'Kids on Court',
     description:
       'Spielerisches Erlernen nach DTB-Methodik. Koordination, Ballgefühl und Spaß im Mittelpunkt.',
-    href: '/kids-on-court',
   },
   {
     id: 'einzel',
-    tag: '1-auf-1',
-    label: 'Einzel',
-    titleAccent: 'training',
+    title: 'Einzeltraining',
     description:
       'Individuelles Coaching mit maximalem Fokus. Persönliche Trainingsziele und schnelle Fortschritte.',
-    href: '/preise',
   },
   {
     id: 'camp',
-    tag: 'Schulferien',
-    label: 'Sommer',
-    titleAccent: 'camp',
+    title: 'Sommercamp',
     description:
       'Intensive Trainingsblöcke während der Schulferien – mehrere Stunden täglich auf dem Platz.',
-    href: '/tenniscamps',
   },
   {
     id: 'gruppe',
-    tag: 'Alle Spielstärken',
-    label: 'Gruppen',
-    titleAccent: 'training',
+    title: 'Gruppentraining',
     description:
       'Motivation in der Gruppe – für alle Altersklassen und Spielstärken in 2er- bis 6er-Gruppen.',
-    href: '/preise',
   },
 ];
 
@@ -87,20 +71,10 @@ function OfferingRow({ offering, index, isLast }) {
         ease: [0.22, 1, 0.36, 1],
       }}
     >
-      <Link to={offering.href} className="gs-offer-row" aria-label={`${offering.label} ${offering.titleAccent}`}>
-        <div className="gs-offer-meta">
-          <span className="gs-offer-tag">{offering.tag}</span>
-        </div>
-        <div className="gs-offer-body">
-          <h3 className="gs-offer-title">
-            {offering.label} <em>{offering.titleAccent}</em>
-          </h3>
-          <p className="gs-offer-desc">{offering.description}</p>
-        </div>
-        <span className="gs-offer-arrow" aria-hidden="true">
-          <ArrowUpRight size={18} />
-        </span>
-      </Link>
+      <div className="gs-offer-row">
+        <h3 className="gs-offer-title">{offering.title}</h3>
+        <p className="gs-offer-desc">{offering.description}</p>
+      </div>
     </motion.div>
   );
 }
@@ -203,10 +177,7 @@ export default function Home() {
         <div className="container">
           <AnimatedSection>
             <div className="gs-offer-header">
-              <span className="gs-offer-eyebrow">Was wir anbieten</span>
-              <h2 className="gs-offer-headline">
-                Unser <em>Angebot</em>
-              </h2>
+              <h2 className="gs-offer-headline">Unser Angebot</h2>
               <p className="gs-offer-intro">
                 Von der ersten Schlagtechnik bis zum taktischen Feinschliff –
                 wir begleiten dich auf jedem Schritt deines Tennisweges.

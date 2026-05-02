@@ -3459,17 +3459,6 @@ img {
   margin-bottom: 56px;
 }
 
-.gs-offer-eyebrow {
-  display: inline-block;
-  font-family: var(--font-ui);
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--gold-dark);
-  margin-bottom: 14px;
-}
-
 .gs-offer-headline {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
@@ -3478,15 +3467,6 @@ img {
   line-height: 1.1;
   color: var(--navy-dark);
   margin-bottom: 16px;
-}
-
-.gs-offer-headline em {
-  font-style: italic;
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 55%, var(--gold-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .gs-offer-intro {
@@ -3511,45 +3491,11 @@ img {
 }
 
 .gs-offer-row {
-  position: relative;
-  display: grid;
-  grid-template-columns: 180px 1fr auto;
-  gap: 40px;
-  align-items: center;
-  padding: 32px 8px;
-  text-decoration: none;
-  color: inherit;
-  transition: padding 0.4s ease;
-}
-
-.gs-offer-row:hover {
-  padding-left: 16px;
-}
-
-.gs-offer-row:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 4px;
-  border-radius: 4px;
-}
-
-.gs-offer-meta {
-  display: flex;
-  align-items: center;
-}
-
-.gs-offer-tag {
-  font-family: var(--font-ui);
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--gold-dark);
-}
-
-.gs-offer-body {
   display: flex;
   flex-direction: column;
-  max-width: 640px;
+  gap: 8px;
+  padding: 28px 8px;
+  color: inherit;
 }
 
 .gs-offer-title {
@@ -3559,16 +3505,6 @@ img {
   letter-spacing: -0.02em;
   line-height: 1.15;
   color: var(--navy-dark);
-  margin-bottom: 8px;
-}
-
-.gs-offer-title em {
-  font-style: italic;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 55%, var(--gold-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .gs-offer-desc {
@@ -3576,26 +3512,7 @@ img {
   font-size: 0.95rem;
   line-height: 1.6;
   color: var(--text-medium);
-}
-
-.gs-offer-arrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid rgba(11, 37, 56, 0.15);
-  color: var(--text-medium);
-  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease,
-              transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.gs-offer-row:hover .gs-offer-arrow {
-  background: var(--navy-dark);
-  border-color: var(--navy-dark);
-  color: var(--white);
-  transform: translate(2px, -2px);
+  max-width: 720px;
 }
 
 @media (max-width: 768px) {
@@ -3606,15 +3523,6 @@ img {
     margin-bottom: 36px;
   }
   .gs-offer-row {
-    grid-template-columns: 1fr auto;
-    gap: 16px 20px;
-    padding: 24px 8px;
-  }
-  .gs-offer-meta {
-    grid-column: 1 / -1;
-    margin-bottom: -4px;
-  }
-  .gs-offer-arrow {
-    align-self: center;
+    padding: 22px 8px;
   }
 }
