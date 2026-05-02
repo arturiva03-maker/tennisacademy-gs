@@ -3364,54 +3364,6 @@ img {
   }
 }
 
-/* ========== GS MARQUEE ========== */
-.gs-marquee-wrap {
-  overflow: hidden;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background: var(--bg);
-  padding: 13px 0;
-  user-select: none;
-}
-
-.gs-marquee-track {
-  display: flex;
-  width: max-content;
-  animation: gs-marquee 32s linear infinite;
-}
-
-.gs-marquee-wrap:hover .gs-marquee-track {
-  animation-play-state: paused;
-}
-
-@keyframes gs-marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-.gs-marquee-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 20px;
-  padding: 0 24px;
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-medium);
-  white-space: nowrap;
-}
-
-.gs-marquee-dot {
-  display: inline-block;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--gold);
-  flex-shrink: 0;
-}
-
 /* ========== GS OFFERINGS — MINIMAL EDITORIAL ========== */
 .gs-offer-section {
   padding: 96px 0 88px;

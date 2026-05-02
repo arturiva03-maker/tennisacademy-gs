@@ -57,7 +57,7 @@ const teamMembers = [
     name: "Zlatan Palazov",
     role: "Leitung der Tennis Academy",
     bio: "B-Trainer · Ehemaliger Profispieler aus Bulgarien",
-    image: "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?w=400&h=400&fit=crop",
+    image: "",
     location: "Berlin",
     skills: ["B-Trainer", "Kinder", "Erwachsene"],
     gradient: "from-white/12 via-white/5 to-transparent",

@@ -5,12 +5,6 @@ import { AnimatedSection } from '../hooks/useScrollAnimation';
 import { events } from './News';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
 
-const MARQUEE_ITEMS = [
-  'Jugendtraining',
-  'Tenniscamps',
-  'DTB-zertifizierte Trainer',
-];
-
 const OFFERINGS = [
   {
     id: 'mini',
@@ -139,18 +133,6 @@ export default function Home() {
         </div>
 
       </section>
-
-      {/* TRUST MARQUEE */}
-      <div className="gs-marquee-wrap">
-        <div className="gs-marquee-track">
-          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-            <span key={i} className="gs-marquee-item">
-              {item}
-              <span className="gs-marquee-dot" />
-            </span>
-          ))}
-        </div>
-      </div>
 
       {/* OFFERINGS — EDITORIAL STACK */}
       <section className="gs-offer-section">
