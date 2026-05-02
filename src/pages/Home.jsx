@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { Calendar, Award, Target, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Calendar, Award, Target, Users, ArrowUpRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import { events } from './News';
@@ -14,27 +15,35 @@ const MARQUEE_ITEMS = [
 const OFFERINGS = [
   {
     id: 'mini',
-    title: 'Mini Tennis – Ballschule (3–5 Jahre)',
+    age: '3–5 Jahre',
+    title: 'Mini Tennis – Ballschule',
     description:
       'Entwicklung der koordinativen Fähigkeiten und Erlernen erster Schlagtechniken.',
+    link: '/kids-on-court',
   },
   {
     id: 'kids',
-    title: 'Kids on Court (5–8 Jahre)',
+    age: '5–8 Jahre',
+    title: 'Kids on Court',
     description:
       'Entwicklung einer stabilen Schlagform sowie erste strategische Übungen.',
+    link: '/kids-on-court',
   },
   {
     id: 'jugend',
-    title: 'Kinder- und Jugendtraining (8–18 Jahre)',
+    age: '8–18 Jahre',
+    title: 'Kinder- und Jugendtraining',
     description:
       'Je nach Spielstärke Einteilung in Gruppen oder individuelles Einzeltraining.',
+    link: '/preise',
   },
   {
     id: 'camp',
+    age: 'Sommerferien',
     title: 'Sommercamps',
     description:
       'Halbtägige Betreuung mit viel Sport und Verpflegung.',
+    link: '/tenniscamps',
   },
 ];
 
@@ -51,12 +60,16 @@ function TennisNewsWidget() {
 
 function OfferingRow({ offering }) {
   return (
-    <div className="gs-offer-row-wrap">
+    <Link to={offering.link} className="gs-offer-row-wrap">
       <div className="gs-offer-row">
-        <h3 className="gs-offer-title">{offering.title}</h3>
-        <p className="gs-offer-desc">{offering.description}</p>
+        <span className="gs-offer-age">{offering.age}</span>
+        <div className="gs-offer-body">
+          <h3 className="gs-offer-title">{offering.title}</h3>
+          <p className="gs-offer-desc">{offering.description}</p>
+        </div>
+        <ArrowUpRight className="gs-offer-arrow" size={24} aria-hidden="true" />
       </div>
-    </div>
+    </Link>
   );
 }
 
