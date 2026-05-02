@@ -194,6 +194,10 @@ export default function Preise() {
             <ButtonWithIcon href="/kontakt">
               Probetraining anfragen
             </ButtonWithIcon>
+            <p className="einstieg-agb-note">
+              Mit der Anmeldung gelten unsere{' '}
+              <Link to="/agb">Allgemeinen Geschäftsbedingungen</Link>.
+            </p>
           </div>
         </div>
       </section>

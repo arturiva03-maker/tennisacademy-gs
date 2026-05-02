@@ -13,34 +13,28 @@ const MARQUEE_ITEMS = [
 
 const OFFERINGS = [
   {
-    id: 'technik',
-    title: 'Techniktraining',
+    id: 'mini',
+    title: 'Mini Tennis (Ballschule)',
     description:
-      'Systematisches Erlernen aller Schläge – von Vorhand und Rückhand bis zum Aufschlag und Volley.',
+      'Entwicklung der koordinativen Fähigkeiten und Erlernen erster Schlagtechniken.',
   },
   {
-    id: 'kinder',
-    title: 'Kids on Court',
+    id: 'kids',
+    title: 'Kids on Court (5–8 Jahre)',
     description:
-      'Spielerisches Erlernen nach DTB-Methodik. Koordination, Ballgefühl und Spaß im Mittelpunkt.',
+      'Entwicklung einer stabilen Schlagform sowie erste strategische Übungen.',
   },
   {
-    id: 'einzel',
-    title: 'Einzeltraining',
+    id: 'jugend',
+    title: 'Kinder- und Jugendtraining (8–18 Jahre)',
     description:
-      'Individuelles Coaching mit maximalem Fokus. Persönliche Trainingsziele und schnelle Fortschritte.',
+      'Je nach Spielstärke Einteilung in Gruppen oder individuelles Einzeltraining.',
   },
   {
     id: 'camp',
     title: 'Sommercamp',
     description:
-      'Intensive Trainingsblöcke während der Schulferien – mehrere Stunden täglich auf dem Platz.',
-  },
-  {
-    id: 'gruppe',
-    title: 'Gruppentraining',
-    description:
-      'Motivation in der Gruppe – für alle Altersklassen und Spielstärken in 2er- bis 6er-Gruppen.',
+      'Halbtägige Betreuung mit viel Sport und Verpflegung.',
   },
 ];
 

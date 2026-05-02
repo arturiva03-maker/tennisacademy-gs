@@ -2368,6 +2368,19 @@ img {
   margin-top: 40px;
 }
 
+.einstieg-agb-note {
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: var(--text-medium);
+  font-family: var(--font-body);
+}
+
+.einstieg-agb-note a {
+  color: var(--navy-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .btn-lg {
   padding: 16px 32px;
   font-size: 1.1rem;
