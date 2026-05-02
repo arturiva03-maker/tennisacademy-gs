@@ -13,6 +13,7 @@ export default function Datenschutz() {
           <div className="legal-content">
             <p><em>Stand: Mai 2026</em></p>
 
+
             <h2>1. Verantwortlicher</h2>
             <p>
               Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und anderer
@@ -96,13 +97,26 @@ export default function Datenschutz() {
               auf „https://" wechselt und am Schloss-Symbol in Ihrer Browserzeile.
             </p>
 
-            <h2>6. Cookies und vergleichbare Technologien</h2>
+            <h2>6. Cookies, Local Storage und vergleichbare Technologien</h2>
             <p>
               Diese Website setzt <strong>keine Cookies oder vergleichbaren Technologien zu
-              Tracking-, Analyse- oder Marketingzwecken</strong> ein. Es werden lediglich
-              technisch notwendige Speicherobjekte verwendet, die für die Funktionalität der
-              Website unbedingt erforderlich sind. Eine Einwilligung nach § 25 TTDSG ist
-              hierfür nicht erforderlich.
+              Tracking-, Analyse- oder Marketingzwecken</strong> ein. Insbesondere findet kein
+              Einsatz von Drittanbieter-Cookies, Reichweitenmessung oder Re-Targeting statt.
+            </p>
+            <p>
+              Zur missbräuchlichen Nutzung des Kontaktformulars zu verhindern, speichern wir
+              im <strong>Local Storage</strong> Ihres Browsers unter dem Schlüssel{' '}
+              <code>contactFormSubmissions</code> ausschließlich Zeitstempel Ihrer letzten
+              Formularabsendungen (max. 3 Einträge der vergangenen 60 Sekunden). Diese Daten
+              werden ausschließlich auf Ihrem Endgerät gespeichert, nicht an uns oder Dritte
+              übertragen und nach 60 Sekunden automatisch verworfen.
+            </p>
+            <p>
+              <strong>Rechtsgrundlage:</strong> § 25 Abs. 2 Nr. 2 TDDDG (technisch zwingend
+              erforderlich, um den vom Nutzer angeforderten Telemediendienst – Versand des
+              Kontaktformulars – zur Verfügung zu stellen) sowie Art. 6 Abs. 1 lit. f DSGVO
+              (berechtigtes Interesse an Spam-Schutz). Eine Einwilligung ist hierfür nicht
+              erforderlich.
             </p>
 
             <h2>7. Schriftarten (Self-Hosting)</h2>
@@ -139,6 +153,29 @@ export default function Datenschutz() {
               führen, löschen wir spätestens 6 Monate nach abschließender Bearbeitung.
               Vertragsbezogene Daten unterliegen den gesetzlichen Aufbewahrungsfristen
               (insbesondere § 257 HGB, § 147 AO – bis zu 10 Jahre).
+            </p>
+
+            <h3>8.0 Spam-Schutz (Honeypot &amp; Rate-Limiting)</h3>
+            <p>
+              Zum Schutz vor automatisierten Eingaben (Spam-Bots) setzen wir zwei
+              technische Maßnahmen ein:
+            </p>
+            <ul>
+              <li>
+                <strong>Honeypot-Feld:</strong> Ein für Menschen unsichtbares Feld, das nur
+                von Bots ausgefüllt wird. Wird das Feld ausgefüllt, verwerfen wir die
+                Anfrage automatisch ohne Verarbeitung der weiteren Eingaben.
+              </li>
+              <li>
+                <strong>Rate-Limiting:</strong> Wir begrenzen die Anzahl der Absendungen
+                pro Browser auf maximal 3 innerhalb von 60 Sekunden. Hierfür werden
+                lokal in Ihrem Browser (Local Storage) die Zeitstempel der letzten
+                Absendungen gespeichert (siehe Abschnitt 6).
+              </li>
+            </ul>
+            <p>
+              <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
+              Interesse an der Abwehr von Missbrauch und Spam).
             </p>
 
             <h3>8.1 Versanddienstleister: EmailJS</h3>
@@ -234,7 +271,42 @@ export default function Datenschutz() {
               ausschließlich durch die Erziehungsberechtigten vorgenommen werden.
             </p>
 
-            <h2>12. Ihre Rechte als betroffene Person</h2>
+            <h2>12. Bildveröffentlichungen (Trainings-, Camp- und Event-Fotos)</h2>
+            <p>
+              Auf unserer Website (insbesondere in den Bereichen „Kids on Court",
+              „Tenniscamps", „Trainerteam" sowie „News &amp; Events") veröffentlichen wir
+              Fotos und Videos aus dem Trainingsbetrieb, von Camps und Veranstaltungen.
+              Auf diesen Aufnahmen sind teilweise Trainer:innen, Kinder, Jugendliche und
+              erwachsene Spieler:innen erkennbar abgebildet.
+            </p>
+            <p>
+              <strong>Rechtsgrundlage:</strong> Die Veröffentlichung erfolgt ausschließlich
+              auf Grundlage einer ausdrücklichen Einwilligung der abgebildeten Person bzw.
+              – bei Minderjährigen unter 16 Jahren – der Erziehungsberechtigten gemäß
+              Art. 6 Abs. 1 lit. a, Art. 7 DSGVO sowie §§ 22, 23 KUG.
+            </p>
+            <p>
+              <strong>Speicherdauer:</strong> Die Fotos und Videos bleiben so lange auf
+              unserer Website veröffentlicht, wie die Einwilligung wirksam ist. Die
+              Einwilligung kann jederzeit für die Zukunft widerrufen werden. Im Falle des
+              Widerrufs entfernen wir die betreffenden Aufnahmen unverzüglich von unserer
+              Website.
+            </p>
+            <p>
+              <strong>Widerruf:</strong> Den Widerruf richten Sie bitte formlos per E-Mail
+              an{' '}
+              <a href="mailto:info@tennisacademy-gs.de">info@tennisacademy-gs.de</a> oder
+              postalisch an die im Impressum genannte Adresse. Bitte geben Sie nach
+              Möglichkeit an, um welche Aufnahme(n) es sich handelt, damit wir diese rasch
+              identifizieren und entfernen können.
+            </p>
+            <p>
+              <strong>Hinweis:</strong> Wir verzichten beim Hochladen auf Ortsangaben und
+              entfernen ggf. Metadaten (EXIF). Eine namentliche Nennung erfolgt nur, wenn
+              dies zusätzlich von der Einwilligung umfasst ist.
+            </p>
+
+            <h2>13. Ihre Rechte als betroffene Person</h2>
             <p>Sie haben uns gegenüber folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
             <ul>
               <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
@@ -257,7 +329,7 @@ export default function Datenschutz() {
               Ausübung oder Verteidigung von Rechtsansprüchen.
             </p>
 
-            <h2>13. Zuständige Aufsichtsbehörde</h2>
+            <h2>14. Zuständige Aufsichtsbehörde</h2>
             <p>
               Berliner Beauftragte für Datenschutz und Informationsfreiheit<br />
               Alt-Moabit 59-61<br />
@@ -276,13 +348,13 @@ export default function Datenschutz() {
               </a>
             </p>
 
-            <h2>14. Automatisierte Entscheidungsfindung / Profiling</h2>
+            <h2>15. Automatisierte Entscheidungsfindung / Profiling</h2>
             <p>
               Eine automatisierte Entscheidungsfindung einschließlich Profiling im Sinne von
               Art. 22 DSGVO findet auf dieser Website nicht statt.
             </p>
 
-            <h2>15. Aktualität und Änderungen dieser Datenschutzerklärung</h2>
+            <h2>16. Aktualität und Änderungen dieser Datenschutzerklärung</h2>
             <p>
               Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Mai 2026. Durch
               die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher bzw.
