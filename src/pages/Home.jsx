@@ -187,7 +187,7 @@ export default function Home() {
             <AnimatedSection delay={0.1}>
               <div className="news-card">
                 <div className="news-card-image">
-                  <img src={events[0].image} alt={events[0].title} />
+                  <img src={events[0].image} alt={events[0].title} loading="lazy" />
                 </div>
                 <div className="news-card-content">
                   <h2>{events[0].title}</h2>
@@ -222,6 +222,7 @@ export default function Home() {
                   src="/vdt-dtb-logo.jpg"
                   alt="Deutsche Tennisschule – anerkannt von DTB und VDT"
                   className="dtb-logo"
+                  loading="lazy"
                 />
               </div>
               <div className="dtb-content">

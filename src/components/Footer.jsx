@@ -42,13 +42,13 @@ export default function Footer() {
           <h4>Unsere Partner</h4>
           <div className="sponsor-logos">
             <a href="https://www.tennisshop-grandslam.de" target="_blank" rel="noopener noreferrer">
-              <img src="/sponsor-grandslam.jpg" alt="Tennisshop Grand Slam" />
+              <img src="/sponsor-grandslam.jpg" alt="Tennisshop Grand Slam" loading="lazy" />
             </a>
             <a href="https://www.dunlopsports.com" target="_blank" rel="noopener noreferrer">
-              <img src="/sponsor-dunlop.jpg" alt="Dunlop Sport" />
+              <img src="/sponsor-dunlop.jpg" alt="Dunlop Sport" loading="lazy" />
             </a>
             <a href="https://www.babolat.com" target="_blank" rel="noopener noreferrer">
-              <img src="/sponsor-babolat.jpg" alt="Babolat" />
+              <img src="/sponsor-babolat.jpg" alt="Babolat" loading="lazy" />
             </a>
           </div>
         </div>

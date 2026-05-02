@@ -40,7 +40,7 @@ export default function KidsOnCourt() {
           <AnimatedSection>
             <div className="kids-split">
               <div className="kids-split-image">
-                <img src="/kids-gallery/img1.jpg" alt="Kids on Court Training" />
+                <img src="/kids-gallery/img1.jpg" alt="Kids on Court Training" loading="lazy" />
               </div>
               <div className="kids-split-text">
                 <div className="age-badge">

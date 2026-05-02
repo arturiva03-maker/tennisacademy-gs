@@ -48,7 +48,7 @@ export default function News() {
               <AnimatedSection key={i} delay={i * 0.1}>
                 <div className="news-card">
                   <div className="news-card-image">
-                    <img src={event.image} alt={event.title} />
+                    <img src={event.image} alt={event.title} loading="lazy" />
                   </div>
                   <div className="news-card-content">
                     <h2>{event.title}</h2>
