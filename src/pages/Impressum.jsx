@@ -42,8 +42,10 @@ export default function Impressum() {
             <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
             <p>
               Michael Lingner<br />
-              Buschkrugallee 54<br />
-              12359 Berlin
+              Jana Hladká-Kissal<br />
+              Zlatan Palazov<br />
+              Artur Ivanenko<br />
+              jeweils Buschkrugallee 54, 12359 Berlin
             </p>
 
             <h2>Streitbeilegung</h2>
