@@ -19,29 +19,24 @@ const TRAINERS = [
     id: 'c-lizenz',
     name: 'C-Lizenz',
     sub: 'Trainer',
-    badge: 'Standard',
     prices: [48, 26, 18, 14, 11.6, 10],
   },
   {
     id: 'b-lizenz',
     name: 'B-Lizenz',
     sub: 'Trainer',
-    badge: 'Erweitert',
     prices: [56, 30, 20.67, 16, 13.2, 11.33],
   },
   {
     id: 'zja',
     name: 'Zlatan, Jana, Artur',
     sub: 'B-Lizenz Trainer',
-    badge: 'Beliebt',
-    highlight: true,
     prices: [58, 31, 21.33, 16.5, 13.6, 11.67],
   },
   {
     id: 'lingner',
     name: 'Michael Lingner',
-    sub: 'Erfahrungs-Coach',
-    badge: 'Premium',
+    sub: 'A-Lizenz Trainer',
     prices: [62, 33, 22.67, 17.5, 14.4, 12.33],
   },
 ];
@@ -94,13 +89,7 @@ export default function Preise() {
           <AnimatedSection delay={0.2}>
             <div className="preis-cards-grid">
               {TRAINERS.map((trainer) => (
-                <div
-                  key={trainer.id}
-                  className={`preis-card ${trainer.highlight ? 'is-highlight' : ''}`}
-                >
-                  {trainer.badge && (
-                    <span className="preis-card-badge">{trainer.badge}</span>
-                  )}
+                <div key={trainer.id} className="preis-card">
                   <div className="preis-card-head">
                     <h3 className="preis-card-name">{trainer.name}</h3>
                     <span className="preis-card-sub">{trainer.sub}</span>

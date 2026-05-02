@@ -2115,43 +2115,8 @@ img {
   border-color: rgba(201, 162, 39, 0.35);
 }
 
-.preis-card.is-highlight {
-  border-color: rgba(201, 162, 39, 0.55);
-  background:
-    radial-gradient(120% 80% at 0% 0%, rgba(201, 162, 39, 0.06) 0%, transparent 60%),
-    var(--white);
-  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.12);
-}
-
-.preis-card.is-highlight:hover {
-  box-shadow: 0 14px 36px rgba(201, 162, 39, 0.2);
-}
-
-.preis-card-badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  font-family: var(--font-ui);
-  font-size: 0.62rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--gold-dark);
-  background: rgba(201, 162, 39, 0.1);
-  border: 1px solid rgba(201, 162, 39, 0.28);
-  padding: 4px 10px;
-  border-radius: 999px;
-}
-
-.preis-card.is-highlight .preis-card-badge {
-  color: var(--white);
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-  border-color: transparent;
-}
-
 .preis-card-head {
   margin-bottom: 24px;
-  padding-right: 70px;
 }
 
 .preis-card-name {
@@ -2189,13 +2154,6 @@ img {
   margin-bottom: 6px;
 }
 
-.preis-card.is-highlight .preis-card-amount {
-  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 55%, var(--gold-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 .preis-card-meta {
   font-family: var(--font-ui);
   font-size: 0.74rem;
@@ -2227,17 +2185,6 @@ img {
   background: var(--navy-dark);
   border-color: var(--navy-dark);
   color: var(--white);
-}
-
-.preis-card.is-highlight .preis-card-cta {
-  background: var(--navy-dark);
-  border-color: var(--navy-dark);
-  color: var(--white);
-}
-
-.preis-card.is-highlight .preis-card-cta:hover {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-  border-color: transparent;
 }
 
 @media (max-width: 1100px) {
