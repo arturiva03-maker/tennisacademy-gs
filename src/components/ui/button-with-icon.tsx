@@ -24,7 +24,7 @@ const ButtonWithIcon = ({
   onDark = false,
 }: ButtonWithIconProps) => {
   const baseClasses =
-    "relative text-sm font-medium rounded-full h-12 p-1 ps-6 pe-14 group transition-all duration-500 hover:ps-14 hover:pe-6 w-fit overflow-hidden cursor-pointer";
+    "relative text-sm font-medium rounded-full h-12 p-1 ps-6 pe-14 group transition-[padding,transform,background-color] duration-200 ease-out hover:ps-14 hover:pe-6 active:scale-[0.97] w-fit overflow-hidden cursor-pointer";
 
   const variantClasses =
     variant === "outline"
@@ -51,12 +51,12 @@ const ButtonWithIcon = ({
         asChild
       >
         <a href={href}>
-          <span className="relative z-10 transition-all duration-500">
+          <span className="relative z-10 transition-transform duration-200 ease-out">
             {children}
           </span>
           <div
             className={cn(
-              "absolute right-1 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-44px)] group-hover:rotate-45",
+              "absolute right-1 w-10 h-10 rounded-full flex items-center justify-center transition-[right,transform] duration-200 ease-out group-hover:right-[calc(100%-44px)] group-hover:rotate-45",
               iconBg
             )}
           >
@@ -74,12 +74,12 @@ const ButtonWithIcon = ({
       type={type}
       disabled={disabled}
     >
-      <span className="relative z-10 transition-all duration-500">
+      <span className="relative z-10 transition-transform duration-200 ease-out">
         {children}
       </span>
       <div
         className={cn(
-          "absolute right-1 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-44px)] group-hover:rotate-45",
+          "absolute right-1 w-10 h-10 rounded-full flex items-center justify-center transition-[right,transform] duration-200 ease-out group-hover:right-[calc(100%-44px)] group-hover:rotate-45",
           iconBg
         )}
       >

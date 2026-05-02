@@ -44,6 +44,26 @@
   --font-display: var(--font-sans);
   --font-body: var(--font-sans);
   --font-ui: var(--font-sans);
+
+  /* Animation tokens (Emil-style custom curves) */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --duration-press: 150ms;
+  --duration-fast: 200ms;
+  --duration-base: 250ms;
+  --duration-modal: 350ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* ========== ANIMATIONS ========== */
@@ -320,7 +340,7 @@ img {
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--text-medium);
-  transition: all 0.2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease;
   white-space: nowrap;
 }
 
@@ -369,7 +389,7 @@ img {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-20px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.3s var(--ease-out), visibility 0.3s var(--ease-out), transform 0.3s var(--ease-out);
 }
 
 .mobile-nav.open {
@@ -384,7 +404,7 @@ img {
   font-weight: 500;
   color: var(--text-medium);
   border-radius: var(--radius-sm);
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
   opacity: 0;
   transform: translateX(-20px);
 }
@@ -530,7 +550,7 @@ img {
   overflow: hidden;
   aspect-ratio: 4/3;
   box-shadow: var(--shadow-md);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
 }
 
 .camp-gallery-item:hover {
@@ -594,7 +614,7 @@ img {
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  transition: all 0.3s ease;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
 }
 
 .winterrunde-gallery-item:hover {
@@ -643,7 +663,7 @@ img {
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  transition: all 0.3s ease;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
   cursor: pointer;
   position: relative;
 }
@@ -932,7 +952,7 @@ img {
   font-weight: 600;
   cursor: pointer;
   border: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out), background-color var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
   font-family: var(--font-body);
   position: relative;
   overflow: hidden;
@@ -962,7 +982,7 @@ img {
 }
 
 .btn:active {
-  transform: translateY(0);
+  transform: scale(0.97);
 }
 
 .btn:focus-visible {
@@ -1119,7 +1139,7 @@ img {
   flex-direction: column;
   align-items: center;
   border: 1px solid var(--border);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
   position: relative;
   overflow: hidden;
 }
@@ -1227,7 +1247,7 @@ img {
   background: rgba(0,0,0,0.12);
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .slider-dot.active {
@@ -1244,7 +1264,7 @@ img {
   background: var(--white);
   border-radius: var(--radius-lg);
   padding: 28px 24px;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
   border: 1px solid var(--border);
   position: relative;
   overflow: hidden;
@@ -1750,7 +1770,7 @@ img {
   background: var(--white);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
   border: 1px solid var(--border);
 }
 
@@ -2306,7 +2326,7 @@ img {
   border: 1px solid var(--border);
   text-align: center;
   position: relative;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
 }
 
 .einstieg-step:hover {
@@ -3099,7 +3119,7 @@ img {
   font-size: 1.1rem;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: filter 0.3s ease;
   background: linear-gradient(135deg, var(--gold-light), var(--gold));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
