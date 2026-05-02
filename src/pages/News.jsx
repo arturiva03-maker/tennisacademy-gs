@@ -5,6 +5,14 @@ import ButtonWithIcon from '@/components/ui/button-with-icon';
 
 export const events = [
   {
+    title: 'Start der Sommersaison 2026',
+    subtitle: 'Trainingsbetrieb ab 4. Mai 2026',
+    date: '4. Mai 2026',
+    location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
+    description: 'Am 4. Mai 2026 startet offiziell der Trainingsbetrieb unserer Sommersaison 2026.\n\nAlle Kinder und Jugendlichen wurden erfolgreich in ihre Trainingsgruppen eingeteilt und haben die Bestätigung ihrer Trainingszeiten für die kommende Sommersaison erhalten.\n\nWir freuen uns auf eine erfolgreiche Sommersaison 2026 und ein spannendes Tennisjahr mit euch auf dem Platz.\n\nEure TENNIS ACADEMY GRAND SLAM',
+    image: '/kids-1.jpg',
+  },
+  {
     title: 'Aus Tennisschule wird Academy',
     subtitle: 'Die Tennis Academy Grand Slam ist da',
     date: 'März 2026',
