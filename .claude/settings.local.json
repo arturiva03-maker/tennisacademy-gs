@@ -69,7 +69,10 @@
       "Bash(GIT_ASKPASS=echo GIT_TERMINAL_PROMPT=0 git *)",
       "PowerShell(git push *)",
       "Bash(gh auth *)",
-      "Bash(gh repo *)"
+      "Bash(gh repo *)",
+      "Bash(python *)",
+      "Bash(node *)",
+      "Bash(npm i *)"
     ]
   },
   "enableAllProjectMcpServers": true,
