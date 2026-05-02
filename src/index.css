@@ -3391,8 +3391,8 @@ img {
 .gs-offer-row {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(120px, 160px) 1fr 240px;
-  gap: 48px;
+  grid-template-columns: 1fr 280px;
+  gap: 64px;
   align-items: center;
   padding: 56px 24px 56px 8px;
   text-decoration: none;
@@ -3424,31 +3424,10 @@ img {
   border-radius: 4px;
 }
 
-.gs-offer-num {
-  position: relative;
-  font-family: var(--font-display);
-  font-size: clamp(5rem, 10vw, 9rem);
-  font-weight: 900;
-  line-height: 0.85;
-  letter-spacing: -0.04em;
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(11, 37, 56, 0.18);
-  transition: -webkit-text-stroke 0.6s ease, color 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.gs-offer-row:hover .gs-offer-num {
-  -webkit-text-stroke: 1.5px transparent;
-  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 55%, var(--gold-dark) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  transform: translateX(-4px);
-}
-
 .gs-offer-body {
   display: flex;
   flex-direction: column;
-  max-width: 580px;
+  max-width: 640px;
 }
 
 .gs-offer-tag {
@@ -3610,16 +3589,16 @@ img {
 
 @media (max-width: 1024px) {
   .gs-offer-row {
-    grid-template-columns: minmax(90px, 110px) 1fr 180px;
-    gap: 32px;
+    grid-template-columns: 1fr 200px;
+    gap: 40px;
     padding: 44px 16px;
   }
   .gs-offer-visual {
-    height: 160px;
+    height: 170px;
   }
   .gs-offer-icon-wrap {
-    width: 64px;
-    height: 64px;
+    width: 68px;
+    height: 68px;
   }
   .gs-offer-icon-wrap svg {
     width: 36px;
@@ -3635,31 +3614,21 @@ img {
     margin-bottom: 48px;
   }
   .gs-offer-row {
-    grid-template-columns: auto 1fr;
-    grid-template-areas:
-      'num visual'
-      'body body';
-    gap: 20px 24px;
+    grid-template-columns: 1fr 120px;
+    gap: 24px;
     padding: 36px 12px;
-    align-items: start;
-  }
-  .gs-offer-num {
-    grid-area: num;
-    font-size: 4.5rem;
+    align-items: center;
   }
   .gs-offer-body {
-    grid-area: body;
     max-width: 100%;
   }
   .gs-offer-visual {
-    grid-area: visual;
-    width: 110px;
-    height: 110px;
-    margin-left: auto;
+    width: 120px;
+    height: 120px;
   }
   .gs-offer-icon-wrap {
-    width: 54px;
-    height: 54px;
+    width: 56px;
+    height: 56px;
   }
   .gs-offer-icon-wrap svg {
     width: 28px;
@@ -3672,15 +3641,13 @@ img {
 
 @media (max-width: 480px) {
   .gs-offer-row {
+    grid-template-columns: 1fr;
     padding: 28px 8px;
-    gap: 16px 18px;
-  }
-  .gs-offer-num {
-    font-size: 3.6rem;
+    gap: 20px;
   }
   .gs-offer-visual {
-    width: 88px;
-    height: 88px;
+    width: 100%;
+    height: 110px;
   }
   .gs-offer-title {
     font-size: 1.5rem;

@@ -80,7 +80,6 @@ function OfferingRow({ offering, index, isLast }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
   const Icon = offering.icon;
-  const num = String(index + 1).padStart(2, '0');
 
   return (
     <motion.div
@@ -95,7 +94,6 @@ function OfferingRow({ offering, index, isLast }) {
       }}
     >
       <Link to={offering.href} className="gs-offer-row" aria-label={`${offering.label} ${offering.titleAccent}`}>
-        <span className="gs-offer-num" aria-hidden="true">{num}</span>
         <div className="gs-offer-body">
           <span className="gs-offer-tag">{offering.tag}</span>
           <h3 className="gs-offer-title">
