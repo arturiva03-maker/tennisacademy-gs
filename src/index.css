@@ -907,13 +907,9 @@ img {
 }
 
 .hero-title-large span {
-  color: var(--gold);
+  color: var(--gold-light);
   display: block;
   font-style: italic;
-  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .hero-title {
@@ -1338,7 +1334,6 @@ img {
   gap: 32px;
   margin-bottom: 36px;
   border: 1px solid var(--border);
-  border-left: 4px solid var(--navy);
 }
 
 .dtb-seal {
@@ -1916,8 +1911,7 @@ img {
 }
 
 .preis-category-header.highlight {
-  background: var(--bg);
-  border-left: 4px solid var(--navy);
+  background: color-mix(in srgb, var(--navy) 6%, var(--white));
 }
 
 .preis-table {
@@ -2065,9 +2059,9 @@ img {
 .preis-info {
   text-align: center;
   padding: 24px;
-  background: var(--bg);
+  background: color-mix(in srgb, var(--gold) 5%, var(--white));
+  border: 1px solid color-mix(in srgb, var(--gold) 20%, transparent);
   border-radius: var(--radius-lg);
-  border-left: 4px solid var(--gold);
   margin-top: 48px;
 }
 
@@ -2386,7 +2380,7 @@ img {
   padding: 16px 24px;
   background: var(--white);
   border-radius: var(--radius);
-  border-left: 4px solid var(--primary);
+  border: 1px solid var(--border);
 }
 
 .einstieg-hinweis p {
@@ -3117,15 +3111,11 @@ img {
 }
 
 .coming-soon-contact a {
-  color: var(--gold);
+  color: var(--gold-light);
   font-size: 1.1rem;
   font-weight: 600;
   text-decoration: none;
   transition: filter 0.3s ease;
-  background: linear-gradient(135deg, var(--gold-light), var(--gold));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .coming-soon-contact a:hover {
@@ -3403,10 +3393,7 @@ img {
 .gs-hero-title em {
   font-style: italic;
   display: block;
-  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 55%, var(--gold-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--gold-light);
 }
 
 .gs-hero-sub {
