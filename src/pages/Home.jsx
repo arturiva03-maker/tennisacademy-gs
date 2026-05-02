@@ -32,7 +32,7 @@ const OFFERINGS = [
   },
   {
     id: 'camp',
-    title: 'Sommercamp',
+    title: 'Sommercamps',
     description:
       'Halbtägige Betreuung mit viel Sport und Verpflegung.',
   },
