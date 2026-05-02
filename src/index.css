@@ -53,6 +53,8 @@
   --duration-fast: 200ms;
   --duration-base: 250ms;
   --duration-modal: 350ms;
+
+  --offer-divider: 1px solid color-mix(in srgb, var(--navy-dark) 8%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3545,14 +3547,11 @@ img {
 .gs-offer-stack {
   display: flex;
   flex-direction: column;
+  border-bottom: var(--offer-divider);
 }
 
 .gs-offer-row-wrap {
-  border-top: 1px solid color-mix(in srgb, var(--navy-dark) 8%, transparent);
-}
-
-.gs-offer-row-wrap:last-child {
-  border-bottom: 1px solid color-mix(in srgb, var(--navy-dark) 8%, transparent);
+  border-top: var(--offer-divider);
 }
 
 .gs-offer-row {
@@ -3560,7 +3559,6 @@ img {
   flex-direction: column;
   gap: 8px;
   padding: 28px 8px;
-  color: inherit;
 }
 
 .gs-offer-title {

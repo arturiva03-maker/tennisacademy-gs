@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { Calendar, Award, Target, Users } from 'lucide-react';
-import { motion, useInView } from 'motion/react';
+import { motion } from 'motion/react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import { events } from './News';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
@@ -50,22 +50,13 @@ function TennisNewsWidget() {
 }
 
 function OfferingRow({ offering }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-100px' });
-
   return (
-    <motion.div
-      ref={ref}
-      className="gs-offer-row-wrap"
-      initial={{ opacity: 0, y: 24 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div className="gs-offer-row-wrap">
       <div className="gs-offer-row">
         <h3 className="gs-offer-title">{offering.title}</h3>
         <p className="gs-offer-desc">{offering.description}</p>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -175,8 +166,10 @@ export default function Home() {
             </div>
           </AnimatedSection>
           <div className="gs-offer-stack">
-            {OFFERINGS.map((offering) => (
-              <OfferingRow key={offering.id} offering={offering} />
+            {OFFERINGS.map((offering, i) => (
+              <AnimatedSection key={offering.id} delay={i * 0.05}>
+                <OfferingRow offering={offering} />
+              </AnimatedSection>
             ))}
           </div>
         </div>
