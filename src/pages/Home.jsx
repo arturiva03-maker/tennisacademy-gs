@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
-import { Calendar, Award, Target, Users, Crosshair, User, Baby, Sun } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Calendar, Award, Target, Users, Crosshair, User, Baby, Sun, ArrowUpRight } from 'lucide-react';
 import { motion, useInView } from 'motion/react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import { events } from './News';
@@ -19,6 +20,7 @@ const BENTO = [
     icon: Crosshair,
     description: 'Systematisches Erlernen aller Schläge – von Vorhand bis Aufschlag.',
     gridClass: 'gs-bento-large',
+    href: '/preise',
   },
   {
     id: 'kinder',
@@ -27,6 +29,7 @@ const BENTO = [
     icon: Baby,
     description: 'Spielerisches Erlernen ab 4 Jahren.',
     gridClass: 'gs-bento-sm',
+    href: '/kids-on-court',
   },
   {
     id: 'einzel',
@@ -35,6 +38,7 @@ const BENTO = [
     icon: User,
     description: '1-auf-1 mit maximalem Fokus auf dein Spiel.',
     gridClass: 'gs-bento-sm',
+    href: '/preise',
   },
   {
     id: 'camp',
@@ -43,6 +47,7 @@ const BENTO = [
     icon: Sun,
     description: 'Intensive Trainingsblöcke in den Schulferien.',
     gridClass: 'gs-bento-sm',
+    href: '/tenniscamps',
   },
   {
     id: 'gruppe',
@@ -51,6 +56,7 @@ const BENTO = [
     icon: Users,
     description: 'Motivation in der Gruppe – für alle Altersklassen und Spielstärken.',
     gridClass: 'gs-bento-wide',
+    href: '/preise',
   },
 ];
 
@@ -74,7 +80,7 @@ function BentoCard({ card, index }) {
   return (
     <motion.div
       ref={ref}
-      className={`gs-bento-card ${card.gridClass}`}
+      className={`gs-bento-card-wrap ${card.gridClass}`}
       initial={{ opacity: 0, y: 28, scale: 0.97 }}
       animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{
@@ -83,32 +89,37 @@ function BentoCard({ card, index }) {
         ease: [0.22, 1, 0.36, 1],
       }}
     >
-      <svg
-        className="gs-bento-court"
-        viewBox="0 0 400 260"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <rect x="20" y="20" width="360" height="220" />
-        <line x1="200" y1="20" x2="200" y2="240" />
-        <line x1="20" y1="130" x2="380" y2="130" />
-        <rect x="80" y="80" width="240" height="100" />
-        <line x1="200" y1="80" x2="200" y2="180" />
-      </svg>
-      <span className="gs-bento-num">{num}</span>
-      <div className="gs-bento-card-content">
-        <div className="gs-bento-icon">
-          <Icon size={16} />
+      <Link to={card.href} className="gs-bento-card" aria-label={`${card.label} ${card.titleAccent}`}>
+        <svg
+          className="gs-bento-court"
+          viewBox="0 0 400 260"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <rect x="20" y="20" width="360" height="220" />
+          <line x1="200" y1="20" x2="200" y2="240" />
+          <line x1="20" y1="130" x2="380" y2="130" />
+          <rect x="80" y="80" width="240" height="100" />
+          <line x1="200" y1="80" x2="200" y2="180" />
+        </svg>
+        <span className="gs-bento-num">{num}</span>
+        <span className="gs-bento-arrow" aria-hidden="true">
+          <ArrowUpRight size={18} />
+        </span>
+        <div className="gs-bento-card-content">
+          <div className="gs-bento-icon">
+            <Icon size={16} />
+          </div>
+          <div>
+            <h3 className="gs-bento-card-title">
+              {card.label}{' '}
+              <em>{card.titleAccent}</em>
+            </h3>
+            <p className="gs-bento-card-desc">{card.description}</p>
+          </div>
         </div>
-        <div>
-          <h3 className="gs-bento-card-title">
-            {card.label}{' '}
-            <em>{card.titleAccent}</em>
-          </h3>
-          <p className="gs-bento-card-desc">{card.description}</p>
-        </div>
-      </div>
-      <span className="gs-bento-accent" aria-hidden="true" />
+        <span className="gs-bento-accent" aria-hidden="true" />
+      </Link>
     </motion.div>
   );
 }
