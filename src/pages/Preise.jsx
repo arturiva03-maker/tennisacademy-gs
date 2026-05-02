@@ -13,7 +13,7 @@ const trainerPreise = [
   {
     name: 'Michael Lingner',
     lizenz: '',
-    preise: ['?', '?', '?', '?', '?', '?'],
+    preise: ['62 €', '33 €', '22,67 €', '17,50 €', '14,40 €', '12,33 €'],
   },
 ];
 
@@ -65,7 +65,7 @@ export default function Preise() {
                     <strong>C-Lizenz Trainer</strong>
                   </td>
                   <td><span className="preis-amount">48 €</span></td>
-                  <td><span className="preis-amount">25 €</span></td>
+                  <td><span className="preis-amount">26 €</span></td>
                   <td><span className="preis-amount">18 €</span></td>
                   <td><span className="preis-amount">14 €</span></td>
                   <td><span className="preis-amount">11,60 €</span></td>
@@ -76,7 +76,7 @@ export default function Preise() {
                     <strong>B-Lizenz Trainer</strong>
                   </td>
                   <td><span className="preis-amount">56 €</span></td>
-                  <td><span className="preis-amount">29 €</span></td>
+                  <td><span className="preis-amount">30 €</span></td>
                   <td><span className="preis-amount">20,67 €</span></td>
                   <td><span className="preis-amount">16 €</span></td>
                   <td><span className="preis-amount">13,20 €</span></td>

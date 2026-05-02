@@ -14,41 +14,41 @@ const MARQUEE_ITEMS = [
 const BENTO = [
   {
     id: 'technik',
-    label: 'Techniktraining',
+    label: 'Technik',
+    titleAccent: 'training',
     icon: Crosshair,
-    image: 'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=1200',
     description: 'Systematisches Erlernen aller Schläge – von Vorhand bis Aufschlag.',
     gridClass: 'gs-bento-large',
   },
   {
     id: 'kinder',
-    label: 'Kids on Court',
+    label: 'Kids',
+    titleAccent: 'on Court',
     icon: Baby,
-    image: 'https://images.unsplash.com/photo-1599586120429-48281b6f0ece?q=80&w=800',
     description: 'Spielerisches Erlernen ab 4 Jahren.',
     gridClass: 'gs-bento-sm',
   },
   {
     id: 'einzel',
-    label: 'Einzeltraining',
+    label: 'Einzel',
+    titleAccent: 'training',
     icon: User,
-    image: 'https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?q=80&w=800',
     description: '1-auf-1 mit maximalem Fokus auf dein Spiel.',
     gridClass: 'gs-bento-sm',
   },
   {
     id: 'camp',
-    label: 'Sommercamp',
+    label: 'Sommer',
+    titleAccent: 'camp',
     icon: Sun,
-    image: 'https://images.unsplash.com/photo-1596463059283-da257325bab8?q=80&w=800',
     description: 'Intensive Trainingsblöcke in den Schulferien.',
-    gridClass: 'gs-bento-sm gs-bento-dark',
+    gridClass: 'gs-bento-sm',
   },
   {
     id: 'gruppe',
-    label: 'Gruppentraining',
+    label: 'Gruppen',
+    titleAccent: 'training',
     icon: Users,
-    image: 'https://images.unsplash.com/photo-1542144582-1ba00456b5e3?q=80&w=1200',
     description: 'Motivation in der Gruppe – für alle Altersklassen und Spielstärken.',
     gridClass: 'gs-bento-wide',
   },
@@ -69,6 +69,7 @@ function BentoCard({ card, index }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const Icon = card.icon;
+  const num = String(index + 1).padStart(2, '0');
 
   return (
     <motion.div
@@ -82,18 +83,32 @@ function BentoCard({ card, index }) {
         ease: [0.22, 1, 0.36, 1],
       }}
     >
-      <div className="gs-bento-img-wrap">
-        <img src={card.image} alt={card.label} className="gs-bento-img" loading="lazy" />
-      </div>
+      <svg
+        className="gs-bento-court"
+        viewBox="0 0 400 260"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <rect x="20" y="20" width="360" height="220" />
+        <line x1="200" y1="20" x2="200" y2="240" />
+        <line x1="20" y1="130" x2="380" y2="130" />
+        <rect x="80" y="80" width="240" height="100" />
+        <line x1="200" y1="80" x2="200" y2="180" />
+      </svg>
+      <span className="gs-bento-num">{num}</span>
       <div className="gs-bento-card-content">
         <div className="gs-bento-icon">
           <Icon size={16} />
         </div>
         <div>
-          <h3 className="gs-bento-card-title">{card.label}</h3>
+          <h3 className="gs-bento-card-title">
+            {card.label}{' '}
+            <em>{card.titleAccent}</em>
+          </h3>
           <p className="gs-bento-card-desc">{card.description}</p>
         </div>
       </div>
+      <span className="gs-bento-accent" aria-hidden="true" />
     </motion.div>
   );
 }

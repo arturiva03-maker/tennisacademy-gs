@@ -225,11 +225,6 @@ function TeamMemberCard({
               <User className="h-16 w-16 text-[--text-light]" />
             </div>
           )}
-          <Badge
-            className="absolute top-4 right-4 bg-[--navy] text-white border-0 text-xs"
-          >
-            {member.skills[0]}
-          </Badge>
         </div>
 
         {/* Info */}
@@ -254,18 +249,6 @@ function TeamMemberCard({
             </ul>
           )}
 
-          {/* Skills */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {member.skills.slice(1).map((skill) => (
-              <Badge
-                key={skill}
-                variant="secondary"
-                className="bg-[--bg] text-xs hover:bg-gray-200"
-              >
-                {skill}
-              </Badge>
-            ))}
-          </div>
         </div>
 
         {/* Bottom gradient line */}
