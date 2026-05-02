@@ -26,10 +26,10 @@ export default function KidsOnCourt() {
         <div className="hero-content">
           <div className="hero-text" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
             <h1 className="hero-title-large">
-              Kids on Court
+              Unsere Kleinsten
             </h1>
             <p className="hero-subtitle">
-              Tennis für Kinder ab 4 Jahren
+              Tennis für Kinder ab 3 Jahren
             </p>
           </div>
         </div>
@@ -44,13 +44,13 @@ export default function KidsOnCourt() {
               </div>
               <div className="kids-split-text">
                 <div className="age-badge">
-                  Für Kinder ab 4 Jahren
+                  Für Kinder ab 3 Jahren
                 </div>
-                <h2>Was bedeutet Kids on Court?</h2>
+                <h2>Tennis für unsere Kleinsten</h2>
                 <p>
                   Vielleicht erinnerst du dich daran, in welchem Alter du mit dem Tennis begonnen hast
-                  und denkst dabei: „Viel zu spät!". Heute bieten wir schon Kindern im Alter von 4 Jahren
-                  die Möglichkeit, unseren schönen Sport zu erlernen – eben bei Kids on Court.
+                  und denkst dabei: „Viel zu spät!". Heute bieten wir schon Kindern ab 3 Jahren
+                  die Möglichkeit, unseren schönen Sport spielerisch zu entdecken.
                 </p>
                 <p>
                   Tennis ist ein koordinativ sehr anspruchsvoller Sport und daher ist gerade die Technik
@@ -201,7 +201,7 @@ export default function KidsOnCourt() {
             <div className="section-header">
               <h2 className="section-title">Impressionen</h2>
               <p className="section-subtitle">
-                Eindrücke aus unserem Kids on Court Programm
+                Eindrücke aus unserem Programm für die Kleinsten
               </p>
             </div>
           </AnimatedSection>

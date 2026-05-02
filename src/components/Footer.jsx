@@ -18,7 +18,7 @@ export default function Footer() {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/trainer">Trainerteam</Link></li>
               <li><Link to="/preise">Preise und Angebote</Link></li>
-              <li><Link to="/kids-on-court">Kids on Court</Link></li>
+              <li><Link to="/kids-on-court">Unsere Kleinsten</Link></li>
             </ul>
           </div>
           <div className="footer-links">

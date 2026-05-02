@@ -6,7 +6,7 @@ const navItems = [
   { path: '/', label: 'Home' },
   { path: '/trainer', label: 'Trainer' },
   { path: '/preise', label: 'Preise' },
-  { path: '/kids-on-court', label: 'Kids on Court' },
+  { path: '/kids-on-court', label: 'Unsere Kleinsten' },
   { path: '/tenniscamps', label: 'Camps' },
   { path: '/dtb-vdt', label: 'DTB/VDT' },
   { path: '/news', label: 'News' },
