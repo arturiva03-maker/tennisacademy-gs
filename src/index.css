@@ -3256,6 +3256,7 @@ img {
 .gs-hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -3265,7 +3266,6 @@ img {
   position: absolute;
   inset: 0;
   background: url('/hero-bg.jpg') center / cover no-repeat;
-  background-attachment: fixed;
   z-index: 0;
 }
 
