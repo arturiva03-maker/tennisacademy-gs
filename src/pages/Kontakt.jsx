@@ -162,8 +162,7 @@ export default function Kontakt() {
               <div className="kontakt-info">
                 <h2>So erreichst du uns</h2>
               <p>
-                Hast du Fragen zu unserem Trainingsangebot oder möchtest du
-                ein Probetraining vereinbaren? Schreib uns!
+                Hast du Fragen zu unserem Trainingsangebot? Schreib uns!
               </p>
 
               <div className="kontakt-details">
