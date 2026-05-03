@@ -21,6 +21,7 @@ const OFFERINGS = [
     description:
       'Entwicklung einer stabilen Schlagform sowie erste strategische Übungen.',
     image: '/koc1.jpeg',
+    portrait: true,
   },
   {
     id: 'jugend',
@@ -58,7 +59,7 @@ function TimelineItem({ offering, index }) {
     <li className={`gs-timeline-item gs-timeline-item--${align}`}>
       <div className="gs-timeline-marker" aria-hidden="true" />
       <article className="gs-timeline-card">
-        <div className="gs-timeline-card-media">
+        <div className={`gs-timeline-card-media${offering.portrait ? ' gs-timeline-card-media--portrait' : ''}`}>
           {hasSplit ? (
             <div className="gs-timeline-card-imgs" aria-hidden="true">
               {offering.images.slice(0, 2).map((src, i) => (

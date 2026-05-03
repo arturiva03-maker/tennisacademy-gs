@@ -3502,6 +3502,16 @@ img {
   transition: transform 0.8s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));
 }
 
+.gs-timeline-card-media--portrait {
+  aspect-ratio: 3 / 4;
+  background: color-mix(in srgb, var(--navy) 4%, var(--white));
+}
+
+.gs-timeline-card-media--portrait img {
+  object-fit: cover;
+  object-position: center 25%;
+}
+
 .gs-timeline-card:hover .gs-timeline-card-media img {
   transform: scale(1.04);
 }
