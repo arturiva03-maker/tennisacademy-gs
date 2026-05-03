@@ -36,7 +36,7 @@ const OFFERINGS = [
     title: 'Sommercamps',
     description:
       'Halbtägige Betreuung mit viel Sport und Verpflegung.',
-    images: ['/tenniscamp.jpg', '/tenniscamp2.jpg'],
+    image: '/sc1.jpeg',
   },
 ];
 
