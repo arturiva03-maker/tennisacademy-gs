@@ -51,55 +51,48 @@ function TennisNewsWidget() {
   return <div id="tennis-news-widget" data-tenant="dtb" data-design="modern" />;
 }
 
-function OfferingHero({ offering, index, total }) {
+function TimelineItem({ offering, index }) {
   const align = index % 2 === 0 ? 'left' : 'right';
   const hasSplit = Array.isArray(offering.images) && offering.images.length >= 2;
   return (
-    <article
-      className={`gs-offer-hero gs-offer-hero--${align}${
-        hasSplit ? ' gs-offer-hero--split' : ''
-      }`}
-    >
-      <div className="gs-offer-hero-media">
-        {hasSplit ? (
-          <div className="gs-offer-hero-imgs" aria-hidden="true">
-            {offering.images.slice(0, 2).map((src, i) => (
-              <img
-                key={i}
-                src={src}
-                alt=""
-                className="gs-offer-hero-img"
-                loading="lazy"
-                onError={(e) => {
-                  e.currentTarget.style.opacity = '0';
-                }}
-              />
-            ))}
-          </div>
-        ) : (
-          <img
-            src={offering.image}
-            alt=""
-            className="gs-offer-hero-img"
-            loading="lazy"
-            onError={(e) => {
-              e.currentTarget.style.opacity = '0';
-            }}
-          />
-        )}
+    <li className={`gs-timeline-item gs-timeline-item--${align}`}>
+      <div className="gs-timeline-marker" aria-hidden="true">
+        <span className="gs-timeline-num">{String(index + 1).padStart(2, '0')}</span>
       </div>
-      <div className="gs-offer-hero-text">
-        <div className="gs-offer-hero-content">
-          <span className="gs-offer-hero-num">
-            {String(index + 1).padStart(2, '0')} <span aria-hidden="true">/</span>{' '}
-            {String(total).padStart(2, '0')}
-          </span>
-          <span className="gs-offer-hero-age">{offering.age}</span>
-          <h3 className="gs-offer-hero-title">{offering.title}</h3>
-          <p className="gs-offer-hero-desc">{offering.description}</p>
+      <article className="gs-timeline-card">
+        <div className="gs-timeline-card-media">
+          {hasSplit ? (
+            <div className="gs-timeline-card-imgs" aria-hidden="true">
+              {offering.images.slice(0, 2).map((src, i) => (
+                <img
+                  key={i}
+                  src={src}
+                  alt=""
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.style.opacity = '0';
+                  }}
+                />
+              ))}
+            </div>
+          ) : (
+            <img
+              src={offering.image}
+              alt=""
+              loading="lazy"
+              onError={(e) => {
+                e.currentTarget.style.opacity = '0';
+              }}
+            />
+          )}
         </div>
-      </div>
-    </article>
+        <div className="gs-timeline-card-body">
+          <span className="gs-timeline-age">{offering.age}</span>
+          <h3 className="gs-timeline-title">{offering.title}</h3>
+          <p className="gs-timeline-desc">{offering.description}</p>
+        </div>
+      </article>
+    </li>
   );
 }
 
@@ -141,9 +134,9 @@ export default function Home() {
                 },
               }}
             >
-              Tennis Academy
+              TENNIS ACADEMY
               <br />
-              <em>Grand Slam</em>
+              <em>GRAND SLAM</em>
             </motion.h1>
 
             <motion.p
@@ -189,16 +182,12 @@ export default function Home() {
             </div>
           </AnimatedSection>
         </div>
-        <div className="gs-offer-rows">
-          {OFFERINGS.map((offering, i) => (
-            <AnimatedSection key={offering.id} delay={i * 0.05}>
-              <OfferingHero
-                offering={offering}
-                index={i}
-                total={OFFERINGS.length}
-              />
-            </AnimatedSection>
-          ))}
+        <div className="container">
+          <ol className="gs-timeline">
+            {OFFERINGS.map((offering, i) => (
+              <TimelineItem key={offering.id} offering={offering} index={i} />
+            ))}
+          </ol>
         </div>
       </section>
 
@@ -255,7 +244,7 @@ export default function Home() {
               <div className="dtb-content">
                 <h2>Deutsche Tennisschule</h2>
                 <p>
-                  Unsere Tennis Academy erfüllt die fachlichen und organisatorischen
+                  Unsere TENNIS ACADEMY GRAND SLAM erfüllt die fachlichen und organisatorischen
                   Voraussetzungen der Deutschen Tennisschule, anerkannt vom Deutschen
                   Tennis Bund (DTB) und dem Verband Deutscher Tennislehrer (VDT).
                 </p>

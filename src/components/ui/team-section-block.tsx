@@ -15,7 +15,7 @@ import { useState } from "react";
 const teamMembers = [
   {
     name: "Michael Lingner",
-    role: "Leitung der Tennis Academy",
+    role: "Leitung der TENNIS ACADEMY GRAND SLAM",
     bio: "A-Trainer · Verbandstrainer des TVBB, DTB Vereinsmanager",
     image: "/michael.jpg",
     imagePosition: "center 10%",
@@ -35,7 +35,7 @@ const teamMembers = [
   },
   {
     name: "Jana Hladká-Kissal",
-    role: "Leitung der Tennis Academy",
+    role: "Leitung der TENNIS ACADEMY GRAND SLAM",
     bio: "B-Trainer · Ehemalige Profispielerin aus der Slowakei",
     image: "/jana.jpg",
     imagePosition: "center 0%",
@@ -55,7 +55,7 @@ const teamMembers = [
   },
   {
     name: "Zlatan Palazov",
-    role: "Leitung der Tennis Academy",
+    role: "Leitung der TENNIS ACADEMY GRAND SLAM",
     bio: "B-Trainer · Ehemaliger Profispieler aus Bulgarien",
     image: "",
     location: "Berlin",
@@ -75,7 +75,7 @@ const teamMembers = [
   },
   {
     name: "Artur Ivanenko",
-    role: "Leitung der Tennis Academy",
+    role: "Leitung der TENNIS ACADEMY GRAND SLAM",
     bio: "B-Trainer · Spielt seit früher Kindheit leidenschaftlich Tennis",
     image: "/artur.jpg",
     imagePosition: "center 30%",

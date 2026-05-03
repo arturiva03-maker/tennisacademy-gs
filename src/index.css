@@ -3411,93 +3411,152 @@ img {
   max-width: 540px;
 }
 
-.gs-offer-rows {
-  display: flex;
-  flex-direction: column;
+/* Timeline-Layout: Tennis-Werdegang als vertikale Reise */
+.gs-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1100px;
+  position: relative;
 }
 
-.gs-offer-hero {
+.gs-timeline::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  bottom: 24px;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--gold) 0%, transparent) 0%,
+    color-mix(in srgb, var(--gold) 55%, transparent) 8%,
+    color-mix(in srgb, var(--gold) 55%, transparent) 92%,
+    color-mix(in srgb, var(--gold) 0%, transparent) 100%
+  );
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.gs-timeline-item {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: stretch;
-  min-height: 520px;
-  overflow: hidden;
-  color: var(--white);
-  background: linear-gradient(
-    135deg,
-    #0a0e26 0%,
-    #131a45 55%,
-    color-mix(in srgb, var(--gold) 22%, #131a45) 100%
-  );
+  grid-template-columns: 1fr auto 1fr;
+  gap: clamp(20px, 3vw, 36px);
+  align-items: center;
+  margin-bottom: clamp(48px, 6vw, 80px);
 }
 
-.gs-offer-hero + .gs-offer-hero {
-  border-top: 1px solid color-mix(in srgb, var(--white) 8%, transparent);
+.gs-timeline-item:last-child {
+  margin-bottom: 0;
 }
 
-.gs-offer-hero-media {
+.gs-timeline-marker {
   position: relative;
+  z-index: 2;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 2;
+  box-shadow: 0 0 0 6px var(--white), 0 4px 16px rgba(10, 14, 38, 0.08);
+}
+
+.gs-timeline-num {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+}
+
+.gs-timeline-card {
+  background: var(--white);
+  border: 1px solid color-mix(in srgb, var(--navy) 10%, transparent);
+  border-radius: 16px;
   overflow: hidden;
-  min-height: 360px;
+  box-shadow: 0 4px 20px rgba(10, 14, 38, 0.06);
+  transition: transform 0.4s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)),
+    box-shadow 0.4s ease;
+}
+
+.gs-timeline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(10, 14, 38, 0.12);
+}
+
+.gs-timeline-item--left .gs-timeline-card {
   grid-column: 1;
 }
 
-.gs-offer-hero--right .gs-offer-hero-media {
-  grid-column: 2;
+.gs-timeline-item--right .gs-timeline-card {
+  grid-column: 3;
 }
 
-.gs-offer-hero-img {
-  position: absolute;
-  inset: 0;
+.gs-timeline-card-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--navy) 6%, transparent);
+}
+
+.gs-timeline-card-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1.4s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)),
-    opacity 0.4s ease;
+  transition: transform 0.8s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));
 }
 
-.gs-offer-hero:hover .gs-offer-hero-img {
+.gs-timeline-card:hover .gs-timeline-card-media img {
   transform: scale(1.04);
 }
 
-/* Split-Modus: zwei Bilder nebeneinander innerhalb der Media-Spalte */
-.gs-offer-hero-imgs {
-  position: absolute;
-  inset: 0;
+.gs-timeline-card-imgs {
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
-.gs-offer-hero-imgs .gs-offer-hero-img {
-  position: relative;
-  inset: auto;
-}
-.gs-offer-hero-imgs .gs-offer-hero-img + .gs-offer-hero-img {
-  border-left: 1px solid color-mix(in srgb, var(--white) 14%, transparent);
-}
-
-.gs-offer-hero-text {
-  display: flex;
-  align-items: center;
-  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 5vw, 4rem);
-  grid-column: 2;
-}
-
-.gs-offer-hero--right .gs-offer-hero-text {
-  grid-column: 1;
-}
-
-.gs-offer-hero-content {
-  max-width: 520px;
   width: 100%;
+  height: 100%;
 }
 
-.gs-offer-hero--left .gs-offer-hero-content {
-  margin-right: auto;
+.gs-timeline-card-imgs img + img {
+  border-left: 1px solid color-mix(in srgb, var(--white) 80%, transparent);
 }
 
-.gs-offer-hero--right .gs-offer-hero-content {
-  margin-left: auto;
+.gs-timeline-card-body {
+  padding: clamp(20px, 2.5vw, 28px) clamp(20px, 2.8vw, 32px) clamp(24px, 3vw, 32px);
+}
+
+.gs-timeline-age {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-medium);
+  margin-bottom: 12px;
+}
+
+.gs-timeline-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--navy);
+  margin: 0 0 12px;
+}
+
+.gs-timeline-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-medium);
+  margin: 0;
 }
 
 .gs-offer-hero-num {
@@ -3549,34 +3608,31 @@ img {
 
 @media (max-width: 768px) {
   .gs-offer-section {
-    padding: 64px 0 0;
+    padding: 64px 0;
   }
   .gs-offer-header {
     margin-bottom: 36px;
   }
-  .gs-offer-hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
+  .gs-timeline::before {
+    left: 28px;
   }
-  .gs-offer-hero-media,
-  .gs-offer-hero--right .gs-offer-hero-media {
+  .gs-timeline-item {
+    grid-template-columns: 56px 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .gs-timeline-marker {
     grid-column: 1;
     grid-row: 1;
-    min-height: 280px;
+    align-self: start;
+    margin-top: 8px;
+  }
+  .gs-timeline-item--left .gs-timeline-card,
+  .gs-timeline-item--right .gs-timeline-card {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .gs-timeline-card-media {
     aspect-ratio: 4 / 3;
-  }
-  .gs-offer-hero-text,
-  .gs-offer-hero--right .gs-offer-hero-text {
-    grid-column: 1;
-    grid-row: 2;
-    padding: 2.5rem 1.25rem;
-  }
-  .gs-offer-hero-content,
-  .gs-offer-hero--right .gs-offer-hero-content {
-    margin: 0;
-    max-width: 100%;
-  }
-  .gs-offer-hero-title {
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
   }
 }
