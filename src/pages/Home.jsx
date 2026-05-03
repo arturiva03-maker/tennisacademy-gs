@@ -28,7 +28,7 @@ const OFFERINGS = [
     title: 'Kinder- und Jugendtraining',
     description:
       'Je nach Spielstärke Einteilung in Gruppen oder individuelles Einzeltraining.',
-    images: ['/offer-jugend-1.jpg', '/offer-jugend-2.jpg'],
+    image: '/offer-jugend-2.jpg',
   },
   {
     id: 'camp',
