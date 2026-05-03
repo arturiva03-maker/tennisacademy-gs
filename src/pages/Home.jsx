@@ -164,7 +164,7 @@ export default function Home() {
               }}
             >
               Professionelles Training für alle Spielklassen und Altersgruppen –
-              von der Ballschule bis zum Leistungsspieler.
+              von der Ballschule bis zum Wettkampftraining.
             </motion.p>
 
             <motion.div
