@@ -3457,24 +3457,12 @@ img {
 .gs-timeline-marker {
   position: relative;
   z-index: 2;
-  width: 56px;
-  height: 56px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: var(--white);
-  border: 2px solid var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: var(--gold);
   grid-column: 2;
-  box-shadow: 0 0 0 6px var(--white), 0 4px 16px rgba(10, 14, 38, 0.08);
-}
-
-.gs-timeline-num {
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
-  color: var(--navy);
+  box-shadow: 0 0 0 6px var(--white), 0 0 0 8px color-mix(in srgb, var(--gold) 30%, transparent);
 }
 
 .gs-timeline-card {

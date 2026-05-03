@@ -12,7 +12,7 @@ const OFFERINGS = [
     title: 'Mini Tennis – Ballschule',
     description:
       'Entwicklung der koordinativen Fähigkeiten und Erlernen erster Schlagtechniken.',
-    image: '/kids-gallery/img1.jpg',
+    images: ['/kids-gallery/img1.jpg', '/kids-gallery/img3.jpg'],
   },
   {
     id: 'kids',
@@ -20,7 +20,7 @@ const OFFERINGS = [
     title: 'Kids on Court',
     description:
       'Entwicklung einer stabilen Schlagform sowie erste strategische Übungen.',
-    image: '/kids-gallery/img2.jpg',
+    images: ['/kids-gallery/img2.jpg', '/kids-gallery/img4.jpg'],
   },
   {
     id: 'jugend',
@@ -36,7 +36,7 @@ const OFFERINGS = [
     title: 'Sommercamps',
     description:
       'Halbtägige Betreuung mit viel Sport und Verpflegung.',
-    image: '/tenniscamp.jpg',
+    images: ['/tenniscamp.jpg', '/tenniscamp2.jpg'],
   },
 ];
 
@@ -56,9 +56,7 @@ function TimelineItem({ offering, index }) {
   const hasSplit = Array.isArray(offering.images) && offering.images.length >= 2;
   return (
     <li className={`gs-timeline-item gs-timeline-item--${align}`}>
-      <div className="gs-timeline-marker" aria-hidden="true">
-        <span className="gs-timeline-num">{String(index + 1).padStart(2, '0')}</span>
-      </div>
+      <div className="gs-timeline-marker" aria-hidden="true" />
       <article className="gs-timeline-card">
         <div className="gs-timeline-card-media">
           {hasSplit ? (
