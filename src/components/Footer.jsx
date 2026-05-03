@@ -40,6 +40,9 @@ export default function Footer() {
         <div className="footer-sponsors">
           <h4>Unsere Partner</h4>
           <div className="sponsor-logos">
+            <a href="https://www.bsv92-tennis.de" target="_blank" rel="noopener noreferrer">
+              <img src="/sponsor-bsv92.png" alt="BSV 92 Tennisabteilung" loading="lazy" />
+            </a>
             <a href="http://www.tennisshop-grandslam.de/Home/" target="_blank" rel="noopener noreferrer">
               <img src="/sponsor-grandslam.jpg" alt="Tennisshop Grand Slam" loading="lazy" />
             </a>
