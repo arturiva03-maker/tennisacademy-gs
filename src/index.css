@@ -3508,8 +3508,8 @@ img {
 }
 
 .gs-timeline-card-media--portrait img {
-  object-fit: cover;
-  object-position: center 25%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .gs-timeline-card:hover .gs-timeline-card-media img {
