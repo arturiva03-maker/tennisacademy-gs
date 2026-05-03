@@ -20,7 +20,7 @@ const OFFERINGS = [
     title: 'Kids on Court',
     description:
       'Entwicklung einer stabilen Schlagform sowie erste strategische Übungen.',
-    image: '/kids-gallery/img2.jpg',
+    image: '/koc1.jpeg',
   },
   {
     id: 'jugend',
