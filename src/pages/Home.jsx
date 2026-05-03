@@ -60,34 +60,35 @@ function OfferingHero({ offering, index, total }) {
         hasSplit ? ' gs-offer-hero--split' : ''
       }`}
     >
-      {hasSplit ? (
-        <div className="gs-offer-hero-imgs" aria-hidden="true">
-          {offering.images.slice(0, 2).map((src, i) => (
-            <img
-              key={i}
-              src={src}
-              alt=""
-              className="gs-offer-hero-img"
-              loading="lazy"
-              onError={(e) => {
-                e.currentTarget.style.opacity = '0';
-              }}
-            />
-          ))}
-        </div>
-      ) : (
-        <img
-          src={offering.image}
-          alt=""
-          className="gs-offer-hero-img"
-          loading="lazy"
-          onError={(e) => {
-            e.currentTarget.style.opacity = '0';
-          }}
-        />
-      )}
-      <div className="gs-offer-hero-overlay" aria-hidden="true" />
-      <div className="container">
+      <div className="gs-offer-hero-media">
+        {hasSplit ? (
+          <div className="gs-offer-hero-imgs" aria-hidden="true">
+            {offering.images.slice(0, 2).map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt=""
+                className="gs-offer-hero-img"
+                loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.style.opacity = '0';
+                }}
+              />
+            ))}
+          </div>
+        ) : (
+          <img
+            src={offering.image}
+            alt=""
+            className="gs-offer-hero-img"
+            loading="lazy"
+            onError={(e) => {
+              e.currentTarget.style.opacity = '0';
+            }}
+          />
+        )}
+      </div>
+      <div className="gs-offer-hero-text">
         <div className="gs-offer-hero-content">
           <span className="gs-offer-hero-num">
             {String(index + 1).padStart(2, '0')} <span aria-hidden="true">/</span>{' '}

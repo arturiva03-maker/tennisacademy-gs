@@ -20,7 +20,7 @@ const teamMembers = [
     image: "/michael.jpg",
     imagePosition: "center 10%",
     location: "Berlin",
-    skills: ["A-Trainer", "TVBB Lehrteam", "VDT"],
+    skills: ["A-Trainer", "TVBB Lehrteam"],
     gradient: "from-white/10 via-white/5 to-transparent",
     bullets: [
       "Verbandstrainer des TVBB, DTB Vereinsmanager",
@@ -40,7 +40,7 @@ const teamMembers = [
     image: "/jana.jpg",
     imagePosition: "center 0%",
     location: "Berlin",
-    skills: ["B-Trainer", "Kids on Court", "Profi"],
+    skills: ["B-Trainer", "Kids on Court"],
     gradient: "from-white/12 via-white/5 to-transparent",
     bullets: [
       "Ehemalige Profispielerin aus der Slowakei",
@@ -80,7 +80,7 @@ const teamMembers = [
     image: "/artur.jpg",
     imagePosition: "center 30%",
     location: "Berlin",
-    skills: ["B-Trainer", "Fitness", "Mini-Tennis"],
+    skills: ["B-Trainer", "Kinder", "Erwachsene"],
     gradient: "from-white/12 via-white/5 to-transparent",
     bullets: [
       "Spielt seit früher Kindheit leidenschaftlich Tennis",
