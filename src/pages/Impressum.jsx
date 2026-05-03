@@ -1,7 +1,7 @@
 export default function Impressum() {
   return (
     <>
-      <section className="page-hero" style={{ backgroundImage: "url('/hero-bg.jpg')" }}>
+      <section className="page-hero" style={{ backgroundImage: "url('/neues%20hero.jpeg')" }}>
         <div className="page-hero-overlay"></div>
         <div className="container">
           <h1>Impressum</h1>

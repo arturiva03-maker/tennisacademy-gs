@@ -33,7 +33,7 @@ export const events = [
 export default function News() {
   return (
     <>
-      <section className="page-hero" style={{ backgroundImage: "url('/hero-bg.jpg')" }}>
+      <section className="page-hero" style={{ backgroundImage: "url('/neues%20hero.jpeg')" }}>
         <div className="page-hero-overlay"></div>
         <div className="container">
           <h1>News & Events</h1>

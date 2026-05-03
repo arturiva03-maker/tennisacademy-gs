@@ -51,7 +51,7 @@ export default function Preise() {
 
   return (
     <>
-      <section className="page-hero" style={{ backgroundImage: "url('/hero-bg.jpg')" }}>
+      <section className="page-hero" style={{ backgroundImage: "url('/neues%20hero.jpeg')" }}>
         <div className="page-hero-overlay"></div>
         <div className="container">
           <h1>Preise und Angebote</h1>
