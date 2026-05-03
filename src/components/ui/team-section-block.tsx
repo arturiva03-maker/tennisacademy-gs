@@ -338,7 +338,7 @@ export function TeamSectionBlock() {
             Unser Trainerteam
           </Badge>
           <h2 className="mb-4 text-4xl font-bold tracking-tight text-[--text-dark] sm:text-5xl">
-            Ein Team, ein Anspruch.
+            Ein Team, eine Aufgabe.
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-[--text-medium]">
             Tennis ernsthaft lernen – egal ob mit drei Jahren oder fünfzig.
