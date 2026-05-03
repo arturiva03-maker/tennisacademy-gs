@@ -12,6 +12,7 @@ const OFFERINGS = [
     title: 'Mini Tennis – Ballschule',
     description:
       'Entwicklung der koordinativen Fähigkeiten und Erlernen erster Schlagtechniken.',
+    image: '/offer-mini.jpg',
   },
   {
     id: 'kids',
@@ -19,6 +20,7 @@ const OFFERINGS = [
     title: 'Kids on Court',
     description:
       'Entwicklung einer stabilen Schlagform sowie erste strategische Übungen.',
+    image: '/offer-kids.jpg',
   },
   {
     id: 'jugend',
@@ -26,6 +28,7 @@ const OFFERINGS = [
     title: 'Kinder- und Jugendtraining',
     description:
       'Je nach Spielstärke Einteilung in Gruppen oder individuelles Einzeltraining.',
+    image: '/offer-jugend.jpg',
   },
   {
     id: 'camp',
@@ -33,6 +36,7 @@ const OFFERINGS = [
     title: 'Sommercamps',
     description:
       'Halbtägige Betreuung mit viel Sport und Verpflegung.',
+    image: '/offer-camp.jpg',
   },
 ];
 
@@ -47,17 +51,32 @@ function TennisNewsWidget() {
   return <div id="tennis-news-widget" data-tenant="dtb" data-design="modern" />;
 }
 
-function OfferingRow({ offering }) {
+function OfferingHero({ offering, index, total }) {
+  const align = index % 2 === 0 ? 'left' : 'right';
   return (
-    <div className="gs-offer-row-wrap">
-      <div className="gs-offer-row">
-        <span className="gs-offer-age">{offering.age}</span>
-        <div className="gs-offer-body">
-          <h3 className="gs-offer-title">{offering.title}</h3>
-          <p className="gs-offer-desc">{offering.description}</p>
+    <article className={`gs-offer-hero gs-offer-hero--${align}`}>
+      <img
+        src={offering.image}
+        alt=""
+        className="gs-offer-hero-img"
+        loading="lazy"
+        onError={(e) => {
+          e.currentTarget.style.opacity = '0';
+        }}
+      />
+      <div className="gs-offer-hero-overlay" aria-hidden="true" />
+      <div className="container">
+        <div className="gs-offer-hero-content">
+          <span className="gs-offer-hero-num">
+            {String(index + 1).padStart(2, '0')} <span aria-hidden="true">/</span>{' '}
+            {String(total).padStart(2, '0')}
+          </span>
+          <span className="gs-offer-hero-age">{offering.age}</span>
+          <h3 className="gs-offer-hero-title">{offering.title}</h3>
+          <p className="gs-offer-hero-desc">{offering.description}</p>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 
@@ -134,7 +153,7 @@ export default function Home() {
 
       </section>
 
-      {/* OFFERINGS — EDITORIAL STACK */}
+      {/* OFFERINGS — IMMERSIVE HERO ROWS */}
       <section className="gs-offer-section">
         <div className="container">
           <AnimatedSection>
@@ -146,13 +165,17 @@ export default function Home() {
               </p>
             </div>
           </AnimatedSection>
-          <div className="gs-offer-stack">
-            {OFFERINGS.map((offering, i) => (
-              <AnimatedSection key={offering.id} delay={i * 0.05}>
-                <OfferingRow offering={offering} />
-              </AnimatedSection>
-            ))}
-          </div>
+        </div>
+        <div className="gs-offer-rows">
+          {OFFERINGS.map((offering, i) => (
+            <AnimatedSection key={offering.id} delay={i * 0.05}>
+              <OfferingHero
+                offering={offering}
+                index={i}
+                total={OFFERINGS.length}
+              />
+            </AnimatedSection>
+          ))}
         </div>
       </section>
 

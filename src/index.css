@@ -3364,9 +3364,9 @@ img {
   }
 }
 
-/* ========== GS OFFERINGS — MINIMAL EDITORIAL ========== */
+/* ========== GS OFFERINGS — IMMERSIVE HERO ROWS ========== */
 .gs-offer-section {
-  padding: 96px 0 88px;
+  padding: 96px 0 0;
   background: var(--white);
 }
 
@@ -3393,68 +3393,158 @@ img {
   max-width: 540px;
 }
 
-.gs-offer-stack {
+.gs-offer-rows {
   display: flex;
   flex-direction: column;
-  border-bottom: var(--offer-divider);
 }
 
-.gs-offer-row-wrap {
+.gs-offer-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 420px;
+  overflow: hidden;
+  color: var(--white);
+  background: linear-gradient(
+    135deg,
+    #0a0e26 0%,
+    #131a45 55%,
+    color-mix(in srgb, var(--gold) 22%, #131a45) 100%
+  );
+}
+
+.gs-offer-hero + .gs-offer-hero {
+  border-top: 1px solid color-mix(in srgb, var(--white) 8%, transparent);
+}
+
+.gs-offer-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  transition: transform 1.4s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)),
+    opacity 0.4s ease;
+}
+
+.gs-offer-hero:hover .gs-offer-hero-img {
+  transform: scale(1.04);
+}
+
+.gs-offer-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 14, 38, 0.88) 0%,
+    rgba(10, 14, 38, 0.55) 55%,
+    rgba(10, 14, 38, 0.28) 100%
+  );
+}
+
+.gs-offer-hero--right .gs-offer-hero-overlay {
+  background: linear-gradient(
+    270deg,
+    rgba(10, 14, 38, 0.88) 0%,
+    rgba(10, 14, 38, 0.55) 55%,
+    rgba(10, 14, 38, 0.28) 100%
+  );
+}
+
+.gs-offer-hero-content {
+  max-width: 540px;
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+}
+
+.gs-offer-hero--right .gs-offer-hero-content {
+  margin-left: auto;
+  text-align: right;
+}
+
+.gs-offer-hero-num {
   display: block;
-  border-top: var(--offer-divider);
-}
-
-.gs-offer-row {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 32px;
-  align-items: baseline;
-  padding: 28px 12px;
-}
-
-.gs-offer-age {
   font-family: var(--font-body);
   font-size: 0.78rem;
+  letter-spacing: 0.22em;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  color: var(--gold);
   text-transform: uppercase;
-  color: var(--text-medium);
+  margin-bottom: 1rem;
 }
 
-.gs-offer-body {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-width: 0;
-}
-
-.gs-offer-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  color: var(--navy-dark);
-}
-
-.gs-offer-desc {
+.gs-offer-hero-age {
+  display: inline-block;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: color-mix(in srgb, var(--white) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--white) 28%, transparent);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+.gs-offer-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin: 0 0 1rem 0;
+  color: var(--white);
+}
+
+.gs-offer-hero-desc {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
   line-height: 1.6;
-  color: var(--text-medium);
-  max-width: 720px;
+  color: color-mix(in srgb, var(--white) 88%, transparent);
+  max-width: 480px;
+  margin: 0;
+}
+
+.gs-offer-hero--right .gs-offer-hero-desc {
+  margin-left: auto;
 }
 
 @media (max-width: 768px) {
   .gs-offer-section {
-    padding: 64px 0 56px;
+    padding: 64px 0 0;
   }
   .gs-offer-header {
     margin-bottom: 36px;
   }
-  .gs-offer-row {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    padding: 22px 12px;
+  .gs-offer-hero {
+    min-height: 340px;
+  }
+  .gs-offer-hero-content {
+    padding: 2.5rem 0;
+    max-width: 100%;
+  }
+  .gs-offer-hero--right .gs-offer-hero-content {
+    margin-left: 0;
+    text-align: left;
+  }
+  .gs-offer-hero--right .gs-offer-hero-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(10, 14, 38, 0.88) 0%,
+      rgba(10, 14, 38, 0.55) 55%,
+      rgba(10, 14, 38, 0.28) 100%
+    );
+  }
+  .gs-offer-hero--right .gs-offer-hero-desc {
+    margin-left: 0;
+  }
+  .gs-offer-hero-title {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
   }
 }
