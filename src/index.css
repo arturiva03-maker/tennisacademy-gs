@@ -2876,6 +2876,12 @@ img {
   object-fit: contain;
 }
 
+/* Schwarz-auf-Weiß Logos auf dunklem Footer invertieren */
+.sponsor-logos a[href*="bsv92"] img {
+  filter: invert(1);
+  height: 56px;
+}
+
 .footer-bottom {
   padding-top: 20px;
   border-top: 1px solid rgba(255,255,255,0.06);
