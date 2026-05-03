@@ -85,7 +85,7 @@ export default function Home() {
                 show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
               }}
             >
-              DTB / VDT anerkannte Tennis Academy &nbsp;·&nbsp; Berlin-Wilmersdorf
+              DTB / VDT anerkannte Tennisschule &nbsp;·&nbsp; Berlin-Wilmersdorf
             </motion.p>
 
             <motion.h1

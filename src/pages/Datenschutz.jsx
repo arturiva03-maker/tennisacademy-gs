@@ -21,7 +21,7 @@ export default function Datenschutz() {
               ist:
             </p>
             <p>
-              <strong>Tennis Academy Grand Slam GbR</strong><br />
+              <strong>TENNIS ACADEMY GRAND SLAM GbR</strong><br />
               Buschkrugallee 54, 12359 Berlin, Deutschland<br />
               vertreten durch die Gesellschafter Michael Lingner, Jana Hladká-Kissal,
               Zlatan Palazov und Artur Ivanenko<br />

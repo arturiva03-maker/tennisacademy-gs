@@ -13,7 +13,7 @@ export default function Impressum() {
           <div className="legal-content">
             <h2>Angaben gemäß § 5 TMG</h2>
             <p>
-              <strong>Tennis Academy Grand Slam GbR</strong><br />
+              <strong>TENNIS ACADEMY GRAND SLAM GbR</strong><br />
               Buschkrugallee 54<br />
               12359 Berlin<br />
               Deutschland

@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <h3>Tennis Academy Grand Slam</h3>
+            <h3>TENNIS ACADEMY GRAND SLAM</h3>
             <p>
               Deutsche Tennisschule anerkannt von DTB/VDT. Professionelles
               Tennistraining für alle Altersgruppen und Spielstärken.
@@ -40,7 +40,7 @@ export default function Footer() {
         <div className="footer-sponsors">
           <h4>Unsere Partner</h4>
           <div className="sponsor-logos">
-            <a href="https://www.tennisshop-grandslam.de" target="_blank" rel="noopener noreferrer">
+            <a href="http://www.tennisshop-grandslam.de/Home/" target="_blank" rel="noopener noreferrer">
               <img src="/sponsor-grandslam.jpg" alt="Tennisshop Grand Slam" loading="lazy" />
             </a>
             <a href="https://www.dunlopsports.com" target="_blank" rel="noopener noreferrer">
@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          &copy; {new Date().getFullYear()} Tennis Academy Grand Slam. Alle Rechte vorbehalten.
+          &copy; {new Date().getFullYear()} TENNIS ACADEMY GRAND SLAM. Alle Rechte vorbehalten.
         </div>
       </div>
     </footer>

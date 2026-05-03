@@ -32,8 +32,8 @@ export default function Navbar() {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="navbar-inner">
           <Link to="/" className="nav-logo">
-            <img src="/logo.png" alt="Tennis Academy Grand Slam" className="nav-logo-img" />
-            <span>Tennis Academy Grand Slam</span>
+            <img src="/logo.png" alt="TENNIS ACADEMY GRAND SLAM" className="nav-logo-img" />
+            <span>TENNIS ACADEMY GRAND SLAM</span>
           </Link>
           <ul className="nav-links">
             {navItems.map((item) => {

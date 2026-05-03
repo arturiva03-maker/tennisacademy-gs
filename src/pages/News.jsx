@@ -14,7 +14,7 @@ export const events = [
   },
   {
     title: 'Aus Tennisschule wird Academy',
-    subtitle: 'Die Tennis Academy Grand Slam ist da',
+    subtitle: 'Die TENNIS ACADEMY GRAND SLAM ist da',
     date: 'März 2026',
     location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
     description: 'Nach über 16 Jahren erfolgreicher Arbeit geht die Tennisschule Ritter & Lingner einen großen Schritt weiter: Passend zum 125-jährigen Jubiläum des BSV 92 wird aus der bewährten Tennisschule die neugegründete TENNIS ACADEMY GRAND SLAM.\n\nMit Jana Hladka-Kissal, Artur Ivanenko, Zlatan Palazov und Michael Lingner als Gesellschaftern und einem starken Team im Rücken ist das Ziel klar – die Qualität im Kinder- und Jugendbereich noch weiter zu steigern.\n\nWas als Tennisschule begann, wird jetzt zur Akademie. Das nächste Kapitel beginnt.\n\nWir freuen uns auf eine erfolgreiche Sommersaison 2026.\n\nEure TENNIS ACADEMY GRAND SLAM & Team',
@@ -37,7 +37,7 @@ export default function News() {
         <div className="page-hero-overlay"></div>
         <div className="container">
           <h1>News & Events</h1>
-          <p>Neuigkeiten und Veranstaltungen der Tennis Academy Grand Slam</p>
+          <p>Neuigkeiten und Veranstaltungen der TENNIS ACADEMY GRAND SLAM</p>
         </div>
       </section>
 

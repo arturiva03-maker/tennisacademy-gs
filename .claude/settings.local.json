@@ -76,7 +76,11 @@
       "Bash(xargs -I {} ls -la {})",
       "Bash(awk '{printf \"%10s  %s\\\\n\", $5, $9}')",
       "Bash(awk '{printf \"%10s %s\\\\n\", $5, $9}')",
-      "Bash(find src *)"
+      "Bash(find src *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{redirect_url}\\\\n\" -L --max-time 8 https://www.tennisshop-grandslam.de)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{redirect_url}\\\\n\" -L --max-time 8 https://tennisshop-grandslam.de)",
+      "WebFetch(domain:www.tennisshop-grandslam.de)",
+      "WebFetch(domain:tennisshop-grandslam.de)"
     ]
   },
   "enableAllProjectMcpServers": true,

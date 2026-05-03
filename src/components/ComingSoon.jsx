@@ -2,8 +2,8 @@ export default function ComingSoon() {
   return (
     <div className="coming-soon">
       <div className="coming-soon-content">
-        <img src="/logo.png" alt="Tennis Academy Grand Slam – Tennisschule Berlin" className="coming-soon-logo" />
-        <h1>Tennis Academy Grand Slam</h1>
+        <img src="/logo.png" alt="TENNIS ACADEMY GRAND SLAM – Tennisschule Berlin" className="coming-soon-logo" />
+        <h1>TENNIS ACADEMY GRAND SLAM</h1>
         <p className="coming-soon-tagline">Ihre neue Tennisschule in Berlin</p>
         <p>Unsere Website wird gerade fertiggestellt.</p>
 

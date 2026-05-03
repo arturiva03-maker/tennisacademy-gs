@@ -168,7 +168,7 @@ export default function Kontakt() {
 
               <div className="kontakt-details">
                 <div className="kontakt-item">
-                  <strong>Tennis Academy Grand Slam</strong>
+                  <strong>TENNIS ACADEMY GRAND SLAM</strong>
                 </div>
                 <div className="kontakt-item">
                   <span>E-Mail: info@tennisacademy-gs.de</span>
