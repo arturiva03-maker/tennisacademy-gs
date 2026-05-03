@@ -338,11 +338,10 @@ export function TeamSectionBlock() {
             Unser Trainerteam
           </Badge>
           <h2 className="mb-4 text-4xl font-bold tracking-tight text-[--text-dark] sm:text-5xl">
-            Erfahrung trifft Leidenschaft
+            Ein Team, ein Anspruch.
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-[--text-medium]">
-            Unser qualifiziertes Team steht dir mit jahrelanger Erfahrung und
-            Leidenschaft für den Tennissport zur Verfügung.
+            Tennis ernsthaft lernen – egal ob mit drei Jahren oder fünfzig.
           </p>
         </motion.div>
 
