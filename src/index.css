@@ -2876,10 +2876,22 @@ img {
   object-fit: contain;
 }
 
-/* Schwarz-auf-Weiß Logos auf dunklem Footer invertieren */
+/* BSV Logo: weißer Badge-Hintergrund, damit das Schwarz-Weiß-Design auf
+   dem dunklen Footer korrekt sichtbar ist (kein invert — das würde das
+   weiße "B" und die Flaggen-Details kaputt machen) */
+.sponsor-logos a[href*="bsv92"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: var(--white);
+  border-radius: 50%;
+}
 .sponsor-logos a[href*="bsv92"] img {
-  filter: invert(1);
+  filter: none;
   height: 56px;
+  width: 56px;
 }
 
 .footer-bottom {
@@ -3435,8 +3447,26 @@ img {
     opacity 0.4s ease;
 }
 
-.gs-offer-hero:hover .gs-offer-hero-img {
+.gs-offer-hero:hover > .gs-offer-hero-img,
+.gs-offer-hero:hover .gs-offer-hero-imgs .gs-offer-hero-img {
   transform: scale(1.04);
+}
+
+/* Split-Modus: zwei Bilder nebeneinander */
+.gs-offer-hero-imgs {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.gs-offer-hero-imgs .gs-offer-hero-img {
+  position: relative;
+  inset: auto;
+  z-index: 0;
+}
+.gs-offer-hero-imgs .gs-offer-hero-img + .gs-offer-hero-img {
+  border-left: 1px solid color-mix(in srgb, var(--white) 14%, transparent);
 }
 
 .gs-offer-hero-overlay {

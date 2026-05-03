@@ -12,7 +12,7 @@ const OFFERINGS = [
     title: 'Mini Tennis – Ballschule',
     description:
       'Entwicklung der koordinativen Fähigkeiten und Erlernen erster Schlagtechniken.',
-    image: '/offer-mini.jpg',
+    image: '/kids-gallery/img1.jpg',
   },
   {
     id: 'kids',
@@ -20,7 +20,7 @@ const OFFERINGS = [
     title: 'Kids on Court',
     description:
       'Entwicklung einer stabilen Schlagform sowie erste strategische Übungen.',
-    image: '/offer-kids.jpg',
+    image: '/kids-gallery/img2.jpg',
   },
   {
     id: 'jugend',
@@ -28,7 +28,7 @@ const OFFERINGS = [
     title: 'Kinder- und Jugendtraining',
     description:
       'Je nach Spielstärke Einteilung in Gruppen oder individuelles Einzeltraining.',
-    image: '/offer-jugend.jpg',
+    images: ['/offer-jugend-1.jpg', '/offer-jugend-2.jpg'],
   },
   {
     id: 'camp',
@@ -36,7 +36,7 @@ const OFFERINGS = [
     title: 'Sommercamps',
     description:
       'Halbtägige Betreuung mit viel Sport und Verpflegung.',
-    image: '/offer-camp.jpg',
+    image: '/tenniscamp.jpg',
   },
 ];
 
@@ -53,17 +53,39 @@ function TennisNewsWidget() {
 
 function OfferingHero({ offering, index, total }) {
   const align = index % 2 === 0 ? 'left' : 'right';
+  const hasSplit = Array.isArray(offering.images) && offering.images.length >= 2;
   return (
-    <article className={`gs-offer-hero gs-offer-hero--${align}`}>
-      <img
-        src={offering.image}
-        alt=""
-        className="gs-offer-hero-img"
-        loading="lazy"
-        onError={(e) => {
-          e.currentTarget.style.opacity = '0';
-        }}
-      />
+    <article
+      className={`gs-offer-hero gs-offer-hero--${align}${
+        hasSplit ? ' gs-offer-hero--split' : ''
+      }`}
+    >
+      {hasSplit ? (
+        <div className="gs-offer-hero-imgs" aria-hidden="true">
+          {offering.images.slice(0, 2).map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt=""
+              className="gs-offer-hero-img"
+              loading="lazy"
+              onError={(e) => {
+                e.currentTarget.style.opacity = '0';
+              }}
+            />
+          ))}
+        </div>
+      ) : (
+        <img
+          src={offering.image}
+          alt=""
+          className="gs-offer-hero-img"
+          loading="lazy"
+          onError={(e) => {
+            e.currentTarget.style.opacity = '0';
+          }}
+        />
+      )}
       <div className="gs-offer-hero-overlay" aria-hidden="true" />
       <div className="container">
         <div className="gs-offer-hero-content">
