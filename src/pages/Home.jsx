@@ -131,7 +131,7 @@ export default function Home() {
               }}
             >
               Professionelles Training für alle Spielklassen und Altersgruppen –
-              von der Grundschule bis zum Leistungsspieler.
+              von der Ballschule bis zum Leistungsspieler.
             </motion.p>
 
             <motion.div
@@ -160,8 +160,8 @@ export default function Home() {
             <div className="gs-offer-header">
               <h2 className="gs-offer-headline">Unser Angebot</h2>
               <p className="gs-offer-intro">
-                Von der ersten Schlagtechnik bis zum taktischen Feinschliff –
-                wir begleiten dich auf jedem Schritt deines Tennisweges.
+                Von ersten koordinativen Übungen bis zum Wettkampfvorbereitungstraining –
+                wir begleiten dich Schritt für Schritt in deinem Tennisleben.
               </p>
             </div>
           </AnimatedSection>
