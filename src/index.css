@@ -2887,11 +2887,14 @@ img {
   height: 64px;
   background: var(--white);
   border-radius: 50%;
+  overflow: hidden;
 }
 .sponsor-logos a[href*="bsv92"] img {
   filter: none;
-  height: 56px;
-  width: 56px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .footer-bottom {
