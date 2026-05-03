@@ -12,7 +12,8 @@ const OFFERINGS = [
     title: 'Mini Tennis – Ballschule',
     description:
       'Entwicklung der koordinativen Fähigkeiten und Erlernen erster Schlagtechniken.',
-    images: ['/kids-gallery/img1.jpg', '/kids-gallery/img3.jpg'],
+    video: '/ballschule.mp4',
+    videoEndTime: 7,
   },
   {
     id: 'kids',
@@ -55,12 +56,29 @@ function TennisNewsWidget() {
 function TimelineItem({ offering, index }) {
   const align = index % 2 === 0 ? 'left' : 'right';
   const hasSplit = Array.isArray(offering.images) && offering.images.length >= 2;
+  const hasVideo = Boolean(offering.video);
+  const handleVideoTimeUpdate = (e) => {
+    if (offering.videoEndTime && e.currentTarget.currentTime >= offering.videoEndTime) {
+      e.currentTarget.currentTime = 0;
+      e.currentTarget.play();
+    }
+  };
   return (
     <li className={`gs-timeline-item gs-timeline-item--${align}`}>
       <div className="gs-timeline-marker" aria-hidden="true" />
       <article className="gs-timeline-card">
         <div className={`gs-timeline-card-media${offering.portrait ? ' gs-timeline-card-media--portrait' : ''}`}>
-          {hasSplit ? (
+          {hasVideo ? (
+            <video
+              src={`${offering.video}#t=0,${offering.videoEndTime || ''}`}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              onTimeUpdate={handleVideoTimeUpdate}
+            />
+          ) : hasSplit ? (
             <div className="gs-timeline-card-imgs" aria-hidden="true">
               {offering.images.slice(0, 2).map((src, i) => (
                 <img

@@ -3495,7 +3495,8 @@ img {
   background: color-mix(in srgb, var(--navy) 6%, transparent);
 }
 
-.gs-timeline-card-media img {
+.gs-timeline-card-media img,
+.gs-timeline-card-media video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -3512,7 +3513,8 @@ img {
   object-position: center;
 }
 
-.gs-timeline-card:hover .gs-timeline-card-media img {
+.gs-timeline-card:hover .gs-timeline-card-media img,
+.gs-timeline-card:hover .gs-timeline-card-media video {
   transform: scale(1.04);
 }
 
