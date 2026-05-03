@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CalendarCheck, Users, CreditCard, ArrowUpRight } from 'lucide-react';
+import { Users, CreditCard, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
-import ButtonWithIcon from '@/components/ui/button-with-icon';
 
 const SIZES = [
   { key: 'einzel', label: 'Einzel', long: 'Einzeltraining' },
@@ -145,23 +144,9 @@ export default function Preise() {
             <AnimatedSection delay={0.1}>
               <div className="einstieg-step">
                 <div className="step-icon">
-                  <CalendarCheck size={32} />
-                </div>
-                <div className="step-number">1</div>
-                <h3>Probestunden vereinbaren</h3>
-                <p>
-                  So lernen wir uns kennen und finden gemeinsam heraus, welche Trainingsform
-                  am besten passt – ob Einzel- oder Gruppentraining.
-                </p>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.2}>
-              <div className="einstieg-step">
-                <div className="step-icon">
                   <Users size={32} />
                 </div>
-                <div className="step-number">2</div>
+                <div className="step-number">1</div>
                 <h3>Training abstimmen</h3>
                 <p>
                   Wir besprechen deinen Trainingsplan und stimmen Termine ab.
@@ -169,12 +154,12 @@ export default function Preise() {
               </div>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.3}>
+            <AnimatedSection delay={0.2}>
               <div className="einstieg-step">
                 <div className="step-icon">
                   <CreditCard size={32} />
                 </div>
-                <div className="step-number">3</div>
+                <div className="step-number">2</div>
                 <h3>Vereinsmitglied werden</h3>
                 <p>
                   Mit dem Start in das wöchentliche Training ist auch die Mitgliedschaft
@@ -193,9 +178,6 @@ export default function Preise() {
           </div>
 
           <div className="einstieg-cta">
-            <ButtonWithIcon href="/kontakt">
-              Probetraining anfragen
-            </ButtonWithIcon>
             <p className="einstieg-agb-note">
               <Link to="/agb" className="agb-link">
                 Allgemeine Geschäftsbedingungen

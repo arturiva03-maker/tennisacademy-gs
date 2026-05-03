@@ -9,7 +9,6 @@ import {
   type Variants,
 } from "framer-motion";
 import { User } from "lucide-react";
-import ButtonWithIcon from "@/components/ui/button-with-icon";
 import { useState } from "react";
 
 const teamMembers = [
@@ -358,29 +357,6 @@ export function TeamSectionBlock() {
           ))}
         </motion.div>
 
-        {/* CTA */}
-        <motion.div
-          initial={shouldReduceMotion ? undefined : { opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={
-            shouldReduceMotion ? undefined : { duration: 0.6, delay: 0.4 }
-          }
-          className="mt-16 text-center"
-        >
-          <Card className="mx-auto max-w-2xl border-[--border] bg-[--bg] p-8">
-            <h3 className="mb-2 text-xl font-semibold text-[--text-dark]">
-              Interesse an einem Probetraining?
-            </h3>
-            <p className="mb-6 text-[--text-medium]">
-              Kontaktiere uns für ein unverbindliches Probetraining mit einem
-              unserer erfahrenen Trainer.
-            </p>
-            <ButtonWithIcon href="/kontakt">
-              Kontakt aufnehmen
-            </ButtonWithIcon>
-          </Card>
-        </motion.div>
       </div>
     </section>
   );
