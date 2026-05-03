@@ -2876,26 +2876,9 @@ img {
   object-fit: contain;
 }
 
-/* BSV Logo: weißer Badge-Hintergrund, damit das Schwarz-Weiß-Design auf
-   dem dunklen Footer korrekt sichtbar ist (kein invert — das würde das
-   weiße "B" und die Flaggen-Details kaputt machen) */
-.sponsor-logos a[href*="bsv92"] {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 64px;
-  height: 64px;
-  background: var(--white);
-  border-radius: 50%;
-  overflow: hidden;
-}
 .sponsor-logos a[href*="bsv92"] img {
   filter: none;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 6px;
-  display: block;
+  height: 56px;
 }
 
 .footer-bottom {
