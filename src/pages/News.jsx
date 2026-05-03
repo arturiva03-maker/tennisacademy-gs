@@ -10,7 +10,7 @@ export const events = [
     date: '4. Mai 2026',
     location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
     description: 'Am 4. Mai 2026 startet offiziell der Trainingsbetrieb unserer Sommersaison 2026.\n\nAlle Kinder und Jugendlichen wurden erfolgreich in ihre Trainingsgruppen eingeteilt und haben die Bestätigung ihrer Trainingszeiten für die kommende Sommersaison erhalten.\n\nWir freuen uns auf eine erfolgreiche Sommersaison 2026 und ein spannendes Tennisjahr mit euch auf dem Platz.\n\nEure TENNIS ACADEMY GRAND SLAM',
-    image: '/hero-bg.jpg',
+    image: '/neues hero.jpeg',
   },
   {
     title: 'Aus Tennisschule wird Academy',
