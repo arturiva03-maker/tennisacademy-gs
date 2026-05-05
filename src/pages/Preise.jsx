@@ -24,7 +24,7 @@ const TRAINERS = [
     id: 'b-lizenz',
     name: 'B-Lizenz',
     sub: 'Trainer',
-    prices: [56, 30, 20.67, 16, 13.2, 11.33],
+    prices: [54, 29, 20, 15.5, 12.8, 11],
   },
   {
     id: 'zja',
