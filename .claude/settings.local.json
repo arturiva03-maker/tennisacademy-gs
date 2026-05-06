@@ -83,7 +83,9 @@
       "WebFetch(domain:tennisshop-grandslam.de)",
       "Bash(cp \"/c/Users/artur/Desktop/WhatsApp Image 2026-05-03 at 18.49.13.jpeg\" \"public/offer-jugend-1.jpg\")",
       "Bash(cp \"/c/Users/artur/Desktop/WhatsApp Image 2026-05-03 at 18.59.03.jpeg\" \"public/offer-jugend-2.jpg\")",
-      "Bash(identify -format \"%m %wx%h channels:%[channels] alpha:%A\\\\n\" public/sponsor-bsv92.png)"
+      "Bash(identify -format \"%m %wx%h channels:%[channels] alpha:%A\\\\n\" public/sponsor-bsv92.png)",
+      "WebFetch(domain:www.berlin.de)",
+      "WebFetch(domain:www.kalenderpedia.de)"
     ]
   },
   "enableAllProjectMcpServers": true,

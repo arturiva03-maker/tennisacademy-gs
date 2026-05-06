@@ -7,6 +7,12 @@ const campImages = [
   { src: '/tenniscamp4.jpg', alt: 'Tenniscamp Training' },
 ];
 
+const campTermine = [
+  { label: '1. Ferienwoche', dates: '13.07. – 17.07.2026' },
+  { label: 'Vorletzte Ferienwoche', dates: '10.08. – 14.08.2026' },
+  { label: 'Letzte Ferienwoche', dates: '17.08. – 21.08.2026' },
+];
+
 export default function Tenniscamps() {
   return (
     <>
@@ -21,9 +27,40 @@ export default function Tenniscamps() {
             </h1>
             <p className="hero-subtitle">
               Wie jedes Jahr veranstalten wir auch im Sommer 2026 ein Tenniscamp.
-              Informationen dazu folgen in Kürze.
+              Weitere Informationen folgen in Kürze.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="camp-termine-section">
+        <div className="container">
+          <AnimatedSection>
+            <div className="section-header">
+              <h2 className="section-title">Voraussichtliche Termine</h2>
+              <p className="section-subtitle">
+                Sommerferien Berlin 2026 · halbtägig · Montag bis Freitag
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="camp-termine-grid">
+            {campTermine.map((termin, i) => (
+              <AnimatedSection key={termin.label} delay={i * 0.1}>
+                <div className="camp-termin-card">
+                  <span className="camp-termin-label">{termin.label}</span>
+                  <span className="camp-termin-dates">{termin.dates}</span>
+                  <span className="camp-termin-meta">Mo – Fr · halbtägig</span>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          <AnimatedSection delay={0.4}>
+            <p className="camp-termine-note">
+              Termine voraussichtlich · Änderungen vorbehalten
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
