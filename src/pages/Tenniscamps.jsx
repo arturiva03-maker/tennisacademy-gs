@@ -26,8 +26,9 @@ export default function Tenniscamps() {
               Tenniscamps
             </h1>
             <p className="hero-subtitle">
-              Wie jedes Jahr veranstalten wir auch im Sommer 2026 ein Tenniscamp.
-              Weitere Informationen folgen in Kürze.
+              Das Tenniscamp findet auf der Tennisanlage des BSV 92,
+              Fritz-Wildung-Str. 23 statt. Montag bis Freitag, jeweils von
+              9:30 bis 15:00 Uhr.
             </p>
           </div>
         </div>
@@ -39,7 +40,7 @@ export default function Tenniscamps() {
             <div className="section-header">
               <h2 className="section-title">Voraussichtliche Termine</h2>
               <p className="section-subtitle">
-                Sommerferien Berlin 2026 · halbtägig · Montag bis Freitag
+                Sommerferien Berlin 2026 · Mo – Fr · 9:30 – 15:00 Uhr
               </p>
             </div>
           </AnimatedSection>
@@ -50,7 +51,7 @@ export default function Tenniscamps() {
                 <div className="camp-termin-card">
                   <span className="camp-termin-label">{termin.label}</span>
                   <span className="camp-termin-dates">{termin.dates}</span>
-                  <span className="camp-termin-meta">Mo – Fr · halbtägig</span>
+                  <span className="camp-termin-meta">Mo – Fr · 9:30 – 15:00 Uhr</span>
                 </div>
               </AnimatedSection>
             ))}
