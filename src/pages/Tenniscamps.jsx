@@ -26,9 +26,9 @@ export default function Tenniscamps() {
               Tenniscamps
             </h1>
             <p className="hero-subtitle">
-              Das Tenniscamp findet auf der Tennisanlage des BSV 92,
-              Fritz-Wildung-Str. 23 statt. Montag bis Freitag, jeweils von
-              9:30 bis 15:00 Uhr.
+              Das Tenniscamp findet auf der Anlage des BSV 92,
+              Fritz-Wildung-Str. 23, 14199 Berlin statt. Montag bis Freitag,
+              jeweils von 9:30 bis 15:00 Uhr.
             </p>
           </div>
         </div>
