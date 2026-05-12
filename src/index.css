@@ -3001,7 +3001,7 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to right, rgba(11, 37, 56, 0.85) 0%, rgba(11, 37, 56, 0.6) 50%, rgba(11, 37, 56, 0.4) 100%);
+  background: linear-gradient(to right, rgba(11, 37, 56, 0.6) 0%, rgba(11, 37, 56, 0.38) 50%, rgba(11, 37, 56, 0.2) 100%);
   z-index: 1;
 }
 
@@ -3357,9 +3357,9 @@ img {
   inset: 0;
   background: linear-gradient(
     130deg,
-    rgba(11, 37, 56, 0.72) 0%,
-    rgba(11, 37, 56, 0.45) 45%,
-    rgba(22, 61, 94, 0.18) 100%
+    rgba(11, 37, 56, 0.48) 0%,
+    rgba(11, 37, 56, 0.22) 45%,
+    rgba(22, 61, 94, 0.08) 100%
   );
   z-index: 1;
 }
