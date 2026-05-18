@@ -608,6 +608,39 @@ img {
   font-style: italic;
 }
 
+.camp-anmeldung-hinweis {
+  margin: 32px auto 0;
+  max-width: 640px;
+  padding: 24px 28px;
+  text-align: center;
+  background: var(--surface, #fff);
+  border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+}
+
+.camp-anmeldung-badge {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent, #1a8754);
+  background: rgba(26, 135, 84, 0.1);
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.camp-anmeldung-text {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  color: var(--text, #222);
+  line-height: 1.5;
+}
+
 @media (max-width: 900px) {
   .camp-termine-grid {
     grid-template-columns: 1fr;

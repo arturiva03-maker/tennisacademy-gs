@@ -62,6 +62,15 @@ export default function Tenniscamps() {
               Termine voraussichtlich · Änderungen vorbehalten
             </p>
           </AnimatedSection>
+
+          <AnimatedSection delay={0.5}>
+            <div className="camp-anmeldung-hinweis">
+              <span className="camp-anmeldung-badge">Bald verfügbar</span>
+              <p className="camp-anmeldung-text">
+                Eine Möglichkeit zur Anmeldung wird in Kürze hier online verfügbar sein.
+              </p>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
