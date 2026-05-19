@@ -619,6 +619,81 @@ img {
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
 }
 
+.camp-preise-block {
+  margin: 40px auto 0;
+  max-width: 720px;
+  padding: 28px 28px 24px;
+  text-align: center;
+  background: var(--surface, #fff);
+  border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+}
+
+.camp-preise-title {
+  margin: 0 0 18px;
+  font-family: var(--font-ui);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dark, #222);
+}
+
+.camp-preise-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.camp-preis-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 20px 16px;
+  background: var(--bg, #f9f9f7);
+  border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
+  border-radius: 12px;
+}
+
+.camp-preis-label {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-medium, #555);
+}
+
+.camp-preis-amount {
+  font-family: var(--font-ui);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark, #222);
+  line-height: 1;
+}
+
+.camp-preis-note {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--text-light, #888);
+}
+
+.camp-preise-info {
+  margin: 18px 0 0;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-medium, #555);
+}
+
+@media (max-width: 600px) {
+  .camp-preise-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .camp-anmeldung-badge {
   display: inline-block;
   font-family: var(--font-ui);

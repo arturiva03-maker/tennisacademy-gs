@@ -14,6 +14,11 @@ const campTermine = [
   { label: 'Letzte Ferienwoche', dates: '17.08. – 21.08.2026' },
 ];
 
+const campPreise = [
+  { label: 'Mitglieder', price: '290 €', note: 'pro Woche · BSV 92' },
+  { label: 'Nicht-Mitglieder', price: '250 €', note: 'pro Woche' },
+];
+
 export default function Tenniscamps() {
   return (
     <>
@@ -39,7 +44,7 @@ export default function Tenniscamps() {
         <div className="container">
           <AnimatedSection>
             <div className="section-header">
-              <h2 className="section-title">Voraussichtliche Termine</h2>
+              <h2 className="section-title">Termine</h2>
               <p className="section-subtitle">
                 Sommerferien Berlin 2026 · Mo – Fr · 9:30 – 15:00 Uhr
               </p>
@@ -59,9 +64,22 @@ export default function Tenniscamps() {
           </div>
 
           <AnimatedSection delay={0.4}>
-            <p className="camp-termine-note">
-              Termine voraussichtlich · Änderungen vorbehalten
-            </p>
+            <div className="camp-preise-block">
+              <h3 className="camp-preise-title">Teilnahmegebühr</h3>
+              <div className="camp-preise-grid">
+                {campPreise.map((p) => (
+                  <div key={p.label} className="camp-preis-card">
+                    <span className="camp-preis-label">{p.label}</span>
+                    <span className="camp-preis-amount">{p.price}</span>
+                    <span className="camp-preis-note">{p.note}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="camp-preise-info">
+                Inkl. Training, Mittagessen und Getränke. Zahlung per
+                SEPA-Lastschrift nach Anmeldebestätigung.
+              </p>
+            </div>
           </AnimatedSection>
 
           <AnimatedSection delay={0.5}>
