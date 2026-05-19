@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { CheckCircle, AlertCircle } from 'lucide-react';
@@ -154,7 +154,6 @@ const initialFormData = {
 };
 
 export default function TenniscampAnmeldung() {
-  const formRef = useRef();
   const [status, setStatus] = useState('idle');
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState(initialFormData);
@@ -194,11 +193,56 @@ export default function TenniscampAnmeldung() {
     setStatus('sending');
     setErrors({});
 
+    const parentName = `${formData.elternVorname} ${formData.elternNachname}`.trim();
+    const message = [
+      `=== TENNISCAMP-ANMELDUNG ===`,
+      ``,
+      `Wunschtermin: ${formData.termin}`,
+      ``,
+      `--- Kind ---`,
+      `Name: ${formData.kindVorname} ${formData.kindNachname}`,
+      `Geschlecht: ${formData.kindGeschlecht}`,
+      `Alter: ${formData.kindAlter}`,
+      `Mitglied BSV 92: ${formData.mitglied}`,
+      formData.mitglied === 'nein'
+        ? `Spielstärke / Erfahrung: ${formData.spielstaerke}`
+        : null,
+      `Vegetarisch: ${formData.vegetarisch}`,
+      `T-Shirt-Größe: ${formData.tshirt}`,
+      formData.bemerkungen ? `Bemerkungen: ${formData.bemerkungen}` : null,
+      ``,
+      `--- Erziehungsberechtigte:r / Zahlungspflichtige:r ---`,
+      `Name: ${parentName}`,
+      `E-Mail: ${formData.elternEmail}`,
+      formData.elternTelefon ? `Telefon: ${formData.elternTelefon}` : null,
+      ``,
+      `--- Rechnungsadresse ---`,
+      `${formData.rechnungStrasse}`,
+      `${formData.rechnungPlz} ${formData.rechnungOrt}`,
+      ``,
+      `--- SEPA-Lastschriftmandat ---`,
+      `Kontoinhaber:in: ${formData.kontoinhaber}`,
+      `IBAN: ${formData.iban}`,
+      formData.bic ? `BIC: ${formData.bic}` : null,
+      `SEPA-Einzugsermächtigung erteilt: ${formData.sepa ? 'JA' : 'NEIN'}`,
+      `Datenschutzerklärung akzeptiert: ${formData.privacy ? 'JA' : 'NEIN'}`,
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    const templateParams = {
+      name: parentName,
+      email: formData.elternEmail,
+      phone: formData.elternTelefon || '—',
+      subject: `Tenniscamp-Anmeldung: ${formData.kindVorname} ${formData.kindNachname} (${formData.termin})`,
+      message,
+    };
+
     try {
-      await emailjs.sendForm(
+      await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        formRef.current,
+        templateParams,
         EMAILJS_PUBLIC_KEY,
       );
       addSubmissionToHistory();
@@ -236,7 +280,7 @@ export default function TenniscampAnmeldung() {
                   </ButtonWithIcon>
                 </div>
               ) : (
-                <form ref={formRef} onSubmit={handleSubmit} className="kontakt-form" noValidate>
+                <form onSubmit={handleSubmit} className="kontakt-form" noValidate>
                   <input
                     type="text"
                     name="website"
