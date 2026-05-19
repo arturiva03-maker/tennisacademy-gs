@@ -13,6 +13,7 @@ import Impressum from './pages/Impressum';
 import Datenschutz from './pages/Datenschutz';
 import AGB from './pages/AGB';
 import Tenniscamps from './pages/Tenniscamps';
+import TenniscampAnmeldung from './pages/TenniscampAnmeldung';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -36,6 +37,7 @@ function AnimatedRoutes() {
       <Route path="/datenschutz" element={<Datenschutz />} />
       <Route path="/agb" element={<AGB />} />
       <Route path="/tenniscamps" element={<Tenniscamps />} />
+      <Route path="/tenniscamp-anmeldung" element={<TenniscampAnmeldung />} />
     </Routes>
   );
 }

@@ -1,4 +1,5 @@
 import { AnimatedSection } from '../hooks/useScrollAnimation';
+import ButtonWithIcon from '@/components/ui/button-with-icon';
 
 const campImages = [
   { src: '/tenniscamp.jpg', alt: 'Tenniscamp Gruppenfoto' },
@@ -65,10 +66,15 @@ export default function Tenniscamps() {
 
           <AnimatedSection delay={0.5}>
             <div className="camp-anmeldung-hinweis">
-              <span className="camp-anmeldung-badge">Bald verfügbar</span>
+              <span className="camp-anmeldung-badge">Anmeldung geöffnet</span>
               <p className="camp-anmeldung-text">
-                Eine Möglichkeit zur Anmeldung wird in Kürze hier online verfügbar sein.
+                Jetzt online verbindlich für eine Camp-Woche anmelden.
               </p>
+              <div className="camp-anmeldung-cta">
+                <ButtonWithIcon href="/tenniscamp-anmeldung">
+                  Zur Camp-Anmeldung
+                </ButtonWithIcon>
+              </div>
             </div>
           </AnimatedSection>
         </div>
