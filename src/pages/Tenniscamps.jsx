@@ -75,8 +75,7 @@ export default function Tenniscamps() {
                 ))}
               </div>
               <p className="camp-preise-info">
-                Inkl. Training, Mittagessen und Getränke. Zahlung per
-                SEPA-Lastschrift nach Anmeldebestätigung.
+                Inkl. Training, Mittagessen und Getränke.
               </p>
             </div>
           </AnimatedSection>
