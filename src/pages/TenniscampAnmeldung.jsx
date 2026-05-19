@@ -9,6 +9,8 @@ const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID =
   import.meta.env.VITE_EMAILJS_TEMPLATE_ID_CAMP ||
   import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_TEMPLATE_ID_PARENT =
+  import.meta.env.VITE_EMAILJS_TEMPLATE_ID_CAMP_PARENT;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const RATE_LIMIT_MS = 60000;
@@ -256,7 +258,7 @@ export default function TenniscampAnmeldung() {
       console.error('PDF generation failed', err);
     }
 
-    const templateParams = {
+    const adminParams = {
       name: parentName,
       email: formData.elternEmail,
       phone: formData.elternTelefon || '—',
@@ -266,13 +268,35 @@ export default function TenniscampAnmeldung() {
       pdf_filename: pdfName,
     };
 
+    const parentParams = {
+      name: parentName,
+      email: formData.elternEmail,
+      kindname: kindName,
+      termin: formData.termin,
+      eingegangen_am: eingegangenAm,
+    };
+
     try {
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        templateParams,
+        adminParams,
         EMAILJS_PUBLIC_KEY,
       );
+
+      if (EMAILJS_TEMPLATE_ID_PARENT) {
+        try {
+          await emailjs.send(
+            EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_ID_PARENT,
+            parentParams,
+            EMAILJS_PUBLIC_KEY,
+          );
+        } catch (err) {
+          console.error('Elternbestätigung konnte nicht gesendet werden', err);
+        }
+      }
+
       addSubmissionToHistory();
       setStatus('success');
       setFormData(initialFormData);
@@ -300,10 +324,10 @@ export default function TenniscampAnmeldung() {
                   <CheckCircle size={48} />
                   <h3>Anmeldung gesendet!</h3>
                   <p>
-                    Vielen Dank für die Anmeldung. Eine Bestätigung
-                    inkl. PDF-Beleg geht in Kürze an die angegebene
-                    E-Mail-Adresse. Wir melden uns mit allen weiteren
-                    Infos.
+                    Vielen Dank für die Anmeldung. Eine
+                    Bestätigung geht in Kürze an die angegebene
+                    E-Mail-Adresse. Wir melden uns mit allen
+                    weiteren Infos.
                   </p>
                   <ButtonWithIcon onClick={() => setStatus('idle')}>
                     Weitere Anmeldung
