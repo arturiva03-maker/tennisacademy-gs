@@ -5,6 +5,18 @@ import ButtonWithIcon from '@/components/ui/button-with-icon';
 
 export const events = [
   {
+    title: 'Tenniscamps Sommerferien 2026',
+    subtitle: 'Anmeldung jetzt online möglich',
+    date: 'Sommerferien 2026',
+    location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
+    description: 'Die Anmeldung für unsere Tenniscamps in den Sommerferien Berlin 2026 ist ab sofort online möglich.\n\nDrei Camp-Wochen, jeweils Mo–Fr von 9:30 – 15:00 Uhr, inklusive Training, Mittagessen und Getränke.\n\n• 1. Ferienwoche: 13.07. – 17.07.2026\n• Vorletzte Ferienwoche: 10.08. – 14.08.2026\n• Letzte Ferienwoche: 17.08. – 21.08.2026\n\nTeilnahmegebühr: Mitglieder 290 €, Nicht-Mitglieder 350 €.\n\nWir freuen uns auf euch!\n\nEure TENNIS ACADEMY GRAND SLAM',
+    image: '/tenniscamp.jpg',
+    cta: {
+      label: 'Zur Camp-Anmeldung',
+      link: '/tenniscamp-anmeldung',
+    },
+  },
+  {
     title: 'Start der Sommersaison 2026',
     subtitle: 'Trainingsbetrieb ab 4. Mai 2026',
     date: '4. Mai 2026',
