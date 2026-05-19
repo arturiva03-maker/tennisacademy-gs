@@ -26,7 +26,7 @@ export default function Tenniscamps() {
         <div className="hero-content">
           <div className="hero-text" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
             <div className="hero-badge-large">
-              Sommer 2026
+              Sommerferien 2026
             </div>
             <h1 className="hero-title-large">
               Tenniscamps
