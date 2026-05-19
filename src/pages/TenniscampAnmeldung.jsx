@@ -9,8 +9,6 @@ const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID =
   import.meta.env.VITE_EMAILJS_TEMPLATE_ID_CAMP ||
   import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const EMAILJS_TEMPLATE_ID_PARENT =
-  import.meta.env.VITE_EMAILJS_TEMPLATE_ID_CAMP_PARENT;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const RATE_LIMIT_MS = 60000;
@@ -197,10 +195,13 @@ export default function TenniscampAnmeldung() {
 
     const parentName = `${formData.elternVorname} ${formData.elternNachname}`.trim();
     const kindName = `${formData.kindVorname} ${formData.kindNachname}`.trim();
-
-    const { buildCampPdf, pdfToBase64, pdfFilename, formatTimestamp } =
-      await import('../lib/campPdf');
-    const eingegangenAm = formatTimestamp();
+    const eingegangenAm = new Date().toLocaleString('de-DE', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
 
     const line = (label, value) =>
       value === undefined || value === null || value === ''
@@ -249,54 +250,21 @@ export default function TenniscampAnmeldung() {
       .filter(Boolean)
       .join('\n');
 
-    let pdfBase64 = '';
-    let pdfName = pdfFilename(formData);
-    try {
-      const pdfDoc = buildCampPdf(formData, eingegangenAm);
-      pdfBase64 = pdfToBase64(pdfDoc);
-    } catch (err) {
-      console.error('PDF generation failed', err);
-    }
-
-    const adminParams = {
+    const templateParams = {
       name: parentName,
       email: formData.elternEmail,
       phone: formData.elternTelefon || '—',
       subject: `Tenniscamp-Anmeldung: ${kindName} (${formData.termin})`,
       message,
-      pdf_attachment: pdfBase64,
-      pdf_filename: pdfName,
-    };
-
-    const parentParams = {
-      name: parentName,
-      email: formData.elternEmail,
-      kindname: kindName,
-      termin: formData.termin,
-      eingegangen_am: eingegangenAm,
     };
 
     try {
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        adminParams,
+        templateParams,
         EMAILJS_PUBLIC_KEY,
       );
-
-      if (EMAILJS_TEMPLATE_ID_PARENT) {
-        try {
-          await emailjs.send(
-            EMAILJS_SERVICE_ID,
-            EMAILJS_TEMPLATE_ID_PARENT,
-            parentParams,
-            EMAILJS_PUBLIC_KEY,
-          );
-        } catch (err) {
-          console.error('Elternbestätigung konnte nicht gesendet werden', err);
-        }
-      }
-
       addSubmissionToHistory();
       setStatus('success');
       setFormData(initialFormData);
@@ -324,10 +292,8 @@ export default function TenniscampAnmeldung() {
                   <CheckCircle size={48} />
                   <h3>Anmeldung gesendet!</h3>
                   <p>
-                    Vielen Dank für die Anmeldung. Eine
-                    Bestätigung geht in Kürze an die angegebene
-                    E-Mail-Adresse. Wir melden uns mit allen
-                    weiteren Infos.
+                    Vielen Dank für die Anmeldung. Wir melden uns
+                    schnellstmöglich mit allen weiteren Infos.
                   </p>
                   <ButtonWithIcon onClick={() => setStatus('idle')}>
                     Weitere Anmeldung
