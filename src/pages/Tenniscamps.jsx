@@ -15,8 +15,8 @@ const campTermine = [
 ];
 
 const campPreise = [
-  { label: 'Mitglieder', price: '290 €', note: 'pro Woche · BSV 92' },
-  { label: 'Nicht-Mitglieder', price: '350 €', note: 'pro Woche' },
+  { label: 'Mitglieder', price: '290 €' },
+  { label: 'Nicht-Mitglieder', price: '350 €' },
 ];
 
 export default function Tenniscamps() {
@@ -71,7 +71,6 @@ export default function Tenniscamps() {
                   <div key={p.label} className="camp-preis-card">
                     <span className="camp-preis-label">{p.label}</span>
                     <span className="camp-preis-amount">{p.price}</span>
-                    <span className="camp-preis-note">{p.note}</span>
                   </div>
                 ))}
               </div>
