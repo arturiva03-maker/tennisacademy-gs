@@ -16,7 +16,7 @@ const campTermine = [
 
 const campPreise = [
   { label: 'Mitglieder', price: '290 €', note: 'pro Woche · BSV 92' },
-  { label: 'Nicht-Mitglieder', price: '250 €', note: 'pro Woche' },
+  { label: 'Nicht-Mitglieder', price: '350 €', note: 'pro Woche' },
 ];
 
 export default function Tenniscamps() {
