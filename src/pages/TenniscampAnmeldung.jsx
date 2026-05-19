@@ -195,13 +195,10 @@ export default function TenniscampAnmeldung() {
 
     const parentName = `${formData.elternVorname} ${formData.elternNachname}`.trim();
     const kindName = `${formData.kindVorname} ${formData.kindNachname}`.trim();
-    const eingegangenAm = new Date().toLocaleString('de-DE', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-    });
+
+    const { buildCampPdf, pdfToBase64, pdfFilename, formatTimestamp } =
+      await import('../lib/campPdf');
+    const eingegangenAm = formatTimestamp();
 
     const line = (label, value) =>
       value === undefined || value === null || value === ''
@@ -250,12 +247,23 @@ export default function TenniscampAnmeldung() {
       .filter(Boolean)
       .join('\n');
 
+    let pdfBase64 = '';
+    let pdfName = pdfFilename(formData);
+    try {
+      const pdfDoc = buildCampPdf(formData, eingegangenAm);
+      pdfBase64 = pdfToBase64(pdfDoc);
+    } catch (err) {
+      console.error('PDF generation failed', err);
+    }
+
     const templateParams = {
       name: parentName,
       email: formData.elternEmail,
       phone: formData.elternTelefon || '—',
-      subject: `Tenniscamp-Anmeldung: ${formData.kindVorname} ${formData.kindNachname} (${formData.termin})`,
+      subject: `Tenniscamp-Anmeldung: ${kindName} (${formData.termin})`,
       message,
+      pdf_attachment: pdfBase64,
+      pdf_filename: pdfName,
     };
 
     try {
@@ -292,8 +300,10 @@ export default function TenniscampAnmeldung() {
                   <CheckCircle size={48} />
                   <h3>Anmeldung gesendet!</h3>
                   <p>
-                    Vielen Dank für die Anmeldung. Wir bestätigen sie per E-Mail
-                    und melden uns mit allen weiteren Infos.
+                    Vielen Dank für die Anmeldung. Eine Bestätigung
+                    inkl. PDF-Beleg geht in Kürze an die angegebene
+                    E-Mail-Adresse. Wir melden uns mit allen weiteren
+                    Infos.
                   </p>
                   <ButtonWithIcon onClick={() => setStatus('idle')}>
                     Weitere Anmeldung
