@@ -194,38 +194,58 @@ export default function TenniscampAnmeldung() {
     setErrors({});
 
     const parentName = `${formData.elternVorname} ${formData.elternNachname}`.trim();
+    const kindName = `${formData.kindVorname} ${formData.kindNachname}`.trim();
+    const eingegangenAm = new Date().toLocaleString('de-DE', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+
+    const line = (label, value) =>
+      value === undefined || value === null || value === ''
+        ? null
+        : `  • ${label}: ${value}`;
+
     const message = [
-      `=== TENNISCAMP-ANMELDUNG ===`,
+      `TENNISCAMP-ANMELDUNG`,
+      `Eingegangen am ${eingegangenAm} Uhr`,
       ``,
       `Wunschtermin: ${formData.termin}`,
       ``,
-      `--- Kind ---`,
-      `Name: ${formData.kindVorname} ${formData.kindNachname}`,
-      `Geschlecht: ${formData.kindGeschlecht}`,
-      `Alter: ${formData.kindAlter}`,
-      `Mitglied BSV 92: ${formData.mitglied}`,
+      `▸ KIND`,
+      line('Name', kindName),
+      line('Geschlecht', formData.kindGeschlecht),
+      line('Alter', `${formData.kindAlter} Jahre`),
+      line('Mitglied BSV 92', formData.mitglied === 'ja' ? 'Ja' : 'Nein'),
       formData.mitglied === 'nein'
-        ? `Spielstärke / Erfahrung: ${formData.spielstaerke}`
+        ? line('Spielstärke / Erfahrung', formData.spielstaerke)
         : null,
-      `Vegetarisch: ${formData.vegetarisch}`,
-      `T-Shirt-Größe: ${formData.tshirt}`,
-      formData.bemerkungen ? `Bemerkungen: ${formData.bemerkungen}` : null,
+      line('Vegetarisches Essen', formData.vegetarisch === 'ja' ? 'Ja' : 'Nein'),
+      line('T-Shirt-Größe', formData.tshirt),
+      line('Bemerkungen', formData.bemerkungen),
       ``,
-      `--- Erziehungsberechtigte:r / Zahlungspflichtige:r ---`,
-      `Name: ${parentName}`,
-      `E-Mail: ${formData.elternEmail}`,
-      formData.elternTelefon ? `Telefon: ${formData.elternTelefon}` : null,
+      `▸ ERZIEHUNGSBERECHTIGTE:R / ZAHLUNGSPFLICHTIGE:R`,
+      line('Name', parentName),
+      line('E-Mail', formData.elternEmail),
+      line('Telefon', formData.elternTelefon),
       ``,
-      `--- Rechnungsadresse ---`,
-      `${formData.rechnungStrasse}`,
-      `${formData.rechnungPlz} ${formData.rechnungOrt}`,
+      `▸ RECHNUNGSADRESSE`,
+      `  ${formData.rechnungStrasse}`,
+      `  ${formData.rechnungPlz} ${formData.rechnungOrt}`,
       ``,
-      `--- SEPA-Lastschriftmandat ---`,
-      `Kontoinhaber:in: ${formData.kontoinhaber}`,
-      `IBAN: ${formData.iban}`,
-      formData.bic ? `BIC: ${formData.bic}` : null,
-      `SEPA-Einzugsermächtigung erteilt: ${formData.sepa ? 'JA' : 'NEIN'}`,
-      `Datenschutzerklärung akzeptiert: ${formData.privacy ? 'JA' : 'NEIN'}`,
+      `▸ SEPA-LASTSCHRIFTMANDAT`,
+      line('Kontoinhaber:in', formData.kontoinhaber),
+      line('IBAN', formData.iban),
+      line('BIC', formData.bic),
+      ``,
+      `▸ EINWILLIGUNGEN`,
+      line('SEPA-Einzugsermächtigung', formData.sepa ? '✓ erteilt' : '✗ nicht erteilt'),
+      line('Datenschutzerklärung', formData.privacy ? '✓ akzeptiert' : '✗ nicht akzeptiert'),
+      ``,
+      `—`,
+      `Automatisch gesendet über tennisacademy-gs.de`,
     ]
       .filter(Boolean)
       .join('\n');
