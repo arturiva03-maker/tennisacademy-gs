@@ -58,6 +58,7 @@ const teamMembers = [
     bio: "B-Trainer · Ehemaliger Profispieler aus Bulgarien",
     image: "/zlatan.jpg",
     imagePosition: "center 75%",
+    imageScale: 1.7,
     location: "Berlin",
     skills: ["B-Trainer", "Kinder", "Erwachsene"],
     gradient: "from-white/12 via-white/5 to-transparent",
@@ -215,7 +216,7 @@ function TeamMemberCard({
               animate={
                 shouldReduceMotion
                   ? undefined
-                  : { scale: isHovered ? 1.05 : 1 }
+                  : { scale: (member.imageScale ?? 1) * (isHovered ? 1.05 : 1) }
               }
               transition={
                 shouldReduceMotion
