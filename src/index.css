@@ -3547,13 +3547,14 @@ img {
 
 .gs-hero-kicker {
   font-family: var(--font-ui);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--gold-light);
   margin-bottom: 22px;
-  opacity: 0.9;
+  opacity: 1;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
 }
 
 .gs-hero-title {
@@ -3573,12 +3574,13 @@ img {
 }
 
 .gs-hero-sub {
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.92);
   max-width: 500px;
   line-height: 1.75;
   margin-bottom: 40px;
   font-family: var(--font-body);
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.5);
 }
 
 .gs-hero-cta {
