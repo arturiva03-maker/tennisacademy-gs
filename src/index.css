@@ -3669,10 +3669,10 @@ img {
   padding: 4px 0;
 }
 .gs-hero-camp-board-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 90px 1fr;
   align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
+  gap: 20px;
   padding: 9px 0;
   border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
 }
@@ -3686,7 +3686,6 @@ img {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.55);
-  min-width: 70px;
 }
 .gs-hero-camp-board-dates {
   font-family: var(--font-body);
@@ -3698,6 +3697,8 @@ img {
   letter-spacing: 0.02em;
   color: var(--white);
   white-space: nowrap;
+  text-align: left;
+  justify-self: start;
 }
 
 .gs-hero-camp-board-foot {
