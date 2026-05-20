@@ -193,10 +193,6 @@ export default function Home() {
             >
               <div className="gs-hero-camp-board-head">
                 <span className="gs-hero-camp-board-eyebrow">Tenniscamp · Sommerferien 2026</span>
-                <span className="gs-hero-camp-board-status">
-                  <span className="gs-hero-camp-board-dot" aria-hidden="true" />
-                  Anmeldung geöffnet
-                </span>
               </div>
               <div className="gs-hero-camp-board-rows">
                 <div className="gs-hero-camp-board-row">
