@@ -57,7 +57,7 @@ const teamMembers = [
     role: "Leitung der TENNIS ACADEMY GRAND SLAM",
     bio: "B-Trainer · Ehemaliger Profispieler aus Bulgarien",
     image: "/zlatan.jpg",
-    imagePosition: "center 55%",
+    imagePosition: "center 95%",
     imageScale: 1.7,
     location: "Berlin",
     skills: ["B-Trainer", "Kinder", "Erwachsene"],
