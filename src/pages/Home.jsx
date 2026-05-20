@@ -197,15 +197,15 @@ export default function Home() {
               <div className="gs-hero-camp-board-rows">
                 <div className="gs-hero-camp-board-row">
                   <span className="gs-hero-camp-board-week">Woche 1</span>
-                  <span className="gs-hero-camp-board-dates">Mo 13.07. – Fr 17.07.</span>
+                  <span className="gs-hero-camp-board-dates">13.07. – 17.07.2026</span>
                 </div>
                 <div className="gs-hero-camp-board-row">
                   <span className="gs-hero-camp-board-week">Woche 6</span>
-                  <span className="gs-hero-camp-board-dates">Mo 10.08. – Fr 14.08.</span>
+                  <span className="gs-hero-camp-board-dates">10.08. – 14.08.2026</span>
                 </div>
                 <div className="gs-hero-camp-board-row">
                   <span className="gs-hero-camp-board-week">Woche 7</span>
-                  <span className="gs-hero-camp-board-dates">Mo 17.08. – Fr 21.08.</span>
+                  <span className="gs-hero-camp-board-dates">17.08. – 21.08.2026</span>
                 </div>
               </div>
               <div className="gs-hero-camp-board-foot">

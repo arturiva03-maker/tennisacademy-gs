@@ -3689,12 +3689,15 @@ img {
   min-width: 70px;
 }
 .gs-hero-camp-board-dates {
-  font-family: var(--font-display, var(--font-body));
+  font-family: var(--font-body);
   font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
   font-size: 1.02rem;
+  line-height: 1.2;
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--white);
+  white-space: nowrap;
 }
 
 .gs-hero-camp-board-foot {
