@@ -181,6 +181,42 @@ export default function Home() {
                 Unser Team
               </ButtonWithIcon>
             </motion.div>
+
+            <motion.a
+              href="/tenniscamp-anmeldung"
+              className="gs-hero-camp-board"
+              aria-label="Tenniscamp Sommerferien 2026 — zur Anmeldung"
+              variants={{
+                hidden: { opacity: 0, y: 24 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut', delay: 0.15 } },
+              }}
+            >
+              <div className="gs-hero-camp-board-head">
+                <span className="gs-hero-camp-board-eyebrow">Tenniscamp · Sommerferien 2026</span>
+                <span className="gs-hero-camp-board-status">
+                  <span className="gs-hero-camp-board-dot" aria-hidden="true" />
+                  Anmeldung geöffnet
+                </span>
+              </div>
+              <div className="gs-hero-camp-board-rows">
+                <div className="gs-hero-camp-board-row">
+                  <span className="gs-hero-camp-board-week">Woche 1</span>
+                  <span className="gs-hero-camp-board-dates">Mo 13.07. – Fr 17.07.</span>
+                </div>
+                <div className="gs-hero-camp-board-row">
+                  <span className="gs-hero-camp-board-week">Woche 6</span>
+                  <span className="gs-hero-camp-board-dates">Mo 10.08. – Fr 14.08.</span>
+                </div>
+                <div className="gs-hero-camp-board-row">
+                  <span className="gs-hero-camp-board-week">Woche 7</span>
+                  <span className="gs-hero-camp-board-dates">Mo 17.08. – Fr 21.08.</span>
+                </div>
+              </div>
+              <div className="gs-hero-camp-board-foot">
+                <span className="gs-hero-camp-board-meta">BSV 92 · Mo – Fr · 9:30 – 15:00</span>
+                <span className="gs-hero-camp-board-cta">Zur Anmeldung →</span>
+              </div>
+            </motion.a>
           </motion.div>
         </div>
 
