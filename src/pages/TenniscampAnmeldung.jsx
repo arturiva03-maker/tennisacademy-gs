@@ -251,6 +251,7 @@ export default function TenniscampAnmeldung() {
       .join('\n');
 
     const templateParams = {
+      title: 'Tenniscamp-Anmeldung',
       name: parentName,
       email: formData.elternEmail,
       phone: formData.elternTelefon || '—',
