@@ -199,12 +199,6 @@ export default function Kontakt() {
                     autoComplete="off"
                     aria-hidden="true"
                   />
-                  <input
-                    type="hidden"
-                    name="title"
-                    value={formData.subject ? `Kontaktanfrage: ${formData.subject}` : 'Kontaktanfrage'}
-                    readOnly
-                  />
 
                   <div className="form-row">
                     <div className="form-group">
