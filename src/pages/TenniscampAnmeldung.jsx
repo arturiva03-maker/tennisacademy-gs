@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
-import { CheckCircle, AlertCircle } from 'lucide-react';
+import { CheckCircle, AlertCircle, Download } from 'lucide-react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
+import { downloadNotfallbogen } from '@/lib/notfallbogen';
 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID =
@@ -99,6 +100,7 @@ const validateForm = (data) => {
 
   if (!data.sepa) errors.sepa = 'Bitte SEPA-Einzugsermächtigung bestätigen';
   if (!data.privacy) errors.privacy = 'Bitte Datenschutzerklärung akzeptieren';
+  if (!data.agbCamp) errors.agbCamp = 'Bitte Camp-AGB akzeptieren';
 
   return errors;
 };
@@ -150,6 +152,7 @@ const initialFormData = {
   bic: '',
   sepa: false,
   privacy: false,
+  agbCamp: false,
   website: '',
 };
 
@@ -157,6 +160,15 @@ export default function TenniscampAnmeldung() {
   const [status, setStatus] = useState('idle');
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState(initialFormData);
+  const [lastSubmission, setLastSubmission] = useState(null);
+
+  const handleDownloadNotfallbogen = async (data) => {
+    try {
+      await downloadNotfallbogen(data);
+    } catch (err) {
+      console.error('Notfallbogen konnte nicht erstellt werden', err);
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -267,6 +279,7 @@ export default function TenniscampAnmeldung() {
         EMAILJS_PUBLIC_KEY,
       );
       addSubmissionToHistory();
+      setLastSubmission(formData);
       setStatus('success');
       setFormData(initialFormData);
     } catch {
@@ -296,7 +309,25 @@ export default function TenniscampAnmeldung() {
                     Vielen Dank für die Anmeldung. Wir melden uns
                     schnellstmöglich mit allen weiteren Infos.
                   </p>
-                  <ButtonWithIcon onClick={() => setStatus('idle')}>
+                  <div className="notfallbogen-callout">
+                    <h4>Notfallbogen für das Camp</h4>
+                    <p>
+                      Bitte lade jetzt den Notfallbogen herunter, drucke ihn aus
+                      und bringe ihn unterschrieben am ersten Camp-Tag mit –
+                      oder sende ihn unterschrieben per E-Mail an{' '}
+                      <a href="mailto:info@bsv92-tennis.de">info@bsv92-tennis.de</a>.
+                      Deine Angaben sind bereits eingetragen.
+                    </p>
+                    <button
+                      type="button"
+                      className="notfallbogen-button"
+                      onClick={() => handleDownloadNotfallbogen(lastSubmission || {})}
+                    >
+                      <Download size={18} />
+                      <span>Notfallbogen als PDF herunterladen</span>
+                    </button>
+                  </div>
+                  <ButtonWithIcon onClick={() => { setStatus('idle'); setLastSubmission(null); }}>
                     Weitere Anmeldung
                   </ButtonWithIcon>
                 </div>
@@ -674,6 +705,22 @@ export default function TenniscampAnmeldung() {
                     <label className="checkbox-label">
                       <input
                         type="checkbox"
+                        name="agbCamp"
+                        checked={formData.agbCamp}
+                        onChange={handleChange}
+                      />
+                      <span>
+                        Ich habe die <Link to="/agb-tenniscamp" target="_blank">AGB für die Tenniscamps der BSV 92-Tennisabteilung</Link> gelesen
+                        und akzeptiere sie. *
+                      </span>
+                    </label>
+                    {errors.agbCamp && <span className="field-error">{errors.agbCamp}</span>}
+                  </div>
+
+                  <div className="form-group form-group-checkbox">
+                    <label className="checkbox-label">
+                      <input
+                        type="checkbox"
                         name="privacy"
                         checked={formData.privacy}
                         onChange={handleChange}
@@ -685,6 +732,26 @@ export default function TenniscampAnmeldung() {
                       </span>
                     </label>
                     {errors.privacy && <span className="field-error">{errors.privacy}</span>}
+                  </div>
+
+                  <div className="notfallbogen-callout notfallbogen-callout-inline">
+                    <h4>Notfallbogen ausdrucken & mitbringen</h4>
+                    <p>
+                      Für jedes Camp benötigen wir einen unterschriebenen
+                      Notfallbogen. Du kannst ihn jetzt mit deinen Angaben
+                      vorausgefüllt herunterladen, ausdrucken und entweder am
+                      ersten Camp-Tag mitbringen oder vorab unterschrieben per
+                      E-Mail an{' '}
+                      <a href="mailto:info@bsv92-tennis.de">info@bsv92-tennis.de</a> senden.
+                    </p>
+                    <button
+                      type="button"
+                      className="notfallbogen-button"
+                      onClick={() => handleDownloadNotfallbogen(formData)}
+                    >
+                      <Download size={18} />
+                      <span>Notfallbogen als PDF herunterladen</span>
+                    </button>
                   </div>
 
                   {(status === 'error' || errors.form) && (

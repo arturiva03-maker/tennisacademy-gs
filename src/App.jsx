@@ -12,6 +12,7 @@ import Kontakt from './pages/Kontakt';
 import Impressum from './pages/Impressum';
 import Datenschutz from './pages/Datenschutz';
 import AGB from './pages/AGB';
+import AgbTenniscamp from './pages/AgbTenniscamp';
 import Tenniscamps from './pages/Tenniscamps';
 import TenniscampAnmeldung from './pages/TenniscampAnmeldung';
 
@@ -36,6 +37,7 @@ function AnimatedRoutes() {
       <Route path="/impressum" element={<Impressum />} />
       <Route path="/datenschutz" element={<Datenschutz />} />
       <Route path="/agb" element={<AGB />} />
+      <Route path="/agb-tenniscamp" element={<AgbTenniscamp />} />
       <Route path="/tenniscamps" element={<Tenniscamps />} />
       <Route path="/tenniscamp-anmeldung" element={<TenniscampAnmeldung />} />
     </Routes>
