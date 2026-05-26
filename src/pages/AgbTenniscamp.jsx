@@ -92,7 +92,7 @@ export default function AgbTenniscamp() {
 
             <p style={{ marginTop: '32px', color: 'var(--text-medium)', fontSize: '0.9rem' }}>
               Berliner Sport-Verein 1892 e.V. – Tennisabteilung · Fritz-Wildung-Str. 23 · 14199 Berlin<br />
-              Büro Tel. 030 - 824 20 88 · Büro Fax 030 - 823 95 39 · Ökonomie Tel. 030 - 823 41 47<br />
+              Büro Tel. 030 - 824 20 88 · Büro Fax 030 - 823 95 39<br />
               www.bsv92-tennis.de · info@bsv92-tennis.de<br />
               Bankverbindung IBAN DE27 1009 0000 5411 5630 08
             </p>
