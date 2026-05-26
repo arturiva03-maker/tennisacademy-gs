@@ -688,8 +688,8 @@ export default function TenniscampAnmeldung() {
                           onChange={handleChange}
                         />
                         <span>
-                          Ich ermächtige die TENNIS ACADEMY GRAND SLAM, die Camp-Gebühr
-                          mittels SEPA-Lastschrift vom oben genannten Konto einzuziehen.
+                          Ich ermächtige den Berliner Sport-Verein 1892 e.V. – Tennisabteilung,
+                          die Camp-Gebühr mittels SEPA-Lastschrift vom oben genannten Konto einzuziehen.
                           Zugleich weise ich mein Kreditinstitut an, diese Lastschriften
                           einzulösen. Hinweis: Innerhalb von acht Wochen, beginnend mit
                           dem Belastungsdatum, kann die Erstattung des belasteten
