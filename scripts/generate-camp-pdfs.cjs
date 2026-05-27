@@ -12,13 +12,45 @@ const { jsPDF } = require('jspdf');
 const DESKTOP = path.join(process.env.USERPROFILE || '', 'Desktop');
 
 const PUBLIC_DIR = path.join(__dirname, '..', 'public');
+
+// detect real dimensions + format from raw bytes (JPEG/PNG) -----------------
+const measureImage = (buf) => {
+  // PNG: 89 50 4E 47 0D 0A 1A 0A, IHDR width/height at byte 16/20
+  if (buf[0] === 0x89 && buf[1] === 0x50 && buf[2] === 0x4e && buf[3] === 0x47) {
+    return { fmt: 'PNG', mime: 'png', w: buf.readUInt32BE(16), h: buf.readUInt32BE(20) };
+  }
+  // JPEG: FF D8 ... walk SOFn markers
+  if (buf[0] === 0xff && buf[1] === 0xd8) {
+    let i = 2;
+    while (i < buf.length) {
+      if (buf[i] !== 0xff) { i++; continue; }
+      const marker = buf[i + 1];
+      // SOF0..SOFn except DHT(C4)/JPG(C8)/DAC(CC)
+      if (marker >= 0xc0 && marker <= 0xcf && marker !== 0xc4 && marker !== 0xc8 && marker !== 0xcc) {
+        const h = buf.readUInt16BE(i + 5);
+        const w = buf.readUInt16BE(i + 7);
+        return { fmt: 'JPEG', mime: 'jpeg', w, h };
+      }
+      // skip segment
+      const segLen = buf.readUInt16BE(i + 2);
+      i += 2 + segLen;
+    }
+  }
+  return null;
+};
+
 const loadImage = (file) => {
   const p = path.join(PUBLIC_DIR, file);
   if (!fs.existsSync(p)) return null;
   const buf = fs.readFileSync(p);
-  const ext = path.extname(file).slice(1).toLowerCase();
-  const mime = ext === 'jpg' ? 'jpeg' : ext;
-  return { dataUrl: `data:image/${mime};base64,${buf.toString('base64')}`, fmt: mime.toUpperCase() === 'JPG' ? 'JPEG' : mime.toUpperCase() };
+  const dim = measureImage(buf);
+  if (!dim) return null;
+  return {
+    dataUrl: `data:image/${dim.mime};base64,${buf.toString('base64')}`,
+    fmt: dim.fmt,
+    w: dim.w,
+    h: dim.h,
+  };
 };
 
 // shared header drawer ------------------------------------------------------
@@ -27,12 +59,16 @@ const drawHeader = (doc) => {
   const marginX = 20;
   const bsv = loadImage('sponsor-bsv92.png');
   const grand = loadImage('logo.png');
-  let y = 18;
-  if (bsv) doc.addImage(bsv.dataUrl, 'PNG', marginX, y - 4, 24, 22);
+  const y = 14;
+  if (bsv) {
+    const h = 22;
+    const w = (bsv.w / bsv.h) * h;
+    doc.addImage(bsv.dataUrl, bsv.fmt, marginX, y, w, h);
+  }
   if (grand) {
-    const h = 16;
-    // estimate ratio 3:1 for the academy wordmark; jsPDF will fit
-    doc.addImage(grand.dataUrl, 'PNG', pageWidth - marginX - 50, y, 50, h);
+    const h = 20;
+    const w = (grand.w / grand.h) * h;
+    doc.addImage(grand.dataUrl, grand.fmt, pageWidth - marginX - w, y + 1, w, h);
   }
 };
 
@@ -266,24 +302,6 @@ const buildAgb = () => {
     y += 3;
   });
 
-  if (y > pageHeight - 35) {
-    drawFooter(doc);
-    doc.addPage();
-    drawHeader(doc);
-    y = 48;
-  }
-  doc.setFont('helvetica', 'italic');
-  doc.setFontSize(9);
-  doc.setTextColor(90, 90, 90);
-  doc.text('Berliner Sport-Verein 1892 e.V. – Tennisabteilung · Fritz-Wildung-Str. 23 · 14199 Berlin', marginX, y);
-  y += 4;
-  doc.text('Büro Tel. 030 - 824 20 88 · Büro Fax 030 - 823 95 39', marginX, y);
-  y += 4;
-  doc.text('www.bsv92-tennis.de · info@bsv92-tennis.de', marginX, y);
-  y += 4;
-  doc.text('Bankverbindung IBAN DE27 1009 0000 5411 5630 08', marginX, y);
-  doc.setTextColor(0, 0, 0);
-
   drawFooter(doc);
   return doc;
 };
@@ -347,11 +365,12 @@ const buildAnmeldebogen = () => {
     y += 12;
   };
   labelLine('Nachname, Vorname (des Kindes)', 110, 'Geburtsdatum', contentWidth - 110 - 6);
+  y += 4;
 
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(11);
   doc.text('zu den oben angekreuzten Tenniscamps der BSV 92-Tennisabteilung an.', marginX, y);
-  y += 8;
+  y += 10;
 
   // T-Shirt
   doc.setFont('helvetica', 'italic');
@@ -420,6 +439,7 @@ const buildAnmeldebogen = () => {
 
   labelLine('Kontoinhaber:in', contentWidth, null, 0);
   labelLine('IBAN', 130, 'BIC (optional)', contentWidth - 130 - 6);
+  y += 6;
 
   // Info-Block
   doc.setFont('helvetica', 'normal');
