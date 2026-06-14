@@ -133,7 +133,7 @@ html,body{background:#0b2538;}
 
 /* ---- hero ---- */
 .hero{position:relative;flex:0 0 auto;height:var(--hero-h);overflow:hidden;}
-.hero__img{position:absolute;inset:0;background-image:url(${HERO});background-size:cover;background-position:50% 62%;}
+.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%;display:block;}
 .hero__shade{position:absolute;inset:0;background:linear-gradient(180deg, rgba(11,37,56,.18) 0%, rgba(11,37,56,0) 32%, rgba(11,37,56,.12) 64%, var(--navy-deep) 100%);}
 .hero, .hero__img, .hero__shade{clip-path:polygon(0 0,100% 0,100% calc(100% - 5em),0 100%);}
 .hero__kicker{position:absolute;left:var(--edge);top:1.2em;z-index:3;display:inline-flex;align-items:center;gap:.55em;
@@ -271,7 +271,7 @@ ${cropmarks}
   </header>
 
   <section class="hero">
-    <div class="hero__img"></div>
+    <img class="hero__img" src="${HERO}" alt="Kinder beim Tenniscamp">
     <div class="hero__shade"></div>
   </section>
 
@@ -386,7 +386,8 @@ async function main() {
         width: `${d.mediaW}mm`, height: `${d.mediaH}mm`,
         margin: { top: 0, right: 0, bottom: 0, left: 0 },
       });
-      // low-res preview PNG for visual inspection
+      // Vorschau-PNG im PRINT-Media → entspricht der echten PDF-Darstellung
+      await page.emulateMediaType('print');
       const pxW = Math.round(d.mediaW * 3.78);
       const pxH = Math.round(d.mediaH * 3.78);
       await page.setViewport({ width: pxW, height: pxH, deviceScaleFactor: 1.4 });
