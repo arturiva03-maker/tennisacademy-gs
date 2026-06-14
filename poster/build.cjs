@@ -200,7 +200,7 @@ html,body{background:#0b2538;}
   font-weight:500;font-size:.95em;line-height:1.3;color:var(--cream-dim);}
 
 /* ---------- format tweaks ---------- */
-.sheet{--hero-h:50em;--title-fs:12em;--hook-fs:2.05em;--qr:15em;}
+.sheet{--hero-h:45em;--title-fs:12em;--hook-fs:2.05em;--qr:15em;}
 
 /* Print (A2/A3) hat mehr Hoehe → Foto & Fakten groesser, fuellt die Flaeche bis zum CTA */
 .sheet--print .termine{margin-top:2.9em;}
@@ -216,16 +216,16 @@ html,body{background:#0b2538;}
 .sheet--print .price__lbl{font-size:1.28em;}
 .sheet--print .price__sub{font-size:1.24em;}
 
-.sheet--social{--hero-h:42em;--hook-fs:2.2em;--qr:13em;padding:0;}
+.sheet--social{--hero-h:30em;--hook-fs:2.2em;--qr:13em;padding:0;}
 .sheet--social .foot{display:none;}            /* AGB-Zeile gehört nicht in Social */
 
 /* Story (9:16): entschlacktes Layout + Safe-Zones (oben 250 / unten 310 px) */
-.sheet--story{--hero-h:44em;--hook-fs:2.55em;padding:250px 0 310px;}
+.sheet--story{--hero-h:33em;--hook-fs:2.55em;padding:250px 0 310px;}
 .sheet--story .perks{display:none;}
 .sheet--story .where{display:none;}
-.sheet--story .info{padding-top:.6em;}
-.sheet--story .mid{grid-template-columns:1fr;padding-top:.6em;}
-.sheet--story .termine{margin-top:1.2em;}
+.sheet--story .info{padding-top:1.2em;}
+.sheet--story .mid{grid-template-columns:1fr;padding-top:1.8em;}
+.sheet--story .termine{margin-top:1.7em;}
 .sheet--story .termin{padding:1.15em 1em;}
 .sheet--story .termin .d{font-size:3.1em;}
 .sheet--story .termin b{font-size:1.55em;}
