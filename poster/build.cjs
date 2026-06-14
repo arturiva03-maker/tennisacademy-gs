@@ -127,8 +127,8 @@ html,body{background:#0b2538;}
 .org__role{font-weight:800;font-size:.9em;letter-spacing:.17em;text-transform:uppercase;line-height:1;white-space:nowrap;}
 .org--host .org__role{color:var(--gold-dark);}
 .org--partner .org__role{color:#7a8794;}
-.org--host .logo-bsv{height:7.1em;}
-.org--partner .logo-gs{height:5.2em;}
+.org--host .logo-bsv{height:8.8em;}
+.org--partner .logo-gs{height:6.8em;}
 .letter__div{width:.07em;height:3.6em;background:linear-gradient(transparent,var(--gold),transparent);opacity:.55;align-self:center;}
 
 /* ---- hero ---- */
