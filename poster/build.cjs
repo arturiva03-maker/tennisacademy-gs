@@ -40,7 +40,7 @@ const C = {
   title1: 'SOMMER',
   title2: 'TENNISCAMPS',
   year: '2026',
-  hook: 'Fünf Tage Tennis, Spaß &amp; Turnier —<br>für Kinder ab 6 Jahren',
+  hook: 'Fünf Tage Tennis, Spaß &amp; Turnier —<br>für Kinder ab 5–6 Jahren',
   camps: [
     { n: 'CAMP I', d: '13.–17.', m: 'Juli' },
     { n: 'CAMP II', d: '10.–14.', m: 'August' },
@@ -123,10 +123,13 @@ html,body{background:#0b2538;}
   padding:calc(var(--bleed) + 1em) var(--edge) 1em;gap:1.2em;flex:0 0 auto;
   border-bottom:.1em solid var(--gold);}
 .letter img{display:block;width:auto;}
-.logo-bsv{height:6.4em;}
-.logo-gs{height:6.9em;}
-.letter__tag{font-weight:700;font-size:1.04em;letter-spacing:.13em;text-transform:uppercase;
-  color:#5a6b78;text-align:center;line-height:1.25;}
+.org{display:flex;flex-direction:column;align-items:center;gap:.45em;}
+.org__role{font-weight:800;font-size:.9em;letter-spacing:.17em;text-transform:uppercase;line-height:1;white-space:nowrap;}
+.org--host .org__role{color:var(--gold-dark);}
+.org--partner .org__role{color:#7a8794;}
+.org--host .logo-bsv{height:7.1em;}
+.org--partner .logo-gs{height:5.2em;}
+.letter__div{width:.07em;height:3.6em;background:linear-gradient(transparent,var(--gold),transparent);opacity:.55;align-self:center;}
 
 /* ---- hero ---- */
 .hero{position:relative;flex:0 0 auto;height:var(--hero-h);overflow:hidden;}
@@ -256,9 +259,15 @@ function markup({ cls, isPrint, qrSvg }) {
 <div class="sheet ${cls}">
 ${cropmarks}
   <header class="letter">
-    <img class="logo-bsv" src="${LOGO_BSV}" alt="BSV 92">
-    <span class="letter__tag">Ferien-Tenniscamp<br>für Kinder ab 6 Jahren</span>
-    <img class="logo-gs" src="${LOGO_GS}" alt="Tennis Academy Grand Slam">
+    <div class="org org--host">
+      <span class="org__role">Veranstalter</span>
+      <img class="logo-bsv" src="${LOGO_BSV}" alt="BSV 92 Tennisabteilung">
+    </div>
+    <span class="letter__div"></span>
+    <div class="org org--partner">
+      <span class="org__role">in Kooperation mit</span>
+      <img class="logo-gs" src="${LOGO_GS}" alt="Tennis Academy Grand Slam">
+    </div>
   </header>
 
   <section class="hero">
