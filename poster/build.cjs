@@ -26,7 +26,7 @@ const jpg = (name) => `data:image/jpeg;base64,${b64(path.join(PUB, name))}`;
 const png = (name) => `data:image/png;base64,${b64(path.join(PUB, name))}`;
 
 const FONT = b64(path.join(NM, '@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2'));
-const HERO = jpg('tenniscamp4.jpg');     // sonniger Außenplatz: Trainerin + Kinder mit Schlägern
+const HERO = jpg('tenniscamp.jpg');      // Hero der Tenniscamps-Seite: große Gruppe mit Urkunden
 const PROOF = jpg('tenniscamp.jpg');     // große Gruppe mit Urkunden — Social Proof
 const LOGO_GS = png('logo.png');         // Tennis Academy Grand Slam (Navy/Gold-Wappen)
 const LOGO_BSV = png('sponsor-bsv92.png'); // BSV 92 (schwarz/weiß, rund)
@@ -130,7 +130,7 @@ html,body{background:#0b2538;}
 
 /* ---- hero ---- */
 .hero{position:relative;flex:0 0 auto;height:var(--hero-h);overflow:hidden;}
-.hero__img{position:absolute;inset:0;background-image:url(${HERO});background-size:cover;background-position:50% 28%;}
+.hero__img{position:absolute;inset:0;background-image:url(${HERO});background-size:cover;background-position:50% 62%;}
 .hero__shade{position:absolute;inset:0;background:linear-gradient(180deg, rgba(11,37,56,.18) 0%, rgba(11,37,56,0) 32%, rgba(11,37,56,.12) 64%, var(--navy-deep) 100%);}
 .hero, .hero__img, .hero__shade{clip-path:polygon(0 0,100% 0,100% calc(100% - 5em),0 100%);}
 .hero__kicker{position:absolute;left:var(--edge);top:1.2em;z-index:3;display:inline-flex;align-items:center;gap:.55em;
