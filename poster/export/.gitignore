@@ -1,0 +1,4 @@
+# Regenerierbare Zwischendateien (via `npm run poster`) – nicht committen.
+# Die fertigen Deliverables (A2/A3-PDF + Social-PNGs) werden bewusst eingecheckt.
+*.html
+*-preview.png
