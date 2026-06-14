@@ -26,7 +26,7 @@ const jpg = (name) => `data:image/jpeg;base64,${b64(path.join(PUB, name))}`;
 const png = (name) => `data:image/png;base64,${b64(path.join(PUB, name))}`;
 
 const FONT = b64(path.join(NM, '@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2'));
-const HERO = jpg('kids-hero.jpg');      // vier Kinder mit Schlägern am Netz — Blickfang
+const HERO = jpg('tenniscamp4.jpg');     // sonniger Außenplatz: Trainerin + Kinder mit Schlägern
 const PROOF = jpg('tenniscamp.jpg');     // große Gruppe mit Urkunden — Social Proof
 const LOGO_GS = png('logo.png');         // Tennis Academy Grand Slam (Navy/Gold-Wappen)
 const LOGO_BSV = png('sponsor-bsv92.png'); // BSV 92 (schwarz/weiß, rund)
@@ -49,11 +49,10 @@ const C = {
   time: 'Mo – Fr · 9:30 – 15:00 Uhr',
   place: 'Tennisanlage BSV 92 · Fritz-Wildung-Str. 23 · 14199 Berlin',
   perks: [
-    'Tennis- & Konditionstraining',
+    'Tennis und Athletiktraining',
     'Mittagessen + großes Getränk, täglich',
     'Eigenes Camp-T-Shirt',
     'Abschlussturnier mit Sachpreisen & Urkunden',
-    'Kleine Gruppen — nur 6–8 Kinder',
   ],
   priceMember: '290',
   priceNon: '350',
@@ -198,17 +197,21 @@ html,body{background:#0b2538;}
   font-weight:500;font-size:.95em;line-height:1.3;color:var(--cream-dim);}
 
 /* ---------- format tweaks ---------- */
-.sheet{--hero-h:47em;--title-fs:12em;--hook-fs:2.05em;--qr:15em;}
+.sheet{--hero-h:50em;--title-fs:12em;--hook-fs:2.05em;--qr:15em;}
 
-/* Print (A2/A3) hat mehr Hoehe → Fakten groesser & luftiger, fuellt die Flaeche bis zum CTA */
-.sheet--print .termine{margin-top:2.5em;}
-.sheet--print .termin .d{font-size:2.72em;}
-.sheet--print .info{padding-top:1.8em;}
-.sheet--print .when .t{font-size:1.62em;}
-.sheet--print .mid{padding-top:2.4em;}
-.sheet--print .perks{gap:1em;}
-.sheet--print .perks li{font-size:1.44em;}
-.sheet--print .price__amt{font-size:3.5em;}
+/* Print (A2/A3) hat mehr Hoehe → Foto & Fakten groesser, fuellt die Flaeche bis zum CTA */
+.sheet--print .termine{margin-top:2.9em;}
+.sheet--print .termin .d{font-size:2.8em;}
+.sheet--print .info{padding-top:2em;}
+.sheet--print .when .t{font-size:1.66em;}
+.sheet--print .mid{padding-top:2.9em;align-items:center;}
+.sheet--print .perks{gap:1.2em;}
+.sheet--print .perks li{font-size:1.52em;}
+.sheet--print .price{padding:1.5em 1.5em;}
+.sheet--print .price h3{font-size:1.12em;}
+.sheet--print .price__amt{font-size:3.8em;}
+.sheet--print .price__lbl{font-size:1.28em;}
+.sheet--print .price__sub{font-size:1.24em;}
 
 .sheet--social{--hero-h:42em;--hook-fs:2.2em;--qr:13em;padding:0;}
 .sheet--social .foot{display:none;}            /* AGB-Zeile gehört nicht in Social */
@@ -261,7 +264,6 @@ ${cropmarks}
   <section class="hero">
     <div class="hero__img"></div>
     <div class="hero__shade"></div>
-    <span class="hero__kicker">${BALL}${C.kicker}</span>
   </section>
 
   <div class="title-wrap">
@@ -281,10 +283,9 @@ ${cropmarks}
   <section class="mid">
     <ul class="perks">${perks}</ul>
     <div class="price">
-      <h3>Teilnahmegebühr · 5 Tage</h3>
-      <div class="price__main"><span class="price__amt">${C.priceMember} €</span><span class="price__lbl">für Mitglieder<b>Spart 60 € pro Kind</b></span></div>
+      <h3>Teilnahmegebühr</h3>
+      <div class="price__main"><span class="price__amt">${C.priceMember} €</span><span class="price__lbl">für Mitglieder</span></div>
       <div class="price__sub">Nicht-Mitglieder ${C.priceNon} €</div>
-      <small>Alles inklusive: Training, Mittagessen + Getränk, Camp-Shirt &amp; Turnier mit Urkunden.</small>
     </div>
   </section>
 
@@ -294,7 +295,6 @@ ${cropmarks}
       <span class="cta__kick">Begrenzte Plätze — jetzt sichern</span>
       <div class="h">${C.ctaHead}</div>
       <div class="u">${C.ctaUrl}/tenniscamp-anmeldung</div>
-      <div class="ph"><span>Lieber anrufen?</span><b>${C.phones[0]}</b><b>${C.phones[1]}</b></div>
     </div>
   </section>
 
