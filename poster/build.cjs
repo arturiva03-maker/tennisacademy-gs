@@ -88,7 +88,7 @@ html,body{background:#0b2538;}
 :root{
   --navy:#163d5e; --navy-deep:#0b2538; --navy-glow:#1d4f78;
   --gold:#c9a227; --gold-soft:#e0be4a; --gold-dark:#8f6f15; --cream:#f5f1e6; --cream-dim:#cdd3d8;
-  --ball:#d8e000; --paper:#faf7ef;
+  --ball:#d8e000; --paper:#ffffff;
   --edge:${edge}em; --bleed:${bleed}${unit || 'px'};
 }
 .sheet{
@@ -127,8 +127,8 @@ html,body{background:#0b2538;}
 .org__role{font-weight:800;font-size:.9em;letter-spacing:.17em;text-transform:uppercase;line-height:1;white-space:nowrap;}
 .org--host .org__role{color:var(--gold-dark);}
 .org--partner .org__role{color:#7a8794;}
-.org--host .logo-bsv{height:8.8em;}
-.org--partner .logo-gs{height:6.8em;}
+.org--host .logo-bsv{height:17.6em;}
+.org--partner .logo-gs{height:13.6em;}
 .letter__div{width:.07em;height:3.6em;background:linear-gradient(transparent,var(--gold),transparent);opacity:.55;align-self:center;}
 
 /* ---- hero ---- */
