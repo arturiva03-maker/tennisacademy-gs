@@ -3,6 +3,7 @@
  * Tenniscamp-Poster Generator — BSV 92 x Tennis Academy Grand Slam
  * Erzeugt aus EINEM Markup mehrere Ausgaben:
  *   - Print: DIN A2 + DIN A3 Hochformat, druckfertig mit 3 mm Anschnitt + Schnittmarken (PDF + Vorschau-PNG)
+ *   - dm-Foto: 50x70 cm randlos, OHNE Schnittmarken, ~340 dpi JPG (Upload bei foto.dm.de → Premium-Poster)
  *   - Social: Feed 4:5 (1080x1350) + Story/Reel 9:16 (1080x1920) als hochauflösendes PNG
  * Schrift (DM Sans Variable) + Fotos + Logos werden als base64 eingebettet (self-contained HTML),
  * der QR-Code zur Online-Anmeldung wird generiert. Gerendert wird über das vorhandene Chrome via puppeteer-core.
@@ -320,6 +321,8 @@ const MM = 'mm';
 const FORMATS = {
   'poster-a2': { mode: 'print', trimW: 420, trimH: 594, bleed: 3, unit: MM },
   'poster-a3': { mode: 'print', trimW: 297, trimH: 420, bleed: 3, unit: MM },
+  // dm-Drogerie Premium-Poster 50x70 cm: randlos, ohne Schnittmarken, JPG @ ~340 dpi (1500x2100 * 4)
+  'poster-dm-50x70': { mode: 'print', w: 1500, h: 2100, unit: 'px', edge: 5.6, scale: 4, out: 'jpeg' },
   'social-feed': { mode: 'social', w: 1080, h: 1350, unit: 'px' },
   'social-story': { mode: 'story', w: 1080, h: 1920, unit: 'px', safeTop: 250, safeBottom: 310 },
 };
@@ -332,7 +335,7 @@ function dimsFor(f) {
   }
   return {
     mode: f.mode, mediaW: f.w, mediaH: f.h, base: f.w / 100, unit: 'px', bleed: 0,
-    edge: 6, safeTop: f.safeTop || 0, safeBottom: f.safeBottom || 0,
+    edge: f.edge || 6, safeTop: f.safeTop || 0, safeBottom: f.safeBottom || 0,
   };
 }
 
@@ -369,7 +372,8 @@ async function main() {
     const d = dimsFor(f);
     const styleMode = d.mode === 'print' ? 'print' : 'social'; // social css family covers feed + story
     const styles = css({ ...d, mode: styleMode });
-    const body = markup({ cls: CLS[d.mode], isPrint: d.mode === 'print', qrSvg });
+    // Schnittmarken nur bei echtem Druck-Format (DIN A2/A3 in mm) — nicht beim dm-JPG
+    const body = markup({ cls: CLS[d.mode], isPrint: d.mode === 'print' && f.unit === MM, qrSvg });
     const html = htmlDoc(styles, body);
     const htmlPath = path.join(DIST, `${name}.html`);
     fs.writeFileSync(htmlPath, html);
@@ -392,6 +396,14 @@ async function main() {
       const pxH = Math.round(d.mediaH * 3.78);
       await page.setViewport({ width: pxW, height: pxH, deviceScaleFactor: 1.4 });
       await page.screenshot({ path: path.join(DIST, `${name}-preview.png`), clip: { x: 0, y: 0, width: pxW, height: pxH } });
+    } else if (f.out === 'jpeg') {
+      // dm-Foto: randloses JPG in hoher Auflösung (kein Anschnitt, keine Schnittmarken)
+      const scale = f.scale || 4;
+      await page.setViewport({ width: f.w, height: f.h, deviceScaleFactor: scale });
+      await page.screenshot({
+        path: path.join(DIST, `${name}.jpg`), type: 'jpeg', quality: 92,
+        clip: { x: 0, y: 0, width: f.w, height: f.h },
+      });
     } else {
       await page.setViewport({ width: f.w, height: f.h, deviceScaleFactor: 2 });
       await page.screenshot({ path: path.join(DIST, `${name}.png`), clip: { x: 0, y: 0, width: f.w, height: f.h } });
