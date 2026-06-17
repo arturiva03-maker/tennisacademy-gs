@@ -325,6 +325,8 @@ const FORMATS = {
   'poster-dm-50x70': { mode: 'print', w: 1500, h: 2100, unit: 'px', edge: 5.6, scale: 4, out: 'jpeg' },
   // dm-Drogerie XXL-Poster 70x100 cm: randlos, ohne Schnittmarken, JPG @ ~254 dpi (1750x2500 * 4)
   'poster-dm-70x100': { mode: 'print', w: 1750, h: 2500, unit: 'px', edge: 5.6, scale: 4, out: 'jpeg' },
+  // dm-Express (2:3) — fuellt 20x30 / 30x45 / 40x60 / 50x75 / 60x90 cm randlos (~271 dpi @ 60x90)
+  'poster-dm-2zu3': { mode: 'print', w: 1600, h: 2400, unit: 'px', edge: 5.6, scale: 4, out: 'jpeg' },
   'social-feed': { mode: 'social', w: 1080, h: 1350, unit: 'px' },
   'social-story': { mode: 'story', w: 1080, h: 1920, unit: 'px', safeTop: 250, safeBottom: 310 },
 };
