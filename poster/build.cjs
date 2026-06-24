@@ -83,14 +83,14 @@ ${page}
   font-weight:100 1000; font-style:normal; font-display:block;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{background:#e9edf1;}
+html,body{background:#ece9e2;}
 :root{
-  /* Helles Layout (mehr Weiß, weniger Blau): weißer Grund, Navy + Gold + Tennisball als Akzente — wie das Logo auf Weiß.
-     navy/navy-deep = dunkle Akzentblöcke (Preis, CTA, Kicker) mit heller Schrift (cream) darauf;
-     ink/ink-dim = dunkle Schrift auf dem weißen Grund. */
-  --navy:#1b4068; --navy-deep:#0f2c46; --navy-glow:#236496;
-  --gold:#c9a227; --gold-soft:#e3c357; --gold-dark:#8f6f15; --cream:#f5f1e6; --cream-dim:#cdd3d8;
-  --ink:#143049; --ink-dim:#54657a; --bg:#eef1f4;
+  /* Helles Layout, OHNE Blau: weißer Grund + Gold-Akzente + warmes Graphit als dunkle Töne.
+     navy/navy-deep heißen aus historischen Gründen so, sind aber jetzt neutrales Graphit
+     (dunkle Akzentblöcke Preis/CTA/Kicker + Titel); ink/ink-dim = dunkle Schrift auf Weiß. */
+  --navy:#3a3734; --navy-deep:#262320; --navy-glow:#46423c;
+  --gold:#c9a227; --gold-soft:#e3c357; --gold-dark:#8f6f15; --cream:#f7f4ec; --cream-dim:#d9d4ca;
+  --ink:#2b2723; --ink-dim:#6f685e; --bg:#f2f0ea;
   --ball:#cdd84e; --paper:#ffffff;
   --edge:${edge}em; --bleed:${bleed}${unit || 'px'};
 }
@@ -137,7 +137,7 @@ html,body{background:#e9edf1;}
 /* ---- kicker badge (über dem Titel) ---- */
 .kicker{align-self:flex-start;display:inline-flex;align-items:center;gap:.55em;
   background:var(--navy-deep);color:var(--ball);border:.14em solid var(--ball);font-weight:800;letter-spacing:.12em;text-transform:uppercase;
-  font-size:1.35em;padding:.52em 1.15em .46em;border-radius:2em;box-shadow:0 .3em 1em rgba(20,48,73,.22);
+  font-size:1.35em;padding:.52em 1.15em .46em;border-radius:2em;box-shadow:0 .3em 1em rgba(38,35,32,.22);
   margin:0 0 .85em calc(var(--edge) - var(--title-edge));}
 .ball{width:1.3em;height:1.3em;display:block;}
 
@@ -146,7 +146,7 @@ html,body{background:#e9edf1;}
    Kicker + Hook werden per margin-left wieder an die Fließtext-Kante (--edge) gerückt */
 .title-wrap{flex:0 0 auto;display:flex;flex-direction:column;padding:0 var(--title-edge);margin-top:1.4em;}
 .title{font-weight:900;line-height:.82;letter-spacing:-.045em;text-transform:uppercase;color:var(--navy-deep);
-  font-size:var(--title-fs);text-shadow:0 .04em .03em rgba(20,48,73,.08);}
+  font-size:var(--title-fs);text-shadow:0 .04em .03em rgba(38,35,32,.08);}
 .title .l1{display:flex;align-items:baseline;gap:.4em;white-space:nowrap;}
 .title .l2{white-space:nowrap;}
 .title .year{color:var(--gold-dark);font-size:.66em;font-weight:900;letter-spacing:-.02em;}
@@ -155,7 +155,7 @@ html,body{background:#e9edf1;}
 
 /* ---- termine ---- */
 .termine{flex:0 0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:.9em;padding:0 var(--edge);margin-top:1.7em;}
-.termin{background:rgba(20,48,73,.045);border:.06em solid rgba(20,48,73,.14);border-radius:.7em;
+.termin{background:rgba(38,35,32,.045);border:.06em solid rgba(38,35,32,.14);border-radius:.7em;
   padding:1.05em 1em 1.1em;display:flex;flex-direction:column;gap:.16em;}
 .termin b{color:var(--gold-dark);font-weight:800;font-size:1.16em;letter-spacing:.14em;text-transform:uppercase;}
 .termin .d{font-weight:900;font-size:2.5em;line-height:.96;color:var(--navy-deep);}
@@ -186,7 +186,7 @@ html,body{background:#e9edf1;}
 
 /* ---- cta ---- */
 .cta{flex:0 0 auto;margin:auto var(--edge) 0;background:linear-gradient(160deg,var(--navy-glow),var(--navy-deep));color:var(--cream);border-radius:1em;
-  display:flex;align-items:center;gap:1.3em;padding:1.15em 1.3em;box-shadow:0 .5em 1.6em rgba(20,48,73,.18);}
+  display:flex;align-items:center;gap:1.3em;padding:1.15em 1.3em;box-shadow:0 .5em 1.6em rgba(38,35,32,.18);}
 .qr{flex:0 0 auto;width:var(--qr);height:var(--qr);background:#fff;border-radius:.5em;padding:.5em;box-shadow:0 .2em .8em rgba(0,0,0,.15);}
 .qr svg{display:block;width:100%;height:100%;}
 .cta__body{flex:1 1 auto;min-width:0;}
@@ -203,7 +203,7 @@ html,body{background:#e9edf1;}
   font-weight:500;font-size:.95em;line-height:1.3;color:var(--ink-dim);}
 
 /* ---------- format tweaks ---------- */
-.sheet{--title-fs:13em;--title-edge:2.8em;--hook-fs:2.05em;--qr:15em;}
+.sheet{--title-fs:13em;--title-edge:2.8em;--hook-fs:2.05em;--qr:18.5em;}
 
 /* Print (A2/A3) hat mehr Hoehe → Foto & Fakten groesser, fuellt die Flaeche bis zum CTA */
 .sheet--print .termine{margin-top:auto;}        /* Foto entfällt → Slack gleichmäßig ober-/unterhalb der Fakten verteilen */
@@ -219,7 +219,7 @@ html,body{background:#e9edf1;}
 .sheet--print .price__lbl{font-size:1.28em;}
 .sheet--print .price__sub{font-size:1.24em;}
 
-.sheet--social{--hook-fs:2.2em;--qr:13em;padding:0;}
+.sheet--social{--hook-fs:2.2em;--qr:16em;padding:0;}
 .sheet--social .foot{display:none;}            /* AGB-Zeile gehört nicht in Social */
 
 /* Story (9:16): entschlacktes Layout + Safe-Zones (oben 250 / unten 310 px) */
@@ -356,7 +356,7 @@ function findChrome() {
 async function main() {
   const qrSvg = await QRCode.toString(URL, {
     type: 'svg', margin: 0, errorCorrectionLevel: 'M',
-    color: { dark: '#0b2538', light: '#0000' },
+    color: { dark: '#262320', light: '#0000' },
   });
 
   const browser = await puppeteer.launch({
