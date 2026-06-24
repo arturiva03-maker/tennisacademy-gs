@@ -27,8 +27,6 @@ const jpg = (name) => `data:image/jpeg;base64,${b64(path.join(PUB, name))}`;
 const png = (name) => `data:image/png;base64,${b64(path.join(PUB, name))}`;
 
 const FONT = b64(path.join(NM, '@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2'));
-const HERO = jpg('tenniscamp.jpg');      // Hero der Tenniscamps-Seite: große Gruppe mit Urkunden
-const PROOF = jpg('tenniscamp.jpg');     // große Gruppe mit Urkunden — Social Proof
 const LOGO_GS = png('logo.png');         // Tennis Academy Grand Slam (Navy/Gold-Wappen)
 const LOGO_BSV = png('sponsor-bsv92.png'); // BSV 92 (schwarz/weiß, rund)
 
@@ -132,24 +130,25 @@ html,body{background:#0b2538;}
 .org--partner .logo-gs{height:13.6em;}
 .letter__div{width:.07em;height:3.6em;background:linear-gradient(transparent,var(--gold),transparent);opacity:.55;align-self:center;}
 
-/* ---- hero ---- */
-.hero{position:relative;flex:0 0 auto;height:var(--hero-h);overflow:hidden;}
-.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%;display:block;}
-.hero__shade{position:absolute;inset:0;background:linear-gradient(180deg, rgba(11,37,56,.18) 0%, rgba(11,37,56,0) 32%, rgba(11,37,56,.12) 64%, var(--navy-deep) 100%);}
-.hero, .hero__img, .hero__shade{clip-path:polygon(0 0,100% 0,100% calc(100% - 5em),0 100%);}
-.hero__kicker{position:absolute;left:var(--edge);top:1.2em;z-index:3;display:inline-flex;align-items:center;gap:.55em;
-  background:var(--navy-deep);color:var(--ball);border:.13em solid var(--ball);font-weight:800;letter-spacing:.12em;text-transform:uppercase;
-  font-size:1.18em;padding:.46em 1em .4em;border-radius:2em;box-shadow:0 .35em 1.3em rgba(0,0,0,.4);}
+/* ---- kicker badge (über dem Titel) ---- */
+.kicker{align-self:flex-start;display:inline-flex;align-items:center;gap:.55em;
+  background:var(--navy-deep);color:var(--ball);border:.14em solid var(--ball);font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  font-size:1.35em;padding:.52em 1.15em .46em;border-radius:2em;box-shadow:0 .35em 1.3em rgba(0,0,0,.4);
+  margin:0 0 .85em calc(var(--edge) - var(--title-edge));}
 .ball{width:1.3em;height:1.3em;display:block;}
 
 /* ---- title block ---- */
-.title-wrap{flex:0 0 auto;padding:0 var(--edge);margin-top:-2.9em;}
-.title{font-weight:900;line-height:.84;letter-spacing:-.022em;text-transform:uppercase;color:var(--cream);
+/* Titelblock bricht etwas breiter aus (--title-edge < --edge) → mehr Wucht;
+   Kicker + Hook werden per margin-left wieder an die Fließtext-Kante (--edge) gerückt */
+.title-wrap{flex:0 0 auto;display:flex;flex-direction:column;padding:0 var(--title-edge);margin-top:1.4em;}
+.title{font-weight:900;line-height:.82;letter-spacing:-.045em;text-transform:uppercase;color:var(--cream);
   font-size:var(--title-fs);text-shadow:0 .12em .9em rgba(0,0,0,.45);}
-.title .l1{display:flex;align-items:baseline;gap:.44em;white-space:nowrap;}
+.title .l1{display:flex;align-items:baseline;gap:.4em;white-space:nowrap;}
 .title .l2{white-space:nowrap;}
-.title .year{color:var(--gold);font-size:.6em;font-weight:900;letter-spacing:-.01em;}
-.hook{font-weight:600;font-size:var(--hook-fs);color:var(--cream);max-width:32ch;line-height:1.16;margin-top:.7em;}
+.title .year{color:var(--gold);font-size:.66em;font-weight:900;letter-spacing:-.02em;
+  text-shadow:0 .1em .5em rgba(201,162,39,.35);}
+.hook{font-weight:600;font-size:var(--hook-fs);color:var(--cream);max-width:32ch;line-height:1.16;
+  margin:.8em 0 0 calc(var(--edge) - var(--title-edge));}
 
 /* ---- termine ---- */
 .termine{flex:0 0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:.9em;padding:0 var(--edge);margin-top:1.7em;}
@@ -201,10 +200,10 @@ html,body{background:#0b2538;}
   font-weight:500;font-size:.95em;line-height:1.3;color:var(--cream-dim);}
 
 /* ---------- format tweaks ---------- */
-.sheet{--hero-h:45em;--title-fs:12em;--hook-fs:2.05em;--qr:15em;}
+.sheet{--title-fs:13em;--title-edge:2.8em;--hook-fs:2.05em;--qr:15em;}
 
 /* Print (A2/A3) hat mehr Hoehe → Foto & Fakten groesser, fuellt die Flaeche bis zum CTA */
-.sheet--print .termine{margin-top:2.9em;}
+.sheet--print .termine{margin-top:auto;}        /* Foto entfällt → Slack gleichmäßig ober-/unterhalb der Fakten verteilen */
 .sheet--print .termin .d{font-size:2.8em;}
 .sheet--print .info{padding-top:2em;}
 .sheet--print .when .t{font-size:1.66em;}
@@ -217,11 +216,11 @@ html,body{background:#0b2538;}
 .sheet--print .price__lbl{font-size:1.28em;}
 .sheet--print .price__sub{font-size:1.24em;}
 
-.sheet--social{--hero-h:30em;--hook-fs:2.2em;--qr:13em;padding:0;}
+.sheet--social{--hook-fs:2.2em;--qr:13em;padding:0;}
 .sheet--social .foot{display:none;}            /* AGB-Zeile gehört nicht in Social */
 
 /* Story (9:16): entschlacktes Layout + Safe-Zones (oben 250 / unten 310 px) */
-.sheet--story{--hero-h:33em;--hook-fs:2.55em;padding:250px 0 310px;}
+.sheet--story{--hook-fs:2.55em;padding:250px 0 310px;}
 .sheet--story .perks{display:none;}
 .sheet--story .where{display:none;}
 .sheet--story .info{padding-top:1.2em;}
@@ -271,12 +270,8 @@ ${cropmarks}
     </div>
   </header>
 
-  <section class="hero">
-    <img class="hero__img" src="${HERO}" alt="Kinder beim Tenniscamp">
-    <div class="hero__shade"></div>
-  </section>
-
   <div class="title-wrap">
+    <span class="kicker">${BALL}${C.kicker}</span>
     <h1 class="title">
       <span class="l1"><span>${C.title1}</span><span class="year">${C.year}</span></span>
       <span class="l2">${C.title2}</span>
