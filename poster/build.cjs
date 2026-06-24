@@ -28,7 +28,7 @@ const png = (name) => `data:image/png;base64,${b64(path.join(PUB, name))}`;
 
 const FONT = b64(path.join(NM, '@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2'));
 const LOGO_GS = png('logo.png');         // Tennis Academy Grand Slam (Navy/Gold-Wappen)
-const LOGO_BSV = png('sponsor-bsv92.png'); // BSV 92 (schwarz/weiß, rund)
+const LOGO_BSV = png('bsv-logo-125.png'); // BSV 92 Tennis-Abteilung — 125-Jahre-Jubiläumslogo (navy/gold/Ball)
 
 const URL = 'https://www.tennisacademy-gs.de/tenniscamp-anmeldung';
 
@@ -63,7 +63,7 @@ const C = {
 };
 
 // flat, tasteful tennis ball (single yellow accent) ---------------------------
-const BALL = `<svg class="ball" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" fill="#eceef0"/><path d="M16 22 A56 56 0 0 0 16 78" fill="none" stroke="#6a7077" stroke-width="4.5" opacity=".9" stroke-linecap="round"/><path d="M84 22 A56 56 0 0 1 84 78" fill="none" stroke="#6a7077" stroke-width="4.5" opacity=".9" stroke-linecap="round"/></svg>`;
+const BALL = `<svg class="ball" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" fill="#cdd84e"/><path d="M16 22 A56 56 0 0 0 16 78" fill="none" stroke="#fffbe6" stroke-width="4.5" opacity=".9" stroke-linecap="round"/><path d="M84 22 A56 56 0 0 1 84 78" fill="none" stroke="#fffbe6" stroke-width="4.5" opacity=".9" stroke-linecap="round"/></svg>`;
 
 // subtle film grain (Imperfect-by-Design texture) ----------------------------
 const GRAIN = encodeURIComponent(
@@ -83,13 +83,13 @@ ${page}
   font-weight:100 1000; font-style:normal; font-display:block;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{background:#0d0f11;}
+html,body{background:#0f2c46;}
 :root{
-  /* an das BSV-Logo (schwarz/weiß) angelehnt: monochrom, schlicht.
-     Variablennamen bleiben (navy/gold/ball) — nur die Werte sind jetzt anthrazit/silbergrau */
-  --navy:#24282d; --navy-deep:#0d0f11; --navy-glow:#31363c;
-  --gold:#c4c9cd; --gold-soft:#e6e9eb; --gold-dark:#5c6268; --cream:#f3f4f5; --cream-dim:#b9bec3;
-  --ball:#eceef0; --paper:#ffffff;
+  /* an das neue BSV-Jubiläumslogo (125 Jahre) angelehnt: Navy + Gold + Tennisball.
+     Bewusst tiefes Blau statt Schwarz, damit es zum Logo passt und nicht zu dunkel wirkt */
+  --navy:#1b4068; --navy-deep:#0f2c46; --navy-glow:#236496;
+  --gold:#c9a227; --gold-soft:#e3c357; --gold-dark:#8f6f15; --cream:#f5f1e6; --cream-dim:#cdd3d8;
+  --ball:#cdd84e; --paper:#ffffff;
   --edge:${edge}em; --bleed:${bleed}${unit || 'px'};
 }
 .sheet{
