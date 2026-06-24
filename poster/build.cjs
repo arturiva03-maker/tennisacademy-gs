@@ -63,7 +63,7 @@ const C = {
 };
 
 // flat, tasteful tennis ball (single yellow accent) ---------------------------
-const BALL = `<svg class="ball" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" fill="#d8e000"/><path d="M16 22 A56 56 0 0 0 16 78" fill="none" stroke="#fffbe6" stroke-width="4.5" opacity=".9" stroke-linecap="round"/><path d="M84 22 A56 56 0 0 1 84 78" fill="none" stroke="#fffbe6" stroke-width="4.5" opacity=".9" stroke-linecap="round"/></svg>`;
+const BALL = `<svg class="ball" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" fill="#eceef0"/><path d="M16 22 A56 56 0 0 0 16 78" fill="none" stroke="#6a7077" stroke-width="4.5" opacity=".9" stroke-linecap="round"/><path d="M84 22 A56 56 0 0 1 84 78" fill="none" stroke="#6a7077" stroke-width="4.5" opacity=".9" stroke-linecap="round"/></svg>`;
 
 // subtle film grain (Imperfect-by-Design texture) ----------------------------
 const GRAIN = encodeURIComponent(
@@ -83,11 +83,13 @@ ${page}
   font-weight:100 1000; font-style:normal; font-display:block;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{background:#0b2538;}
+html,body{background:#0d0f11;}
 :root{
-  --navy:#163d5e; --navy-deep:#0b2538; --navy-glow:#1d4f78;
-  --gold:#c9a227; --gold-soft:#e0be4a; --gold-dark:#8f6f15; --cream:#f5f1e6; --cream-dim:#cdd3d8;
-  --ball:#d8e000; --paper:#ffffff;
+  /* an das BSV-Logo (schwarz/weiß) angelehnt: monochrom, schlicht.
+     Variablennamen bleiben (navy/gold/ball) — nur die Werte sind jetzt anthrazit/silbergrau */
+  --navy:#24282d; --navy-deep:#0d0f11; --navy-glow:#31363c;
+  --gold:#c4c9cd; --gold-soft:#e6e9eb; --gold-dark:#5c6268; --cream:#f3f4f5; --cream-dim:#b9bec3;
+  --ball:#eceef0; --paper:#ffffff;
   --edge:${edge}em; --bleed:${bleed}${unit || 'px'};
 }
 .sheet{
