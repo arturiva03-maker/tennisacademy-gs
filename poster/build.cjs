@@ -83,27 +83,29 @@ ${page}
   font-weight:100 1000; font-style:normal; font-display:block;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{background:#0f2c46;}
+html,body{background:#e9edf1;}
 :root{
-  /* an das neue BSV-Jubiläumslogo (125 Jahre) angelehnt: Navy + Gold + Tennisball.
-     Bewusst tiefes Blau statt Schwarz, damit es zum Logo passt und nicht zu dunkel wirkt */
+  /* Helles Layout (mehr Weiß, weniger Blau): weißer Grund, Navy + Gold + Tennisball als Akzente — wie das Logo auf Weiß.
+     navy/navy-deep = dunkle Akzentblöcke (Preis, CTA, Kicker) mit heller Schrift (cream) darauf;
+     ink/ink-dim = dunkle Schrift auf dem weißen Grund. */
   --navy:#1b4068; --navy-deep:#0f2c46; --navy-glow:#236496;
   --gold:#c9a227; --gold-soft:#e3c357; --gold-dark:#8f6f15; --cream:#f5f1e6; --cream-dim:#cdd3d8;
+  --ink:#143049; --ink-dim:#54657a; --bg:#eef1f4;
   --ball:#cdd84e; --paper:#ffffff;
   --edge:${edge}em; --bleed:${bleed}${unit || 'px'};
 }
 .sheet{
   position:relative; width:${mediaW}${unit}; height:${mediaH}${unit};
-  font-size:${base}${unit}; font-family:'DM Sans',sans-serif; color:var(--cream);
-  background:radial-gradient(120% 80% at 50% -10%, var(--navy) 0%, var(--navy-deep) 60%);
+  font-size:${base}${unit}; font-family:'DM Sans',sans-serif; color:var(--ink);
+  background:radial-gradient(125% 85% at 50% -12%, #ffffff 0%, var(--bg) 100%);
   overflow:hidden; -webkit-print-color-adjust:exact; print-color-adjust:exact;
   display:flex; flex-direction:column;
 }
 /* faint court lines + grain */
-.sheet::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.07;
+.sheet::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.06;
   background:
-    linear-gradient(90deg, transparent 49.7%, var(--cream) 49.7%, var(--cream) 50.3%, transparent 50.3%),
-    linear-gradient(0deg, transparent 0, transparent calc(100% - .14em), var(--cream) calc(100% - .14em));
+    linear-gradient(90deg, transparent 49.7%, var(--navy) 49.7%, var(--navy) 50.3%, transparent 50.3%),
+    linear-gradient(0deg, transparent 0, transparent calc(100% - .14em), var(--navy) calc(100% - .14em));
   background-repeat:no-repeat; background-size:100% 100%, 100% 100%;}
 .sheet::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:60;
   background-image:url("data:image/svg+xml,${GRAIN}");opacity:.05;mix-blend-mode:overlay;}
@@ -135,7 +137,7 @@ html,body{background:#0f2c46;}
 /* ---- kicker badge (über dem Titel) ---- */
 .kicker{align-self:flex-start;display:inline-flex;align-items:center;gap:.55em;
   background:var(--navy-deep);color:var(--ball);border:.14em solid var(--ball);font-weight:800;letter-spacing:.12em;text-transform:uppercase;
-  font-size:1.35em;padding:.52em 1.15em .46em;border-radius:2em;box-shadow:0 .35em 1.3em rgba(0,0,0,.4);
+  font-size:1.35em;padding:.52em 1.15em .46em;border-radius:2em;box-shadow:0 .3em 1em rgba(20,48,73,.22);
   margin:0 0 .85em calc(var(--edge) - var(--title-edge));}
 .ball{width:1.3em;height:1.3em;display:block;}
 
@@ -143,34 +145,33 @@ html,body{background:#0f2c46;}
 /* Titelblock bricht etwas breiter aus (--title-edge < --edge) → mehr Wucht;
    Kicker + Hook werden per margin-left wieder an die Fließtext-Kante (--edge) gerückt */
 .title-wrap{flex:0 0 auto;display:flex;flex-direction:column;padding:0 var(--title-edge);margin-top:1.4em;}
-.title{font-weight:900;line-height:.82;letter-spacing:-.045em;text-transform:uppercase;color:var(--cream);
-  font-size:var(--title-fs);text-shadow:0 .12em .9em rgba(0,0,0,.45);}
+.title{font-weight:900;line-height:.82;letter-spacing:-.045em;text-transform:uppercase;color:var(--navy-deep);
+  font-size:var(--title-fs);text-shadow:0 .04em .03em rgba(20,48,73,.08);}
 .title .l1{display:flex;align-items:baseline;gap:.4em;white-space:nowrap;}
 .title .l2{white-space:nowrap;}
-.title .year{color:var(--gold);font-size:.66em;font-weight:900;letter-spacing:-.02em;
-  text-shadow:0 .1em .5em rgba(201,162,39,.35);}
-.hook{font-weight:600;font-size:var(--hook-fs);color:var(--cream);max-width:32ch;line-height:1.16;
+.title .year{color:var(--gold-dark);font-size:.66em;font-weight:900;letter-spacing:-.02em;}
+.hook{font-weight:600;font-size:var(--hook-fs);color:var(--navy);max-width:32ch;line-height:1.16;
   margin:.8em 0 0 calc(var(--edge) - var(--title-edge));}
 
 /* ---- termine ---- */
 .termine{flex:0 0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:.9em;padding:0 var(--edge);margin-top:1.7em;}
-.termin{background:rgba(255,255,255,.07);border:.05em solid rgba(245,241,230,.2);border-radius:.7em;
+.termin{background:rgba(20,48,73,.045);border:.06em solid rgba(20,48,73,.14);border-radius:.7em;
   padding:1.05em 1em 1.1em;display:flex;flex-direction:column;gap:.16em;}
-.termin b{color:var(--cream-dim);font-weight:800;font-size:1.16em;letter-spacing:.14em;text-transform:uppercase;}
-.termin .d{font-weight:900;font-size:2.5em;line-height:.96;color:var(--cream);}
-.termin .m{font-weight:600;font-size:1.18em;color:var(--cream-dim);}
+.termin b{color:var(--gold-dark);font-weight:800;font-size:1.16em;letter-spacing:.14em;text-transform:uppercase;}
+.termin .d{font-weight:900;font-size:2.5em;line-height:.96;color:var(--navy-deep);}
+.termin .m{font-weight:600;font-size:1.18em;color:var(--ink-dim);}
 .info{padding:1em var(--edge) 0;display:flex;flex-direction:column;gap:.28em;}
 .when{display:flex;align-items:center;gap:.7em;flex-wrap:wrap;}
-.when .t{font-weight:800;font-size:1.5em;color:var(--cream);}
+.when .t{font-weight:800;font-size:1.5em;color:var(--navy-deep);}
 .when .dot{width:.42em;height:.42em;border-radius:50%;background:var(--gold);}
-.where{font-weight:600;font-size:1.26em;color:var(--cream-dim);line-height:1.2;}
-.where b{font-weight:800;color:var(--cream);}
+.where{font-weight:600;font-size:1.26em;color:var(--ink-dim);line-height:1.2;}
+.where b{font-weight:800;color:var(--navy-deep);}
 
 /* ---- perks + price ---- */
 .mid{flex:0 0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:1.5em;align-items:start;
   padding:1.4em var(--edge) 0;}
 .perks{list-style:none;display:flex;flex-direction:column;gap:.66em;padding-top:.2em;}
-.perks li{position:relative;padding-left:1.65em;font-weight:500;font-size:1.32em;line-height:1.14;color:var(--cream);}
+.perks li{position:relative;padding-left:1.65em;font-weight:500;font-size:1.32em;line-height:1.14;color:var(--ink);}
 .perks li::before{content:'';position:absolute;left:.28em;top:.12em;width:.5em;height:.92em;
   border-right:.16em solid var(--gold);border-bottom:.16em solid var(--gold);transform:rotate(40deg);}
 .price{background:linear-gradient(160deg,var(--navy-glow),var(--navy));border:.06em solid rgba(245,241,230,.22);
@@ -184,22 +185,22 @@ html,body{background:#0f2c46;}
 .price small{font-weight:600;font-size:1em;color:var(--cream-dim);line-height:1.28;}
 
 /* ---- cta ---- */
-.cta{flex:0 0 auto;margin:auto var(--edge) 0;background:var(--paper);color:var(--navy-deep);border-radius:1em;
-  display:flex;align-items:center;gap:1.3em;padding:1.15em 1.3em;}
+.cta{flex:0 0 auto;margin:auto var(--edge) 0;background:linear-gradient(160deg,var(--navy-glow),var(--navy-deep));color:var(--cream);border-radius:1em;
+  display:flex;align-items:center;gap:1.3em;padding:1.15em 1.3em;box-shadow:0 .5em 1.6em rgba(20,48,73,.18);}
 .qr{flex:0 0 auto;width:var(--qr);height:var(--qr);background:#fff;border-radius:.5em;padding:.5em;box-shadow:0 .2em .8em rgba(0,0,0,.15);}
 .qr svg{display:block;width:100%;height:100%;}
 .cta__body{flex:1 1 auto;min-width:0;}
 .cta__kick{display:inline-block;font-weight:900;font-size:1em;letter-spacing:.11em;text-transform:uppercase;
-  color:var(--gold-dark);margin-bottom:.2em;}
-.cta__body .h{font-weight:900;font-size:1.95em;line-height:1.0;color:var(--navy-deep);}
-.cta__body .u{font-weight:700;font-size:1.16em;color:var(--navy);margin-top:.14em;word-break:break-word;}
+  color:var(--gold-soft);margin-bottom:.2em;}
+.cta__body .h{font-weight:900;font-size:1.95em;line-height:1.0;color:var(--cream);}
+.cta__body .u{font-weight:700;font-size:1.16em;color:var(--gold-soft);margin-top:.14em;word-break:break-word;}
 .cta__body .ph{display:flex;flex-wrap:wrap;align-items:baseline;gap:.1em 1em;margin-top:.55em;}
-.cta__body .ph span{font-weight:600;font-size:1.06em;color:#5a6b78;}
-.cta__body .ph b{font-weight:800;font-size:1.16em;color:var(--navy-deep);}
+.cta__body .ph span{font-weight:600;font-size:1.06em;color:var(--cream-dim);}
+.cta__body .ph b{font-weight:800;font-size:1.16em;color:var(--cream);}
 
 /* ---- footer ---- */
 .foot{flex:0 0 auto;padding:.9em var(--edge) calc(var(--bleed) + .85em);
-  font-weight:500;font-size:.95em;line-height:1.3;color:var(--cream-dim);}
+  font-weight:500;font-size:.95em;line-height:1.3;color:var(--ink-dim);}
 
 /* ---------- format tweaks ---------- */
 .sheet{--title-fs:13em;--title-edge:2.8em;--hook-fs:2.05em;--qr:15em;}
