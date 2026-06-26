@@ -168,7 +168,7 @@ export default function AGB() {
             </p>
 
             <p style={{ marginTop: '32px', color: 'var(--text-medium)', fontSize: '0.9rem' }}>
-              TENNIS ACADEMY GRAND SLAM • Buschkrugallee 54 • 12359 Berlin • Tel. 030 - 606 10 55
+              TENNIS ACADEMY GRAND SLAM • Buschkrugallee 54 • 12359 Berlin • Tel. 0162 9300590
             </p>
           </div>
         </div>

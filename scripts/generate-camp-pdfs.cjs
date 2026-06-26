@@ -96,7 +96,7 @@ const drawFooter = (doc) => {
     { align: 'center' },
   );
   doc.text(
-    'TENNIS ACADEMY GRAND SLAM · Buschkrugallee 54 · 12359 Berlin · Tel. 030 - 606 10 55',
+    'TENNIS ACADEMY GRAND SLAM · Buschkrugallee 54 · 12359 Berlin · Tel. 0162 9300590',
     pageWidth / 2,
     footerY + 8,
     { align: 'center' },

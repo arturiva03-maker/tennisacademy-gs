@@ -29,7 +29,7 @@ export default function Impressum() {
 
             <h3>Kontakt</h3>
             <p>
-              Telefon: 030 / 606 10 55<br />
+              Telefon: 0162 9300590<br />
               E-Mail: <a href="mailto:info@tennisacademy-gs.de">info@tennisacademy-gs.de</a>
             </p>
 

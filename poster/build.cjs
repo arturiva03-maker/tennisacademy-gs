@@ -57,7 +57,7 @@ const C = {
   priceNon: '350',
   ctaHead: 'Scannen & online anmelden',
   ctaUrl: 'tennisacademy-gs.de',
-  phones: ['030 – 824 20 88', '030 – 606 10 55'],
+  phones: ['030 – 824 20 88', '0162 9300590'],
   badge: 'Jetzt Platz sichern',
   foot: 'Veranstalter: BSV 92 Tennisabteilung gemeinsam mit der Tennis Academy Grand Slam · Es gelten die Camp-AGB.',
 };
