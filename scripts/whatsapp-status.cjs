@@ -77,11 +77,11 @@ function css() {
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{background:#0b1424;}
 :root{
-  /* BSV-92-Logo-Palette: Marineblau (Schläger) + Gold (Jubiläumsband) + Schwarz/Weiß + Ball */
-  --navy:#26395f; --navy-deep:#15223d; --navy-glow:#334d7c;
+  /* BSV-92-Logo-Palette ohne Blau: Schwarz/Anthrazit (neutral, nicht warm) + Gold + Weiß */
+  --navy:#26282d; --navy-deep:#111215; --navy-glow:#34373d;
   --gold:#c9a227; --gold-soft:#ecc964; --gold-ink:#b0871d;
-  --ink:#1d2640; --ink-dim:#5a6580;
-  --cream:#f6f3ea; --cream-dim:#c9d2e4; --ball:#cdd84e;
+  --ink:#1a1c20; --ink-dim:#5b5f66;
+  --cream:#f6f4ef; --cream-dim:#d0d1d4; --ball:#cdd84e;
 }
 .sheet{
   position:relative; width:1080px; height:1920px; overflow:hidden;
@@ -112,7 +112,7 @@ html,body{background:#0b1424;}
 
 /* ---- hero photo (natürliche Farben, eng beschnitten – ohne roten Sandboden) ---- */
 .hero{position:relative;margin-top:26px;flex:0 0 auto;height:462px;border-radius:30px;overflow:hidden;
-  background:#e8e8ea;box-shadow:0 24px 60px rgba(21,34,61,.28);outline:3px solid var(--gold);outline-offset:-3px;}
+  background:#e8e8ea;box-shadow:0 24px 60px rgba(15,16,19,.26);outline:3px solid var(--gold);outline-offset:-3px;}
 .hero img{width:100%;height:100%;object-fit:cover;object-position:50% 36%;display:block;
   transform:scale(1.32);transform-origin:50% 39%;}
 
@@ -126,7 +126,7 @@ html,body{background:#0b1424;}
 
 /* ---- dates ---- */
 .dates{flex:0 0 auto;margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-.chip{background:rgba(38,57,95,.05);border:2px solid rgba(38,57,95,.16);border-radius:18px;
+.chip{background:rgba(24,26,30,.05);border:2px solid rgba(24,26,30,.15);border-radius:18px;
   padding:20px 14px 22px;display:flex;flex-direction:column;gap:4px;}
 .chip b{color:var(--navy);font-weight:800;font-size:21px;letter-spacing:.1em;text-transform:uppercase;}
 .chip .d{font-weight:900;font-size:50px;line-height:.94;color:var(--navy-deep);}
@@ -153,7 +153,7 @@ html,body{background:#0b1424;}
 /* ---- CTA ---- */
 .cta{flex:0 0 auto;margin-top:auto;display:flex;flex-direction:column;
   background:linear-gradient(155deg,var(--navy-glow),var(--navy-deep));color:var(--cream);
-  border-radius:26px;padding:32px 36px;box-shadow:0 18px 46px rgba(21,34,61,.26);}
+  border-radius:26px;padding:32px 36px;box-shadow:0 18px 46px rgba(15,16,19,.24);}
 .cta__body{flex:1 1 auto;min-width:0;}
 .cta__kick{display:inline-block;font-weight:900;font-size:23px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-soft);}
 .cta__head{font-weight:900;font-size:58px;line-height:1;margin:8px 0 18px;color:#fff;}
