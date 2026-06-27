@@ -112,13 +112,13 @@ html,body{background:#0b1424;}
 .brand .div{width:2px;height:64px;background:linear-gradient(transparent,var(--gold),transparent);opacity:.55;}
 
 /* ---- hero photo (natürliche Farben, eng beschnitten – ohne roten Sandboden) ---- */
-.hero{position:relative;margin-top:24px;flex:0 0 auto;height:452px;border-radius:30px;overflow:hidden;
+.hero{position:relative;margin-top:32px;flex:0 0 auto;height:430px;border-radius:30px;overflow:hidden;
   background:#e8e8ea;box-shadow:0 24px 60px rgba(15,16,19,.26);outline:3px solid var(--gold);outline-offset:-3px;}
 .hero img{width:100%;height:100%;object-fit:cover;object-position:50% 36%;display:block;
   transform:scale(1.32);transform-origin:50% 39%;}
 
 /* ---- headline ---- */
-.head{flex:0 0 auto;margin-top:24px;}
+.head{flex:0 0 auto;margin-top:44px;}
 .title{font-weight:900;line-height:.82;letter-spacing:-.035em;text-transform:uppercase;color:var(--navy-deep);}
 .title .l1{display:flex;align-items:baseline;gap:.32em;white-space:nowrap;font-size:98px;}
 .title .l1 .year{color:var(--gold);font-size:.62em;font-weight:900;letter-spacing:-.01em;}
@@ -126,7 +126,7 @@ html,body{background:#0b1424;}
 .hook{margin-top:18px;font-weight:600;font-size:35px;line-height:1.18;color:var(--ink);max-width:30ch;}
 
 /* ---- dates ---- */
-.dates{flex:0 0 auto;margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.dates{flex:0 0 auto;margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 .chip{background:rgba(24,26,30,.05);border:2px solid rgba(24,26,30,.15);border-radius:18px;
   padding:20px 14px 22px;display:flex;flex-direction:column;gap:4px;}
 .chip b{color:var(--navy);font-weight:800;font-size:21px;letter-spacing:.1em;text-transform:uppercase;}
@@ -134,7 +134,7 @@ html,body{background:#0b1424;}
 .chip .m{font-weight:600;font-size:24px;color:var(--ink-dim);}
 
 /* ---- meta (time + place) ---- */
-.meta{flex:0 0 auto;margin-top:18px;display:flex;flex-direction:column;gap:8px;}
+.meta{flex:0 0 auto;margin-top:34px;display:flex;flex-direction:column;gap:10px;}
 .meta .when{display:flex;align-items:center;gap:14px;font-weight:800;font-size:33px;color:var(--navy-deep);}
 .meta .when .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);}
 .meta .where{font-weight:600;font-size:26px;color:var(--ink-dim);line-height:1.2;}
