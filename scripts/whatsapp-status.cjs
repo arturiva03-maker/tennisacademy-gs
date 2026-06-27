@@ -112,7 +112,7 @@ html,body{background:#0b1424;}
 .brand .div{width:2px;height:64px;background:linear-gradient(transparent,var(--gold),transparent);opacity:.55;}
 
 /* ---- hero photo (natürliche Farben, eng beschnitten – ohne roten Sandboden) ---- */
-.hero{position:relative;margin-top:20px;flex:0 0 auto;height:330px;border-radius:30px;overflow:hidden;
+.hero{position:relative;margin-top:24px;flex:0 0 auto;height:452px;border-radius:30px;overflow:hidden;
   background:#e8e8ea;box-shadow:0 24px 60px rgba(15,16,19,.26);outline:3px solid var(--gold);outline-offset:-3px;}
 .hero img{width:100%;height:100%;object-fit:cover;object-position:50% 36%;display:block;
   transform:scale(1.32);transform-origin:50% 39%;}
@@ -138,18 +138,6 @@ html,body{background:#0b1424;}
 .meta .when{display:flex;align-items:center;gap:14px;font-weight:800;font-size:33px;color:var(--navy-deep);}
 .meta .when .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);}
 .meta .where{font-weight:600;font-size:26px;color:var(--ink-dim);line-height:1.2;}
-
-/* ---- price ---- */
-.price{flex:0 0 auto;margin-top:20px;display:flex;align-items:center;justify-content:space-between;gap:20px;
-  background:linear-gradient(155deg,var(--navy-glow),var(--navy-deep));border-radius:22px;padding:26px 30px;
-  border:2px solid rgba(236,201,100,.28);}
-.price .lead{display:flex;flex-direction:column;gap:6px;}
-.price h3{font-weight:800;font-size:22px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim);}
-.price .main{display:flex;align-items:baseline;gap:14px;}
-.price .amt{font-weight:900;font-size:74px;line-height:.82;color:var(--gold-soft);}
-.price .lbl{font-weight:700;font-size:30px;color:var(--cream);}
-.price .sub{text-align:right;font-weight:700;font-size:27px;color:var(--cream-dim);line-height:1.25;}
-.price .sub b{display:block;font-weight:900;font-size:38px;color:#fff;}
 
 /* ---- CTA ---- */
 .cta{flex:0 0 auto;margin-top:auto;display:flex;flex-direction:column;
@@ -196,14 +184,6 @@ function markup() {
     <div class="when"><span>${C.time.split(' · ')[0]}</span><i class="dot"></i><span>${C.time.split(' · ')[1]}</span></div>
     <div class="where">${C.place}</div>
   </div>
-
-  <section class="price">
-    <div class="lead">
-      <h3>Teilnahmegebühr</h3>
-      <div class="main"><span class="amt">${C.priceMember} €</span><span class="lbl">für Mitglieder</span></div>
-    </div>
-    <div class="sub">Nicht-<br>Mitglieder<b>${C.priceNon} €</b></div>
-  </section>
 
   <section class="cta">
     <div class="cta__body">
