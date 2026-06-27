@@ -42,7 +42,7 @@ const C = {
   title1: 'SOMMER',
   title2: 'TENNISCAMPS',
   year: '2026',
-  hook: '5 Tage Tennis, Spaß &amp; Turnier — für Kinder ab 5–6 Jahren',
+  hook: '5 Tage Tennis, Spaß &amp; Turnier — für Kinder und Jugendliche ab 5–6 Jahren',
   camps: [
     { n: 'CAMP I', d: '13.–17.', m: 'Juli' },
     { n: 'CAMP II', d: '10.–14.', m: 'August' },
@@ -112,7 +112,7 @@ html,body{background:#0b1424;}
 .brand .div{width:2px;height:64px;background:linear-gradient(transparent,var(--gold),transparent);opacity:.55;}
 
 /* ---- hero photo (natürliche Farben, eng beschnitten – ohne roten Sandboden) ---- */
-.hero{position:relative;margin-top:20px;flex:0 0 auto;height:352px;border-radius:30px;overflow:hidden;
+.hero{position:relative;margin-top:20px;flex:0 0 auto;height:330px;border-radius:30px;overflow:hidden;
   background:#e8e8ea;box-shadow:0 24px 60px rgba(15,16,19,.26);outline:3px solid var(--gold);outline-offset:-3px;}
 .hero img{width:100%;height:100%;object-fit:cover;object-position:50% 36%;display:block;
   transform:scale(1.32);transform-origin:50% 39%;}
