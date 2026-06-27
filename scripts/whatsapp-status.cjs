@@ -112,7 +112,7 @@ html,body{background:#0b1424;}
 .brand .div{width:2px;height:64px;background:linear-gradient(transparent,var(--gold),transparent);opacity:.55;}
 
 /* ---- hero photo (natürliche Farben, eng beschnitten – ohne roten Sandboden) ---- */
-.hero{position:relative;margin-top:32px;flex:0 0 auto;height:350px;border-radius:30px;overflow:hidden;
+.hero{position:relative;margin-top:32px;flex:0 0 auto;height:286px;border-radius:30px;overflow:hidden;
   background:#e8e8ea;box-shadow:0 24px 60px rgba(15,16,19,.26);outline:3px solid var(--gold);outline-offset:-3px;}
 .hero img{width:100%;height:100%;object-fit:cover;object-position:50% 36%;display:block;
   transform:scale(1.32);transform-origin:50% 39%;}
