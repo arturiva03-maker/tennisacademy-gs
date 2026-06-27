@@ -49,7 +49,7 @@ const C = {
     { n: 'CAMP III', d: '17.–21.', m: 'August' },
   ],
   time: 'Mo – Fr · 9:30 – 15:00 Uhr',
-  place: 'Tennisanlage BSV 92 · Fritz-Wildung-Str. 23 · Berlin',
+  place: 'Tennisanlage BSV ’92 · Fritz-Wildung-Str. 23 · Berlin',
   priceMember: '290',
   priceNon: '350',
   ctaKick: 'Begrenzte Plätze — jetzt sichern',
@@ -106,8 +106,8 @@ html,body{background:#0b1424;}
 .brand .org--host .role{color:var(--gold-ink);}
 .brand .org--partner .role{color:var(--ink-dim);}
 .brand img{display:block;width:auto;}
-.brand .logo-bsv{height:96px;}
-.brand .logo-gs{height:76px;}
+.brand .logo-bsv{height:132px;}
+.brand .logo-gs{height:74px;}
 .brand .div{width:2px;height:64px;background:linear-gradient(transparent,var(--gold),transparent);opacity:.55;}
 
 /* ---- hero photo (natürliche Farben, eng beschnitten – ohne roten Sandboden) ---- */
@@ -172,7 +172,7 @@ function markup() {
   return `
 <div class="sheet">
   <header class="brand">
-    <div class="org org--host"><span class="role">Veranstalter</span><img class="logo-bsv" src="${LOGO_BSV}" alt="BSV 92 Tennisabteilung"></div>
+    <div class="org org--host"><span class="role">Veranstalter</span><img class="logo-bsv" src="${LOGO_BSV}" alt="BSV ’92 Tennisabteilung"></div>
     <span class="div"></span>
     <div class="org org--partner"><span class="role">in Kooperation mit</span><img class="logo-gs" src="${LOGO_GS}" alt="Tennis Academy Grand Slam"></div>
   </header>
@@ -208,8 +208,8 @@ function markup() {
     <div class="cta__body">
       <span class="cta__kick">${C.ctaKick}</span>
       <div class="cta__head">${C.ctaHead}</div>
-      <div class="line reply">${I_CHAT}<span>${C.reply}</span></div>
       <div class="line">${I_WEB}<span>${C.web}/tenniscamp-anmeldung</span></div>
+      <div class="line reply">${I_CHAT}<span>${C.reply}</span></div>
     </div>
   </section>
 </div>`;
