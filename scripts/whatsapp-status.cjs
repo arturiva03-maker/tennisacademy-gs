@@ -85,7 +85,7 @@ html,body{background:#0c0b0a;}
 .sheet{
   position:relative; width:1080px; height:1920px; overflow:hidden;
   font-family:'DM Sans',sans-serif; color:var(--ink);
-  background:radial-gradient(120% 75% at 50% -8%, #ffffff 0%, var(--bg) 62%, #e9e6dd 100%);
+  background:#ffffff;
   -webkit-print-color-adjust:exact; print-color-adjust:exact;
   display:flex; flex-direction:column;
   padding:148px 64px 188px;
@@ -109,9 +109,10 @@ html,body{background:#0c0b0a;}
 .brand .div{width:2px;height:64px;background:linear-gradient(transparent,var(--gold),transparent);opacity:.5;}
 
 /* ---- hero photo ---- */
-.hero{position:relative;margin-top:26px;flex:0 0 auto;height:486px;border-radius:30px;overflow:hidden;
+.hero{position:relative;margin-top:26px;flex:0 0 auto;height:430px;border-radius:30px;overflow:hidden;
   box-shadow:0 24px 60px rgba(34,32,25,.28);outline:3px solid var(--gold);outline-offset:-3px;}
-.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 42%;display:block;}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block;
+  transform:scale(1.5);transform-origin:50% 26%;}
 
 /* ---- headline ---- */
 .head{flex:0 0 auto;margin-top:30px;}
