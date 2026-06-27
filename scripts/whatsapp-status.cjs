@@ -54,7 +54,7 @@ const C = {
   priceNon: '350',
   ctaKick: 'Begrenzte Plätze — jetzt sichern',
   ctaHead: 'Jetzt anmelden',
-  reply: 'Antworte einfach auf diesen Status',
+  reply: 'oder antworte einfach auf diesen Status',
   phone: '0162 9300590',
   web: 'tennisacademy-gs.de',
 };
