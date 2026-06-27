@@ -32,7 +32,7 @@ const png = (name) => `data:image/png;base64,${b64(path.join(PUB, name))}`;
 const FONT = b64(path.join(NM, '@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2'));
 const LOGO_GS = png('logo.png');          // Tennis Academy Grand Slam
 const LOGO_BSV = png('bsv-logo-125.png');  // BSV 92 Tennisabteilung – 125 Jahre
-const HERO = jpg('kids-hero.jpg');         // 4 Kinder mit Schlägern am Netz
+const HERO = jpg('tenniscamp.jpg');        // Gruppenfoto Abschlussturnier – Kinder mit Urkunden
 
 const URL = 'https://www.tennisacademy-gs.de/tenniscamp-anmeldung';
 
@@ -111,14 +111,7 @@ html,body{background:#0c0b0a;}
 /* ---- hero photo ---- */
 .hero{position:relative;margin-top:26px;flex:0 0 auto;height:486px;border-radius:30px;overflow:hidden;
   box-shadow:0 24px 60px rgba(34,32,25,.28);outline:3px solid var(--gold);outline-offset:-3px;}
-.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 32%;display:block;}
-.hero::after{content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(34,32,25,.05) 0%,transparent 26%,transparent 58%,rgba(34,32,25,.62) 100%);}
-.hero .badge{position:absolute;left:24px;bottom:24px;z-index:3;display:inline-flex;align-items:center;gap:12px;
-  background:rgba(34,32,25,.82);color:var(--ball);border:2px solid var(--ball);
-  font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:24px;
-  padding:12px 22px 10px;border-radius:40px;backdrop-filter:blur(2px);}
-.hero .badge .ball{width:26px;height:26px;display:block;}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 42%;display:block;}
 
 /* ---- headline ---- */
 .head{flex:0 0 auto;margin-top:30px;}
@@ -155,23 +148,21 @@ html,body{background:#0c0b0a;}
 .price .sub b{display:block;font-weight:900;font-size:38px;color:var(--cream);}
 
 /* ---- CTA ---- */
-.cta{flex:0 0 auto;margin-top:auto;display:flex;align-items:center;gap:26px;
+.cta{flex:0 0 auto;margin-top:auto;display:flex;flex-direction:column;
   background:linear-gradient(155deg,var(--graphite-glow),var(--graphite-deep));color:var(--cream);
-  border-radius:26px;padding:26px 30px;box-shadow:0 18px 46px rgba(34,32,25,.22);}
-.qr{flex:0 0 auto;width:172px;height:172px;background:#fff;border-radius:14px;padding:12px;}
-.qr svg{display:block;width:100%;height:100%;}
+  border-radius:26px;padding:32px 36px;box-shadow:0 18px 46px rgba(34,32,25,.22);}
 .cta__body{flex:1 1 auto;min-width:0;}
-.cta__kick{display:inline-block;font-weight:900;font-size:21px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-soft);}
-.cta__head{font-weight:900;font-size:50px;line-height:1;margin:6px 0 14px;color:var(--cream);}
-.line{display:flex;align-items:center;gap:13px;margin-top:9px;}
-.line svg{flex:0 0 auto;width:30px;height:30px;color:var(--gold-soft);}
-.line span{font-weight:700;font-size:28px;color:var(--cream);}
-.line.reply span{font-weight:700;color:var(--cream-dim);font-size:26px;}
+.cta__kick{display:inline-block;font-weight:900;font-size:23px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-soft);}
+.cta__head{font-weight:900;font-size:58px;line-height:1;margin:8px 0 18px;color:var(--cream);}
+.line{display:flex;align-items:center;gap:15px;margin-top:12px;}
+.line svg{flex:0 0 auto;width:34px;height:34px;color:var(--gold-soft);}
+.line span{font-weight:700;font-size:31px;color:var(--cream);}
+.line.reply span{font-weight:700;color:var(--cream-dim);font-size:29px;}
 `;
 }
 
 // ---------------------------------------------------------------- markup ----
-function markup(qrSvg) {
+function markup() {
   const chips = C.camps.map((c) =>
     `<div class="chip"><b>${c.n}</b><span class="d">${c.d}</span><span class="m">${c.m}</span></div>`
   ).join('');
@@ -184,8 +175,7 @@ function markup(qrSvg) {
   </header>
 
   <div class="hero">
-    <img src="${HERO}" alt="Kinder beim Tenniscamp">
-    <span class="badge">${BALL}${C.kicker}</span>
+    <img src="${HERO}" alt="Kinder beim Tenniscamp mit Urkunden">
   </div>
 
   <div class="head">
@@ -212,12 +202,10 @@ function markup(qrSvg) {
   </section>
 
   <section class="cta">
-    <div class="qr">${qrSvg}</div>
     <div class="cta__body">
       <span class="cta__kick">${C.ctaKick}</span>
       <div class="cta__head">${C.ctaHead}</div>
       <div class="line reply">${I_CHAT}<span>${C.reply}</span></div>
-      <div class="line">${I_PHONE}<span>${C.phone}</span></div>
       <div class="line">${I_WEB}<span>${C.web}/tenniscamp-anmeldung</span></div>
     </div>
   </section>
@@ -241,12 +229,7 @@ function findChrome() {
 }
 
 async function main() {
-  const qrSvg = await QRCode.toString(URL, {
-    type: 'svg', margin: 0, errorCorrectionLevel: 'M',
-    color: { dark: '#222019', light: '#0000' },
-  });
-
-  const html = htmlDoc(css(), markup(qrSvg));
+  const html = htmlDoc(css(), markup());
   fs.writeFileSync(path.join(DIST, 'whatsapp-status.html'), html);
 
   const browser = await puppeteer.launch({
