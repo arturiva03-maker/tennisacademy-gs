@@ -89,7 +89,8 @@ html,body{background:#0b1424;}
   background:#ffffff;
   -webkit-print-color-adjust:exact; print-color-adjust:exact;
   display:flex; flex-direction:column;
-  padding:148px 64px 188px;
+  /* unten extra Platz: WhatsApp legt Bildunterschrift + Antwort-Leiste über den unteren Rand */
+  padding:140px 64px 312px;
 }
 /* faint centre court-line + grain */
 .sheet::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.05;
@@ -111,21 +112,21 @@ html,body{background:#0b1424;}
 .brand .div{width:2px;height:64px;background:linear-gradient(transparent,var(--gold),transparent);opacity:.55;}
 
 /* ---- hero photo (natürliche Farben, eng beschnitten – ohne roten Sandboden) ---- */
-.hero{position:relative;margin-top:26px;flex:0 0 auto;height:462px;border-radius:30px;overflow:hidden;
+.hero{position:relative;margin-top:20px;flex:0 0 auto;height:352px;border-radius:30px;overflow:hidden;
   background:#e8e8ea;box-shadow:0 24px 60px rgba(15,16,19,.26);outline:3px solid var(--gold);outline-offset:-3px;}
 .hero img{width:100%;height:100%;object-fit:cover;object-position:50% 36%;display:block;
   transform:scale(1.32);transform-origin:50% 39%;}
 
 /* ---- headline ---- */
-.head{flex:0 0 auto;margin-top:30px;}
+.head{flex:0 0 auto;margin-top:24px;}
 .title{font-weight:900;line-height:.82;letter-spacing:-.035em;text-transform:uppercase;color:var(--navy-deep);}
-.title .l1{display:flex;align-items:baseline;gap:.32em;white-space:nowrap;font-size:104px;}
+.title .l1{display:flex;align-items:baseline;gap:.32em;white-space:nowrap;font-size:98px;}
 .title .l1 .year{color:var(--gold);font-size:.62em;font-weight:900;letter-spacing:-.01em;}
-.title .l2{white-space:nowrap;font-size:116px;}
+.title .l2{white-space:nowrap;font-size:110px;}
 .hook{margin-top:18px;font-weight:600;font-size:35px;line-height:1.18;color:var(--ink);max-width:30ch;}
 
 /* ---- dates ---- */
-.dates{flex:0 0 auto;margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.dates{flex:0 0 auto;margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 .chip{background:rgba(24,26,30,.05);border:2px solid rgba(24,26,30,.15);border-radius:18px;
   padding:20px 14px 22px;display:flex;flex-direction:column;gap:4px;}
 .chip b{color:var(--navy);font-weight:800;font-size:21px;letter-spacing:.1em;text-transform:uppercase;}
@@ -133,13 +134,13 @@ html,body{background:#0b1424;}
 .chip .m{font-weight:600;font-size:24px;color:var(--ink-dim);}
 
 /* ---- meta (time + place) ---- */
-.meta{flex:0 0 auto;margin-top:24px;display:flex;flex-direction:column;gap:8px;}
+.meta{flex:0 0 auto;margin-top:18px;display:flex;flex-direction:column;gap:8px;}
 .meta .when{display:flex;align-items:center;gap:14px;font-weight:800;font-size:33px;color:var(--navy-deep);}
 .meta .when .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);}
 .meta .where{font-weight:600;font-size:26px;color:var(--ink-dim);line-height:1.2;}
 
 /* ---- price ---- */
-.price{flex:0 0 auto;margin-top:26px;display:flex;align-items:center;justify-content:space-between;gap:20px;
+.price{flex:0 0 auto;margin-top:20px;display:flex;align-items:center;justify-content:space-between;gap:20px;
   background:linear-gradient(155deg,var(--navy-glow),var(--navy-deep));border-radius:22px;padding:26px 30px;
   border:2px solid rgba(236,201,100,.28);}
 .price .lead{display:flex;flex-direction:column;gap:6px;}
