@@ -75,12 +75,13 @@ function css() {
   return `
 @font-face{font-family:'DM Sans';src:url(data:font/woff2;base64,${FONT}) format('woff2');font-weight:100 1000;font-style:normal;font-display:block;}
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{background:#0c0b0a;}
+html,body{background:#0b1424;}
 :root{
-  --gold:#c9a227; --gold-soft:#e8c75e; --gold-dark:#8f6f15;
-  --graphite:#3a3734; --graphite-deep:#222019; --graphite-glow:#46423c;
-  --ink:#2b2723; --ink-dim:#6f685e; --bg:#f2f0ea; --paper:#ffffff;
-  --ball:#cdd84e; --cream:#f7f4ec; --cream-dim:#d9d4ca;
+  /* BSV-92-Logo-Palette: Marineblau (Schläger) + Gold (Jubiläumsband) + Schwarz/Weiß + Ball */
+  --navy:#26395f; --navy-deep:#15223d; --navy-glow:#334d7c;
+  --gold:#c9a227; --gold-soft:#ecc964; --gold-ink:#b0871d;
+  --ink:#1d2640; --ink-dim:#5a6580;
+  --cream:#f6f3ea; --cream-dim:#c9d2e4; --ball:#cdd84e;
 }
 .sheet{
   position:relative; width:1080px; height:1920px; overflow:hidden;
@@ -90,71 +91,72 @@ html,body{background:#0c0b0a;}
   display:flex; flex-direction:column;
   padding:148px 64px 188px;
 }
-/* faint centre court-line + grain, like the poster */
+/* faint centre court-line + grain */
 .sheet::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.05;
-  background:linear-gradient(90deg,transparent 49.7%,var(--graphite) 49.7%,var(--graphite) 50.3%,transparent 50.3%);}
+  background:linear-gradient(90deg,transparent 49.7%,var(--navy) 49.7%,var(--navy) 50.3%,transparent 50.3%);}
 .sheet::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:40;
-  background-image:url("data:image/svg+xml,${GRAIN}");opacity:.045;mix-blend-mode:overlay;}
+  background-image:url("data:image/svg+xml,${GRAIN}");opacity:.04;mix-blend-mode:overlay;}
 .sheet>*{position:relative;z-index:2;}
+.defs{position:absolute;width:0;height:0;overflow:hidden;}
 
 /* ---- co-brand strip ---- */
 .brand{display:flex;align-items:center;justify-content:space-between;gap:18px;flex:0 0 auto;}
 .brand .org{display:flex;flex-direction:column;align-items:center;gap:8px;}
 .brand .role{font-weight:800;font-size:17px;letter-spacing:.16em;text-transform:uppercase;line-height:1;}
-.brand .org--host .role{color:var(--gold-dark);}
+.brand .org--host .role{color:var(--gold-ink);}
 .brand .org--partner .role{color:var(--ink-dim);}
 .brand img{display:block;width:auto;}
 .brand .logo-bsv{height:96px;}
 .brand .logo-gs{height:76px;}
-.brand .div{width:2px;height:64px;background:linear-gradient(transparent,var(--gold),transparent);opacity:.5;}
+.brand .div{width:2px;height:64px;background:linear-gradient(transparent,var(--gold),transparent);opacity:.55;}
 
-/* ---- hero photo ---- */
-.hero{position:relative;margin-top:26px;flex:0 0 auto;height:430px;border-radius:30px;overflow:hidden;
-  box-shadow:0 24px 60px rgba(34,32,25,.28);outline:3px solid var(--gold);outline-offset:-3px;}
-.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block;
-  transform:scale(1.5);transform-origin:50% 26%;}
+/* ---- hero photo (Navy-Duoton, passt zum Logo) ---- */
+.hero{position:relative;margin-top:26px;flex:0 0 auto;height:478px;border-radius:30px;overflow:hidden;
+  background:var(--navy-deep);box-shadow:0 24px 60px rgba(21,34,61,.32);outline:3px solid var(--gold);outline-offset:-3px;}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 38%;display:block;
+  filter:url(#duo) brightness(1.14) contrast(1.05);}
 
 /* ---- headline ---- */
 .head{flex:0 0 auto;margin-top:30px;}
-.title{font-weight:900;line-height:.82;letter-spacing:-.035em;text-transform:uppercase;color:var(--graphite-deep);}
+.title{font-weight:900;line-height:.82;letter-spacing:-.035em;text-transform:uppercase;color:var(--navy-deep);}
 .title .l1{display:flex;align-items:baseline;gap:.32em;white-space:nowrap;font-size:104px;}
-.title .l1 .year{color:var(--gold-dark);font-size:.62em;font-weight:900;letter-spacing:-.01em;}
+.title .l1 .year{color:var(--gold);font-size:.62em;font-weight:900;letter-spacing:-.01em;}
 .title .l2{white-space:nowrap;font-size:116px;}
-.hook{margin-top:18px;font-weight:600;font-size:35px;line-height:1.18;color:var(--graphite);max-width:30ch;}
+.hook{margin-top:18px;font-weight:600;font-size:35px;line-height:1.18;color:var(--ink);max-width:30ch;}
 
 /* ---- dates ---- */
 .dates{flex:0 0 auto;margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-.chip{background:rgba(34,32,25,.045);border:2px solid rgba(34,32,25,.12);border-radius:18px;
+.chip{background:rgba(38,57,95,.05);border:2px solid rgba(38,57,95,.16);border-radius:18px;
   padding:20px 14px 22px;display:flex;flex-direction:column;gap:4px;}
-.chip b{color:var(--gold-dark);font-weight:800;font-size:21px;letter-spacing:.1em;text-transform:uppercase;}
-.chip .d{font-weight:900;font-size:50px;line-height:.94;color:var(--graphite-deep);}
+.chip b{color:var(--navy);font-weight:800;font-size:21px;letter-spacing:.1em;text-transform:uppercase;}
+.chip .d{font-weight:900;font-size:50px;line-height:.94;color:var(--navy-deep);}
 .chip .m{font-weight:600;font-size:24px;color:var(--ink-dim);}
 
 /* ---- meta (time + place) ---- */
 .meta{flex:0 0 auto;margin-top:24px;display:flex;flex-direction:column;gap:8px;}
-.meta .when{display:flex;align-items:center;gap:14px;font-weight:800;font-size:33px;color:var(--graphite-deep);}
+.meta .when{display:flex;align-items:center;gap:14px;font-weight:800;font-size:33px;color:var(--navy-deep);}
 .meta .when .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);}
 .meta .where{font-weight:600;font-size:26px;color:var(--ink-dim);line-height:1.2;}
 
 /* ---- price ---- */
 .price{flex:0 0 auto;margin-top:26px;display:flex;align-items:center;justify-content:space-between;gap:20px;
-  background:linear-gradient(155deg,var(--graphite-glow),var(--graphite));border-radius:22px;padding:26px 30px;
-  border:2px solid rgba(245,241,230,.16);}
+  background:linear-gradient(155deg,var(--navy-glow),var(--navy-deep));border-radius:22px;padding:26px 30px;
+  border:2px solid rgba(236,201,100,.28);}
 .price .lead{display:flex;flex-direction:column;gap:6px;}
 .price h3{font-weight:800;font-size:22px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim);}
 .price .main{display:flex;align-items:baseline;gap:14px;}
 .price .amt{font-weight:900;font-size:74px;line-height:.82;color:var(--gold-soft);}
 .price .lbl{font-weight:700;font-size:30px;color:var(--cream);}
 .price .sub{text-align:right;font-weight:700;font-size:27px;color:var(--cream-dim);line-height:1.25;}
-.price .sub b{display:block;font-weight:900;font-size:38px;color:var(--cream);}
+.price .sub b{display:block;font-weight:900;font-size:38px;color:#fff;}
 
 /* ---- CTA ---- */
 .cta{flex:0 0 auto;margin-top:auto;display:flex;flex-direction:column;
-  background:linear-gradient(155deg,var(--graphite-glow),var(--graphite-deep));color:var(--cream);
-  border-radius:26px;padding:32px 36px;box-shadow:0 18px 46px rgba(34,32,25,.22);}
+  background:linear-gradient(155deg,var(--navy-glow),var(--navy-deep));color:var(--cream);
+  border-radius:26px;padding:32px 36px;box-shadow:0 18px 46px rgba(21,34,61,.26);}
 .cta__body{flex:1 1 auto;min-width:0;}
 .cta__kick{display:inline-block;font-weight:900;font-size:23px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-soft);}
-.cta__head{font-weight:900;font-size:58px;line-height:1;margin:8px 0 18px;color:var(--cream);}
+.cta__head{font-weight:900;font-size:58px;line-height:1;margin:8px 0 18px;color:#fff;}
 .line{display:flex;align-items:center;gap:15px;margin-top:12px;}
 .line svg{flex:0 0 auto;width:34px;height:34px;color:var(--gold-soft);}
 .line span{font-weight:700;font-size:31px;color:var(--cream);}
@@ -168,6 +170,14 @@ function markup() {
     `<div class="chip"><b>${c.n}</b><span class="d">${c.d}</span><span class="m">${c.m}</span></div>`
   ).join('');
   return `
+<svg class="defs" aria-hidden="true"><filter id="duo" color-interpolation-filters="sRGB">
+  <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 1 0"/>
+  <feComponentTransfer>
+    <feFuncR type="table" tableValues="0.082 0.965"/>
+    <feFuncG type="table" tableValues="0.133 0.953"/>
+    <feFuncB type="table" tableValues="0.239 0.918"/>
+  </feComponentTransfer>
+</filter></svg>
 <div class="sheet">
   <header class="brand">
     <div class="org org--host"><span class="role">Veranstalter</span><img class="logo-bsv" src="${LOGO_BSV}" alt="BSV 92 Tennisabteilung"></div>
