@@ -110,11 +110,11 @@ html,body{background:#0b1424;}
 .brand .logo-gs{height:76px;}
 .brand .div{width:2px;height:64px;background:linear-gradient(transparent,var(--gold),transparent);opacity:.55;}
 
-/* ---- hero photo (Navy-Duoton, passt zum Logo) ---- */
-.hero{position:relative;margin-top:26px;flex:0 0 auto;height:478px;border-radius:30px;overflow:hidden;
-  background:var(--navy-deep);box-shadow:0 24px 60px rgba(21,34,61,.32);outline:3px solid var(--gold);outline-offset:-3px;}
-.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 38%;display:block;
-  filter:url(#duo) brightness(1.14) contrast(1.05);}
+/* ---- hero photo (natürliche Farben, eng beschnitten – ohne roten Sandboden) ---- */
+.hero{position:relative;margin-top:26px;flex:0 0 auto;height:462px;border-radius:30px;overflow:hidden;
+  background:#e8e8ea;box-shadow:0 24px 60px rgba(21,34,61,.28);outline:3px solid var(--gold);outline-offset:-3px;}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 36%;display:block;
+  transform:scale(1.32);transform-origin:50% 39%;}
 
 /* ---- headline ---- */
 .head{flex:0 0 auto;margin-top:30px;}
@@ -170,14 +170,6 @@ function markup() {
     `<div class="chip"><b>${c.n}</b><span class="d">${c.d}</span><span class="m">${c.m}</span></div>`
   ).join('');
   return `
-<svg class="defs" aria-hidden="true"><filter id="duo" color-interpolation-filters="sRGB">
-  <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 1 0"/>
-  <feComponentTransfer>
-    <feFuncR type="table" tableValues="0.082 0.965"/>
-    <feFuncG type="table" tableValues="0.133 0.953"/>
-    <feFuncB type="table" tableValues="0.239 0.918"/>
-  </feComponentTransfer>
-</filter></svg>
 <div class="sheet">
   <header class="brand">
     <div class="org org--host"><span class="role">Veranstalter</span><img class="logo-bsv" src="${LOGO_BSV}" alt="BSV 92 Tennisabteilung"></div>
