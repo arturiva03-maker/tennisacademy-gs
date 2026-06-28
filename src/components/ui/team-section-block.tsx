@@ -336,7 +336,7 @@ export function TeamSectionBlock() {
             variant="secondary"
             className="mb-4 bg-primary/10 text-primary hover:bg-primary/20"
           >
-            Unser Trainerteam
+            Tennis Academy Grand Slam
           </Badge>
           <h2 className="mb-4 text-4xl font-bold tracking-tight text-[--text-dark] sm:text-5xl">
             Ein Team, eine Aufgabe.
