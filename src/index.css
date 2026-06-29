@@ -26,11 +26,17 @@
   --gold: #c9a227;
   --gold-light: #e0be4a;
   --gold-dark: #a8861e;
+  --gold-ink: #8a6b14;
   --bg: #f5f6f7;
   --text-dark: #111111;
   --text-medium: #555555;
   --text-light: #666666;
   --white: #ffffff;
+  /* Marken-Aliase: ersetzen zuvor undefinierte Tokens, die off-brand Teal/Gruen-Fallbacks rendern */
+  --primary: var(--navy);
+  --surface: var(--white);
+  --text: var(--text-dark);
+  --accent: var(--gold-ink);
   --border: rgba(0,0,0,0.08);
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
@@ -463,27 +469,27 @@ img {
 }
 
 .hero-text {
-  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+  animation: fadeInUp 0.8s var(--ease-out) 0.2s forwards;
   opacity: 0;
 }
 
 .hero-badge-large {
-  animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+  animation: fadeInUp 0.6s var(--ease-out) 0.1s forwards;
   opacity: 0;
 }
 
 .hero-title-large {
-  animation: heroTitleReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+  animation: heroTitleReveal 0.9s var(--ease-out) 0.3s forwards;
   opacity: 0;
 }
 
 .hero-subtitle {
-  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+  animation: fadeInUp 0.7s var(--ease-out) 0.6s forwards;
   opacity: 0;
 }
 
 .hero-cta {
-  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.8s forwards;
+  animation: fadeInUp 0.7s var(--ease-out) 0.8s forwards;
   opacity: 0;
 }
 
@@ -580,7 +586,7 @@ img {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-ink);
 }
 
 .camp-termin-dates {
@@ -701,8 +707,8 @@ img {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent, #1a8754);
-  background: rgba(26, 135, 84, 0.1);
+  color: var(--accent);
+  background: rgba(201, 162, 39, 0.12);
   padding: 6px 12px;
   border-radius: 999px;
   margin-bottom: 12px;
@@ -2649,7 +2655,7 @@ img {
 }
 
 .news-card-meta svg {
-  color: var(--gold);
+  color: var(--gold-ink);
 }
 
 .news-card-text {
@@ -2894,7 +2900,7 @@ img {
 }
 
 .notfallbogen-callout a {
-  color: var(--primary, #0f766e);
+  color: var(--primary);
   text-decoration: underline;
 }
 
@@ -3085,7 +3091,7 @@ img {
 
 .footer-brand p {
   font-size: 0.85rem;
-  opacity: 0.5;
+  opacity: 0.72;
   line-height: 1.6;
 }
 
@@ -3095,7 +3101,7 @@ img {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 14px;
-  opacity: 0.4;
+  opacity: 0.7;
 }
 
 .footer-links ul {
@@ -3108,7 +3114,7 @@ img {
 
 .footer-links a {
   font-size: 0.85rem;
-  opacity: 0.6;
+  opacity: 0.82;
   transition: var(--transition);
 }
 
@@ -3175,7 +3181,7 @@ img {
   border-top: 1px solid rgba(255,255,255,0.06);
   text-align: center;
   font-size: 0.75rem;
-  opacity: 0.35;
+  opacity: 0.6;
 }
 
 /* ========== PAGE HEADER ========== */
@@ -3238,7 +3244,7 @@ img {
   letter-spacing: -0.02em;
   font-weight: 900;
   font-family: var(--font-display);
-  animation: heroTitleReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+  animation: heroTitleReveal 0.8s var(--ease-out) 0.2s forwards;
   opacity: 0;
 }
 
@@ -3288,7 +3294,7 @@ img {
 .coming-soon-content {
   text-align: center;
   max-width: 520px;
-  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: fadeInUp 0.8s var(--ease-out) forwards;
   position: relative;
   z-index: 1;
 }
@@ -3570,7 +3576,7 @@ img {
   position: absolute;
   inset: 0;
   background: url('/neues%20hero.jpeg') center / cover no-repeat;
-  filter: brightness(1.05) saturate(1.05);
+  filter: brightness(1) saturate(1.05);
   z-index: 0;
 }
 
@@ -3579,9 +3585,9 @@ img {
   inset: 0;
   background: linear-gradient(
     130deg,
-    rgba(11, 37, 56, 0.38) 0%,
-    rgba(11, 37, 56, 0.2) 45%,
-    rgba(22, 61, 94, 0.08) 100%
+    rgba(11, 37, 56, 0.58) 0%,
+    rgba(11, 37, 56, 0.42) 45%,
+    rgba(22, 61, 94, 0.30) 100%
   );
   z-index: 1;
 }
@@ -4007,7 +4013,7 @@ img {
   font-size: 0.78rem;
   letter-spacing: 0.22em;
   font-weight: 600;
-  color: var(--gold);
+  color: var(--gold-ink);
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
