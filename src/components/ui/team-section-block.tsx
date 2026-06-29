@@ -187,9 +187,9 @@ function TeamMemberCard({
               : {
                   background: isHovered
                     ? [
-                        "radial-gradient(circle at 20% 50%, rgba(var(--tw-primary), 0.1) 0%, transparent 50%)",
-                        "radial-gradient(circle at 80% 50%, rgba(var(--tw-primary), 0.1) 0%, transparent 50%)",
-                        "radial-gradient(circle at 20% 50%, rgba(var(--tw-primary), 0.1) 0%, transparent 50%)",
+                        "radial-gradient(circle at 20% 50%, hsl(var(--tw-primary) / 0.1) 0%, transparent 50%)",
+                        "radial-gradient(circle at 80% 50%, hsl(var(--tw-primary) / 0.1) 0%, transparent 50%)",
+                        "radial-gradient(circle at 20% 50%, hsl(var(--tw-primary) / 0.1) 0%, transparent 50%)",
                       ]
                     : undefined,
                 }
