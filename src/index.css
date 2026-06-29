@@ -2422,9 +2422,10 @@ img {
 
 .einstieg-steps {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 32px;
-  margin-top: 48px;
+  margin: 48px auto 0;
+  max-width: 760px;
 }
 
 .einstieg-step {
