@@ -3268,6 +3268,20 @@ img {
   opacity: 0;
 }
 
+/* Trainer-Hero: Hochformat-Teamfoto braucht mehr Hoehe + Text nach unten,
+   damit Gesichter und DTB/VDT-Siegel sichtbar bleiben statt nur Koepfe */
+.page-hero--trainer {
+  min-height: 82vh;
+  align-items: flex-end;
+  padding-bottom: 56px;
+}
+
+@media (max-width: 600px) {
+  .page-hero--trainer {
+    min-height: 70vh;
+  }
+}
+
 /* ========== COMING SOON ========== */
 .coming-soon {
   min-height: 100vh;
