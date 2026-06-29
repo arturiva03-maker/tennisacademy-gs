@@ -1096,12 +1096,12 @@ img {
 }
 
 .hero-title-large {
-  font-size: clamp(3rem, 6.5vw, 5rem);
+  font-size: clamp(3.2rem, 7vw, 5.6rem);
   font-weight: 900;
   margin-bottom: 24px;
   color: var(--white);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
   font-family: var(--font-display);
 }
 
@@ -3237,11 +3237,11 @@ img {
 }
 
 .page-hero h1 {
-  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
   margin-bottom: 20px;
   color: var(--white);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
   font-weight: 900;
   font-family: var(--font-display);
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);

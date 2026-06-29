@@ -289,7 +289,7 @@ export default function TenniscampAnmeldung() {
 
   return (
     <>
-      <section className="page-hero" style={{ backgroundImage: "url('/neues%20hero.jpeg')" }}>
+      <section className="page-hero" style={{ backgroundImage: "url('/tenniscamp4.jpg')", backgroundPosition: 'center 38%' }}>
         <div className="page-hero-overlay"></div>
         <div className="container">
           <h1>Tenniscamp-Anmeldung</h1>

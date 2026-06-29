@@ -4,7 +4,7 @@ import { AnimatedSection } from '../hooks/useScrollAnimation';
 export default function DtbVdt() {
   return (
     <>
-      <section className="page-hero" style={{ backgroundImage: "url('/neues%20hero.jpeg')" }}>
+      <section className="page-hero page-hero--trainer" style={{ backgroundImage: "url('/trainer-team.jpg')", backgroundPosition: 'center 42%' }}>
         <div className="page-hero-overlay"></div>
         <div className="container">
           <h1>Deutsche Tennisschule</h1>
