@@ -147,7 +147,7 @@ export default function Kontakt() {
 
   return (
     <>
-      <section className="page-hero" style={{ backgroundImage: "url('/gruppentraining.jpg')", backgroundPosition: 'center 40%' }}>
+      <section className="page-hero" style={{ backgroundImage: "url('/neues%20hero.jpeg')" }}>
         <div className="page-hero-overlay"></div>
         <div className="container">
           <h1>Kontakt</h1>
