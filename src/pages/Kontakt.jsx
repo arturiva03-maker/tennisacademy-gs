@@ -1,9 +1,10 @@
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
-import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { CheckCircle, AlertCircle } from 'lucide-react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
+import { useLang } from '../i18n/LanguageContext';
 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -12,38 +13,105 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const RATE_LIMIT_MS = 60000;
 const MAX_SUBMISSIONS = 3;
 
-const validateForm = (data) => {
+const T = {
+  de: {
+    heroTitle: 'Kontakt',
+    heroSub: 'Wir freuen uns auf deine Nachricht',
+    infoTitle: 'So erreichst du uns',
+    infoText: 'Hast du Fragen zu unserem Trainingsangebot? Schreib uns!',
+    successTitle: 'Nachricht gesendet!',
+    successText: 'Vielen Dank für deine Anfrage. Wir melden uns schnellstmöglich bei dir.',
+    newMessage: 'Neue Nachricht',
+    name: 'Name *',
+    email: 'E-Mail *',
+    phone: 'Telefon',
+    subject: 'Betreff *',
+    message: 'Nachricht *',
+    privacyPre: 'Ich habe die ',
+    privacyLink: 'Datenschutzerklärung',
+    privacyPost: ' gelesen und bin mit der Verarbeitung meiner Daten einverstanden. *',
+    sending: 'Wird gesendet...',
+    send: 'Nachricht senden',
+    genericError: 'Es gab einen Fehler. Bitte versuche es erneut.',
+    errors: {
+      nameMin: 'Name muss mindestens 2 Zeichen haben',
+      nameMax: 'Name darf maximal 100 Zeichen haben',
+      email: 'Bitte gib eine gültige E-Mail-Adresse ein',
+      phone: 'Bitte gib eine gültige Telefonnummer ein',
+      subjectMin: 'Betreff muss mindestens 3 Zeichen haben',
+      subjectMax: 'Betreff darf maximal 200 Zeichen haben',
+      messageMin: 'Nachricht muss mindestens 10 Zeichen haben',
+      messageMax: 'Nachricht darf maximal 5000 Zeichen haben',
+      privacy: 'Bitte akzeptiere die Datenschutzerklärung',
+      rateLimit: 'Zu viele Anfragen. Bitte warte einen Moment.',
+    },
+  },
+  en: {
+    heroTitle: 'Contact',
+    heroSub: 'We look forward to your message',
+    infoTitle: 'How to Reach Us',
+    infoText: 'Questions about our training programmes? Write to us!',
+    successTitle: 'Message sent!',
+    successText: 'Thank you for your enquiry. We will get back to you as soon as possible.',
+    newMessage: 'New message',
+    name: 'Name *',
+    email: 'Email *',
+    phone: 'Phone',
+    subject: 'Subject *',
+    message: 'Message *',
+    privacyPre: 'I have read the ',
+    privacyLink: 'privacy policy',
+    privacyPost: ' and consent to the processing of my data. *',
+    sending: 'Sending...',
+    send: 'Send message',
+    genericError: 'Something went wrong. Please try again.',
+    errors: {
+      nameMin: 'Name must be at least 2 characters',
+      nameMax: 'Name must not exceed 100 characters',
+      email: 'Please enter a valid email address',
+      phone: 'Please enter a valid phone number',
+      subjectMin: 'Subject must be at least 3 characters',
+      subjectMax: 'Subject must not exceed 200 characters',
+      messageMin: 'Message must be at least 10 characters',
+      messageMax: 'Message must not exceed 5000 characters',
+      privacy: 'Please accept the privacy policy',
+      rateLimit: 'Too many requests. Please wait a moment.',
+    },
+  },
+};
+
+const validateForm = (data, msg) => {
   const errors = {};
 
   if (!data.name || data.name.trim().length < 2) {
-    errors.name = 'Name muss mindestens 2 Zeichen haben';
+    errors.name = msg.nameMin;
   } else if (data.name.length > 100) {
-    errors.name = 'Name darf maximal 100 Zeichen haben';
+    errors.name = msg.nameMax;
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!data.email || !emailRegex.test(data.email)) {
-    errors.email = 'Bitte gib eine gültige E-Mail-Adresse ein';
+    errors.email = msg.email;
   }
 
   if (data.phone && !/^[\d\s\-+()]*$/.test(data.phone)) {
-    errors.phone = 'Bitte gib eine gültige Telefonnummer ein';
+    errors.phone = msg.phone;
   }
 
   if (!data.subject || data.subject.trim().length < 3) {
-    errors.subject = 'Betreff muss mindestens 3 Zeichen haben';
+    errors.subject = msg.subjectMin;
   } else if (data.subject.length > 200) {
-    errors.subject = 'Betreff darf maximal 200 Zeichen haben';
+    errors.subject = msg.subjectMax;
   }
 
   if (!data.message || data.message.trim().length < 10) {
-    errors.message = 'Nachricht muss mindestens 10 Zeichen haben';
+    errors.message = msg.messageMin;
   } else if (data.message.length > 5000) {
-    errors.message = 'Nachricht darf maximal 5000 Zeichen haben';
+    errors.message = msg.messageMax;
   }
 
   if (!data.privacy) {
-    errors.privacy = 'Bitte akzeptiere die Datenschutzerklärung';
+    errors.privacy = msg.privacy;
   }
 
   return errors;
@@ -75,6 +143,8 @@ const isRateLimited = () => {
 
 export default function Kontakt() {
   const formRef = useRef();
+  const { lang } = useLang();
+  const t = T[lang];
   const [status, setStatus] = useState('idle');
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
@@ -108,12 +178,12 @@ export default function Kontakt() {
 
     if (isRateLimited()) {
       setErrors({
-        form: 'Zu viele Anfragen. Bitte warte einen Moment.'
+        form: t.errors.rateLimit
       });
       return;
     }
 
-    const validationErrors = validateForm(formData);
+    const validationErrors = validateForm(formData, t.errors);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
@@ -123,6 +193,9 @@ export default function Kontakt() {
     setErrors({});
 
     try {
+      // Versand über das Form-Element: Feldinhalte sind Nutzereingaben,
+      // der Betreff-Prefix ("Kontaktanfrage") bleibt unabhängig von der
+      // UI-Sprache immer deutsch (verstecktes title-Feld unten).
       await emailjs.sendForm(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
@@ -150,8 +223,8 @@ export default function Kontakt() {
       <section className="page-hero" style={{ backgroundImage: "url('/neues%20hero.jpeg')" }}>
         <div className="page-hero-overlay"></div>
         <div className="container">
-          <h1>Kontakt</h1>
-          <p>Wir freuen uns auf deine Nachricht</p>
+          <h1>{t.heroTitle}</h1>
+          <p>{t.heroSub}</p>
         </div>
       </section>
 
@@ -160,10 +233,8 @@ export default function Kontakt() {
           <div className="kontakt-grid">
             <AnimatedSection>
               <div className="kontakt-info">
-                <h2>So erreichst du uns</h2>
-              <p>
-                Hast du Fragen zu unserem Trainingsangebot? Schreib uns!
-              </p>
+                <h2>{t.infoTitle}</h2>
+              <p>{t.infoText}</p>
 
               <div className="kontakt-details">
                 <div className="kontakt-item">
@@ -181,10 +252,10 @@ export default function Kontakt() {
               {status === 'success' ? (
                 <div className="form-success">
                   <CheckCircle size={48} />
-                  <h3>Nachricht gesendet!</h3>
-                  <p>Vielen Dank für deine Anfrage. Wir melden uns schnellstmöglich bei dir.</p>
+                  <h3>{t.successTitle}</h3>
+                  <p>{t.successText}</p>
                   <ButtonWithIcon onClick={() => setStatus('idle')}>
-                    Neue Nachricht
+                    {t.newMessage}
                   </ButtonWithIcon>
                 </div>
               ) : (
@@ -208,7 +279,7 @@ export default function Kontakt() {
 
                   <div className="form-row">
                     <div className="form-group">
-                      <label htmlFor="name">Name *</label>
+                      <label htmlFor="name">{t.name}</label>
                       <input
                         type="text"
                         id="name"
@@ -221,7 +292,7 @@ export default function Kontakt() {
                       {errors.name && <span className="field-error">{errors.name}</span>}
                     </div>
                     <div className="form-group">
-                      <label htmlFor="email">E-Mail *</label>
+                      <label htmlFor="email">{t.email}</label>
                       <input
                         type="email"
                         id="email"
@@ -236,7 +307,7 @@ export default function Kontakt() {
 
                   <div className="form-row">
                     <div className="form-group">
-                      <label htmlFor="phone">Telefon</label>
+                      <label htmlFor="phone">{t.phone}</label>
                       <input
                         type="tel"
                         id="phone"
@@ -248,7 +319,7 @@ export default function Kontakt() {
                       {errors.phone && <span className="field-error">{errors.phone}</span>}
                     </div>
                     <div className="form-group">
-                      <label htmlFor="subject">Betreff *</label>
+                      <label htmlFor="subject">{t.subject}</label>
                       <input
                         type="text"
                         id="subject"
@@ -263,7 +334,7 @@ export default function Kontakt() {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="message">Nachricht *</label>
+                    <label htmlFor="message">{t.message}</label>
                     <textarea
                       id="message"
                       name="message"
@@ -285,8 +356,7 @@ export default function Kontakt() {
                         onChange={handleChange}
                       />
                       <span>
-                        Ich habe die <Link to="/datenschutz" target="_blank">Datenschutzerklärung</Link> gelesen
-                        und bin mit der Verarbeitung meiner Daten einverstanden. *
+                        {t.privacyPre}<Link to="/datenschutz" target="_blank">{t.privacyLink}</Link>{t.privacyPost}
                       </span>
                     </label>
                     {errors.privacy && <span className="field-error">{errors.privacy}</span>}
@@ -295,7 +365,7 @@ export default function Kontakt() {
                   {(status === 'error' || errors.form) && (
                     <div className="form-error">
                       <AlertCircle size={20} />
-                      <span>{errors.form || 'Es gab einen Fehler. Bitte versuche es erneut.'}</span>
+                      <span>{errors.form || t.genericError}</span>
                     </div>
                   )}
 
@@ -303,11 +373,7 @@ export default function Kontakt() {
                     type="submit"
                     disabled={status === 'sending'}
                   >
-                    {status === 'sending' ? (
-                      'Wird gesendet...'
-                    ) : (
-                      'Nachricht senden'
-                    )}
+                    {status === 'sending' ? t.sending : t.send}
                   </ButtonWithIcon>
                 </form>
               )}

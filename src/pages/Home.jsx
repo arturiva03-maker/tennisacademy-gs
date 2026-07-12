@@ -2,45 +2,137 @@ import { useEffect } from 'react';
 import { Calendar, Award, Target, Users } from 'lucide-react';
 import { motion } from 'motion/react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
-import { events } from './News';
+import { eventsByLang } from './News';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
+import { useLang } from '../i18n/LanguageContext';
 
-const OFFERINGS = [
-  {
-    id: 'mini',
-    age: '3–5 Jahre',
-    title: 'Mini Tennis – Ballschule',
-    description:
-      'Entwicklung der koordinativen Fähigkeiten und Erlernen erster Schlagtechniken.',
-    video: '/ballschule.mp4',
-    videoEndTime: 7,
+const OFFERINGS = {
+  de: [
+    {
+      id: 'mini',
+      age: '3–5 Jahre',
+      title: 'Mini Tennis – Ballschule',
+      description:
+        'Entwicklung der koordinativen Fähigkeiten und Erlernen erster Schlagtechniken.',
+      video: '/ballschule.mp4',
+      videoEndTime: 7,
+    },
+    {
+      id: 'kids',
+      age: '5–8 Jahre',
+      title: 'Kids on Court',
+      description:
+        'Entwicklung einer stabilen Schlagform sowie erste strategische Übungen.',
+      image: '/yari.jpeg',
+      portrait: true,
+    },
+    {
+      id: 'jugend',
+      age: '8–18 Jahre',
+      title: 'Kinder- und Jugendtraining',
+      description:
+        'Je nach Spielstärke Einteilung in Gruppen oder individuelles Einzeltraining.',
+      image: '/offer-jugend-2.jpg',
+    },
+    {
+      id: 'camp',
+      age: 'Sommerferien',
+      title: 'Sommercamps',
+      description:
+        'Halbtägige Betreuung mit viel Sport und Verpflegung.',
+      image: '/sc1.jpeg',
+    },
+  ],
+  en: [
+    {
+      id: 'mini',
+      age: 'Ages 3–5',
+      title: 'Mini Tennis – Ball School',
+      description:
+        'Developing coordination skills and learning the first stroke techniques.',
+      video: '/ballschule.mp4',
+      videoEndTime: 7,
+    },
+    {
+      id: 'kids',
+      age: 'Ages 5–8',
+      title: 'Kids on Court',
+      description:
+        'Developing a stable stroke technique along with first strategic exercises.',
+      image: '/yari.jpeg',
+      portrait: true,
+    },
+    {
+      id: 'jugend',
+      age: 'Ages 8–18',
+      title: 'Youth Training',
+      description:
+        'Group placement by skill level or individual one-on-one coaching.',
+      image: '/offer-jugend-2.jpg',
+    },
+    {
+      id: 'camp',
+      age: 'Summer holidays',
+      title: 'Summer Camps',
+      description:
+        'Half-day programme with plenty of sport, lunch and drinks.',
+      image: '/sc1.jpeg',
+    },
+  ],
+};
+
+const T = {
+  de: {
+    kicker: 'DTB / VDT anerkannte Tennisschule  ·  Berlin-Wilmersdorf',
+    heroSub:
+      'Professionelles Training für alle Spielklassen und Altersgruppen – von der Ballschule bis zum Wettkampftraining.',
+    ctaPrices: 'Preise ansehen',
+    ctaTeam: 'Unser Team',
+    campBoardAria: 'Tenniscamp Sommerferien 2026 — zur Anmeldung',
+    campBoardEyebrow: 'Tenniscamp · Sommerferien 2026',
+    campWeek: 'Woche',
+    campMeta: 'BSV 92 · Mo – Fr · 9:30 – 15:00',
+    campCta: 'Zur Anmeldung →',
+    offerHeadline: 'Unser Angebot',
+    offerIntro:
+      'Von ersten koordinativen Übungen bis zum Wettkampfvorbereitungstraining – wir begleiten dich Schritt für Schritt in deinem Tennisleben.',
+    latestNews: 'Aktuelles',
+    dtbTitle: 'Deutsche Tennisschule',
+    dtbText:
+      'Unsere TENNIS ACADEMY GRAND SLAM erfüllt die fachlichen und organisatorischen Voraussetzungen der Deutschen Tennisschule, anerkannt vom Deutschen Tennis Bund (DTB) und dem Verband Deutscher Tennislehrer (VDT).',
+    dtbFeature1: 'Zertifizierte Trainer',
+    dtbFeature2: 'Qualitätsstandards',
+    dtbFeature3: 'Professionelle Ausbildung',
+    dtbMore: 'Mehr erfahren',
+    tennisNews: 'Tennis News',
+    tennisNewsSub: 'Aktuelle Nachrichten aus der Tenniswelt via tennis.de',
   },
-  {
-    id: 'kids',
-    age: '5–8 Jahre',
-    title: 'Kids on Court',
-    description:
-      'Entwicklung einer stabilen Schlagform sowie erste strategische Übungen.',
-    image: '/yari.jpeg',
-    portrait: true,
+  en: {
+    kicker: 'DTB / VDT accredited tennis school  ·  Berlin-Wilmersdorf',
+    heroSub:
+      'Professional coaching for all levels and age groups – from ball school to competitive training.',
+    ctaPrices: 'View prices',
+    ctaTeam: 'Our team',
+    campBoardAria: 'Tennis camp summer holidays 2026 — go to registration',
+    campBoardEyebrow: 'Tennis Camp · Summer Holidays 2026',
+    campWeek: 'Week',
+    campMeta: 'BSV 92 · Mon – Fri · 9:30 am – 3:00 pm',
+    campCta: 'Register now →',
+    offerHeadline: 'What We Offer',
+    offerIntro:
+      'From first coordination exercises to competition preparation – we guide you step by step through your tennis journey.',
+    latestNews: 'Latest News',
+    dtbTitle: 'German Tennis School',
+    dtbText:
+      'Our TENNIS ACADEMY GRAND SLAM meets the professional and organisational requirements of the German Tennis School, accredited by the German Tennis Federation (DTB) and the Association of German Tennis Coaches (VDT).',
+    dtbFeature1: 'Certified coaches',
+    dtbFeature2: 'Quality standards',
+    dtbFeature3: 'Professional education',
+    dtbMore: 'Learn more',
+    tennisNews: 'Tennis News',
+    tennisNewsSub: 'Latest news from the tennis world via tennis.de',
   },
-  {
-    id: 'jugend',
-    age: '8–18 Jahre',
-    title: 'Kinder- und Jugendtraining',
-    description:
-      'Je nach Spielstärke Einteilung in Gruppen oder individuelles Einzeltraining.',
-    image: '/offer-jugend-2.jpg',
-  },
-  {
-    id: 'camp',
-    age: 'Sommerferien',
-    title: 'Sommercamps',
-    description:
-      'Halbtägige Betreuung mit viel Sport und Verpflegung.',
-    image: '/sc1.jpeg',
-  },
-];
+};
 
 function TennisNewsWidget() {
   useEffect(() => {
@@ -114,6 +206,11 @@ function TimelineItem({ offering, index }) {
 }
 
 export default function Home() {
+  const { lang } = useLang();
+  const t = T[lang];
+  const offerings = OFFERINGS[lang];
+  const events = eventsByLang[lang];
+
   return (
     <>
       {/* CINEMATIC HERO */}
@@ -137,7 +234,7 @@ export default function Home() {
                 show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
               }}
             >
-              DTB / VDT anerkannte Tennisschule &nbsp;·&nbsp; Berlin-Wilmersdorf
+              {t.kicker}
             </motion.p>
 
             <motion.h1
@@ -163,8 +260,7 @@ export default function Home() {
                 show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
               }}
             >
-              Professionelles Training für alle Spielklassen und Altersgruppen –
-              von der Ballschule bis zum Wettkampftraining.
+              {t.heroSub}
             </motion.p>
 
             <motion.div
@@ -175,42 +271,42 @@ export default function Home() {
               }}
             >
               <ButtonWithIcon href="/preise" onDark>
-                Preise ansehen
+                {t.ctaPrices}
               </ButtonWithIcon>
               <ButtonWithIcon href="/trainer" variant="outline" onDark>
-                Unser Team
+                {t.ctaTeam}
               </ButtonWithIcon>
             </motion.div>
 
             <motion.a
               href="/tenniscamp-anmeldung"
               className="gs-hero-camp-board"
-              aria-label="Tenniscamp Sommerferien 2026 — zur Anmeldung"
+              aria-label={t.campBoardAria}
               variants={{
                 hidden: { opacity: 0, y: 24 },
                 show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut', delay: 0.15 } },
               }}
             >
               <div className="gs-hero-camp-board-head">
-                <span className="gs-hero-camp-board-eyebrow">Tenniscamp · Sommerferien 2026</span>
+                <span className="gs-hero-camp-board-eyebrow">{t.campBoardEyebrow}</span>
               </div>
               <div className="gs-hero-camp-board-rows">
                 <div className="gs-hero-camp-board-row">
-                  <span className="gs-hero-camp-board-week">Woche 1</span>
+                  <span className="gs-hero-camp-board-week">{t.campWeek} 1</span>
                   <span className="gs-hero-camp-board-dates">13.07. – 17.07.2026</span>
                 </div>
                 <div className="gs-hero-camp-board-row">
-                  <span className="gs-hero-camp-board-week">Woche 5</span>
+                  <span className="gs-hero-camp-board-week">{t.campWeek} 5</span>
                   <span className="gs-hero-camp-board-dates">10.08. – 14.08.2026</span>
                 </div>
                 <div className="gs-hero-camp-board-row">
-                  <span className="gs-hero-camp-board-week">Woche 6</span>
+                  <span className="gs-hero-camp-board-week">{t.campWeek} 6</span>
                   <span className="gs-hero-camp-board-dates">17.08. – 21.08.2026</span>
                 </div>
               </div>
               <div className="gs-hero-camp-board-foot">
-                <span className="gs-hero-camp-board-meta">BSV 92 · Mo – Fr · 9:30 – 15:00</span>
-                <span className="gs-hero-camp-board-cta">Zur Anmeldung →</span>
+                <span className="gs-hero-camp-board-meta">{t.campMeta}</span>
+                <span className="gs-hero-camp-board-cta">{t.campCta}</span>
               </div>
             </motion.a>
           </motion.div>
@@ -223,17 +319,14 @@ export default function Home() {
         <div className="container">
           <AnimatedSection>
             <div className="gs-offer-header">
-              <h2 className="gs-offer-headline">Unser Angebot</h2>
-              <p className="gs-offer-intro">
-                Von ersten koordinativen Übungen bis zum Wettkampfvorbereitungstraining –
-                wir begleiten dich Schritt für Schritt in deinem Tennisleben.
-              </p>
+              <h2 className="gs-offer-headline">{t.offerHeadline}</h2>
+              <p className="gs-offer-intro">{t.offerIntro}</p>
             </div>
           </AnimatedSection>
         </div>
         <div className="container">
           <ol className="gs-timeline">
-            {OFFERINGS.map((offering, i) => (
+            {offerings.map((offering, i) => (
               <TimelineItem key={offering.id} offering={offering} index={i} />
             ))}
           </ol>
@@ -246,7 +339,7 @@ export default function Home() {
           <div className="container">
             <AnimatedSection>
               <div className="section-header">
-                <h2 className="section-title">Aktuelles</h2>
+                <h2 className="section-title">{t.latestNews}</h2>
               </div>
             </AnimatedSection>
             <AnimatedSection delay={0.1}>
@@ -291,27 +384,23 @@ export default function Home() {
                 />
               </div>
               <div className="dtb-content">
-                <h2>Deutsche Tennisschule</h2>
-                <p>
-                  Unsere TENNIS ACADEMY GRAND SLAM erfüllt die fachlichen und organisatorischen
-                  Voraussetzungen der Deutschen Tennisschule, anerkannt vom Deutschen
-                  Tennis Bund (DTB) und dem Verband Deutscher Tennislehrer (VDT).
-                </p>
+                <h2>{t.dtbTitle}</h2>
+                <p>{t.dtbText}</p>
                 <div className="dtb-features">
                   <div className="dtb-feature">
                     <Award size={20} />
-                    <span>Zertifizierte Trainer</span>
+                    <span>{t.dtbFeature1}</span>
                   </div>
                   <div className="dtb-feature">
                     <Target size={20} />
-                    <span>Qualitätsstandards</span>
+                    <span>{t.dtbFeature2}</span>
                   </div>
                   <div className="dtb-feature">
                     <Users size={20} />
-                    <span>Professionelle Ausbildung</span>
+                    <span>{t.dtbFeature3}</span>
                   </div>
                 </div>
-                <ButtonWithIcon href="/dtb-vdt">Mehr erfahren</ButtonWithIcon>
+                <ButtonWithIcon href="/dtb-vdt">{t.dtbMore}</ButtonWithIcon>
               </div>
             </div>
           </AnimatedSection>
@@ -323,10 +412,8 @@ export default function Home() {
         <div className="container">
           <AnimatedSection>
             <div className="section-header">
-              <h2 className="section-title">Tennis News</h2>
-              <p className="section-subtitle">
-                Aktuelle Nachrichten aus der Tenniswelt via tennis.de
-              </p>
+              <h2 className="section-title">{t.tennisNews}</h2>
+              <p className="section-subtitle">{t.tennisNewsSub}</p>
             </div>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>

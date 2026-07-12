@@ -454,6 +454,59 @@ img {
   background: rgba(22, 61, 94, 0.06);
 }
 
+/* ========== LANGUAGE SWITCH ========== */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 8px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--text-light);
+  font-size: 0.8rem;
+}
+
+.lang-switch button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 5px;
+  font: inherit;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-medium);
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.lang-switch button:hover {
+  color: var(--navy);
+  background: rgba(11, 37, 56, 0.06);
+}
+
+.lang-switch button:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+.lang-switch button.is-active {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.lang-switch--mobile {
+  margin: 16px 0 0 0;
+  padding: 16px 20px 0 20px;
+  border-left: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 1rem;
+}
+
+.lang-switch--mobile button {
+  padding: 10px 12px;
+  font-size: 1rem;
+}
+
 /* ========== HERO ========== */
 .hero {
   position: relative;

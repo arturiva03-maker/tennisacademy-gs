@@ -10,92 +10,182 @@ import {
 } from "framer-motion";
 import { User } from "lucide-react";
 import { useState } from "react";
+import { useLang } from "../../i18n/LanguageContext";
 
-const teamMembers = [
-  {
-    name: "Michael Lingner",
-    role: "Leitung der TENNIS ACADEMY GRAND SLAM",
-    bio: "A-Trainer · Verbandstrainer des TVBB, DTB Vereinsmanager",
-    image: "/michael.jpg",
-    imagePosition: "center 10%",
-    location: "Berlin",
-    skills: ["A-Trainer", "TVBB Lehrteam"],
-    gradient: "from-white/10 via-white/5 to-transparent",
-    bullets: [
-      "Verbandstrainer des TVBB, DTB Vereinsmanager",
-      "TVBB Lehrteam, VDT Mitglied",
-      "Langjähriger Regionalliga-Spieler",
-      "Inhaber Tennisshop Grand Slam seit 1998",
-      "IHK-Ausbilder, ehem. Lehrbeauftragter FU Berlin",
-    ],
-    social: {
-      email: "info@tennisacademy-gs.de",
+const teamMembersByLang = {
+  de: [
+    {
+      name: "Michael Lingner",
+      role: "Leitung der TENNIS ACADEMY GRAND SLAM",
+      bio: "A-Trainer · Verbandstrainer des TVBB, DTB Vereinsmanager",
+      image: "/michael.jpg",
+      imagePosition: "center 10%",
+      location: "Berlin",
+      skills: ["A-Trainer", "TVBB Lehrteam"],
+      gradient: "from-white/10 via-white/5 to-transparent",
+      bullets: [
+        "Verbandstrainer des TVBB, DTB Vereinsmanager",
+        "TVBB Lehrteam, VDT Mitglied",
+        "Langjähriger Regionalliga-Spieler",
+        "Inhaber Tennisshop Grand Slam seit 1998",
+        "IHK-Ausbilder, ehem. Lehrbeauftragter FU Berlin",
+      ],
+      social: {
+        email: "info@tennisacademy-gs.de",
+      },
     },
-  },
-  {
-    name: "Jana Hladká-Kissal",
-    role: "Leitung der TENNIS ACADEMY GRAND SLAM",
-    bio: "B-Trainer · Ehemalige Profispielerin aus der Slowakei",
-    image: "/jana.jpg",
-    imagePosition: "center 0%",
-    location: "Berlin",
-    skills: ["B-Trainer", "Kids on Court"],
-    gradient: "from-white/12 via-white/5 to-transparent",
-    bullets: [
-      "Ehemalige Profispielerin aus der Slowakei",
-      "10 Jahre Regionalliga beim TC Grunewald als Nr. 1",
-      "Deutsche Mannschaftsmeisterin Damen 40+ (2014)",
-      "Verbandsmeisterin 50+ (2021 & 2024)",
-      "Trainerin seit 1994 – Schwerpunkt: Kids on Court",
-    ],
-    social: {
-      email: "info@tennisacademy-gs.de",
+    {
+      name: "Jana Hladká-Kissal",
+      role: "Leitung der TENNIS ACADEMY GRAND SLAM",
+      bio: "B-Trainer · Ehemalige Profispielerin aus der Slowakei",
+      image: "/jana.jpg",
+      imagePosition: "center 0%",
+      location: "Berlin",
+      skills: ["B-Trainer", "Kids on Court"],
+      gradient: "from-white/12 via-white/5 to-transparent",
+      bullets: [
+        "Ehemalige Profispielerin aus der Slowakei",
+        "10 Jahre Regionalliga beim TC Grunewald als Nr. 1",
+        "Deutsche Mannschaftsmeisterin Damen 40+ (2014)",
+        "Verbandsmeisterin 50+ (2021 & 2024)",
+        "Trainerin seit 1994 – Schwerpunkt: Kids on Court",
+      ],
+      social: {
+        email: "info@tennisacademy-gs.de",
+      },
     },
-  },
-  {
-    name: "Zlatan Palazov",
-    role: "Leitung der TENNIS ACADEMY GRAND SLAM",
-    bio: "B-Trainer · Ehemaliger Profispieler aus Bulgarien",
-    image: "/zlatan.jpg",
-    imagePosition: "center 95%",
-    imageScale: 1.7,
-    location: "Berlin",
-    skills: ["B-Trainer", "Kinder", "Erwachsene"],
-    gradient: "from-white/12 via-white/5 to-transparent",
-    bullets: [
-      "Ehemaliger Profispieler aus Bulgarien",
-      "Spieler der bulgarischen Nationalmannschaft",
-      "Teilnahme an den Europäischen Jugendmeisterschaften",
-      "Seit sechs Jahren Tennistrainer in Berlin",
-      "Trainiert Kinder, Jugendliche und Erwachsene",
-      "Aktiver Spieler der 1. Herrenmannschaft",
-    ],
-    social: {
-      email: "info@tennisacademy-gs.de",
+    {
+      name: "Zlatan Palazov",
+      role: "Leitung der TENNIS ACADEMY GRAND SLAM",
+      bio: "B-Trainer · Ehemaliger Profispieler aus Bulgarien",
+      image: "/zlatan.jpg",
+      imagePosition: "center 95%",
+      imageScale: 1.7,
+      location: "Berlin",
+      skills: ["B-Trainer", "Kinder", "Erwachsene"],
+      gradient: "from-white/12 via-white/5 to-transparent",
+      bullets: [
+        "Ehemaliger Profispieler aus Bulgarien",
+        "Spieler der bulgarischen Nationalmannschaft",
+        "Teilnahme an den Europäischen Jugendmeisterschaften",
+        "Seit sechs Jahren Tennistrainer in Berlin",
+        "Trainiert Kinder, Jugendliche und Erwachsene",
+        "Aktiver Spieler der 1. Herrenmannschaft",
+      ],
+      social: {
+        email: "info@tennisacademy-gs.de",
+      },
     },
-  },
-  {
-    name: "Artur Ivanenko",
-    role: "Leitung der TENNIS ACADEMY GRAND SLAM",
-    bio: "B-Trainer · Spielt seit früher Kindheit leidenschaftlich Tennis",
-    image: "/artur.jpg",
-    imagePosition: "center 30%",
-    location: "Berlin",
-    skills: ["B-Trainer", "Kinder", "Erwachsene"],
-    gradient: "from-white/12 via-white/5 to-transparent",
-    bullets: [
-      "Spielt seit früher Kindheit leidenschaftlich Tennis",
-      "Berliner und Norddeutscher Jugendmeister",
-      "Trainiert Kinder, Jugendliche und Erwachsene",
-      "Breiten- und Leistungssport, Einzel und Gruppe",
-      "Mini-Tennis ab 3 Jahren, Fitness-Tennis",
-      "Aktiver Spieler der 1. Herrenmannschaft",
-    ],
-    social: {
-      email: "info@tennisacademy-gs.de",
+    {
+      name: "Artur Ivanenko",
+      role: "Leitung der TENNIS ACADEMY GRAND SLAM",
+      bio: "B-Trainer · Spielt seit früher Kindheit leidenschaftlich Tennis",
+      image: "/artur.jpg",
+      imagePosition: "center 30%",
+      location: "Berlin",
+      skills: ["B-Trainer", "Kinder", "Erwachsene"],
+      gradient: "from-white/12 via-white/5 to-transparent",
+      bullets: [
+        "Spielt seit früher Kindheit leidenschaftlich Tennis",
+        "Berliner und Norddeutscher Jugendmeister",
+        "Trainiert Kinder, Jugendliche und Erwachsene",
+        "Breiten- und Leistungssport, Einzel und Gruppe",
+        "Mini-Tennis ab 3 Jahren, Fitness-Tennis",
+        "Aktiver Spieler der 1. Herrenmannschaft",
+      ],
+      social: {
+        email: "info@tennisacademy-gs.de",
+      },
     },
-  },
-];
+  ],
+  en: [
+    {
+      name: "Michael Lingner",
+      role: "Director of TENNIS ACADEMY GRAND SLAM",
+      bio: "A-licence coach · TVBB federation coach, DTB club manager",
+      image: "/michael.jpg",
+      imagePosition: "center 10%",
+      location: "Berlin",
+      skills: ["A-licence coach", "TVBB teaching staff"],
+      gradient: "from-white/10 via-white/5 to-transparent",
+      bullets: [
+        "Federation coach of the TVBB, DTB club manager",
+        "TVBB teaching staff, VDT member",
+        "Long-time Regionalliga player",
+        "Owner of Tennisshop Grand Slam since 1998",
+        "IHK instructor, former lecturer at FU Berlin",
+      ],
+      social: {
+        email: "info@tennisacademy-gs.de",
+      },
+    },
+    {
+      name: "Jana Hladká-Kissal",
+      role: "Director of TENNIS ACADEMY GRAND SLAM",
+      bio: "B-licence coach · Former professional player from Slovakia",
+      image: "/jana.jpg",
+      imagePosition: "center 0%",
+      location: "Berlin",
+      skills: ["B-licence coach", "Kids on Court"],
+      gradient: "from-white/12 via-white/5 to-transparent",
+      bullets: [
+        "Former professional player from Slovakia",
+        "10 years of Regionalliga at TC Grunewald as no. 1",
+        "German team champion, women 40+ (2014)",
+        "Regional champion 50+ (2021 & 2024)",
+        "Coach since 1994 – focus: Kids on Court",
+      ],
+      social: {
+        email: "info@tennisacademy-gs.de",
+      },
+    },
+    {
+      name: "Zlatan Palazov",
+      role: "Director of TENNIS ACADEMY GRAND SLAM",
+      bio: "B-licence coach · Former professional player from Bulgaria",
+      image: "/zlatan.jpg",
+      imagePosition: "center 95%",
+      imageScale: 1.7,
+      location: "Berlin",
+      skills: ["B-licence coach", "Kids", "Adults"],
+      gradient: "from-white/12 via-white/5 to-transparent",
+      bullets: [
+        "Former professional player from Bulgaria",
+        "Player of the Bulgarian national team",
+        "Competed at the European junior championships",
+        "Tennis coach in Berlin for six years",
+        "Coaches children, teenagers and adults",
+        "Active player of the 1st men's team",
+      ],
+      social: {
+        email: "info@tennisacademy-gs.de",
+      },
+    },
+    {
+      name: "Artur Ivanenko",
+      role: "Director of TENNIS ACADEMY GRAND SLAM",
+      bio: "B-licence coach · Passionate about tennis since early childhood",
+      image: "/artur.jpg",
+      imagePosition: "center 30%",
+      location: "Berlin",
+      skills: ["B-licence coach", "Kids", "Adults"],
+      gradient: "from-white/12 via-white/5 to-transparent",
+      bullets: [
+        "Playing tennis passionately since early childhood",
+        "Berlin and North German junior champion",
+        "Coaches children, teenagers and adults",
+        "Recreational and competitive tennis, private and group",
+        "Mini tennis from age 3, fitness tennis",
+        "Active player of the 1st men's team",
+      ],
+      social: {
+        email: "info@tennisacademy-gs.de",
+      },
+    },
+  ],
+};
+
+const teamMembers = teamMembersByLang.de;
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -288,8 +378,22 @@ function TeamMemberCard({
   );
 }
 
+const headerByLang = {
+  de: {
+    title: "Ein Team, eine Aufgabe.",
+    subtitle: "Tennis ernsthaft lernen – egal ob mit drei Jahren oder fünfzig.",
+  },
+  en: {
+    title: "One team, one mission.",
+    subtitle: "Learn tennis seriously – whether you are three years old or fifty.",
+  },
+};
+
 export function TeamSectionBlock() {
   const shouldReduceMotion = useReducedMotion();
+  const { lang } = useLang();
+  const members = teamMembersByLang[lang as "de" | "en"] ?? teamMembers;
+  const header = headerByLang[lang as "de" | "en"] ?? headerByLang.de;
 
   return (
     <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--white)' }}>
@@ -339,10 +443,10 @@ export function TeamSectionBlock() {
             Tennis Academy Grand Slam
           </Badge>
           <h2 className="mb-4 text-4xl font-bold tracking-tight text-[--text-dark] sm:text-5xl">
-            Ein Team, eine Aufgabe.
+            {header.title}
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-[--text-medium]">
-            Tennis ernsthaft lernen – egal ob mit drei Jahren oder fünfzig.
+            {header.subtitle}
           </p>
         </motion.div>
 
@@ -354,7 +458,7 @@ export function TeamSectionBlock() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {teamMembers.map((member, index) => (
+          {members.map((member, index) => (
             <TeamMemberCard key={member.name} member={member} index={index} />
           ))}
         </motion.div>

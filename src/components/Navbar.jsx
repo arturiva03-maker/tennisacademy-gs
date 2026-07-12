@@ -1,22 +1,55 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { useLang } from '../i18n/LanguageContext';
 
 const navItems = [
-  { path: '/', label: 'Home' },
-  { path: '/trainer', label: 'Trainer' },
-  { path: '/preise', label: 'Preise' },
-  { path: '/kids-on-court', label: 'Kids' },
-  { path: '/tenniscamps', label: 'Camps' },
-  { path: '/dtb-vdt', label: 'DTB/VDT' },
-  { path: '/news', label: 'News' },
-  { path: '/kontakt', label: 'Kontakt' },
+  { path: '/', label: { de: 'Home', en: 'Home' } },
+  { path: '/trainer', label: { de: 'Trainer', en: 'Coaches' } },
+  { path: '/preise', label: { de: 'Preise', en: 'Prices' } },
+  { path: '/kids-on-court', label: { de: 'Kids', en: 'Kids' } },
+  { path: '/tenniscamps', label: { de: 'Camps', en: 'Camps' } },
+  { path: '/dtb-vdt', label: { de: 'DTB/VDT', en: 'DTB/VDT' } },
+  { path: '/news', label: { de: 'News', en: 'News' } },
+  { path: '/kontakt', label: { de: 'Kontakt', en: 'Contact' } },
 ];
+
+function LangSwitch({ className = '' }) {
+  const { lang, setLang } = useLang();
+  return (
+    <div
+      className={`lang-switch ${className}`}
+      role="group"
+      aria-label={lang === 'de' ? 'Sprache wählen' : 'Choose language'}
+    >
+      <button
+        type="button"
+        className={lang === 'de' ? 'is-active' : ''}
+        onClick={() => setLang('de')}
+        aria-pressed={lang === 'de'}
+        lang="de"
+      >
+        DE
+      </button>
+      <span aria-hidden="true">/</span>
+      <button
+        type="button"
+        className={lang === 'en' ? 'is-active' : ''}
+        onClick={() => setLang('en')}
+        aria-pressed={lang === 'en'}
+        lang="en"
+      >
+        EN
+      </button>
+    </div>
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const { lang } = useLang();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -46,16 +79,23 @@ export default function Navbar() {
                     className={isActive ? 'active' : ''}
                     aria-current={isActive ? 'page' : undefined}
                   >
-                    {item.label}
+                    {item.label[lang]}
                   </Link>
                 </li>
               );
             })}
+            <li>
+              <LangSwitch />
+            </li>
           </ul>
           <button
             className="mobile-toggle"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? 'Menü schließen' : 'Menü öffnen'}
+            aria-label={
+              mobileOpen
+                ? lang === 'de' ? 'Menü schließen' : 'Close menu'
+                : lang === 'de' ? 'Menü öffnen' : 'Open menu'
+            }
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
           >
@@ -76,10 +116,11 @@ export default function Navbar() {
               className={isActive ? 'active' : ''}
               aria-current={isActive ? 'page' : undefined}
             >
-              {item.label}
+              {item.label[lang]}
             </Link>
           );
         })}
+        <LangSwitch className="lang-switch--mobile" />
       </div>
     </>
   );

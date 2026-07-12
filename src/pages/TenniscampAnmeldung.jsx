@@ -5,6 +5,7 @@ import { CheckCircle, AlertCircle, Download } from 'lucide-react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
 import { downloadNotfallbogen } from '@/lib/notfallbogen';
+import { useLang } from '../i18n/LanguageContext';
 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID =
@@ -15,13 +16,204 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const RATE_LIMIT_MS = 60000;
 const MAX_SUBMISSIONS = 3;
 
+// WICHTIG: Die value-Attribute bleiben in JEDER UI-Sprache deutsch.
+// Die abgesendete E-Mail wird aus diesen Werten gebaut und kommt damit
+// immer auf Deutsch an — nur die sichtbaren Labels werden übersetzt.
 const campTermine = [
-  { value: '1. Ferienwoche (13.07. – 17.07.2026)', label: '1. Ferienwoche · 13.07. – 17.07.2026' },
-  { value: 'Vorletzte Ferienwoche (10.08. – 14.08.2026)', label: 'Vorletzte Ferienwoche · 10.08. – 14.08.2026' },
-  { value: 'Letzte Ferienwoche (17.08. – 21.08.2026)', label: 'Letzte Ferienwoche · 17.08. – 21.08.2026' },
+  {
+    value: '1. Ferienwoche (13.07. – 17.07.2026)',
+    label: {
+      de: '1. Ferienwoche · 13.07. – 17.07.2026',
+      en: '1st holiday week · 13 – 17 July 2026',
+    },
+  },
+  {
+    value: 'Vorletzte Ferienwoche (10.08. – 14.08.2026)',
+    label: {
+      de: 'Vorletzte Ferienwoche · 10.08. – 14.08.2026',
+      en: 'Second-to-last holiday week · 10 – 14 August 2026',
+    },
+  },
+  {
+    value: 'Letzte Ferienwoche (17.08. – 21.08.2026)',
+    label: {
+      de: 'Letzte Ferienwoche · 17.08. – 21.08.2026',
+      en: 'Last holiday week · 17 – 21 August 2026',
+    },
+  },
+];
+
+const geschlechtOptions = [
+  { value: 'weiblich', label: { de: 'weiblich', en: 'female' } },
+  { value: 'männlich', label: { de: 'männlich', en: 'male' } },
+  { value: 'divers', label: { de: 'divers', en: 'diverse' } },
+  { value: 'keine Angabe', label: { de: 'keine Angabe', en: 'prefer not to say' } },
 ];
 
 const tshirtSizes = ['122/128', '134/140', '146/152', '158/164', 'S', 'M', 'L', 'XL'];
+
+const T = {
+  de: {
+    heroTitle: 'Tenniscamp-Anmeldung',
+    heroSub: 'Verbindliche Anmeldung für unsere Sommer-Tenniscamps 2026',
+    successTitle: 'Anmeldung gesendet!',
+    successText: 'Vielen Dank für die Anmeldung. Wir melden uns schnellstmöglich mit allen weiteren Infos.',
+    notfallTitleSuccess: 'Notfallbogen für das Camp',
+    notfallTextSuccessPre:
+      'Bitte lade jetzt den Notfallbogen herunter, drucke ihn aus und bringe ihn unterschrieben am ersten Camp-Tag mit – oder sende ihn unterschrieben per E-Mail an ',
+    notfallTextSuccessPost: '. Deine Angaben sind bereits eingetragen.',
+    notfallDownload: 'Notfallbogen als PDF herunterladen',
+    anotherRegistration: 'Weitere Anmeldung',
+    sectionTermin: 'Wunschtermin',
+    campWeek: 'Camp-Woche *',
+    pleaseSelect: 'Bitte wählen…',
+    sectionKind: 'Angaben zum Kind',
+    vorname: 'Vorname *',
+    nachname: 'Nachname *',
+    geschlecht: 'Geschlecht *',
+    alter: 'Alter *',
+    mitgliedFrage: 'Mitglied im BSV 92? *',
+    ja: 'Ja',
+    nein: 'Nein',
+    spielstaerke: 'Spielstärke / Tennis-Erfahrung *',
+    spielstaerkePlaceholder: 'z. B. Anfänger:in, 1 Jahr Vereinstraining, LK 23 …',
+    vegetarisch: 'Vegetarisches Mittagessen? *',
+    tshirt: 'T-Shirt-Größe *',
+    bemerkungen: 'Weitere Bemerkungen',
+    bemerkungenPlaceholder: 'Allergien, Medikamente, sonstige Hinweise …',
+    sectionEltern: 'Erziehungsberechtigte:r / Zahlungspflichtige:r',
+    email: 'E-Mail *',
+    telefon: 'Telefon',
+    sectionRechnung: 'Rechnungsadresse',
+    strasse: 'Straße und Hausnummer *',
+    plz: 'PLZ *',
+    ort: 'Ort *',
+    sectionSepa: 'SEPA-Lastschriftmandat',
+    kontoinhaber: 'Kontoinhaber:in *',
+    iban: 'IBAN *',
+    bic: 'BIC (optional)',
+    sepaText:
+      'Ich ermächtige den Berliner Sport-Verein 1892 e.V. – Tennisabteilung, die Camp-Gebühr mittels SEPA-Lastschrift vom oben genannten Konto einzuziehen. Zugleich weise ich mein Kreditinstitut an, diese Lastschriften einzulösen. Hinweis: Innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, kann die Erstattung des belasteten Betrags verlangt werden. Es gelten die mit dem Kreditinstitut vereinbarten Bedingungen. *',
+    agbPre: 'Ich habe die ',
+    agbLink: 'AGB für die Tenniscamps der BSV 92-Tennisabteilung',
+    agbPost: ' gelesen und akzeptiere sie. *',
+    privacyPre: 'Ich habe die ',
+    privacyLink: 'Datenschutzerklärung',
+    privacyPost:
+      ' gelesen und bin mit der Verarbeitung meiner Daten zum Zweck der Camp-Anmeldung und -Abrechnung einverstanden. *',
+    notfallTitleInline: 'Notfallbogen ausdrucken & mitbringen',
+    notfallTextInlinePre:
+      'Für jedes Camp benötigen wir einen unterschriebenen Notfallbogen. Du kannst ihn jetzt mit deinen Angaben vorausgefüllt herunterladen, ausdrucken und entweder am ersten Camp-Tag mitbringen oder vorab unterschrieben per E-Mail an ',
+    notfallTextInlinePost: ' senden.',
+    genericError: 'Es gab einen Fehler. Bitte versuche es erneut.',
+    sending: 'Wird gesendet…',
+    submit: 'Verbindlich anmelden',
+    errors: {
+      termin: 'Bitte wähle einen Termin',
+      kindVorname: 'Vorname des Kindes erforderlich',
+      kindNachname: 'Nachname des Kindes erforderlich',
+      kindGeschlecht: 'Bitte Geschlecht wählen',
+      kindAlter: 'Bitte gültiges Alter (4 – 18) angeben',
+      mitglied: 'Bitte Mitgliedschaft angeben',
+      spielstaerke: 'Bitte kurz Spielstärke / Tennis-Erfahrung beschreiben',
+      vegetarisch: 'Bitte angeben',
+      tshirt: 'Bitte T-Shirt-Größe wählen',
+      elternVorname: 'Vorname des/der Erziehungsberechtigten erforderlich',
+      elternNachname: 'Nachname des/der Erziehungsberechtigten erforderlich',
+      elternEmail: 'Bitte gültige E-Mail-Adresse angeben',
+      elternTelefon: 'Bitte gültige Telefonnummer angeben',
+      rechnungStrasse: 'Straße und Hausnummer erforderlich',
+      rechnungPlz: 'Gültige PLZ angeben',
+      rechnungOrt: 'Ort erforderlich',
+      kontoinhaber: 'Kontoinhaber:in erforderlich',
+      iban: 'Bitte gültige IBAN angeben',
+      sepa: 'Bitte SEPA-Einzugsermächtigung bestätigen',
+      privacy: 'Bitte Datenschutzerklärung akzeptieren',
+      agbCamp: 'Bitte Camp-AGB akzeptieren',
+      rateLimit: 'Zu viele Anfragen. Bitte warte einen Moment.',
+    },
+  },
+  en: {
+    heroTitle: 'Tennis Camp Registration',
+    heroSub: 'Binding registration for our 2026 summer tennis camps',
+    successTitle: 'Registration sent!',
+    successText: 'Thank you for registering. We will get back to you with all further information as soon as possible.',
+    notfallTitleSuccess: 'Emergency form for the camp',
+    notfallTextSuccessPre:
+      'Please download the emergency form now (PDF in German), print it and bring it signed on the first day of camp – or send it signed by email to ',
+    notfallTextSuccessPost: '. Your details are already filled in.',
+    notfallDownload: 'Download emergency form as PDF',
+    anotherRegistration: 'Register another child',
+    sectionTermin: 'Preferred Week',
+    campWeek: 'Camp week *',
+    pleaseSelect: 'Please select…',
+    sectionKind: 'Child Details',
+    vorname: 'First name *',
+    nachname: 'Last name *',
+    geschlecht: 'Gender *',
+    alter: 'Age *',
+    mitgliedFrage: 'Member of BSV 92? *',
+    ja: 'Yes',
+    nein: 'No',
+    spielstaerke: 'Skill level / tennis experience *',
+    spielstaerkePlaceholder: 'e.g. beginner, 1 year of club training, German LK 23 …',
+    vegetarisch: 'Vegetarian lunch? *',
+    tshirt: 'T-shirt size *',
+    bemerkungen: 'Additional remarks',
+    bemerkungenPlaceholder: 'Allergies, medication, other notes …',
+    sectionEltern: 'Parent / Legal Guardian (payer)',
+    email: 'Email *',
+    telefon: 'Phone',
+    sectionRechnung: 'Billing Address',
+    strasse: 'Street and house number *',
+    plz: 'Postal code *',
+    ort: 'City *',
+    sectionSepa: 'SEPA Direct Debit Mandate',
+    kontoinhaber: 'Account holder *',
+    iban: 'IBAN *',
+    bic: 'BIC (optional)',
+    sepaText:
+      'I authorise Berliner Sport-Verein 1892 e.V. – Tennis Department to collect the camp fee from the account stated above by SEPA direct debit. At the same time, I instruct my bank to honour these direct debits. Note: I can demand a refund of the debited amount within eight weeks, starting from the debit date. The terms agreed with my bank apply. *',
+    agbPre: 'I have read and accept the ',
+    agbLink: 'terms and conditions for the tennis camps of the BSV 92 tennis department',
+    agbPost: '. *',
+    privacyPre: 'I have read the ',
+    privacyLink: 'privacy policy',
+    privacyPost:
+      ' and consent to the processing of my data for the purpose of camp registration and billing. *',
+    notfallTitleInline: 'Print & bring the emergency form',
+    notfallTextInlinePre:
+      'For every camp we need a signed emergency form (PDF in German). You can download it now pre-filled with your details, print it and either bring it on the first day of camp or send it signed in advance by email to ',
+    notfallTextInlinePost: '.',
+    genericError: 'Something went wrong. Please try again.',
+    sending: 'Sending…',
+    submit: 'Register (binding)',
+    errors: {
+      termin: 'Please choose a camp week',
+      kindVorname: "Child's first name is required",
+      kindNachname: "Child's last name is required",
+      kindGeschlecht: 'Please select a gender',
+      kindAlter: 'Please enter a valid age (4 – 18)',
+      mitglied: 'Please indicate membership',
+      spielstaerke: 'Please briefly describe skill level / tennis experience',
+      vegetarisch: 'Please choose an option',
+      tshirt: 'Please choose a t-shirt size',
+      elternVorname: "Parent's/guardian's first name is required",
+      elternNachname: "Parent's/guardian's last name is required",
+      elternEmail: 'Please enter a valid email address',
+      elternTelefon: 'Please enter a valid phone number',
+      rechnungStrasse: 'Street and house number are required',
+      rechnungPlz: 'Please enter a valid postal code',
+      rechnungOrt: 'City is required',
+      kontoinhaber: 'Account holder is required',
+      iban: 'Please enter a valid IBAN',
+      sepa: 'Please confirm the SEPA direct debit mandate',
+      privacy: 'Please accept the privacy policy',
+      agbCamp: 'Please accept the camp terms and conditions',
+      rateLimit: 'Too many requests. Please wait a moment.',
+    },
+  },
+};
 
 const normalizeIban = (value) => value.replace(/\s+/g, '').toUpperCase();
 
@@ -43,64 +235,64 @@ const isValidIban = (raw) => {
 const formatIban = (raw) =>
   normalizeIban(raw).replace(/(.{4})/g, '$1 ').trim();
 
-const validateForm = (data) => {
+const validateForm = (data, msg) => {
   const errors = {};
 
-  if (!data.termin) errors.termin = 'Bitte wähle einen Termin';
+  if (!data.termin) errors.termin = msg.termin;
 
   if (!data.kindVorname || data.kindVorname.trim().length < 2) {
-    errors.kindVorname = 'Vorname des Kindes erforderlich';
+    errors.kindVorname = msg.kindVorname;
   }
   if (!data.kindNachname || data.kindNachname.trim().length < 2) {
-    errors.kindNachname = 'Nachname des Kindes erforderlich';
+    errors.kindNachname = msg.kindNachname;
   }
-  if (!data.kindGeschlecht) errors.kindGeschlecht = 'Bitte Geschlecht wählen';
+  if (!data.kindGeschlecht) errors.kindGeschlecht = msg.kindGeschlecht;
   const alter = Number(data.kindAlter);
   if (!data.kindAlter || Number.isNaN(alter) || alter < 4 || alter > 18) {
-    errors.kindAlter = 'Bitte gültiges Alter (4 – 18) angeben';
+    errors.kindAlter = msg.kindAlter;
   }
-  if (!data.mitglied) errors.mitglied = 'Bitte Mitgliedschaft angeben';
+  if (!data.mitglied) errors.mitglied = msg.mitglied;
   if (data.mitglied === 'nein' && (!data.spielstaerke || data.spielstaerke.trim().length < 5)) {
-    errors.spielstaerke = 'Bitte kurz Spielstärke / Tennis-Erfahrung beschreiben';
+    errors.spielstaerke = msg.spielstaerke;
   }
-  if (!data.vegetarisch) errors.vegetarisch = 'Bitte angeben';
-  if (!data.tshirt) errors.tshirt = 'Bitte T-Shirt-Größe wählen';
+  if (!data.vegetarisch) errors.vegetarisch = msg.vegetarisch;
+  if (!data.tshirt) errors.tshirt = msg.tshirt;
 
   if (!data.elternVorname || data.elternVorname.trim().length < 2) {
-    errors.elternVorname = 'Vorname des/der Erziehungsberechtigten erforderlich';
+    errors.elternVorname = msg.elternVorname;
   }
   if (!data.elternNachname || data.elternNachname.trim().length < 2) {
-    errors.elternNachname = 'Nachname des/der Erziehungsberechtigten erforderlich';
+    errors.elternNachname = msg.elternNachname;
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!data.elternEmail || !emailRegex.test(data.elternEmail)) {
-    errors.elternEmail = 'Bitte gültige E-Mail-Adresse angeben';
+    errors.elternEmail = msg.elternEmail;
   }
   if (data.elternTelefon && !/^[\d\s\-+()]*$/.test(data.elternTelefon)) {
-    errors.elternTelefon = 'Bitte gültige Telefonnummer angeben';
+    errors.elternTelefon = msg.elternTelefon;
   }
 
   if (!data.rechnungStrasse || data.rechnungStrasse.trim().length < 3) {
-    errors.rechnungStrasse = 'Straße und Hausnummer erforderlich';
+    errors.rechnungStrasse = msg.rechnungStrasse;
   }
   if (!data.rechnungPlz || !/^\d{4,5}$/.test(data.rechnungPlz.trim())) {
-    errors.rechnungPlz = 'Gültige PLZ angeben';
+    errors.rechnungPlz = msg.rechnungPlz;
   }
   if (!data.rechnungOrt || data.rechnungOrt.trim().length < 2) {
-    errors.rechnungOrt = 'Ort erforderlich';
+    errors.rechnungOrt = msg.rechnungOrt;
   }
 
   if (!data.kontoinhaber || data.kontoinhaber.trim().length < 2) {
-    errors.kontoinhaber = 'Kontoinhaber:in erforderlich';
+    errors.kontoinhaber = msg.kontoinhaber;
   }
   if (!data.iban || !isValidIban(data.iban)) {
-    errors.iban = 'Bitte gültige IBAN angeben';
+    errors.iban = msg.iban;
   }
 
-  if (!data.sepa) errors.sepa = 'Bitte SEPA-Einzugsermächtigung bestätigen';
-  if (!data.privacy) errors.privacy = 'Bitte Datenschutzerklärung akzeptieren';
-  if (!data.agbCamp) errors.agbCamp = 'Bitte Camp-AGB akzeptieren';
+  if (!data.sepa) errors.sepa = msg.sepa;
+  if (!data.privacy) errors.privacy = msg.privacy;
+  if (!data.agbCamp) errors.agbCamp = msg.agbCamp;
 
   return errors;
 };
@@ -157,6 +349,8 @@ const initialFormData = {
 };
 
 export default function TenniscampAnmeldung() {
+  const { lang } = useLang();
+  const t = T[lang];
   const [status, setStatus] = useState('idle');
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState(initialFormData);
@@ -192,11 +386,11 @@ export default function TenniscampAnmeldung() {
     }
 
     if (isRateLimited()) {
-      setErrors({ form: 'Zu viele Anfragen. Bitte warte einen Moment.' });
+      setErrors({ form: t.errors.rateLimit });
       return;
     }
 
-    const validationErrors = validateForm(formData);
+    const validationErrors = validateForm(formData, t.errors);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
@@ -205,6 +399,8 @@ export default function TenniscampAnmeldung() {
     setStatus('sending');
     setErrors({});
 
+    // Die versendete Anmeldung wird IMMER auf Deutsch aufgebaut,
+    // unabhängig davon, in welcher Sprache das Formular angezeigt wurde.
     const parentName = `${formData.elternVorname} ${formData.elternNachname}`.trim();
     const kindName = `${formData.kindVorname} ${formData.kindNachname}`.trim();
     const eingegangenAm = new Date().toLocaleString('de-DE', {
@@ -292,8 +488,8 @@ export default function TenniscampAnmeldung() {
       <section className="page-hero" style={{ backgroundImage: "url('/tenniscamp4.jpg')", backgroundPosition: 'center 38%' }}>
         <div className="page-hero-overlay"></div>
         <div className="container">
-          <h1>Tenniscamp-Anmeldung</h1>
-          <p>Verbindliche Anmeldung für unsere Sommer-Tenniscamps 2026</p>
+          <h1>{t.heroTitle}</h1>
+          <p>{t.heroSub}</p>
         </div>
       </section>
 
@@ -304,19 +500,14 @@ export default function TenniscampAnmeldung() {
               {status === 'success' ? (
                 <div className="form-success">
                   <CheckCircle size={48} />
-                  <h3>Anmeldung gesendet!</h3>
-                  <p>
-                    Vielen Dank für die Anmeldung. Wir melden uns
-                    schnellstmöglich mit allen weiteren Infos.
-                  </p>
+                  <h3>{t.successTitle}</h3>
+                  <p>{t.successText}</p>
                   <div className="notfallbogen-callout">
-                    <h4>Notfallbogen für das Camp</h4>
+                    <h4>{t.notfallTitleSuccess}</h4>
                     <p>
-                      Bitte lade jetzt den Notfallbogen herunter, drucke ihn aus
-                      und bringe ihn unterschrieben am ersten Camp-Tag mit –
-                      oder sende ihn unterschrieben per E-Mail an{' '}
-                      <a href="mailto:info@bsv92-tennis.de">info@bsv92-tennis.de</a>.
-                      Deine Angaben sind bereits eingetragen.
+                      {t.notfallTextSuccessPre}
+                      <a href="mailto:info@bsv92-tennis.de">info@bsv92-tennis.de</a>
+                      {t.notfallTextSuccessPost}
                     </p>
                     <button
                       type="button"
@@ -324,11 +515,11 @@ export default function TenniscampAnmeldung() {
                       onClick={() => handleDownloadNotfallbogen(lastSubmission || {})}
                     >
                       <Download size={18} />
-                      <span>Notfallbogen als PDF herunterladen</span>
+                      <span>{t.notfallDownload}</span>
                     </button>
                   </div>
                   <ButtonWithIcon onClick={() => { setStatus('idle'); setLastSubmission(null); }}>
-                    Weitere Anmeldung
+                    {t.anotherRegistration}
                   </ButtonWithIcon>
                 </div>
               ) : (
@@ -345,9 +536,9 @@ export default function TenniscampAnmeldung() {
                   />
 
                   <div className="form-section">
-                    <h2 className="form-section-title">Wunschtermin</h2>
+                    <h2 className="form-section-title">{t.sectionTermin}</h2>
                     <div className="form-group">
-                      <label htmlFor="termin">Camp-Woche *</label>
+                      <label htmlFor="termin">{t.campWeek}</label>
                       <select
                         id="termin"
                         name="termin"
@@ -355,9 +546,9 @@ export default function TenniscampAnmeldung() {
                         onChange={handleChange}
                         className={errors.termin ? 'input-error' : ''}
                       >
-                        <option value="">Bitte wählen…</option>
-                        {campTermine.map((t) => (
-                          <option key={t.value} value={t.value}>{t.label}</option>
+                        <option value="">{t.pleaseSelect}</option>
+                        {campTermine.map((option) => (
+                          <option key={option.value} value={option.value}>{option.label[lang]}</option>
                         ))}
                       </select>
                       {errors.termin && <span className="field-error">{errors.termin}</span>}
@@ -365,11 +556,11 @@ export default function TenniscampAnmeldung() {
                   </div>
 
                   <div className="form-section">
-                    <h2 className="form-section-title">Angaben zum Kind</h2>
+                    <h2 className="form-section-title">{t.sectionKind}</h2>
 
                     <div className="form-row">
                       <div className="form-group">
-                        <label htmlFor="kindVorname">Vorname *</label>
+                        <label htmlFor="kindVorname">{t.vorname}</label>
                         <input
                           type="text"
                           id="kindVorname"
@@ -382,7 +573,7 @@ export default function TenniscampAnmeldung() {
                         {errors.kindVorname && <span className="field-error">{errors.kindVorname}</span>}
                       </div>
                       <div className="form-group">
-                        <label htmlFor="kindNachname">Nachname *</label>
+                        <label htmlFor="kindNachname">{t.nachname}</label>
                         <input
                           type="text"
                           id="kindNachname"
@@ -398,7 +589,7 @@ export default function TenniscampAnmeldung() {
 
                     <div className="form-row">
                       <div className="form-group">
-                        <label htmlFor="kindGeschlecht">Geschlecht *</label>
+                        <label htmlFor="kindGeschlecht">{t.geschlecht}</label>
                         <select
                           id="kindGeschlecht"
                           name="kindGeschlecht"
@@ -406,16 +597,15 @@ export default function TenniscampAnmeldung() {
                           onChange={handleChange}
                           className={errors.kindGeschlecht ? 'input-error' : ''}
                         >
-                          <option value="">Bitte wählen…</option>
-                          <option value="weiblich">weiblich</option>
-                          <option value="männlich">männlich</option>
-                          <option value="divers">divers</option>
-                          <option value="keine Angabe">keine Angabe</option>
+                          <option value="">{t.pleaseSelect}</option>
+                          {geschlechtOptions.map((option) => (
+                            <option key={option.value} value={option.value}>{option.label[lang]}</option>
+                          ))}
                         </select>
                         {errors.kindGeschlecht && <span className="field-error">{errors.kindGeschlecht}</span>}
                       </div>
                       <div className="form-group">
-                        <label htmlFor="kindAlter">Alter *</label>
+                        <label htmlFor="kindAlter">{t.alter}</label>
                         <input
                           type="number"
                           id="kindAlter"
@@ -431,7 +621,7 @@ export default function TenniscampAnmeldung() {
                     </div>
 
                     <div className="form-group">
-                      <label>Mitglied im BSV 92? *</label>
+                      <label>{t.mitgliedFrage}</label>
                       <div className="radio-row">
                         <label className="radio-label">
                           <input
@@ -441,7 +631,7 @@ export default function TenniscampAnmeldung() {
                             checked={formData.mitglied === 'ja'}
                             onChange={handleChange}
                           />
-                          <span>Ja</span>
+                          <span>{t.ja}</span>
                         </label>
                         <label className="radio-label">
                           <input
@@ -451,7 +641,7 @@ export default function TenniscampAnmeldung() {
                             checked={formData.mitglied === 'nein'}
                             onChange={handleChange}
                           />
-                          <span>Nein</span>
+                          <span>{t.nein}</span>
                         </label>
                       </div>
                       {errors.mitglied && <span className="field-error">{errors.mitglied}</span>}
@@ -459,7 +649,7 @@ export default function TenniscampAnmeldung() {
 
                     {formData.mitglied === 'nein' && (
                       <div className="form-group">
-                        <label htmlFor="spielstaerke">Spielstärke / Tennis-Erfahrung *</label>
+                        <label htmlFor="spielstaerke">{t.spielstaerke}</label>
                         <textarea
                           id="spielstaerke"
                           name="spielstaerke"
@@ -467,7 +657,7 @@ export default function TenniscampAnmeldung() {
                           maxLength={1000}
                           value={formData.spielstaerke}
                           onChange={handleChange}
-                          placeholder="z. B. Anfänger:in, 1 Jahr Vereinstraining, LK 23 …"
+                          placeholder={t.spielstaerkePlaceholder}
                           className={errors.spielstaerke ? 'input-error' : ''}
                         />
                         {errors.spielstaerke && <span className="field-error">{errors.spielstaerke}</span>}
@@ -476,7 +666,7 @@ export default function TenniscampAnmeldung() {
 
                     <div className="form-row">
                       <div className="form-group">
-                        <label htmlFor="vegetarisch">Vegetarisches Mittagessen? *</label>
+                        <label htmlFor="vegetarisch">{t.vegetarisch}</label>
                         <select
                           id="vegetarisch"
                           name="vegetarisch"
@@ -484,14 +674,14 @@ export default function TenniscampAnmeldung() {
                           onChange={handleChange}
                           className={errors.vegetarisch ? 'input-error' : ''}
                         >
-                          <option value="">Bitte wählen…</option>
-                          <option value="ja">Ja</option>
-                          <option value="nein">Nein</option>
+                          <option value="">{t.pleaseSelect}</option>
+                          <option value="ja">{t.ja}</option>
+                          <option value="nein">{t.nein}</option>
                         </select>
                         {errors.vegetarisch && <span className="field-error">{errors.vegetarisch}</span>}
                       </div>
                       <div className="form-group">
-                        <label htmlFor="tshirt">T-Shirt-Größe *</label>
+                        <label htmlFor="tshirt">{t.tshirt}</label>
                         <select
                           id="tshirt"
                           name="tshirt"
@@ -499,7 +689,7 @@ export default function TenniscampAnmeldung() {
                           onChange={handleChange}
                           className={errors.tshirt ? 'input-error' : ''}
                         >
-                          <option value="">Bitte wählen…</option>
+                          <option value="">{t.pleaseSelect}</option>
                           {tshirtSizes.map((s) => (
                             <option key={s} value={s}>{s}</option>
                           ))}
@@ -509,7 +699,7 @@ export default function TenniscampAnmeldung() {
                     </div>
 
                     <div className="form-group">
-                      <label htmlFor="bemerkungen">Weitere Bemerkungen</label>
+                      <label htmlFor="bemerkungen">{t.bemerkungen}</label>
                       <textarea
                         id="bemerkungen"
                         name="bemerkungen"
@@ -517,17 +707,17 @@ export default function TenniscampAnmeldung() {
                         maxLength={2000}
                         value={formData.bemerkungen}
                         onChange={handleChange}
-                        placeholder="Allergien, Medikamente, sonstige Hinweise …"
+                        placeholder={t.bemerkungenPlaceholder}
                       />
                     </div>
                   </div>
 
                   <div className="form-section">
-                    <h2 className="form-section-title">Erziehungsberechtigte:r / Zahlungspflichtige:r</h2>
+                    <h2 className="form-section-title">{t.sectionEltern}</h2>
 
                     <div className="form-row">
                       <div className="form-group">
-                        <label htmlFor="elternVorname">Vorname *</label>
+                        <label htmlFor="elternVorname">{t.vorname}</label>
                         <input
                           type="text"
                           id="elternVorname"
@@ -540,7 +730,7 @@ export default function TenniscampAnmeldung() {
                         {errors.elternVorname && <span className="field-error">{errors.elternVorname}</span>}
                       </div>
                       <div className="form-group">
-                        <label htmlFor="elternNachname">Nachname *</label>
+                        <label htmlFor="elternNachname">{t.nachname}</label>
                         <input
                           type="text"
                           id="elternNachname"
@@ -556,7 +746,7 @@ export default function TenniscampAnmeldung() {
 
                     <div className="form-row">
                       <div className="form-group">
-                        <label htmlFor="elternEmail">E-Mail *</label>
+                        <label htmlFor="elternEmail">{t.email}</label>
                         <input
                           type="email"
                           id="elternEmail"
@@ -568,7 +758,7 @@ export default function TenniscampAnmeldung() {
                         {errors.elternEmail && <span className="field-error">{errors.elternEmail}</span>}
                       </div>
                       <div className="form-group">
-                        <label htmlFor="elternTelefon">Telefon</label>
+                        <label htmlFor="elternTelefon">{t.telefon}</label>
                         <input
                           type="tel"
                           id="elternTelefon"
@@ -583,10 +773,10 @@ export default function TenniscampAnmeldung() {
                   </div>
 
                   <div className="form-section">
-                    <h2 className="form-section-title">Rechnungsadresse</h2>
+                    <h2 className="form-section-title">{t.sectionRechnung}</h2>
 
                     <div className="form-group">
-                      <label htmlFor="rechnungStrasse">Straße und Hausnummer *</label>
+                      <label htmlFor="rechnungStrasse">{t.strasse}</label>
                       <input
                         type="text"
                         id="rechnungStrasse"
@@ -601,7 +791,7 @@ export default function TenniscampAnmeldung() {
 
                     <div className="form-row">
                       <div className="form-group">
-                        <label htmlFor="rechnungPlz">PLZ *</label>
+                        <label htmlFor="rechnungPlz">{t.plz}</label>
                         <input
                           type="text"
                           id="rechnungPlz"
@@ -615,7 +805,7 @@ export default function TenniscampAnmeldung() {
                         {errors.rechnungPlz && <span className="field-error">{errors.rechnungPlz}</span>}
                       </div>
                       <div className="form-group">
-                        <label htmlFor="rechnungOrt">Ort *</label>
+                        <label htmlFor="rechnungOrt">{t.ort}</label>
                         <input
                           type="text"
                           id="rechnungOrt"
@@ -631,10 +821,10 @@ export default function TenniscampAnmeldung() {
                   </div>
 
                   <div className="form-section">
-                    <h2 className="form-section-title">SEPA-Lastschriftmandat</h2>
+                    <h2 className="form-section-title">{t.sectionSepa}</h2>
 
                     <div className="form-group">
-                      <label htmlFor="kontoinhaber">Kontoinhaber:in *</label>
+                      <label htmlFor="kontoinhaber">{t.kontoinhaber}</label>
                       <input
                         type="text"
                         id="kontoinhaber"
@@ -649,7 +839,7 @@ export default function TenniscampAnmeldung() {
 
                     <div className="form-row">
                       <div className="form-group">
-                        <label htmlFor="iban">IBAN *</label>
+                        <label htmlFor="iban">{t.iban}</label>
                         <input
                           type="text"
                           id="iban"
@@ -666,7 +856,7 @@ export default function TenniscampAnmeldung() {
                         {errors.iban && <span className="field-error">{errors.iban}</span>}
                       </div>
                       <div className="form-group">
-                        <label htmlFor="bic">BIC (optional)</label>
+                        <label htmlFor="bic">{t.bic}</label>
                         <input
                           type="text"
                           id="bic"
@@ -687,15 +877,7 @@ export default function TenniscampAnmeldung() {
                           checked={formData.sepa}
                           onChange={handleChange}
                         />
-                        <span>
-                          Ich ermächtige den Berliner Sport-Verein 1892 e.V. – Tennisabteilung,
-                          die Camp-Gebühr mittels SEPA-Lastschrift vom oben genannten Konto einzuziehen.
-                          Zugleich weise ich mein Kreditinstitut an, diese Lastschriften
-                          einzulösen. Hinweis: Innerhalb von acht Wochen, beginnend mit
-                          dem Belastungsdatum, kann die Erstattung des belasteten
-                          Betrags verlangt werden. Es gelten die mit dem Kreditinstitut
-                          vereinbarten Bedingungen. *
-                        </span>
+                        <span>{t.sepaText}</span>
                       </label>
                       {errors.sepa && <span className="field-error">{errors.sepa}</span>}
                     </div>
@@ -710,8 +892,7 @@ export default function TenniscampAnmeldung() {
                         onChange={handleChange}
                       />
                       <span>
-                        Ich habe die <Link to="/agb-tenniscamp" target="_blank">AGB für die Tenniscamps der BSV 92-Tennisabteilung</Link> gelesen
-                        und akzeptiere sie. *
+                        {t.agbPre}<Link to="/agb-tenniscamp" target="_blank">{t.agbLink}</Link>{t.agbPost}
                       </span>
                     </label>
                     {errors.agbCamp && <span className="field-error">{errors.agbCamp}</span>}
@@ -726,23 +907,18 @@ export default function TenniscampAnmeldung() {
                         onChange={handleChange}
                       />
                       <span>
-                        Ich habe die <Link to="/datenschutz" target="_blank">Datenschutzerklärung</Link> gelesen
-                        und bin mit der Verarbeitung meiner Daten zum Zweck der
-                        Camp-Anmeldung und -Abrechnung einverstanden. *
+                        {t.privacyPre}<Link to="/datenschutz" target="_blank">{t.privacyLink}</Link>{t.privacyPost}
                       </span>
                     </label>
                     {errors.privacy && <span className="field-error">{errors.privacy}</span>}
                   </div>
 
                   <div className="notfallbogen-callout notfallbogen-callout-inline">
-                    <h4>Notfallbogen ausdrucken & mitbringen</h4>
+                    <h4>{t.notfallTitleInline}</h4>
                     <p>
-                      Für jedes Camp benötigen wir einen unterschriebenen
-                      Notfallbogen. Du kannst ihn jetzt mit deinen Angaben
-                      vorausgefüllt herunterladen, ausdrucken und entweder am
-                      ersten Camp-Tag mitbringen oder vorab unterschrieben per
-                      E-Mail an{' '}
-                      <a href="mailto:info@bsv92-tennis.de">info@bsv92-tennis.de</a> senden.
+                      {t.notfallTextInlinePre}
+                      <a href="mailto:info@bsv92-tennis.de">info@bsv92-tennis.de</a>
+                      {t.notfallTextInlinePost}
                     </p>
                     <button
                       type="button"
@@ -750,19 +926,19 @@ export default function TenniscampAnmeldung() {
                       onClick={() => handleDownloadNotfallbogen(formData)}
                     >
                       <Download size={18} />
-                      <span>Notfallbogen als PDF herunterladen</span>
+                      <span>{t.notfallDownload}</span>
                     </button>
                   </div>
 
                   {(status === 'error' || errors.form) && (
                     <div className="form-error">
                       <AlertCircle size={20} />
-                      <span>{errors.form || 'Es gab einen Fehler. Bitte versuche es erneut.'}</span>
+                      <span>{errors.form || t.genericError}</span>
                     </div>
                   )}
 
                   <ButtonWithIcon type="submit" disabled={status === 'sending'}>
-                    {status === 'sending' ? 'Wird gesendet…' : 'Verbindlich anmelden'}
+                    {status === 'sending' ? t.sending : t.submit}
                   </ButtonWithIcon>
                 </form>
               )}
