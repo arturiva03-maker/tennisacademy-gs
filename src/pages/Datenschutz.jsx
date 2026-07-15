@@ -208,59 +208,14 @@ function DatenschutzDe() {
         verarbeitung nach Art. 28 DSGVO).
       </p>
 
-      <h2>9. Eingebundene Inhalte Dritter</h2>
-
-      <h3>9.1 Tennis-News-Widget (tennis.de)</h3>
-      <p>
-        Auf unserer Startseite binden wir ein News-Widget der <strong>Deutscher Tennis
-        Bund GmbH</strong> (Hallerstraße 89, 20149 Hamburg) über das Skript{' '}
-        <code>https://www.tennis.de/content/dam/services/news-widget/widget.js</code>{' '}
-        ein. Beim Aufruf der Seite wird hierdurch eine Verbindung zu Servern von tennis.de
-        aufgebaut, wobei mindestens Ihre IP-Adresse, Browser-Informationen und Zeit-
-        stempel an tennis.de übertragen werden.
-      </p>
-      <p>
-        <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
-        Interesse an aktueller Tennis-Berichterstattung für unsere Nutzer).<br />
-        Datenschutzerklärung tennis.de:{' '}
-        <a
-          href="https://www.tennis.de/datenschutz"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          https://www.tennis.de/datenschutz
-        </a>
-      </p>
-
-      <h3>9.2 Externe Bilder (Unsplash)</h3>
-      <p>
-        An einzelnen Stellen unserer Website binden wir Bilder von <strong>Unsplash</strong>{' '}
-        (Unsplash Inc., 400-460 Saint-Catherine West, Montreal, Quebec H3B 1A7, Canada)
-        ein. Beim Aufruf dieser Seiten wird Ihre IP-Adresse an Unsplash übermittelt.
-      </p>
-      <p>
-        <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
-        Interesse an einer ansprechenden Darstellung).<br />
-        Datenschutzerklärung Unsplash:{' '}
-        <a
-          href="https://unsplash.com/privacy"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          https://unsplash.com/privacy
-        </a>
-      </p>
-
-      <h2>10. Empfänger / Auftragsverarbeiter (Übersicht)</h2>
+      <h2>9. Empfänger / Auftragsverarbeiter (Übersicht)</h2>
       <ul>
         <li><strong>Vercel Inc.</strong>, USA – Hosting</li>
         <li><strong>EmailJS, Inc.</strong>, USA – Versand des Kontaktformulars</li>
         <li><strong>IONOS SE</strong>, Deutschland – E-Mail-Postfach</li>
-        <li><strong>Deutscher Tennis Bund GmbH</strong>, Deutschland – News-Widget</li>
-        <li><strong>Unsplash Inc.</strong>, Kanada – externe Bilder</li>
       </ul>
 
-      <h2>11. Minderjährige</h2>
+      <h2>10. Minderjährige</h2>
       <p>
         Unser Angebot richtet sich auch an Kinder und Jugendliche im Rahmen unseres
         Trainingsangebots. Personenbezogene Daten von Minderjährigen unter 16 Jahren
@@ -269,7 +224,7 @@ function DatenschutzDe() {
         ausschließlich durch die Erziehungsberechtigten vorgenommen werden.
       </p>
 
-      <h2>12. Bildveröffentlichungen (Trainings-, Camp- und Event-Fotos)</h2>
+      <h2>11. Bildveröffentlichungen (Trainings-, Camp- und Event-Fotos)</h2>
       <p>
         Auf unserer Website (insbesondere in den Bereichen „Kids on Court",
         „Tenniscamps", „Trainerteam" sowie „News &amp; Events") veröffentlichen wir
@@ -304,7 +259,7 @@ function DatenschutzDe() {
         dies zusätzlich von der Einwilligung umfasst ist.
       </p>
 
-      <h2>13. Ihre Rechte als betroffene Person</h2>
+      <h2>12. Ihre Rechte als betroffene Person</h2>
       <p>Sie haben uns gegenüber folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
       <ul>
         <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
@@ -327,7 +282,7 @@ function DatenschutzDe() {
         Ausübung oder Verteidigung von Rechtsansprüchen.
       </p>
 
-      <h2>14. Zuständige Aufsichtsbehörde</h2>
+      <h2>13. Zuständige Aufsichtsbehörde</h2>
       <p>
         Berliner Beauftragte für Datenschutz und Informationsfreiheit<br />
         Alt-Moabit 59-61<br />
@@ -346,13 +301,13 @@ function DatenschutzDe() {
         </a>
       </p>
 
-      <h2>15. Automatisierte Entscheidungsfindung / Profiling</h2>
+      <h2>14. Automatisierte Entscheidungsfindung / Profiling</h2>
       <p>
         Eine automatisierte Entscheidungsfindung einschließlich Profiling im Sinne von
         Art. 22 DSGVO findet auf dieser Website nicht statt.
       </p>
 
-      <h2>16. Aktualität und Änderungen dieser Datenschutzerklärung</h2>
+      <h2>15. Aktualität und Änderungen dieser Datenschutzerklärung</h2>
       <p>
         Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Mai 2026. Durch
         die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher bzw.
@@ -569,59 +524,14 @@ function DatenschutzEn() {
         emails on our behalf (data processing pursuant to Art. 28 GDPR).
       </p>
 
-      <h2>9. Embedded Third-Party Content</h2>
-
-      <h3>9.1 Tennis News Widget (tennis.de)</h3>
-      <p>
-        On our homepage we embed a news widget of <strong>Deutscher Tennis Bund
-        GmbH</strong> (Hallerstraße 89, 20149 Hamburg) via the script{' '}
-        <code>https://www.tennis.de/content/dam/services/news-widget/widget.js</code>.
-        When the page is accessed, a connection to tennis.de servers is established,
-        whereby at least your IP address, browser information and timestamps are
-        transmitted to tennis.de.
-      </p>
-      <p>
-        <strong>Legal basis:</strong> Art. 6 (1) (f) GDPR (legitimate interest in
-        up-to-date tennis news for our users).<br />
-        tennis.de privacy policy:{' '}
-        <a
-          href="https://www.tennis.de/datenschutz"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          https://www.tennis.de/datenschutz
-        </a>
-      </p>
-
-      <h3>9.2 External Images (Unsplash)</h3>
-      <p>
-        In some places on our website we embed images from <strong>Unsplash</strong>{' '}
-        (Unsplash Inc., 400-460 Saint-Catherine West, Montreal, Quebec H3B 1A7, Canada).
-        When these pages are accessed, your IP address is transmitted to Unsplash.
-      </p>
-      <p>
-        <strong>Legal basis:</strong> Art. 6 (1) (f) GDPR (legitimate interest in an
-        appealing presentation).<br />
-        Unsplash privacy policy:{' '}
-        <a
-          href="https://unsplash.com/privacy"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          https://unsplash.com/privacy
-        </a>
-      </p>
-
-      <h2>10. Recipients / Processors (Overview)</h2>
+      <h2>9. Recipients / Processors (Overview)</h2>
       <ul>
         <li><strong>Vercel Inc.</strong>, USA – hosting</li>
         <li><strong>EmailJS, Inc.</strong>, USA – contact form dispatch</li>
         <li><strong>IONOS SE</strong>, Germany – email inbox</li>
-        <li><strong>Deutscher Tennis Bund GmbH</strong>, Germany – news widget</li>
-        <li><strong>Unsplash Inc.</strong>, Canada – external images</li>
       </ul>
 
-      <h2>11. Minors</h2>
+      <h2>10. Minors</h2>
       <p>
         Our services are also aimed at children and teenagers as part of our training
         programmes. We only process personal data of minors under 16 years of age with
@@ -629,7 +539,7 @@ function DatenschutzEn() {
         via the contact form for minors should only be made by the legal guardians.
       </p>
 
-      <h2>12. Publication of Images (Training, Camp and Event Photos)</h2>
+      <h2>11. Publication of Images (Training, Camp and Event Photos)</h2>
       <p>
         On our website (in particular in the sections "Kids on Court", "Tennis Camps",
         "Coaching Team" and "News &amp; Events") we publish photos and videos from
@@ -661,7 +571,7 @@ function DatenschutzEn() {
         is additionally covered by the consent.
       </p>
 
-      <h2>13. Your Rights as a Data Subject</h2>
+      <h2>12. Your Rights as a Data Subject</h2>
       <p>You have the following rights vis-à-vis us with regard to your personal data:</p>
       <ul>
         <li>right of access (Art. 15 GDPR)</li>
@@ -683,7 +593,7 @@ function DatenschutzEn() {
         the establishment, exercise or defence of legal claims.
       </p>
 
-      <h2>14. Competent Supervisory Authority</h2>
+      <h2>13. Competent Supervisory Authority</h2>
       <p>
         Berliner Beauftragte für Datenschutz und Informationsfreiheit<br />
         Alt-Moabit 59-61<br />
@@ -702,13 +612,13 @@ function DatenschutzEn() {
         </a>
       </p>
 
-      <h2>15. Automated Decision-Making / Profiling</h2>
+      <h2>14. Automated Decision-Making / Profiling</h2>
       <p>
         Automated decision-making including profiling within the meaning of Art. 22 GDPR
         does not take place on this website.
       </p>
 
-      <h2>16. Validity and Changes to this Privacy Policy</h2>
+      <h2>15. Validity and Changes to this Privacy Policy</h2>
       <p>
         This privacy policy is currently valid and is dated May 2026. Due to the further
         development of our website or changed legal or regulatory requirements, it may
