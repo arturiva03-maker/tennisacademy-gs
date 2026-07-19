@@ -103,11 +103,18 @@ export default function News() {
 
   return (
     <>
-      <section className="page-hero" style={{ backgroundImage: "url('/tenniscamp.jpg')", backgroundPosition: 'center 38%' }}>
-        <div className="page-hero-overlay"></div>
+      <section className="page-hero page-hero--split">
         <div className="container">
-          <h1>{t.heroTitle}</h1>
-          <p>{t.heroSub}</p>
+          <div className="split-hero-text">
+            <h1>{t.heroTitle}</h1>
+            <p>{t.heroSub}</p>
+          </div>
+          <div className="split-hero-card split-hero-card--wide">
+            <img
+              src="/tenniscamp.jpg"
+              alt={lang === 'de' ? 'Gruppenfoto vom Tenniscamp' : 'Tennis camp group photo'}
+            />
+          </div>
         </div>
       </section>
 
@@ -117,7 +124,7 @@ export default function News() {
             {items.map((event, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
                 <div className="news-card">
-                  <div className="news-card-image">
+                  <div className={`news-card-image${event.image.endsWith('.png') ? ' news-card-image--logo' : ''}`}>
                     <img src={event.image} alt={event.title} loading="lazy" />
                   </div>
                   <div className="news-card-content">

@@ -57,11 +57,15 @@ export default function DtbVdt() {
 
   return (
     <>
-      <section className="page-hero" style={{ backgroundImage: "url('/neues%20hero.jpeg')" }}>
-        <div className="page-hero-overlay"></div>
+      <section className="page-hero page-hero--split">
         <div className="container">
-          <h1>{t.heroTitle}</h1>
-          <p>{t.heroSub}</p>
+          <div className="split-hero-text">
+            <h1>{t.heroTitle}</h1>
+            <p>{t.heroSub}</p>
+          </div>
+          <div className="split-hero-card split-hero-card--seal">
+            <img src="/vdt-dtb-logo.jpg" alt="Deutsche Tennisschule - anerkannt von DTB und VDT" />
+          </div>
         </div>
       </section>
 
@@ -69,9 +73,6 @@ export default function DtbVdt() {
         <div className="container">
           <AnimatedSection>
             <div className="dtb-banner">
-              <div className="dtb-logo-container">
-                <img src="/vdt-dtb-logo.jpg" alt="Deutsche Tennisschule - anerkannt von DTB und VDT" className="dtb-logo" loading="lazy" />
-              </div>
               <div className="dtb-banner-text">
                 <h2>{t.bannerTitle}</h2>
                 <p>{t.bannerText}</p>

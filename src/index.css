@@ -824,6 +824,25 @@ img {
   }
 }
 
+/* Gold-Rahmen-Motiv (wie im Split-Hero): versetzter Rahmen als
+   wiederkehrendes Markenelement um Bild-Karten */
+.gold-frame {
+  position: relative;
+  isolation: isolate;
+}
+
+/* z-index -1: Rahmen liegt hinter der Karte, nur der versetzte
+   Ueberstand unten/rechts bleibt sichtbar */
+.gold-frame::after {
+  content: "";
+  position: absolute;
+  inset: 12px -12px -12px 12px;
+  border: 1.5px solid rgba(201, 162, 39, 0.4);
+  border-radius: calc(var(--radius) + 4px);
+  pointer-events: none;
+  z-index: -1;
+}
+
 /* Winterrunde Section */
 .winterrunde-section {
   padding: 64px 0;
@@ -2667,11 +2686,33 @@ img {
   object-fit: cover;
 }
 
-.news-card-image img[src$=".png"],
 .news-card-image img[src$="anmeldung.jpg"] {
   object-fit: contain;
   padding: 48px;
   background: var(--white);
+}
+
+/* Logo-Eintraege: Logo als weisse Kachel auf Navy-Buehne statt in den
+   Foto-Slot gequetscht */
+.news-card-image--logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background:
+    radial-gradient(120% 120% at 85% 10%, rgba(201, 162, 39, 0.14) 0%, rgba(201, 162, 39, 0) 50%),
+    linear-gradient(150deg, var(--navy-dark) 0%, var(--navy) 100%);
+}
+
+.news-card-image--logo img {
+  width: min(230px, 100%);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(4, 16, 28, 0.35);
 }
 
 .news-card-content {
@@ -3321,10 +3362,10 @@ img {
   opacity: 0;
 }
 
-/* Trainer-Hero: Das Teamfoto (graue Betonfassade, bedecktes Licht) traegt
-   keinen Full-Bleed-Hintergrund. Stattdessen Split-Hero: Marken-Navy als
-   Buehne, das Foto als gerahmte Karte daneben — so wirkt es gewollt statt grau. */
-.page-hero--trainer {
+/* Split-Hero: Marken-Navy als Buehne, daneben ein Motiv als gerahmte Karte.
+   Fuer Seiten, deren Foto/Logo als Full-Bleed-Hintergrund nicht traegt
+   (z.B. graues Teamfoto, Gruppenfoto, Siegel-Logo). */
+.page-hero--split {
   padding: 150px 0 76px;
   background:
     radial-gradient(120% 120% at 88% 8%, rgba(201, 162, 39, 0.14) 0%, rgba(201, 162, 39, 0) 46%),
@@ -3332,14 +3373,14 @@ img {
     linear-gradient(150deg, var(--navy-dark) 0%, var(--navy) 100%);
 }
 
-.page-hero--trainer .container {
+.page-hero--split .container {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 56px;
   align-items: center;
 }
 
-.trainer-hero-photo {
+.split-hero-card {
   position: relative;
   justify-self: end;
   width: min(400px, 100%);
@@ -3347,8 +3388,8 @@ img {
   opacity: 0;
 }
 
-/* Versetzter Gold-Rahmen hinter der Foto-Karte */
-.trainer-hero-photo::before {
+/* Versetzter Gold-Rahmen hinter der Karte */
+.split-hero-card::before {
   content: "";
   position: absolute;
   inset: 18px -18px -18px 18px;
@@ -3357,32 +3398,77 @@ img {
   pointer-events: none;
 }
 
-.trainer-hero-photo img {
+.split-hero-card img {
   position: relative;
   display: block;
   width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 32px 64px rgba(4, 16, 28, 0.45);
+}
+
+/* Hochformat-Foto (Trainerteam) */
+.split-hero-card--photo img {
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center 38%;
-  border-radius: 18px;
-  box-shadow: 0 32px 64px rgba(4, 16, 28, 0.45);
   filter: saturate(1.06) contrast(1.04);
 }
 
+/* Querformat-Foto (z.B. News) */
+.split-hero-card--wide {
+  width: min(460px, 100%);
+}
+
+.split-hero-card--wide img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  filter: saturate(1.06) contrast(1.04);
+}
+
+/* Siegel/Logo auf weisser Kachel */
+.split-hero-card--seal {
+  width: min(340px, 100%);
+}
+
+.split-hero-card--seal img {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  padding: 28px;
+  background: var(--white);
+}
+
 @media (max-width: 900px) {
-  .page-hero--trainer {
+  .page-hero--split {
     padding: 120px 0 64px;
   }
 
-  .page-hero--trainer .container {
+  .page-hero--split .container {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
-  .trainer-hero-photo {
+  .split-hero-card {
     justify-self: start;
     width: min(360px, calc(100% - 18px));
   }
+
+  .split-hero-card--seal {
+    width: min(300px, calc(100% - 18px));
+  }
+}
+
+/* Quiet-Hero: kompakte Navy-Buehne fuer Text- und Rechtsseiten —
+   das Platzfoto bleibt den emotionalen Seiten vorbehalten. */
+.page-hero--quiet {
+  padding: 136px 0 52px;
+  background:
+    radial-gradient(120% 140% at 90% 0%, rgba(201, 162, 39, 0.1) 0%, rgba(201, 162, 39, 0) 46%),
+    linear-gradient(150deg, var(--navy-dark) 0%, var(--navy) 100%);
+}
+
+.page-hero--quiet h1 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  margin-bottom: 0;
 }
 
 /* ========== COMING SOON ========== */

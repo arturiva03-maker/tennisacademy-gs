@@ -332,8 +332,7 @@ export default function AGB() {
 
   return (
     <>
-      <section className="page-hero" style={{ backgroundImage: "url('/neues%20hero.jpeg')" }}>
-        <div className="page-hero-overlay"></div>
+      <section className="page-hero page-hero--quiet">
         <div className="container">
           <h1>{lang === 'de' ? 'Allgemeine Geschäftsbedingungen' : 'Terms & Conditions'}</h1>
         </div>

@@ -191,8 +191,7 @@ export default function AgbTenniscamp() {
 
   return (
     <>
-      <section className="page-hero" style={{ backgroundImage: "url('/neues%20hero.jpeg')" }}>
-        <div className="page-hero-overlay"></div>
+      <section className="page-hero page-hero--quiet">
         <div className="container">
           <h1>{lang === 'de' ? 'AGB · Tenniscamps' : 'Terms & Conditions · Tennis Camps'}</h1>
         </div>

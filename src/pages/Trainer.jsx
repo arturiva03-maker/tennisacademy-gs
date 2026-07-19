@@ -5,9 +5,9 @@ export default function Trainer() {
   const { lang } = useLang();
   return (
     <>
-      <section className="page-hero page-hero--trainer">
+      <section className="page-hero page-hero--split">
         <div className="container">
-          <div className="trainer-hero-text">
+          <div className="split-hero-text">
             <h1>{lang === 'de' ? 'Unser Trainerteam' : 'Our Coaching Team'}</h1>
             <p>
               {lang === 'de'
@@ -15,7 +15,7 @@ export default function Trainer() {
                 : 'Experience and passion on court – recognised by the DTB & VDT.'}
             </p>
           </div>
-          <div className="trainer-hero-photo">
+          <div className="split-hero-card split-hero-card--photo">
             <img
               src="/trainer-team.jpg"
               alt={lang === 'de' ? 'Das Trainerteam der Tennis Academy' : 'The Tennis Academy coaching team'}

@@ -343,8 +343,9 @@ export default function Home() {
               </div>
             </AnimatedSection>
             <AnimatedSection delay={0.1}>
+              <div className="gold-frame">
               <div className="news-card">
-                <div className="news-card-image">
+                <div className={`news-card-image${events[0].image.endsWith('.png') ? ' news-card-image--logo' : ''}`}>
                   <img src={events[0].image} alt={events[0].title} loading="lazy" />
                 </div>
                 <div className="news-card-content">
@@ -364,6 +365,7 @@ export default function Home() {
                     </div>
                   )}
                 </div>
+              </div>
               </div>
             </AnimatedSection>
           </div>

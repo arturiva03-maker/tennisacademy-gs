@@ -680,8 +680,7 @@ export default function Datenschutz() {
 
   return (
     <>
-      <section className="page-hero" style={{ backgroundImage: "url('/neues%20hero.jpeg')" }}>
-        <div className="page-hero-overlay"></div>
+      <section className="page-hero page-hero--quiet">
         <div className="container">
           <h1>{lang === 'de' ? 'Datenschutzerklärung' : 'Privacy Policy'}</h1>
         </div>

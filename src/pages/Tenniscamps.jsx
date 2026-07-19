@@ -145,8 +145,10 @@ export default function Tenniscamps() {
           <div className="camp-gallery">
             {campImages.map((img, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="camp-gallery-item">
-                  <img src={img.src} alt={img.alt} loading="lazy" />
+                <div className="gold-frame">
+                  <div className="camp-gallery-item">
+                    <img src={img.src} alt={img.alt} loading="lazy" />
+                  </div>
                 </div>
               </AnimatedSection>
             ))}
