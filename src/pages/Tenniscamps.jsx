@@ -68,7 +68,7 @@ export default function Tenniscamps() {
     <>
       <section
         className="page-hero page-hero--vivid"
-        style={{ backgroundImage: "url('/tenniscamp.jpg')", backgroundPosition: 'center 62%' }}
+        style={{ backgroundImage: "url('/tenniscamp.jpg')", backgroundPosition: 'center' }}
       >
         <div className="page-hero-overlay"></div>
         <div className="container">
