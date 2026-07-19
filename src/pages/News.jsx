@@ -104,7 +104,7 @@ export default function News() {
   return (
     <>
       <section
-        className="page-hero page-hero--duotone"
+        className="page-hero page-hero--vivid"
         style={{ backgroundImage: "url('/tenniscamp.jpg')", backgroundPosition: 'center 30%' }}
       >
         <div className="page-hero-overlay"></div>

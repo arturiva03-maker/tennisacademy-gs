@@ -3362,22 +3362,21 @@ img {
   opacity: 0;
 }
 
-/* Editorial-Duotone-Hero: Full-Bleed-Foto, per Luminosity-Blend komplett
-   ins Markennavy gezogen. Loest Grau- und Unruhe-Probleme der Fotos
-   (Betonfassade, Gruppenfoto) und ist eine eigene Handschrift statt
-   Standard-Overlay. Text unten links, Gold-Schimmer als Akzent. */
-.page-hero--duotone {
-  background-color: var(--navy);
-  background-blend-mode: luminosity;
+/* Vivid-Hero: Full-Bleed-Foto in echten Farben, aber kraeftig graded —
+   Saettigung und Kontrast hoch statt Grauschleier drueber. Navy nur als
+   Verlauf unten fuer die Textzone, Gold-Schimmer als Akzent. */
+.page-hero--vivid {
   min-height: 64vh;
   align-items: flex-end;
   padding-bottom: 60px;
 }
 
-.page-hero--duotone .page-hero-overlay {
+.page-hero--vivid .page-hero-overlay {
+  backdrop-filter: saturate(1.28) contrast(1.06) brightness(1.02);
+  -webkit-backdrop-filter: saturate(1.28) contrast(1.06) brightness(1.02);
   background:
-    radial-gradient(120% 80% at 10% 100%, rgba(201, 162, 39, 0.18) 0%, rgba(201, 162, 39, 0) 50%),
-    linear-gradient(to top, rgba(11, 37, 56, 0.92) 0%, rgba(11, 37, 56, 0.35) 45%, rgba(11, 37, 56, 0.1) 100%);
+    radial-gradient(120% 80% at 10% 100%, rgba(201, 162, 39, 0.14) 0%, rgba(201, 162, 39, 0) 50%),
+    linear-gradient(to top, rgba(11, 37, 56, 0.88) 0%, rgba(11, 37, 56, 0.3) 40%, rgba(11, 37, 56, 0.06) 100%);
 }
 
 /* Trainer: Hochformat-Teamfoto braucht mehr Hoehe, damit Gesichter und

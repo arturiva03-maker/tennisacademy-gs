@@ -6,7 +6,7 @@ export default function Trainer() {
   return (
     <>
       <section
-        className="page-hero page-hero--duotone page-hero--trainer"
+        className="page-hero page-hero--vivid page-hero--trainer"
         style={{ backgroundImage: "url('/trainer-team.jpg')", backgroundPosition: 'center 42%' }}
       >
         <div className="page-hero-overlay"></div>
