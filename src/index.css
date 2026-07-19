@@ -3371,11 +3371,14 @@ img {
   padding-bottom: 60px;
 }
 
-/* Panorama-Foto (3.2:1): flacherer Hero, damit das Bild ueber die Breite
-   passt statt an den Seiten beschnitten zu werden — bei einem Gruppenfoto
-   wuerden sonst die aeusseren Kinder wegfallen. */
+/* Panorama-Foto (3.2:1): Hero-Hoehe folgt dem Bildverhaeltnis statt einem
+   vh-Wert. Nur so entsteht auf keiner Bildschirmbreite ein Beschnitt oben —
+   bei einem Gruppenfoto wuerden sonst Koepfe abgeschnitten. Unterhalb von
+   min-height (Handy hochkant) bleibt seitlicher Beschnitt unvermeidbar. */
 .page-hero--pano {
-  min-height: 46vh;
+  aspect-ratio: 1200 / 373;
+  min-height: 340px;
+  padding: 104px 0 44px;
 }
 
 .page-hero--vivid .page-hero-overlay {
