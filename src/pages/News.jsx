@@ -106,6 +106,7 @@ export default function News() {
       <section className="page-hero page-hero--split">
         <div className="container">
           <div className="split-hero-text">
+            <p className="page-hero-kicker">Tennis Academy Grand Slam</p>
             <h1>{t.heroTitle}</h1>
             <p>{t.heroSub}</p>
           </div>

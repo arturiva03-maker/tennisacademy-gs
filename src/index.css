@@ -3368,6 +3368,7 @@ img {
 .page-hero--split {
   padding: 150px 0 76px;
   background:
+    url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20720%20480'%3E%3Cg%20fill='none'%20stroke='%23ffffff'%20stroke-opacity='0.07'%20stroke-width='2'%3E%3Crect%20x='40'%20y='40'%20width='640'%20height='400'/%3E%3Cpath%20d='M40%20140h640M40%20340h640M120%2040v400M600%2040v400M360%20140v200'/%3E%3C/g%3E%3C/svg%3E") right -160px bottom -140px / 780px auto no-repeat,
     radial-gradient(120% 120% at 88% 8%, rgba(201, 162, 39, 0.14) 0%, rgba(201, 162, 39, 0) 46%),
     radial-gradient(90% 90% at 0% 100%, rgba(30, 85, 117, 0.55) 0%, rgba(30, 85, 117, 0) 60%),
     linear-gradient(150deg, var(--navy-dark) 0%, var(--navy) 100%);
@@ -3457,18 +3458,37 @@ img {
   }
 }
 
-/* Quiet-Hero: kompakte Navy-Buehne fuer Text- und Rechtsseiten —
-   das Platzfoto bleibt den emotionalen Seiten vorbehalten. */
-.page-hero--quiet {
-  padding: 136px 0 52px;
+/* Quiet-Hero: kompaktes Navy-Band fuer Text- und Rechtsseiten —
+   das Platzfoto bleibt den emotionalen Seiten vorbehalten.
+   Doppelklasse im Selektor, damit das Band auch unterhalb des mobilen
+   .page-hero-Paddings (120px 0 60px) flach bleibt. */
+.page-hero.page-hero--quiet {
+  padding: 118px 0 42px;
   background:
+    url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20720%20480'%3E%3Cg%20fill='none'%20stroke='%23ffffff'%20stroke-opacity='0.07'%20stroke-width='2'%3E%3Crect%20x='40'%20y='40'%20width='640'%20height='400'/%3E%3Cpath%20d='M40%20140h640M40%20340h640M120%2040v400M600%2040v400M360%20140v200'/%3E%3C/g%3E%3C/svg%3E") right -140px bottom -220px / 640px auto no-repeat,
     radial-gradient(120% 140% at 90% 0%, rgba(201, 162, 39, 0.1) 0%, rgba(201, 162, 39, 0) 46%),
     linear-gradient(150deg, var(--navy-dark) 0%, var(--navy) 100%);
 }
 
 .page-hero--quiet h1 {
-  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
   margin-bottom: 0;
+}
+
+/* Kicker: goldene Eyebrow-Zeile ueber dem Titel — gibt der Navy-Buehne
+   typografische Hierarchie (klein-gold, gross-weiss, Subline).
+   Verschachtelter Selektor, um die .page-hero p-Regel zu ueberstimmen. */
+.page-hero .page-hero-kicker {
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  max-width: none;
+  margin-bottom: 16px;
+  text-shadow: none;
+  animation: fadeInUp 0.6s var(--ease-out) 0.08s forwards;
+  opacity: 0;
 }
 
 /* ========== COMING SOON ========== */

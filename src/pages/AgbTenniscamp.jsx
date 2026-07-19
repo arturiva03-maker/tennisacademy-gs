@@ -193,6 +193,7 @@ export default function AgbTenniscamp() {
     <>
       <section className="page-hero page-hero--quiet">
         <div className="container">
+          <p className="page-hero-kicker">Tennis Academy Grand Slam</p>
           <h1>{lang === 'de' ? 'AGB · Tenniscamps' : 'Terms & Conditions · Tennis Camps'}</h1>
         </div>
       </section>

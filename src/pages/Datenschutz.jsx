@@ -682,6 +682,7 @@ export default function Datenschutz() {
     <>
       <section className="page-hero page-hero--quiet">
         <div className="container">
+          <p className="page-hero-kicker">Tennis Academy Grand Slam</p>
           <h1>{lang === 'de' ? 'Datenschutzerklärung' : 'Privacy Policy'}</h1>
         </div>
       </section>

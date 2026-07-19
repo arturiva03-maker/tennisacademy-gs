@@ -8,6 +8,7 @@ export default function Trainer() {
       <section className="page-hero page-hero--split">
         <div className="container">
           <div className="split-hero-text">
+            <p className="page-hero-kicker">Tennis Academy Grand Slam</p>
             <h1>{lang === 'de' ? 'Unser Trainerteam' : 'Our Coaching Team'}</h1>
             <p>
               {lang === 'de'

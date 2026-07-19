@@ -206,6 +206,7 @@ export default function Impressum() {
     <>
       <section className="page-hero page-hero--quiet">
         <div className="container">
+          <p className="page-hero-kicker">Tennis Academy Grand Slam</p>
           <h1>{lang === 'de' ? 'Impressum' : 'Legal Notice'}</h1>
         </div>
       </section>
