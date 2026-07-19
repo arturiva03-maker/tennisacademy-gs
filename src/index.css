@@ -3371,6 +3371,13 @@ img {
   padding-bottom: 60px;
 }
 
+/* Panorama-Foto (3.2:1): flacherer Hero, damit das Bild ueber die Breite
+   passt statt an den Seiten beschnitten zu werden — bei einem Gruppenfoto
+   wuerden sonst die aeusseren Kinder wegfallen. */
+.page-hero--pano {
+  min-height: 46vh;
+}
+
 .page-hero--vivid .page-hero-overlay {
   backdrop-filter: saturate(1.28) contrast(1.06) brightness(1.02);
   -webkit-backdrop-filter: saturate(1.28) contrast(1.06) brightness(1.02);

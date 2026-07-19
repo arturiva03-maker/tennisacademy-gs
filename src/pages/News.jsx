@@ -104,8 +104,8 @@ export default function News() {
   return (
     <>
       <section
-        className="page-hero page-hero--vivid"
-        style={{ backgroundImage: "url('/tenniscamp3.jpg')", backgroundPosition: 'center 40%' }}
+        className="page-hero page-hero--vivid page-hero--pano"
+        style={{ backgroundImage: "url('/cujic-cup.jpg')", backgroundPosition: 'center' }}
       >
         <div className="page-hero-overlay"></div>
         <div className="container">
