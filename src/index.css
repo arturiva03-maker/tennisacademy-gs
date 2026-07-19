@@ -3375,8 +3375,11 @@ img {
    vh-Wert. Nur so entsteht auf keiner Bildschirmbreite ein Beschnitt oben —
    bei einem Gruppenfoto wuerden sonst Koepfe abgeschnitten. Unterhalb von
    min-height (Handy hochkant) bleibt seitlicher Beschnitt unvermeidbar. */
+/* Hoehe aus der Viewport-Breite rechnen statt per aspect-ratio: bei
+   aspect-ratio + min-height waechst sonst die BREITE mit (auf 375px-Screens
+   wurde die Section 1094px breit und die Subline abgeschnitten). */
 .page-hero--pano {
-  aspect-ratio: 1200 / 373;
+  height: calc(100vw / 3.217);
   min-height: 340px;
   padding: 104px 0 44px;
 }
