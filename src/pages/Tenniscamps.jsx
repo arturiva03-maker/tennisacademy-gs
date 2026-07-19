@@ -11,7 +11,6 @@ const campImages = [
 
 const T = {
   de: {
-    heroBadge: 'Sommerferien 2026',
     heroTitle: 'Tenniscamps',
     heroSub:
       'Das Tenniscamp findet auf der Anlage des BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin statt. Montag bis Freitag, jeweils von 9:30 bis 15:00 Uhr.',
@@ -36,7 +35,6 @@ const T = {
     impressionsSub: 'Eindrücke aus unseren vergangenen Tenniscamps',
   },
   en: {
-    heroBadge: 'Summer Holidays 2026',
     heroTitle: 'Tennis Camps',
     heroSub:
       'The tennis camp takes place at the BSV 92 grounds, Fritz-Wildung-Str. 23, 14199 Berlin. Monday to Friday, from 9:30 am to 3:00 pm.',
@@ -74,7 +72,6 @@ export default function Tenniscamps() {
       >
         <div className="page-hero-overlay"></div>
         <div className="container">
-          <div className="hero-badge-large">{t.heroBadge}</div>
           <h1>{t.heroTitle}</h1>
           <p>{t.heroSub}</p>
         </div>
