@@ -103,19 +103,14 @@ export default function News() {
 
   return (
     <>
-      <section className="page-hero page-hero--split">
+      <section
+        className="page-hero page-hero--duotone"
+        style={{ backgroundImage: "url('/tenniscamp.jpg')", backgroundPosition: 'center 30%' }}
+      >
+        <div className="page-hero-overlay"></div>
         <div className="container">
-          <div className="split-hero-text">
-            <p className="page-hero-kicker">Tennis Academy Grand Slam</p>
-            <h1>{t.heroTitle}</h1>
-            <p>{t.heroSub}</p>
-          </div>
-          <div className="split-hero-card split-hero-card--wide">
-            <img
-              src="/tenniscamp.jpg"
-              alt={lang === 'de' ? 'Gruppenfoto vom Tenniscamp' : 'Tennis camp group photo'}
-            />
-          </div>
+          <h1>{t.heroTitle}</h1>
+          <p>{t.heroSub}</p>
         </div>
       </section>
 
