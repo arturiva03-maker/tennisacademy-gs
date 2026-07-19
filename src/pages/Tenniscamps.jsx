@@ -68,19 +68,15 @@ export default function Tenniscamps() {
 
   return (
     <>
-      <section className="hero hero-tenniscamp">
-        <div className="hero-content">
-          <div className="hero-text" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
-            <div className="hero-badge-large">
-              {t.heroBadge}
-            </div>
-            <h1 className="hero-title-large">
-              {t.heroTitle}
-            </h1>
-            <p className="hero-subtitle">
-              {t.heroSub}
-            </p>
-          </div>
+      <section
+        className="page-hero page-hero--vivid"
+        style={{ backgroundImage: "url('/tenniscamp.jpg')", backgroundPosition: 'center 62%' }}
+      >
+        <div className="page-hero-overlay"></div>
+        <div className="container">
+          <div className="hero-badge-large">{t.heroBadge}</div>
+          <h1>{t.heroTitle}</h1>
+          <p>{t.heroSub}</p>
         </div>
       </section>
 

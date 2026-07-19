@@ -105,7 +105,7 @@ export default function News() {
     <>
       <section
         className="page-hero page-hero--vivid"
-        style={{ backgroundImage: "url('/tenniscamp.jpg')", backgroundPosition: 'center 30%' }}
+        style={{ backgroundImage: "url('/tenniscamp.jpg')", backgroundPosition: 'center 62%' }}
       >
         <div className="page-hero-overlay"></div>
         <div className="container">
