@@ -4284,3 +4284,30 @@ img {
     aspect-ratio: 4 / 3;
   }
 }
+
+/* ========== MOBILE USABILITY ========== */
+/* iOS Safari zoomt beim Antippen automatisch rein, wenn ein Eingabefeld
+   kleiner als 16px gesetzt ist — betraf Camp-Anmeldung und Kontaktformular.
+   16px verhindert den Zoom-Sprung. */
+@media (max-width: 768px) {
+  input,
+  select,
+  textarea,
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px;
+  }
+
+  /* Tap-Targets auf Touch-Geraeten: Richtwert 44px Hoehe */
+  .preis-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .footer-links a {
+    display: inline-block;
+    padding: 11px 0;
+  }
+}
