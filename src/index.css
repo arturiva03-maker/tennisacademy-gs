@@ -3321,30 +3321,67 @@ img {
   opacity: 0;
 }
 
-/* Trainer-Hero: Hochformat-Teamfoto braucht mehr Hoehe + Text nach unten,
-   damit Gesichter und DTB/VDT-Siegel sichtbar bleiben statt nur Koepfe */
+/* Trainer-Hero: Das Teamfoto (graue Betonfassade, bedecktes Licht) traegt
+   keinen Full-Bleed-Hintergrund. Stattdessen Split-Hero: Marken-Navy als
+   Buehne, das Foto als gerahmte Karte daneben — so wirkt es gewollt statt grau. */
 .page-hero--trainer {
-  min-height: 82vh;
-  align-items: flex-end;
-  padding-bottom: 56px;
-}
-
-/* Das Teamfoto hat eine kuehl-graue Betonfassade + bunte Shirts, die neben
-   dem Navy/Gold der Marke fremd wirken. Eigener Navy-Tint zieht das Grau ins
-   Markennavy, leichte Entsaettigung beruhigt die Farben, Gold-Schimmer unter
-   dem Titel bindet es an die Marke. */
-.page-hero--trainer .page-hero-overlay {
-  backdrop-filter: saturate(0.82) contrast(1.04);
-  -webkit-backdrop-filter: saturate(0.82) contrast(1.04);
+  padding: 150px 0 76px;
   background:
-    radial-gradient(135% 90% at 12% 100%, rgba(201, 162, 39, 0.16) 0%, rgba(201, 162, 39, 0) 48%),
-    linear-gradient(to top, rgba(11, 37, 56, 0.9) 0%, rgba(11, 37, 56, 0.45) 40%, rgba(11, 37, 56, 0.18) 100%),
-    linear-gradient(135deg, rgba(22, 61, 94, 0.5) 0%, rgba(11, 37, 56, 0.5) 100%);
+    radial-gradient(120% 120% at 88% 8%, rgba(201, 162, 39, 0.14) 0%, rgba(201, 162, 39, 0) 46%),
+    radial-gradient(90% 90% at 0% 100%, rgba(30, 85, 117, 0.55) 0%, rgba(30, 85, 117, 0) 60%),
+    linear-gradient(150deg, var(--navy-dark) 0%, var(--navy) 100%);
 }
 
-@media (max-width: 600px) {
+.page-hero--trainer .container {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.trainer-hero-photo {
+  position: relative;
+  justify-self: end;
+  width: min(400px, 100%);
+  animation: fadeInUp 0.8s var(--ease-out) 0.45s forwards;
+  opacity: 0;
+}
+
+/* Versetzter Gold-Rahmen hinter der Foto-Karte */
+.trainer-hero-photo::before {
+  content: "";
+  position: absolute;
+  inset: 18px -18px -18px 18px;
+  border: 1.5px solid rgba(201, 162, 39, 0.45);
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.trainer-hero-photo img {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 38%;
+  border-radius: 18px;
+  box-shadow: 0 32px 64px rgba(4, 16, 28, 0.45);
+  filter: saturate(1.06) contrast(1.04);
+}
+
+@media (max-width: 900px) {
   .page-hero--trainer {
-    min-height: 70vh;
+    padding: 120px 0 64px;
+  }
+
+  .page-hero--trainer .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .trainer-hero-photo {
+    justify-self: start;
+    width: min(360px, calc(100% - 18px));
   }
 }
 
