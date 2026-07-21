@@ -1786,6 +1786,36 @@ img {
   background: var(--white);
 }
 
+/* Das tennis.de-Widget bringt fremdes Design mit. Ein Markenrahmen (Navy-
+   Hairline, Gold-Akzentleiste oben, weiche Karte) fasst es ins Seitenbild
+   ein, statt es lose auf der Seite stehen zu lassen. */
+.tennis-news-frame {
+  position: relative;
+  margin-top: 8px;
+  padding: 28px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.tennis-news-frame::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 55%, var(--gold) 100%);
+}
+
+@media (max-width: 600px) {
+  .tennis-news-frame {
+    padding: 16px;
+  }
+}
+
 
 /* ========== KIDS ON COURT ========== */
 .kids-section {

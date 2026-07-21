@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { MotionConfig } from 'motion/react';
 import { LanguageProvider } from './i18n/LanguageContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -51,15 +52,17 @@ function AnimatedRoutes() {
 function App() {
   return (
     <LanguageProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <DocumentMeta />
-        <Navbar />
-        <main className="main-content">
-          <AnimatedRoutes />
-        </main>
-        <Footer />
-      </BrowserRouter>
+      <MotionConfig reducedMotion="user">
+        <BrowserRouter>
+          <ScrollToTop />
+          <DocumentMeta />
+          <Navbar />
+          <main className="main-content">
+            <AnimatedRoutes />
+          </main>
+          <Footer />
+        </BrowserRouter>
+      </MotionConfig>
     </LanguageProvider>
   );
 }

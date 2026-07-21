@@ -142,7 +142,11 @@ function TennisNewsWidget() {
     document.body.appendChild(script);
     return () => script.remove();
   }, []);
-  return <div id="tennis-news-widget" data-tenant="dtb" data-design="modern" />;
+  return (
+    <div className="tennis-news-frame">
+      <div id="tennis-news-widget" data-tenant="dtb" data-design="modern" />
+    </div>
+  );
 }
 
 function TimelineItem({ offering, index }) {
