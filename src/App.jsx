@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { LanguageProvider } from './i18n/LanguageContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import DocumentMeta from './components/DocumentMeta';
+import NotFound from './pages/NotFound';
 import Home from './pages/Home';
 import Trainer from './pages/Trainer';
 import Preise from './pages/Preise';
@@ -41,6 +43,7 @@ function AnimatedRoutes() {
       <Route path="/agb-tenniscamp" element={<AgbTenniscamp />} />
       <Route path="/tenniscamps" element={<Tenniscamps />} />
       <Route path="/tenniscamp-anmeldung" element={<TenniscampAnmeldung />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
@@ -50,6 +53,7 @@ function App() {
     <LanguageProvider>
       <BrowserRouter>
         <ScrollToTop />
+        <DocumentMeta />
         <Navbar />
         <main className="main-content">
           <AnimatedRoutes />
