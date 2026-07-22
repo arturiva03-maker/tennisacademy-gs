@@ -96,13 +96,6 @@ const T = {
     offerHeadline: 'Unser Angebot',
     offerIntro:
       'Von ersten koordinativen Übungen bis zum Wettkampfvorbereitungstraining – wir begleiten dich Schritt für Schritt in deinem Tennisleben.',
-    factsLead: 'Tennis mit Herkunft',
-    facts: [
-      { num: 'seit 2008', label: 'DTB/VDT-lizenzierte Tennisschule' },
-      { num: '125 Jahre', label: 'Tradition beim BSV 92' },
-      { num: 'ab 3 Jahren', label: 'von der Ballschule an dabei' },
-      { num: 'Sand & Halle', label: 'ganzjährig in Berlin-Wilmersdorf' },
-    ],
     latestNews: 'Aktuelles',
     dtbTitle: 'Deutsche Tennisschule',
     dtbText:
@@ -128,13 +121,6 @@ const T = {
     offerHeadline: 'What We Offer',
     offerIntro:
       'From first coordination exercises to competition preparation – we guide you step by step through your tennis journey.',
-    factsLead: 'Tennis with heritage',
-    facts: [
-      { num: 'since 2008', label: 'DTB/VDT-accredited tennis school' },
-      { num: '125 years', label: 'of tradition at BSV 92' },
-      { num: 'from age 3', label: 'starting with ball school' },
-      { num: 'clay & indoor', label: 'year-round in Berlin-Wilmersdorf' },
-    ],
     latestNews: 'Latest News',
     dtbTitle: 'German Tennis School',
     dtbText:
@@ -348,25 +334,6 @@ export default function Home() {
               <TimelineItem key={offering.id} offering={offering} index={i} />
             ))}
           </ol>
-        </div>
-      </section>
-
-      {/* SUBSTANZ / HERKUNFT */}
-      <section className="gs-facts">
-        <div className="container">
-          <AnimatedSection>
-            <div className="gs-facts-inner">
-              <p className="gs-facts-lead">{t.factsLead}</p>
-              <div className="gs-facts-grid">
-                {t.facts.map((f, i) => (
-                  <div className="gs-fact" key={i}>
-                    <span className="gs-fact-num">{f.num}</span>
-                    <span className="gs-fact-label">{f.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
         </div>
       </section>
 
