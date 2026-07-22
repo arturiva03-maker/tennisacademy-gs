@@ -42,7 +42,6 @@ const TRAINERS = {
 const T = {
   de: {
     heroTitle: 'Preise und Angebote',
-    heroSub: 'Faire, transparente Preise – vom Einzeltraining bis zur 6er Gruppe.',
     sectionTitle: 'Trainingspreise pro Person / Stunde',
     sectionSub: 'Alle Preise verstehen sich pro Person und Trainingsstunde (60 Minuten).',
     pillsAria: 'Gruppengröße auswählen',
@@ -61,7 +60,6 @@ const T = {
   },
   en: {
     heroTitle: 'Prices & Programs',
-    heroSub: 'Fair, transparent pricing – from private lessons to groups of six.',
     sectionTitle: 'Training Prices per Person / Hour',
     sectionSub: 'All prices are per person and per training hour (60 minutes).',
     pillsAria: 'Select group size',
@@ -98,7 +96,6 @@ export default function Preise() {
         <div className="page-hero-overlay"></div>
         <div className="container">
           <h1>{t.heroTitle}</h1>
-          <p>{t.heroSub}</p>
         </div>
       </section>
 
