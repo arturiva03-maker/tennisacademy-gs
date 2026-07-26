@@ -296,10 +296,6 @@ export default function Home() {
               </div>
               <div className="gs-hero-camp-board-rows">
                 <div className="gs-hero-camp-board-row">
-                  <span className="gs-hero-camp-board-week">{t.campWeek} 1</span>
-                  <span className="gs-hero-camp-board-dates">13.07. – 17.07.2026</span>
-                </div>
-                <div className="gs-hero-camp-board-row">
                   <span className="gs-hero-camp-board-week">{t.campWeek} 5</span>
                   <span className="gs-hero-camp-board-dates">10.08. – 14.08.2026</span>
                 </div>

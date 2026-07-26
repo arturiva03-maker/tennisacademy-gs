@@ -17,7 +17,6 @@ const T = {
     termineTitle: 'Termine',
     termineSub: 'Sommerferien Berlin 2026 · Mo – Fr · 9:30 – 15:00 Uhr',
     termine: [
-      { label: '1. Ferienwoche', dates: '13.07. – 17.07.2026' },
       { label: 'Vorletzte Ferienwoche', dates: '10.08. – 14.08.2026' },
       { label: 'Letzte Ferienwoche', dates: '17.08. – 21.08.2026' },
     ],
@@ -41,7 +40,6 @@ const T = {
     termineTitle: 'Dates',
     termineSub: 'Berlin summer holidays 2026 · Mon – Fri · 9:30 am – 3:00 pm',
     termine: [
-      { label: '1st holiday week', dates: '13 – 17 July 2026' },
       { label: 'Second-to-last holiday week', dates: '10 – 14 August 2026' },
       { label: 'Last holiday week', dates: '17 – 21 August 2026' },
     ],

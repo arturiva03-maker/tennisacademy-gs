@@ -21,13 +21,6 @@ const MAX_SUBMISSIONS = 3;
 // immer auf Deutsch an — nur die sichtbaren Labels werden übersetzt.
 const campTermine = [
   {
-    value: '1. Ferienwoche (13.07. – 17.07.2026)',
-    label: {
-      de: '1. Ferienwoche · 13.07. – 17.07.2026',
-      en: '1st holiday week · 13 – 17 July 2026',
-    },
-  },
-  {
     value: 'Vorletzte Ferienwoche (10.08. – 14.08.2026)',
     label: {
       de: 'Vorletzte Ferienwoche · 10.08. – 14.08.2026',

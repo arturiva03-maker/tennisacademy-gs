@@ -106,7 +106,6 @@ const drawFooter = (doc) => {
 
 // 1) Notfallbogen ------------------------------------------------------------
 const CAMPS_2026 = [
-  { id: '1. Ferienwoche', label: 'Sommercamp I', dates: '13.07. bis 17.07.2026' },
   { id: 'Vorletzte Ferienwoche', label: 'Sommercamp II', dates: '10.08. bis 14.08.2026' },
   { id: 'Letzte Ferienwoche', label: 'Sommercamp III', dates: '17.08. bis 21.08.2026' },
 ];
@@ -338,7 +337,6 @@ const buildAnmeldebogen = () => {
     doc.rect(boxX, boxY, 5, 5);
     y += 8;
   };
-  drawCampRow('Sommercamp I',  '13.07. bis 17.07.2026');
   drawCampRow('Sommercamp II', '10.08. bis 14.08.2026');
   drawCampRow('Sommercamp III','17.08. bis 21.08.2026');
   doc.setFont('helvetica', 'italic');
