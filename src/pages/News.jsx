@@ -80,6 +80,7 @@ export const eventsByLang = {
       location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
       description: 'Der BSV 92 veranstaltet auf seiner Anlage in der Fritz-Wildung-Str. 23, 14199 Berlin, am Sonntag, den 07.09.2025 wieder den sehr beliebten Čujić-Mini-Cup 2025. Die inzwischen 15. Auflage dieses Kleinfeldturniers richtet sich besonders an die Kinder, die den Einstieg in die faszinierende Sportart Tennis beginnen wollen.',
       image: '/cujic-cup.jpg',
+      layout: 'banner',
     },
   ],
   en: [
@@ -158,6 +159,7 @@ export const eventsByLang = {
       location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
       description: 'On Sunday, 7 September 2025, BSV 92 will once again host the very popular Čujić Mini Cup 2025 at its grounds at Fritz-Wildung-Str. 23, 14199 Berlin. Now in its 15th edition, this small-court tournament is aimed especially at children who want to take their first steps in the fascinating sport of tennis.',
       image: '/cujic-cup.jpg',
+      layout: 'banner',
     },
   ],
 };
