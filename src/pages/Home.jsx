@@ -314,26 +314,7 @@ export default function Home() {
 
       </section>
 
-      {/* OFFERINGS — IMMERSIVE HERO ROWS */}
-      <section className="gs-offer-section">
-        <div className="container">
-          <AnimatedSection>
-            <div className="gs-offer-header">
-              <h2 className="gs-offer-headline">{t.offerHeadline}</h2>
-              <p className="gs-offer-intro">{t.offerIntro}</p>
-            </div>
-          </AnimatedSection>
-        </div>
-        <div className="container">
-          <ol className="gs-timeline">
-            {offerings.map((offering, i) => (
-              <TimelineItem key={offering.id} offering={offering} index={i} />
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* AKTUELLES */}
+      {/* AKTUELLES — direkt nach dem Hero, damit Aktuelles sofort sichtbar ist */}
       {events[0] && (
         <section className="latest-news-section">
           <div className="container">
@@ -393,6 +374,25 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      {/* OFFERINGS — IMMERSIVE HERO ROWS */}
+      <section className="gs-offer-section">
+        <div className="container">
+          <AnimatedSection>
+            <div className="gs-offer-header">
+              <h2 className="gs-offer-headline">{t.offerHeadline}</h2>
+              <p className="gs-offer-intro">{t.offerIntro}</p>
+            </div>
+          </AnimatedSection>
+        </div>
+        <div className="container">
+          <ol className="gs-timeline">
+            {offerings.map((offering, i) => (
+              <TimelineItem key={offering.id} offering={offering} index={i} />
+            ))}
+          </ol>
+        </div>
+      </section>
 
       {/* DTB/VDT QUALITÄTSSIEGEL */}
       <section className="dtb-section">
