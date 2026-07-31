@@ -19,6 +19,8 @@ const T = {
     heroSub: 'Wir freuen uns auf deine Nachricht',
     infoTitle: 'So erreichst du uns',
     infoText: 'Hast du Fragen zu unserem Trainingsangebot? Schreib uns!',
+    noticeTitle: 'Aufnahmestopp – Warteliste',
+    noticeText: 'Wir nehmen derzeit keine neuen Jugendlichen auf. Anfragen sind weiterhin möglich – wir nehmen dich auf die Warteliste auf und melden uns, sobald ein Platz frei wird.',
     successTitle: 'Nachricht gesendet!',
     successText: 'Vielen Dank für deine Anfrage. Wir melden uns schnellstmöglich bei dir.',
     newMessage: 'Neue Nachricht',
@@ -51,6 +53,8 @@ const T = {
     heroSub: 'We look forward to your message',
     infoTitle: 'How to Reach Us',
     infoText: 'Questions about our training programmes? Write to us!',
+    noticeTitle: 'Intake closed – waiting list',
+    noticeText: 'We are currently not accepting new junior players. You are still welcome to get in touch – we will add you to the waiting list and contact you as soon as a place becomes available.',
     successTitle: 'Message sent!',
     successText: 'Thank you for your enquiry. We will get back to you as soon as possible.',
     newMessage: 'New message',
@@ -235,6 +239,11 @@ export default function Kontakt() {
               <div className="kontakt-info">
                 <h2>{t.infoTitle}</h2>
               <p>{t.infoText}</p>
+
+              <div className="kontakt-hinweis">
+                <strong>{t.noticeTitle}</strong>
+                <p>{t.noticeText}</p>
+              </div>
 
               <div className="kontakt-details">
                 <div className="kontakt-item">
