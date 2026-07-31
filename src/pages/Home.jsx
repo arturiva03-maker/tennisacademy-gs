@@ -344,7 +344,7 @@ export default function Home() {
             </AnimatedSection>
             <AnimatedSection delay={0.1}>
               <div className="gold-frame">
-              <div className="news-card">
+              <div className={`news-card${events[0].layout === 'banner' ? ' news-card--banner' : ''}`}>
                 <div className={`news-card-image${events[0].image.endsWith('.png') ? ' news-card-image--logo' : ''}`}>
                   <img src={events[0].image} alt={events[0].title} loading="lazy" />
                 </div>
@@ -357,15 +357,25 @@ export default function Home() {
                   {events[0].description.split('\n\n').map((paragraph, j) => (
                     <p className="news-card-text" key={j}>{paragraph}</p>
                   ))}
-                  {(events[0].cta || events[0].download) && (
+                  {events[0].teaserDetails && (
+                    <dl className="news-card-details news-card-details--compact">
+                      {events[0].teaserDetails.map((detail, j) => (
+                        <div className="news-card-detail" key={j}>
+                          <dt>{detail.label}</dt>
+                          <dd>{detail.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  )}
+                  {(events[0].homeCta || events[0].cta || events[0].download) && (
                     <div className="news-card-actions">
-                      {events[0].cta && (
+                      {(events[0].homeCta || events[0].cta) && (
                         <ButtonWithIcon
-                          href={events[0].cta.link}
-                          target={events[0].cta.external ? '_blank' : undefined}
-                          rel={events[0].cta.external ? 'noopener noreferrer' : undefined}
+                          href={(events[0].homeCta || events[0].cta).link}
+                          target={(events[0].homeCta || events[0].cta).external ? '_blank' : undefined}
+                          rel={(events[0].homeCta || events[0].cta).external ? 'noopener noreferrer' : undefined}
                         >
-                          {events[0].cta.label}
+                          {(events[0].homeCta || events[0].cta).label}
                         </ButtonWithIcon>
                       )}
                       {events[0].download && (

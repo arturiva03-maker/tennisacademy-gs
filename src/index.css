@@ -2720,6 +2720,20 @@ img {
   min-height: 250px;
 }
 
+/* Banner-Eintraege: Panoramafotos gehoeren nicht in die schmale Bildspalte –
+   dort bleiben bei einem 3:1-Gruppenbild nur ~30 % der Bildmitte uebrig.
+   Volle Breite oben, Slot uebernimmt das Seitenverhaeltnis des Fotos. */
+.news-card--banner {
+  grid-template-columns: 1fr;
+}
+
+.news-card--banner .news-card-image {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 1200 / 373;
+  background: var(--navy-dark);
+}
+
 .news-card-image img {
   width: 100%;
   height: 100%;
@@ -2836,6 +2850,16 @@ img {
   font-size: 0.95rem;
   color: var(--text-dark);
   line-height: 1.6;
+}
+
+/* Kurzfassung im Startseiten-Teaser: nur die drei Eckdaten, enger gesetzt. */
+.news-card-details--compact {
+  margin: 20px 0 0;
+}
+
+.news-card-details--compact .news-card-detail {
+  grid-template-columns: 160px 1fr;
+  padding: 9px 0;
 }
 
 .news-card-actions {

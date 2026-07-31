@@ -25,10 +25,20 @@ export const eventsByLang = {
       ],
       note: 'Anmeldung über die Turnierplattform TVPro-online oder mit dem ausgefüllten Anmeldeformular per E-Mail an info@tennisacademy-gs.de.',
       image: '/cujic-cup.jpg',
+      layout: 'banner',
+      teaserDetails: [
+        { label: 'Termin', value: 'Sonntag, 30.08.2026, ab 14.30 Uhr' },
+        { label: 'Meldeschluss', value: 'Donnerstag, 27.08.2026' },
+        { label: 'Nenngeld', value: '33 € inklusive Turnier-Shirt' },
+      ],
       cta: {
         label: 'Anmeldung über TVPro-online',
         link: 'https://www.tvpro-online.de/turniere/item/44918',
         external: true,
+      },
+      homeCta: {
+        label: 'Zur vollständigen Ausschreibung',
+        link: '/news',
       },
       download: {
         label: 'Anmeldeformular als PDF',
@@ -93,10 +103,20 @@ export const eventsByLang = {
       ],
       note: 'Register via the TVPro-online tournament platform or send the completed registration form by email to info@tennisacademy-gs.de.',
       image: '/cujic-cup.jpg',
+      layout: 'banner',
+      teaserDetails: [
+        { label: 'Date', value: 'Sunday, 30 August 2026, from 2.30 pm' },
+        { label: 'Registration deadline', value: 'Thursday, 27 August 2026' },
+        { label: 'Entry fee', value: '€33 including tournament shirt' },
+      ],
       cta: {
         label: 'Register via TVPro-online',
         link: 'https://www.tvpro-online.de/turniere/item/44918',
         external: true,
+      },
+      homeCta: {
+        label: 'Read the full announcement',
+        link: '/news',
       },
       download: {
         label: 'Registration form as PDF (in German)',
@@ -179,7 +199,7 @@ export default function News() {
           <div className="news-list">
             {items.map((event, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="news-card">
+                <div className={`news-card${event.layout === 'banner' ? ' news-card--banner' : ''}`}>
                   <div className={`news-card-image${event.image.endsWith('.png') ? ' news-card-image--logo' : ''}`}>
                     <img src={event.image} alt={event.title} loading="lazy" />
                   </div>
