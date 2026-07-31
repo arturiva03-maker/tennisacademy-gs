@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Calendar, Award, Target, Users } from 'lucide-react';
+import { Calendar, Award, Target, Users, Download } from 'lucide-react';
 import { motion } from 'motion/react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import { eventsByLang } from './News';
@@ -357,11 +357,23 @@ export default function Home() {
                   {events[0].description.split('\n\n').map((paragraph, j) => (
                     <p className="news-card-text" key={j}>{paragraph}</p>
                   ))}
-                  {events[0].cta && (
-                    <div style={{ marginTop: '20px' }}>
-                      <ButtonWithIcon href={events[0].cta.link}>
-                        {events[0].cta.label}
-                      </ButtonWithIcon>
+                  {(events[0].cta || events[0].download) && (
+                    <div className="news-card-actions">
+                      {events[0].cta && (
+                        <ButtonWithIcon
+                          href={events[0].cta.link}
+                          target={events[0].cta.external ? '_blank' : undefined}
+                          rel={events[0].cta.external ? 'noopener noreferrer' : undefined}
+                        >
+                          {events[0].cta.label}
+                        </ButtonWithIcon>
+                      )}
+                      {events[0].download && (
+                        <a className="news-card-download" href={events[0].download.href} download>
+                          <Download size={16} />
+                          <span>{events[0].download.label}</span>
+                        </a>
+                      )}
                     </div>
                   )}
                 </div>

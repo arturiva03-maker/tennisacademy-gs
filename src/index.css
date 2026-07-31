@@ -2799,6 +2799,82 @@ img {
   line-height: 1.7;
 }
 
+.news-card-text + .news-card-text {
+  margin-top: 14px;
+}
+
+.news-card-details + .news-card-text {
+  margin-top: 20px;
+}
+
+/* Ausschreibungs-Eckdaten: typografische Zeilen mit Haarlinie, bewusst
+   keine Kacheln – die Angaben sind Fließtext-Ersatz, kein Zahlenband. */
+.news-card-details {
+  margin: 24px 0 4px;
+  border-top: 1px solid var(--border);
+}
+
+.news-card-detail {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.news-card-detail dt {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-ink);
+  line-height: 1.6;
+}
+
+.news-card-detail dd {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.news-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  margin-top: 24px;
+}
+
+.news-card-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--navy) 35%, transparent);
+  padding-bottom: 2px;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.news-card-download:hover {
+  color: var(--gold-ink);
+  border-bottom-color: var(--gold);
+}
+
+.news-card-download svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .news-card-detail {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
 /* ========== KONTAKT ========== */
 .kontakt-section {
   padding: 96px 0;

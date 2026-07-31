@@ -1,10 +1,40 @@
-import { Calendar } from 'lucide-react';
+import { Calendar, Download } from 'lucide-react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
 import { useLang } from '../i18n/LanguageContext';
 
 export const eventsByLang = {
   de: [
+    {
+      title: '16. Čujić-Mini-Cup 2026',
+      subtitle: 'Kleinfeldturnier mit Mehrkampf – die Ausschreibung',
+      date: 'Sonntag, 30. August 2026',
+      location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
+      description: 'Der BSV 92 veranstaltet am Sonntag, den 30. August 2026 auf seiner Anlage in der Fritz-Wildung-Str. 23 wieder den beliebten Čujić-Mini-Cup. Die inzwischen 16. Auflage dieses Kleinfeldturniers richtet sich besonders an Kinder, die ihre ersten Schritte im Wettkampf gehen wollen.\n\nGespielt wird in Vierergruppen, in Ausnahmefällen auch in Dreiergruppen. Die Einteilung erfolgt nach Spielstärke und Alter, sodass jedes Kind passende Gegner findet. Bei witterungsbedingter Unbespielbarkeit der Außenplätze kann das Turnier leider nicht stattfinden.',
+      details: [
+        { label: 'Termin', value: 'Sonntag, 30.08.2026' },
+        { label: 'Spielbeginn', value: '14.30 Uhr (Spielende ca. 18.30 Uhr)' },
+        { label: 'Sign-In', value: '13.00 Uhr bis 13.45 Uhr' },
+        { label: 'Konkurrenz', value: 'U10 Mixed – Mädchen und Jungen, Jahrgang 2016 und jünger' },
+        { label: 'Teilnehmerzahl', value: 'maximal 48 Kinder' },
+        { label: 'Spielball', value: 'Dunlop Starter Balls rot' },
+        { label: 'Spielort', value: 'Berliner Sport-Verein 1892 e.V. – Tennisabteilung, Fritz-Wildung-Str. 23, 14199 Berlin' },
+        { label: 'Meldeschluss', value: 'Donnerstag, 27.08.2026, 23:59 Uhr' },
+        { label: 'Nenngeld', value: '33 € inklusive Turnier-Shirt, Barzahlung beim Sign-In' },
+        { label: 'Veranstalter', value: 'Berliner Sport-Verein 1892 e.V. – Tennisabteilung' },
+      ],
+      note: 'Anmeldung über die Turnierplattform TVPro-online oder mit dem ausgefüllten Anmeldeformular per E-Mail an info@tennisacademy-gs.de.',
+      image: '/cujic-cup.jpg',
+      cta: {
+        label: 'Anmeldung über TVPro-online',
+        link: 'https://www.tvpro-online.de/turniere/item/44918',
+        external: true,
+      },
+      download: {
+        label: 'Anmeldeformular als PDF',
+        href: '/cujic-mini-cup-2026-anmeldeformular.pdf',
+      },
+    },
     {
       title: 'Tenniscamps Sommerferien 2026',
       subtitle: 'Anmeldung jetzt online möglich',
@@ -43,6 +73,36 @@ export const eventsByLang = {
     },
   ],
   en: [
+    {
+      title: '16th Čujić Mini Cup 2026',
+      subtitle: 'Small-court tournament with multi-event competition – the announcement',
+      date: 'Sunday, 30 August 2026',
+      location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
+      description: 'On Sunday, 30 August 2026, BSV 92 will once again host the popular Čujić Mini Cup at its grounds at Fritz-Wildung-Str. 23. Now in its 16th edition, this small-court tournament is aimed especially at children taking their first steps in competitive tennis.\n\nMatches are played in groups of four, in exceptional cases in groups of three. Children are allocated by playing level and age so that everyone finds suitable opponents. If the outdoor courts are unplayable due to weather, the tournament unfortunately cannot take place.',
+      details: [
+        { label: 'Date', value: 'Sunday, 30 August 2026' },
+        { label: 'Start of play', value: '2.30 pm (end of play approx. 6.30 pm)' },
+        { label: 'Sign-in', value: '1.00 pm to 1.45 pm' },
+        { label: 'Competition', value: 'U10 mixed – girls and boys born 2016 or later' },
+        { label: 'Number of participants', value: 'maximum 48 children' },
+        { label: 'Ball', value: 'Dunlop Starter Balls red' },
+        { label: 'Venue', value: 'Berliner Sport-Verein 1892 e.V. – tennis department, Fritz-Wildung-Str. 23, 14199 Berlin' },
+        { label: 'Registration deadline', value: 'Thursday, 27 August 2026, 11:59 pm' },
+        { label: 'Entry fee', value: '€33 including tournament shirt, cash payment at sign-in' },
+        { label: 'Organiser', value: 'Berliner Sport-Verein 1892 e.V. – tennis department' },
+      ],
+      note: 'Register via the TVPro-online tournament platform or send the completed registration form by email to info@tennisacademy-gs.de.',
+      image: '/cujic-cup.jpg',
+      cta: {
+        label: 'Register via TVPro-online',
+        link: 'https://www.tvpro-online.de/turniere/item/44918',
+        external: true,
+      },
+      download: {
+        label: 'Registration form as PDF (in German)',
+        href: '/cujic-mini-cup-2026-anmeldeformular.pdf',
+      },
+    },
     {
       title: 'Tennis Camps – Summer Holidays 2026',
       subtitle: 'Registration now open online',
@@ -132,11 +192,34 @@ export default function News() {
                     {event.description.split('\n\n').map((paragraph, j) => (
                       <p className="news-card-text" key={j}>{paragraph}</p>
                     ))}
-                    {event.cta && (
-                      <div style={{ marginTop: '20px' }}>
-                        <ButtonWithIcon href={event.cta.link}>
-                          {event.cta.label}
-                        </ButtonWithIcon>
+                    {event.details && (
+                      <dl className="news-card-details">
+                        {event.details.map((detail, j) => (
+                          <div className="news-card-detail" key={j}>
+                            <dt>{detail.label}</dt>
+                            <dd>{detail.value}</dd>
+                          </div>
+                        ))}
+                      </dl>
+                    )}
+                    {event.note && <p className="news-card-text">{event.note}</p>}
+                    {(event.cta || event.download) && (
+                      <div className="news-card-actions">
+                        {event.cta && (
+                          <ButtonWithIcon
+                            href={event.cta.link}
+                            target={event.cta.external ? '_blank' : undefined}
+                            rel={event.cta.external ? 'noopener noreferrer' : undefined}
+                          >
+                            {event.cta.label}
+                          </ButtonWithIcon>
+                        )}
+                        {event.download && (
+                          <a className="news-card-download" href={event.download.href} download>
+                            <Download size={16} />
+                            <span>{event.download.label}</span>
+                          </a>
+                        )}
                       </div>
                     )}
                   </div>

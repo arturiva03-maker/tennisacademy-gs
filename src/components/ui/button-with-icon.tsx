@@ -11,6 +11,9 @@ interface ButtonWithIconProps {
   disabled?: boolean;
   variant?: "primary" | "outline";
   onDark?: boolean;
+  target?: string;
+  rel?: string;
+  download?: boolean | string;
 }
 
 const ButtonWithIcon = ({
@@ -22,6 +25,9 @@ const ButtonWithIcon = ({
   disabled = false,
   variant = "primary",
   onDark = false,
+  target,
+  rel,
+  download,
 }: ButtonWithIconProps) => {
   const baseClasses =
     "relative text-sm font-medium rounded-full h-12 p-1 ps-6 pe-14 group transition-[padding,transform,background-color] duration-200 ease-out hover:ps-14 hover:pe-6 active:scale-[0.97] w-fit overflow-hidden cursor-pointer";
@@ -50,7 +56,7 @@ const ButtonWithIcon = ({
         className={cn(baseClasses, variantClasses, className)}
         asChild
       >
-        <a href={href}>
+        <a href={href} target={target} rel={rel} download={download}>
           <span className="relative z-10 transition-transform duration-200 ease-out">
             {children}
           </span>
