@@ -2827,9 +2827,13 @@ img {
 }
 
 .kontakt-hinweis {
-  border-left: 3px solid var(--gold);
-  padding: 4px 0 4px 20px;
+  background: color-mix(in srgb, var(--gold) 8%, var(--white));
+  border: 1px solid color-mix(in srgb, var(--gold) 32%, transparent);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 20px 24px;
   margin-bottom: 32px;
+  box-shadow: var(--shadow-sm);
 }
 
 .kontakt-hinweis strong {
@@ -2842,7 +2846,7 @@ img {
 }
 
 .kontakt-hinweis p {
-  color: var(--text-medium);
+  color: var(--text-dark);
   line-height: 1.7;
   font-size: 0.95rem;
   margin: 0;
