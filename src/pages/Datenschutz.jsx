@@ -3,7 +3,7 @@ import { useLang } from '../i18n/LanguageContext';
 function DatenschutzDe() {
   return (
     <div className="legal-content">
-      <p><em>Stand: Mai 2026</em></p>
+      <p><em>Stand: Juli 2026</em></p>
 
 
       <h2>1. Verantwortlicher</h2>
@@ -96,12 +96,14 @@ function DatenschutzDe() {
         Einsatz von Drittanbieter-Cookies, Reichweitenmessung oder Re-Targeting statt.
       </p>
       <p>
-        Zur missbräuchlichen Nutzung des Kontaktformulars zu verhindern, speichern wir
-        im <strong>Local Storage</strong> Ihres Browsers unter dem Schlüssel{' '}
-        <code>contactFormSubmissions</code> ausschließlich Zeitstempel Ihrer letzten
-        Formularabsendungen (max. 3 Einträge der vergangenen 60 Sekunden). Diese Daten
-        werden ausschließlich auf Ihrem Endgerät gespeichert, nicht an uns oder Dritte
-        übertragen und nach 60 Sekunden automatisch verworfen.
+        Um die missbräuchliche Nutzung unserer Formulare zu verhindern, speichern wir
+        im <strong>Local Storage</strong> Ihres Browsers unter den Schlüsseln{' '}
+        <code>contactFormSubmissions</code> (Kontaktformular) und{' '}
+        <code>campFormSubmissions</code> (Tenniscamp-Anmeldung) ausschließlich
+        Zeitstempel Ihrer letzten Formularabsendungen (jeweils max. 3 Einträge der
+        vergangenen 60 Sekunden). Diese Daten werden ausschließlich auf Ihrem Endgerät
+        gespeichert, nicht an uns oder Dritte übertragen und nach 60 Sekunden
+        automatisch verworfen.
       </p>
       <p>
         Darüber hinaus speichern wir im Local Storage unter dem Schlüssel{' '}
@@ -111,15 +113,16 @@ function DatenschutzDe() {
       </p>
       <p>
         <strong>Rechtsgrundlage:</strong> § 25 Abs. 2 Nr. 2 TDDDG (technisch zwingend
-        erforderlich, um den vom Nutzer angeforderten Telemediendienst – Versand des
-        Kontaktformulars bzw. Anzeige in der gewählten Sprache – zur Verfügung zu
+        erforderlich, um den vom Nutzer angeforderten Telemediendienst – Versand der
+        Formulare bzw. Anzeige in der gewählten Sprache – zur Verfügung zu
         stellen) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Spam-Schutz).
         Eine Einwilligung ist hierfür nicht erforderlich.
       </p>
 
       <h2>7. Schriftarten (Self-Hosting)</h2>
       <p>
-        Zur einheitlichen Darstellung verwenden wir die Schriftart „DM Sans". Die
+        Zur einheitlichen Darstellung verwenden wir die Schriftarten „DM Sans"
+        (Fließtext) und „Fraunces" (Überschriften). Die
         Schriftdateien werden ausschließlich von unserem eigenen Server geladen
         (Self-Hosting). Eine Verbindung zu Servern Dritter (z.B. Google Fonts) findet
         dabei <strong>nicht</strong> statt. Es werden insbesondere keine Daten an Google
@@ -208,7 +211,120 @@ function DatenschutzDe() {
         verarbeitung nach Art. 28 DSGVO).
       </p>
 
-      <h2>9. Eingebundene Inhalte Dritter: Tennis-News-Widget (tennis.de)</h2>
+      <h2>9. Anmeldung zu unseren Tenniscamps</h2>
+      <p>
+        Für die Anmeldung zu unseren Tenniscamps stellen wir ein gesondertes
+        Online-Formular bereit. Dabei verarbeiten wir folgende Daten:
+      </p>
+      <p><strong>Angaben zum Kind:</strong></p>
+      <ul>
+        <li>Vor- und Nachname</li>
+        <li>Geschlecht</li>
+        <li>Alter</li>
+        <li>Mitgliedschaft beim BSV 92 Berlin</li>
+        <li>Spielstärke bzw. Vorerfahrung (nur bei Nicht-Mitgliedern)</li>
+        <li>Wunsch nach vegetarischer Verpflegung</li>
+        <li>T-Shirt-Größe</li>
+        <li>Freitextfeld „Bemerkungen" (siehe Abschnitt 9.1)</li>
+      </ul>
+      <p><strong>Angaben zur erziehungsberechtigten bzw. zahlungspflichtigen Person:</strong></p>
+      <ul>
+        <li>Vor- und Nachname</li>
+        <li>E-Mail-Adresse</li>
+        <li>Telefonnummer</li>
+        <li>Rechnungsadresse (Straße, Postleitzahl, Ort)</li>
+      </ul>
+      <p><strong>Zahlungsdaten:</strong></p>
+      <ul>
+        <li>Name der Kontoinhaberin bzw. des Kontoinhabers</li>
+        <li>IBAN und BIC</li>
+        <li>Erteilung des SEPA-Lastschriftmandats</li>
+      </ul>
+      <p>
+        Zusätzlich verarbeiten wir den gewählten Camp-Termin, Ihre Bestätigung der AGB
+        und dieser Datenschutzerklärung sowie Datum und Uhrzeit der Übermittlung.
+      </p>
+      <p>
+        <strong>Zweck:</strong> Bearbeitung der Anmeldung, Abschluss und Durchführung des
+        Camp-Vertrags (Gruppeneinteilung, Verpflegung, T-Shirts, Betreuung vor Ort),
+        Rechnungsstellung sowie Einzug des Teilnahmebeitrags per SEPA-Lastschrift.<br />
+        <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Erfüllung des
+        Vertrags und vorvertragliche Maßnahmen). Für die Aufbewahrung der Rechnungs- und
+        Zahlungsdaten zusätzlich Art. 6 Abs. 1 lit. c DSGVO in Verbindung mit den
+        handels- und steuerrechtlichen Aufbewahrungspflichten.<br />
+        <strong>Pflicht zur Bereitstellung:</strong> Die im Formular als Pflichtfelder
+        gekennzeichneten Angaben benötigen wir für den Vertragsschluss und die
+        Zahlungsabwicklung; ohne sie können wir die Anmeldung nicht annehmen. Die Angaben
+        zur Verpflegung, zur T-Shirt-Größe und im Bemerkungsfeld sind freiwillig.<br />
+        <strong>Speicherdauer:</strong> Anmeldedaten löschen wir nach Abschluss des
+        Camps, sobald sie für die Vertragsabwicklung nicht mehr erforderlich sind.
+        Rechnungs- und Zahlungsdaten bewahren wir aufgrund gesetzlicher Pflichten bis zu
+        10 Jahre auf (§ 257 HGB, § 147 AO). Anmeldungen, die nicht zu einem
+        Vertragsschluss führen, löschen wir spätestens 6 Monate nach der letzten
+        Kommunikation.
+      </p>
+      <p>
+        <strong>Übermittlung:</strong> Auch dieses Formular wird über den
+        Versanddienstleister EmailJS (siehe Abschnitt 8.1) an unser E-Mail-Postfach bei
+        IONOS (siehe Abschnitt 8.2) übermittelt. Sämtliche im Formular eingegebenen
+        Daten – einschließlich der Bankverbindung und etwaiger Angaben im Bemerkungsfeld
+        – werden dabei an einen Dienstleister mit Sitz in den USA übertragen. Zu den
+        Rahmenbedingungen und dem damit verbundenen Risiko des Zugriffs durch
+        US-Behörden siehe Abschnitt 8.1.<br />
+        <strong>Spam-Schutz:</strong> Wie beim Kontaktformular setzen wir auch hier ein
+        Honeypot-Feld und ein Rate-Limiting ein (siehe Abschnitte 6 und 8.0).
+      </p>
+
+      <h3>9.1 Gesundheitsangaben im Bemerkungsfeld</h3>
+      <p>
+        Das Bemerkungsfeld des Anmeldeformulars trägt den Hinweis „Allergien,
+        Medikamente, sonstige Hinweise". Soweit Sie dort Angaben zu Allergien,
+        Unverträglichkeiten, Medikamenten oder sonstigen gesundheitlichen Umständen Ihres
+        Kindes machen, handelt es sich um Gesundheitsdaten und damit um besondere
+        Kategorien personenbezogener Daten im Sinne von Art. 9 DSGVO.
+      </p>
+      <p>
+        <strong>Rechtsgrundlage:</strong> Art. 9 Abs. 2 lit. a DSGVO – ausdrückliche
+        Einwilligung. Die Angabe ist ausdrücklich freiwillig. Indem Sie als
+        erziehungsberechtigte Person solche Angaben aktiv in das Freitextfeld eintragen
+        und das Formular absenden, willigen Sie darin ein, dass wir diese Angaben zum
+        Zweck der sicheren Betreuung Ihres Kindes während des Camps verarbeiten.<br />
+        <strong>Empfänger:</strong> Die Angaben werden ausschließlich den beim jeweiligen
+        Camp eingesetzten Trainer:innen und Betreuungspersonen zugänglich gemacht, und
+        auch nur soweit dies für die Betreuung Ihres Kindes erforderlich ist. Eine
+        Weitergabe an sonstige Dritte erfolgt nicht.<br />
+        <strong>Speicherdauer:</strong> Gesundheitsangaben löschen wir spätestens einen
+        Monat nach Ende des jeweiligen Camps.<br />
+        <strong>Widerruf:</strong> Sie können diese Einwilligung jederzeit mit Wirkung
+        für die Zukunft widerrufen (Art. 7 Abs. 3 DSGVO), formlos per E-Mail an{' '}
+        <a href="mailto:info@tennisacademy-gs.de">info@tennisacademy-gs.de</a>. Die
+        Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.
+      </p>
+      <p>
+        <strong>Hinweis:</strong> Bitte tragen Sie in das Bemerkungsfeld nur solche
+        Angaben ein, die für die sichere Betreuung Ihres Kindes während des Camps
+        tatsächlich erforderlich sind.
+      </p>
+
+      <h3>9.2 Notfallbogen (PDF)</h3>
+      <p>
+        Im Anschluss an die Anmeldung können Sie einen mit Ihren Angaben vorausgefüllten
+        Notfallbogen als PDF herunterladen. Dieses PDF wird ausschließlich lokal in Ihrem
+        Browser erzeugt; die enthaltenen Daten werden dabei <strong>nicht</strong> an uns
+        oder an Dritte übertragen. Erst wenn Sie uns den ausgedruckten und
+        unterschriebenen Bogen aushändigen oder per E-Mail zusenden, gelangen die darauf
+        eingetragenen Angaben zu uns.
+      </p>
+      <p>
+        <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Durchführung des
+        Camp-Vertrags) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der
+        Erreichbarkeit einer verantwortlichen Person im Notfall); hinsichtlich etwaiger
+        Gesundheitsangaben Art. 9 Abs. 2 lit. a DSGVO.<br />
+        <strong>Speicherdauer:</strong> Die Notfallbögen werden spätestens einen Monat
+        nach Ende des jeweiligen Camps vernichtet bzw. gelöscht.
+      </p>
+
+      <h2>10. Eingebundene Inhalte Dritter: Tennis-News-Widget (tennis.de)</h2>
       <p>
         Auf unserer Startseite binden wir ein News-Widget der <strong>Deutscher Tennis
         Bund GmbH</strong> (Hallerstraße 89, 20149 Hamburg) über das Skript{' '}
@@ -216,6 +332,12 @@ function DatenschutzDe() {
         ein. Beim Aufruf der Startseite wird hierdurch eine Verbindung zu Servern von
         tennis.de aufgebaut, wobei mindestens Ihre IP-Adresse, Browser-Informationen und
         Zeitstempel an tennis.de übertragen werden.
+      </p>
+      <p>
+        Die im Widget angezeigten Bilder werden zusätzlich über das Content-Delivery-
+        Netzwerk <code>tennis.scene7.com</code> (Adobe Systems Software Ireland Ltd. für
+        den Deutschen Tennis Bund) ausgeliefert. Auch hierbei wird Ihre IP-Adresse
+        übertragen.
       </p>
       <p>
         <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
@@ -230,24 +352,34 @@ function DatenschutzDe() {
         </a>
       </p>
 
-      <h2>10. Empfänger / Auftragsverarbeiter (Übersicht)</h2>
+      <h2>11. Empfänger / Auftragsverarbeiter (Übersicht)</h2>
       <ul>
         <li><strong>Vercel Inc.</strong>, USA – Hosting</li>
-        <li><strong>EmailJS, Inc.</strong>, USA – Versand des Kontaktformulars</li>
+        <li>
+          <strong>EmailJS, Inc.</strong>, USA – Versand des Kontaktformulars und der
+          Tenniscamp-Anmeldung
+        </li>
         <li><strong>IONOS SE</strong>, Deutschland – E-Mail-Postfach</li>
         <li><strong>Deutscher Tennis Bund GmbH</strong>, Deutschland – News-Widget</li>
+        <li>
+          <strong>Adobe Systems Software Ireland Ltd.</strong> – Auslieferung der Bilder
+          im News-Widget (<code>tennis.scene7.com</code>)
+        </li>
       </ul>
 
-      <h2>11. Minderjährige</h2>
+      <h2>12. Minderjährige</h2>
       <p>
         Unser Angebot richtet sich auch an Kinder und Jugendliche im Rahmen unseres
         Trainingsangebots. Personenbezogene Daten von Minderjährigen unter 16 Jahren
         verarbeiten wir nur mit Einwilligung der Erziehungsberechtigten (Art. 8 DSGVO).
-        Anmeldungen oder Anfragen über das Kontaktformular für Minderjährige sollen
-        ausschließlich durch die Erziehungsberechtigten vorgenommen werden.
+        Anmeldungen oder Anfragen für Minderjährige – insbesondere die Anmeldung zu
+        unseren Tenniscamps nach Abschnitt 9 – sollen ausschließlich durch die
+        Erziehungsberechtigten vorgenommen werden. Mit dem Absenden des
+        Anmeldeformulars bestätigen Sie, dass Sie erziehungsberechtigt sind oder mit
+        Zustimmung der Erziehungsberechtigten handeln.
       </p>
 
-      <h2>12. Bildveröffentlichungen (Trainings-, Camp- und Event-Fotos)</h2>
+      <h2>13. Bildveröffentlichungen (Trainings-, Camp- und Event-Fotos)</h2>
       <p>
         Auf unserer Website (insbesondere in den Bereichen „Kids on Court",
         „Tenniscamps", „Trainerteam" sowie „News &amp; Events") veröffentlichen wir
@@ -282,7 +414,7 @@ function DatenschutzDe() {
         dies zusätzlich von der Einwilligung umfasst ist.
       </p>
 
-      <h2>13. Ihre Rechte als betroffene Person</h2>
+      <h2>14. Ihre Rechte als betroffene Person</h2>
       <p>Sie haben uns gegenüber folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
       <ul>
         <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
@@ -305,7 +437,7 @@ function DatenschutzDe() {
         Ausübung oder Verteidigung von Rechtsansprüchen.
       </p>
 
-      <h2>14. Zuständige Aufsichtsbehörde</h2>
+      <h2>15. Zuständige Aufsichtsbehörde</h2>
       <p>
         Berliner Beauftragte für Datenschutz und Informationsfreiheit<br />
         Alt-Moabit 59-61<br />
@@ -324,15 +456,15 @@ function DatenschutzDe() {
         </a>
       </p>
 
-      <h2>15. Automatisierte Entscheidungsfindung / Profiling</h2>
+      <h2>16. Automatisierte Entscheidungsfindung / Profiling</h2>
       <p>
         Eine automatisierte Entscheidungsfindung einschließlich Profiling im Sinne von
         Art. 22 DSGVO findet auf dieser Website nicht statt.
       </p>
 
-      <h2>16. Aktualität und Änderungen dieser Datenschutzerklärung</h2>
+      <h2>17. Aktualität und Änderungen dieser Datenschutzerklärung</h2>
       <p>
-        Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Mai 2026. Durch
+        Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Juli 2026. Durch
         die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher bzw.
         behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu
         ändern. Die jeweils aktuelle Datenschutzerklärung kann jederzeit auf dieser
@@ -345,7 +477,7 @@ function DatenschutzDe() {
 function DatenschutzEn() {
   return (
     <div className="legal-content">
-      <p><em>Version: May 2026</em></p>
+      <p><em>Version: July 2026</em></p>
       <p>
         <em>
           This is a courtesy translation. Only the German version of this privacy
@@ -440,11 +572,13 @@ function DatenschutzEn() {
         cookies, audience measurement or re-targeting are used.
       </p>
       <p>
-        To prevent misuse of the contact form, we store in your browser's{' '}
-        <strong>local storage</strong> under the key <code>contactFormSubmissions</code>{' '}
-        only timestamps of your last form submissions (max. 3 entries of the past 60
-        seconds). This data is stored exclusively on your device, is not transmitted to
-        us or third parties, and is automatically discarded after 60 seconds.
+        To prevent misuse of our forms, we store in your browser's{' '}
+        <strong>local storage</strong> under the keys{' '}
+        <code>contactFormSubmissions</code> (contact form) and{' '}
+        <code>campFormSubmissions</code> (tennis camp registration) only timestamps of
+        your last form submissions (max. 3 entries of the past 60 seconds each). This
+        data is stored exclusively on your device, is not transmitted to us or third
+        parties, and is automatically discarded after 60 seconds.
       </p>
       <p>
         In addition, we store your selected language (German/English) in local storage
@@ -455,13 +589,14 @@ function DatenschutzEn() {
       <p>
         <strong>Legal basis:</strong> Section 25 (2) no. 2 TDDDG (technically strictly
         necessary to provide the telemedia service requested by the user – sending the
-        contact form or displaying the site in the selected language) and Art. 6 (1) (f)
+        forms or displaying the site in the selected language) and Art. 6 (1) (f)
         GDPR (legitimate interest in spam protection). Consent is not required for this.
       </p>
 
       <h2>7. Fonts (Self-Hosting)</h2>
       <p>
-        For a consistent presentation we use the "DM Sans" typeface. The font files are
+        For a consistent presentation we use the "DM Sans" (body text) and "Fraunces"
+        (headings) typefaces. The font files are
         loaded exclusively from our own server (self-hosting). No connection to
         third-party servers (e.g. Google Fonts) takes place. In particular, no data is
         transmitted to Google.
@@ -547,7 +682,117 @@ function DatenschutzEn() {
         emails on our behalf (data processing pursuant to Art. 28 GDPR).
       </p>
 
-      <h2>9. Embedded Third-Party Content: Tennis News Widget (tennis.de)</h2>
+      <h2>9. Registration for our Tennis Camps</h2>
+      <p>
+        We provide a separate online form for registering for our tennis camps. The
+        following data is processed:
+      </p>
+      <p><strong>Information about the child:</strong></p>
+      <ul>
+        <li>first and last name</li>
+        <li>gender</li>
+        <li>age</li>
+        <li>membership of BSV 92 Berlin</li>
+        <li>playing level or previous experience (non-members only)</li>
+        <li>request for vegetarian catering</li>
+        <li>T-shirt size</li>
+        <li>free-text field "remarks" (see section 9.1)</li>
+      </ul>
+      <p><strong>Information about the legal guardian / person liable for payment:</strong></p>
+      <ul>
+        <li>first and last name</li>
+        <li>email address</li>
+        <li>phone number</li>
+        <li>billing address (street, postcode, town)</li>
+      </ul>
+      <p><strong>Payment data:</strong></p>
+      <ul>
+        <li>name of the account holder</li>
+        <li>IBAN and BIC</li>
+        <li>issuance of the SEPA direct debit mandate</li>
+      </ul>
+      <p>
+        In addition, we process the selected camp date, your acceptance of the terms and
+        conditions and of this privacy policy, as well as the date and time of
+        transmission.
+      </p>
+      <p>
+        <strong>Purpose:</strong> Processing the registration, conclusion and performance
+        of the camp contract (group allocation, catering, T-shirts, on-site supervision),
+        invoicing and collection of the participation fee by SEPA direct debit.<br />
+        <strong>Legal basis:</strong> Art. 6 (1) (b) GDPR (performance of the contract
+        and pre-contractual measures). For the retention of invoicing and payment data,
+        additionally Art. 6 (1) (c) GDPR in conjunction with commercial and tax law
+        retention obligations.<br />
+        <strong>Obligation to provide data:</strong> We require the fields marked as
+        mandatory in the form for the conclusion of the contract and for payment
+        processing; without them we cannot accept the registration. The details on
+        catering, T-shirt size and the remarks field are voluntary.<br />
+        <strong>Retention period:</strong> We delete registration data after the camp has
+        ended, as soon as it is no longer required for performing the contract. Invoicing
+        and payment data is retained for up to 10 years due to statutory obligations
+        (Section 257 HGB, Section 147 AO). Registrations that do not lead to a contract
+        are deleted no later than 6 months after the last communication.
+      </p>
+      <p>
+        <strong>Transmission:</strong> This form is also transmitted via the dispatch
+        service provider EmailJS (see section 8.1) to our email inbox at IONOS (see
+        section 8.2). All data entered in the form – including the bank details and any
+        information in the remarks field – is thereby transferred to a service provider
+        based in the USA. Regarding the framework and the associated risk of access by US
+        authorities, see section 8.1.<br />
+        <strong>Spam protection:</strong> As with the contact form, we also use a
+        honeypot field and rate limiting here (see sections 6 and 8.0).
+      </p>
+
+      <h3>9.1 Health Information in the Remarks Field</h3>
+      <p>
+        The remarks field of the registration form carries the note "allergies,
+        medication, other notes". Insofar as you provide information there about
+        allergies, intolerances, medication or other health circumstances of your child,
+        this constitutes health data and therefore a special category of personal data
+        within the meaning of Art. 9 GDPR.
+      </p>
+      <p>
+        <strong>Legal basis:</strong> Art. 9 (2) (a) GDPR – explicit consent. Providing
+        this information is expressly voluntary. By actively entering such information in
+        the free-text field as the legal guardian and submitting the form, you consent to
+        us processing this information for the purpose of the safe supervision of your
+        child during the camp.<br />
+        <strong>Recipients:</strong> The information is made accessible exclusively to
+        the coaches and supervisors deployed at the respective camp, and only to the
+        extent necessary for the supervision of your child. It is not passed on to any
+        other third parties.<br />
+        <strong>Retention period:</strong> We delete health information no later than one
+        month after the end of the respective camp.<br />
+        <strong>Withdrawal:</strong> You may withdraw this consent at any time with
+        effect for the future (Art. 7 (3) GDPR), informally by email to{' '}
+        <a href="mailto:info@tennisacademy-gs.de">info@tennisacademy-gs.de</a>. The
+        lawfulness of processing carried out up to the withdrawal remains unaffected.
+      </p>
+      <p>
+        <strong>Note:</strong> Please only enter information in the remarks field that is
+        actually necessary for the safe supervision of your child during the camp.
+      </p>
+
+      <h3>9.2 Emergency Form (PDF)</h3>
+      <p>
+        After registering, you can download an emergency form as a PDF pre-filled with
+        your details. This PDF is generated exclusively locally in your browser; the data
+        it contains is <strong>not</strong> transmitted to us or to third parties. Only
+        when you hand us the printed and signed form or send it to us by email do the
+        details entered on it reach us.
+      </p>
+      <p>
+        <strong>Legal basis:</strong> Art. 6 (1) (b) GDPR (performance of the camp
+        contract) and Art. 6 (1) (f) GDPR (legitimate interest in being able to reach a
+        responsible person in an emergency); with regard to any health information,
+        Art. 9 (2) (a) GDPR.<br />
+        <strong>Retention period:</strong> The emergency forms are destroyed or deleted
+        no later than one month after the end of the respective camp.
+      </p>
+
+      <h2>10. Embedded Third-Party Content: Tennis News Widget (tennis.de)</h2>
       <p>
         On our homepage we embed a news widget of <strong>Deutscher Tennis Bund
         GmbH</strong> (Hallerstraße 89, 20149 Hamburg) via the script{' '}
@@ -555,6 +800,12 @@ function DatenschutzEn() {
         When the homepage is accessed, a connection to tennis.de servers is established,
         whereby at least your IP address, browser information and timestamps are
         transmitted to tennis.de.
+      </p>
+      <p>
+        The images shown in the widget are additionally delivered via the content
+        delivery network <code>tennis.scene7.com</code> (Adobe Systems Software Ireland
+        Ltd. on behalf of Deutscher Tennis Bund). Your IP address is transmitted in this
+        process as well.
       </p>
       <p>
         <strong>Legal basis:</strong> Art. 6 (1) (f) GDPR (legitimate interest in
@@ -569,23 +820,33 @@ function DatenschutzEn() {
         </a>
       </p>
 
-      <h2>10. Recipients / Processors (Overview)</h2>
+      <h2>11. Recipients / Processors (Overview)</h2>
       <ul>
         <li><strong>Vercel Inc.</strong>, USA – hosting</li>
-        <li><strong>EmailJS, Inc.</strong>, USA – contact form dispatch</li>
+        <li>
+          <strong>EmailJS, Inc.</strong>, USA – dispatch of the contact form and the
+          tennis camp registration
+        </li>
         <li><strong>IONOS SE</strong>, Germany – email inbox</li>
         <li><strong>Deutscher Tennis Bund GmbH</strong>, Germany – news widget</li>
+        <li>
+          <strong>Adobe Systems Software Ireland Ltd.</strong> – delivery of the images
+          in the news widget (<code>tennis.scene7.com</code>)
+        </li>
       </ul>
 
-      <h2>11. Minors</h2>
+      <h2>12. Minors</h2>
       <p>
         Our services are also aimed at children and teenagers as part of our training
         programmes. We only process personal data of minors under 16 years of age with
         the consent of their legal guardians (Art. 8 GDPR). Registrations or enquiries
-        via the contact form for minors should only be made by the legal guardians.
+        for minors – in particular the registration for our tennis camps under section 9
+        – should only be made by the legal guardians. By submitting the registration
+        form, you confirm that you are the legal guardian or are acting with the consent
+        of the legal guardians.
       </p>
 
-      <h2>12. Publication of Images (Training, Camp and Event Photos)</h2>
+      <h2>13. Publication of Images (Training, Camp and Event Photos)</h2>
       <p>
         On our website (in particular in the sections "Kids on Court", "Tennis Camps",
         "Coaching Team" and "News &amp; Events") we publish photos and videos from
@@ -617,7 +878,7 @@ function DatenschutzEn() {
         is additionally covered by the consent.
       </p>
 
-      <h2>13. Your Rights as a Data Subject</h2>
+      <h2>14. Your Rights as a Data Subject</h2>
       <p>You have the following rights vis-à-vis us with regard to your personal data:</p>
       <ul>
         <li>right of access (Art. 15 GDPR)</li>
@@ -639,7 +900,7 @@ function DatenschutzEn() {
         the establishment, exercise or defence of legal claims.
       </p>
 
-      <h2>14. Competent Supervisory Authority</h2>
+      <h2>15. Competent Supervisory Authority</h2>
       <p>
         Berliner Beauftragte für Datenschutz und Informationsfreiheit<br />
         Alt-Moabit 59-61<br />
@@ -658,15 +919,15 @@ function DatenschutzEn() {
         </a>
       </p>
 
-      <h2>15. Automated Decision-Making / Profiling</h2>
+      <h2>16. Automated Decision-Making / Profiling</h2>
       <p>
         Automated decision-making including profiling within the meaning of Art. 22 GDPR
         does not take place on this website.
       </p>
 
-      <h2>16. Validity and Changes to this Privacy Policy</h2>
+      <h2>17. Validity and Changes to this Privacy Policy</h2>
       <p>
-        This privacy policy is currently valid and is dated May 2026. Due to the further
+        This privacy policy is currently valid and is dated July 2026. Due to the further
         development of our website or changed legal or regulatory requirements, it may
         become necessary to amend this privacy policy. The current privacy policy can be
         accessed on this page at any time.
