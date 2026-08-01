@@ -2899,6 +2899,135 @@ img {
   }
 }
 
+/* ========== NEWS-ARCHIV (vergangene Meldungen, zugeklappt) ==========
+   Aeltere Eintraege bleiben lesbar, druecken aber die aktuellen Meldungen
+   nicht mehr nach unten: eine ruhige Zeilenliste, die sich auf Klick zur
+   vollen Karte oeffnet. */
+.news-archive {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.news-archive-header {
+  margin-bottom: 24px;
+}
+
+.news-archive-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.news-archive-hint {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.news-archive-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.news-archive-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.news-archive-item[open] {
+  border-color: color-mix(in srgb, var(--navy) 22%, transparent);
+  box-shadow: var(--shadow-sm);
+}
+
+.news-archive-summary {
+  display: grid;
+  grid-template-columns: 190px 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  cursor: pointer;
+  list-style: none;
+  transition: background var(--transition), color var(--transition);
+}
+
+.news-archive-summary::-webkit-details-marker {
+  display: none;
+}
+
+.news-archive-summary:hover {
+  background: color-mix(in srgb, var(--navy) 4%, transparent);
+}
+
+.news-archive-summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+
+.news-archive-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.news-archive-headline {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.news-archive-chevron {
+  color: var(--navy);
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.news-archive-item[open] .news-archive-chevron {
+  transform: rotate(180deg);
+}
+
+/* Die aufgeklappte Karte sitzt buendig im Rahmen des Listeneintrags. */
+.news-archive-body {
+  padding: 0 22px 22px;
+}
+
+.news-archive-body .news-card {
+  border: none;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  padding-top: 22px;
+}
+
+@media (max-width: 860px) {
+  .news-archive-summary {
+    grid-template-columns: 1fr auto;
+    gap: 4px 16px;
+    padding: 16px 18px;
+  }
+  .news-archive-date {
+    grid-column: 1;
+  }
+  .news-archive-headline {
+    grid-column: 1;
+  }
+  .news-archive-chevron {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+  .news-archive-body {
+    padding: 0 18px 18px;
+  }
+}
+
 /* ========== KONTAKT ========== */
 .kontakt-section {
   padding: 96px 0;

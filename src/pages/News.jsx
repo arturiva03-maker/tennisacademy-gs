@@ -1,4 +1,4 @@
-import { Calendar, Download } from 'lucide-react';
+import { Calendar, ChevronDown, Download } from 'lucide-react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
 import { useLang } from '../i18n/LanguageContext';
@@ -64,6 +64,7 @@ export const eventsByLang = {
       location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
       description: 'Am 4. Mai 2026 startet offiziell der Trainingsbetrieb unserer Sommersaison 2026.\n\nAlle Kinder und Jugendlichen wurden erfolgreich in ihre Trainingsgruppen eingeteilt und haben die Bestätigung ihrer Trainingszeiten für die kommende Sommersaison erhalten.\n\nWir freuen uns auf eine erfolgreiche Sommersaison 2026 und ein spannendes Tennisjahr mit euch auf dem Platz.\n\nEure TENNIS ACADEMY GRAND SLAM',
       image: '/neues hero.jpeg',
+      archived: true,
     },
     {
       title: 'Aus Tennisschule wird Academy',
@@ -72,6 +73,7 @@ export const eventsByLang = {
       location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
       description: 'Nach über 16 Jahren erfolgreicher Arbeit geht die Tennisschule Ritter & Lingner einen großen Schritt weiter: Passend zum 125-jährigen Jubiläum des BSV 92 wird aus der bewährten Tennisschule die neugegründete TENNIS ACADEMY GRAND SLAM.\n\nMit Jana Hladka-Kissal, Artur Ivanenko, Zlatan Palazov und Michael Lingner als Gesellschaftern und einem starken Team im Rücken ist das Ziel klar – die Qualität im Kinder- und Jugendbereich noch weiter zu steigern.\n\nWas als Tennisschule begann, wird jetzt zur Akademie. Das nächste Kapitel beginnt.\n\nWir freuen uns auf eine erfolgreiche Sommersaison 2026.\n\nEure TENNIS ACADEMY GRAND SLAM & Team',
       image: '/logo.png',
+      archived: true,
     },
     {
       title: '15. Čujić-Mini-Cup 2025',
@@ -81,6 +83,7 @@ export const eventsByLang = {
       description: 'Der BSV 92 veranstaltet auf seiner Anlage in der Fritz-Wildung-Str. 23, 14199 Berlin, am Sonntag, den 07.09.2025 wieder den sehr beliebten Čujić-Mini-Cup 2025. Die inzwischen 15. Auflage dieses Kleinfeldturniers richtet sich besonders an die Kinder, die den Einstieg in die faszinierende Sportart Tennis beginnen wollen.',
       image: '/cujic-cup.jpg',
       layout: 'banner',
+      archived: true,
     },
   ],
   en: [
@@ -143,6 +146,7 @@ export const eventsByLang = {
       location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
       description: 'On 4 May 2026 the training season of our 2026 summer term officially begins.\n\nAll children and teenagers have been assigned to their training groups and have received confirmation of their training times for the upcoming summer season.\n\nWe are looking forward to a successful 2026 summer season and an exciting year of tennis with you on court.\n\nYour TENNIS ACADEMY GRAND SLAM',
       image: '/neues hero.jpeg',
+      archived: true,
     },
     {
       title: 'From Tennis School to Academy',
@@ -151,6 +155,7 @@ export const eventsByLang = {
       location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
       description: 'After more than 16 successful years, the tennis school Ritter & Lingner is taking a big step forward: fittingly for the 125th anniversary of BSV 92, the well-established tennis school becomes the newly founded TENNIS ACADEMY GRAND SLAM.\n\nWith Jana Hladka-Kissal, Artur Ivanenko, Zlatan Palazov and Michael Lingner as partners and a strong team behind them, the goal is clear – to raise the quality of our youth programme even further.\n\nWhat began as a tennis school is now becoming an academy. The next chapter begins.\n\nWe are looking forward to a successful 2026 summer season.\n\nYour TENNIS ACADEMY GRAND SLAM & team',
       image: '/logo.png',
+      archived: true,
     },
     {
       title: '15th Čujić Mini Cup 2025',
@@ -160,6 +165,7 @@ export const eventsByLang = {
       description: 'On Sunday, 7 September 2025, BSV 92 will once again host the very popular Čujić Mini Cup 2025 at its grounds at Fritz-Wildung-Str. 23, 14199 Berlin. Now in its 15th edition, this small-court tournament is aimed especially at children who want to take their first steps in the fascinating sport of tennis.',
       image: '/cujic-cup.jpg',
       layout: 'banner',
+      archived: true,
     },
   ],
 };
@@ -171,17 +177,75 @@ const T = {
   de: {
     heroTitle: 'News & Events',
     heroSub: 'Neuigkeiten und Veranstaltungen der TENNIS ACADEMY GRAND SLAM',
+    archiveTitle: 'Rückblick',
+    archiveHint: 'Ältere Meldungen – zum Aufklappen anklicken.',
   },
   en: {
     heroTitle: 'News & Events',
     heroSub: 'News and events from TENNIS ACADEMY GRAND SLAM',
+    archiveTitle: 'Looking back',
+    archiveHint: 'Earlier announcements – click to expand.',
   },
 };
+
+function NewsCard({ event }) {
+  return (
+    <div className={`news-card${event.layout === 'banner' ? ' news-card--banner' : ''}`}>
+      <div className={`news-card-image${event.image.endsWith('.png') ? ' news-card-image--logo' : ''}`}>
+        <img src={event.image} alt={event.title} loading="lazy" />
+      </div>
+      <div className="news-card-content">
+        <h2>{event.title}</h2>
+        <p className="news-card-subtitle">{event.subtitle}</p>
+        <div className="news-card-meta">
+          <span><Calendar size={16} /> {event.date}</span>
+        </div>
+        {event.description.split('\n\n').map((paragraph, j) => (
+          <p className="news-card-text" key={j}>{paragraph}</p>
+        ))}
+        {event.details && (
+          <dl className="news-card-details">
+            {event.details.map((detail, j) => (
+              <div className="news-card-detail" key={j}>
+                <dt>{detail.label}</dt>
+                <dd>{detail.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+        {event.note && <p className="news-card-text">{event.note}</p>}
+        {(event.cta || event.download) && (
+          <div className="news-card-actions">
+            {event.cta && (
+              <ButtonWithIcon
+                href={event.cta.link}
+                target={event.cta.external ? '_blank' : undefined}
+                rel={event.cta.external ? 'noopener noreferrer' : undefined}
+              >
+                {event.cta.label}
+              </ButtonWithIcon>
+            )}
+            {event.download && (
+              <a className="news-card-download" href={event.download.href} download>
+                <Download size={16} />
+                <span>{event.download.label}</span>
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function News() {
   const { lang } = useLang();
   const t = T[lang];
   const items = eventsByLang[lang];
+  // Aktuelles bleibt offen, Vergangenes klappt zusammen – so steht oben nur,
+  // was noch bevorsteht.
+  const current = items.filter((event) => !event.archived);
+  const archived = items.filter((event) => event.archived);
 
   return (
     <>
@@ -199,56 +263,37 @@ export default function News() {
       <section className="news-section">
         <div className="container">
           <div className="news-list">
-            {items.map((event, i) => (
-              <AnimatedSection key={i} delay={i * 0.1}>
-                <div className={`news-card${event.layout === 'banner' ? ' news-card--banner' : ''}`}>
-                  <div className={`news-card-image${event.image.endsWith('.png') ? ' news-card-image--logo' : ''}`}>
-                    <img src={event.image} alt={event.title} loading="lazy" />
-                  </div>
-                  <div className="news-card-content">
-                    <h2>{event.title}</h2>
-                    <p className="news-card-subtitle">{event.subtitle}</p>
-                    <div className="news-card-meta">
-                      <span><Calendar size={16} /> {event.date}</span>
-                    </div>
-                    {event.description.split('\n\n').map((paragraph, j) => (
-                      <p className="news-card-text" key={j}>{paragraph}</p>
-                    ))}
-                    {event.details && (
-                      <dl className="news-card-details">
-                        {event.details.map((detail, j) => (
-                          <div className="news-card-detail" key={j}>
-                            <dt>{detail.label}</dt>
-                            <dd>{detail.value}</dd>
-                          </div>
-                        ))}
-                      </dl>
-                    )}
-                    {event.note && <p className="news-card-text">{event.note}</p>}
-                    {(event.cta || event.download) && (
-                      <div className="news-card-actions">
-                        {event.cta && (
-                          <ButtonWithIcon
-                            href={event.cta.link}
-                            target={event.cta.external ? '_blank' : undefined}
-                            rel={event.cta.external ? 'noopener noreferrer' : undefined}
-                          >
-                            {event.cta.label}
-                          </ButtonWithIcon>
-                        )}
-                        {event.download && (
-                          <a className="news-card-download" href={event.download.href} download>
-                            <Download size={16} />
-                            <span>{event.download.label}</span>
-                          </a>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                </div>
+            {current.map((event, i) => (
+              <AnimatedSection key={event.title} delay={i * 0.1}>
+                <NewsCard event={event} />
               </AnimatedSection>
             ))}
           </div>
+
+          {archived.length > 0 && (
+            <AnimatedSection delay={0.1}>
+              <div className="news-archive">
+                <div className="news-archive-header">
+                  <h2 className="news-archive-title">{t.archiveTitle}</h2>
+                  <p className="news-archive-hint">{t.archiveHint}</p>
+                </div>
+                <div className="news-archive-list">
+                  {archived.map((event) => (
+                    <details className="news-archive-item" key={event.title}>
+                      <summary className="news-archive-summary">
+                        <span className="news-archive-date">{event.date}</span>
+                        <span className="news-archive-headline">{event.title}</span>
+                        <ChevronDown className="news-archive-chevron" size={18} aria-hidden="true" />
+                      </summary>
+                      <div className="news-archive-body">
+                        <NewsCard event={event} />
+                      </div>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+          )}
         </div>
       </section>
     </>
