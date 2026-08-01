@@ -178,13 +178,11 @@ const T = {
     heroTitle: 'News & Events',
     heroSub: 'Neuigkeiten und Veranstaltungen der TENNIS ACADEMY GRAND SLAM',
     archiveTitle: 'Rückblick',
-    archiveHint: 'Ältere Meldungen – zum Aufklappen anklicken.',
   },
   en: {
     heroTitle: 'News & Events',
     heroSub: 'News and events from TENNIS ACADEMY GRAND SLAM',
     archiveTitle: 'Looking back',
-    archiveHint: 'Earlier announcements – click to expand.',
   },
 };
 
@@ -275,7 +273,6 @@ export default function News() {
               <div className="news-archive">
                 <div className="news-archive-header">
                   <h2 className="news-archive-title">{t.archiveTitle}</h2>
-                  <p className="news-archive-hint">{t.archiveHint}</p>
                 </div>
                 <div className="news-archive-list">
                   {archived.map((event) => (

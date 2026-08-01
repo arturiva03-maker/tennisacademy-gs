@@ -2922,12 +2922,6 @@ img {
   margin: 0;
 }
 
-.news-archive-hint {
-  margin: 6px 0 0;
-  font-size: 0.9rem;
-  color: var(--text-light);
-}
-
 .news-archive-list {
   display: flex;
   flex-direction: column;
