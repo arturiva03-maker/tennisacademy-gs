@@ -33,7 +33,7 @@ export const eventsByLang = {
       ],
       cta: {
         label: 'Anmeldung über TVPro-online',
-        link: 'https://www.tvpro-online.de/turniere/item/44918',
+        link: 'https://www.tvpro-online.de/turniere/item/46863',
         external: true,
       },
       homeCta: {
@@ -115,7 +115,7 @@ export const eventsByLang = {
       ],
       cta: {
         label: 'Register via TVPro-online',
-        link: 'https://www.tvpro-online.de/turniere/item/44918',
+        link: 'https://www.tvpro-online.de/turniere/item/46863',
         external: true,
       },
       homeCta: {
