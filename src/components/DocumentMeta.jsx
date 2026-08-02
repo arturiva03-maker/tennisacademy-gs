@@ -3,11 +3,15 @@ import { useLocation } from 'react-router-dom';
 import { useLang } from '../i18n/LanguageContext';
 
 const BRAND = 'TENNIS ACADEMY GRAND SLAM';
+const SITE = 'https://www.tennisacademy-gs.de';
+const DEFAULT_IMG = '/neues%20hero.jpeg';
 
-// Pro Route ein eigener Tab-Titel + Meta-Description. Vorher trug jede Seite
-// den Tenniscamp-Titel — schlecht fuer Tabs, Lesezeichen und Google.
+// Pro Route ein eigener Tab-Titel + Meta-Description + Canonical + Vorschaubild.
+// Vorher trug jede Seite den Tenniscamp-Titel und meldete per Canonical, sie sei
+// die Tenniscamp-Seite — schlecht fuer Tabs, Lesezeichen und Google.
 const META = {
   '/': {
+    img: '/neues%20hero.jpeg',
     de: {
       title: `${BRAND} · Tennisschule Berlin-Wilmersdorf`,
       desc: 'DTB/VDT-anerkannte Tennisschule in Berlin-Wilmersdorf. Professionelles Training für alle Alters- und Spielklassen – von der Ballschule bis zum Wettkampf.',
@@ -18,22 +22,27 @@ const META = {
     },
   },
   '/trainer': {
+    img: '/trainer-team.jpg',
     de: { title: `Trainerteam · ${BRAND}`, desc: 'Unser lizenziertes Trainerteam: A- und B-Lizenz, ehemalige Profispieler, langjährige Wettkampferfahrung.' },
     en: { title: `Coaching Team · ${BRAND}`, desc: 'Our licensed coaching team: A and B licences, former pro players, years of competitive experience.' },
   },
   '/preise': {
+    img: '/header_tarife.jpg',
     de: { title: `Preise & Angebote · ${BRAND}`, desc: 'Faire, transparente Trainingspreise – vom Einzeltraining bis zur 6er Gruppe. Alle Preise pro Person und Stunde.' },
     en: { title: `Prices & Programs · ${BRAND}`, desc: 'Fair, transparent training prices – from private lessons to groups of six. All prices per person and hour.' },
   },
   '/kids-on-court': {
+    img: '/kids-hero.jpg',
     de: { title: `Kids on Court · ${BRAND}`, desc: 'Tennis für Kinder ab 3 Jahren: Ballschule, Kids on Court und Kinder- und Jugendtraining.' },
     en: { title: `Kids on Court · ${BRAND}`, desc: 'Tennis for children from age 3: ball school, Kids on Court and youth training.' },
   },
   '/dtb-vdt': {
+    img: '/vdt-dtb-logo.jpg',
     de: { title: `Deutsche Tennisschule (DTB/VDT) · ${BRAND}`, desc: 'Anerkannt vom Deutschen Tennis Bund (DTB) und dem Verband Deutscher Tennislehrer (VDT) – seit 2008.' },
     en: { title: `German Tennis School (DTB/VDT) · ${BRAND}`, desc: 'Accredited by the German Tennis Federation (DTB) and the Association of German Tennis Coaches (VDT) – since 2008.' },
   },
   '/news': {
+    img: '/cujic-cup.jpg',
     de: { title: `News & Events · ${BRAND}`, desc: 'Neuigkeiten und Veranstaltungen der TENNIS ACADEMY GRAND SLAM.' },
     en: { title: `News & Events · ${BRAND}`, desc: 'News and events from TENNIS ACADEMY GRAND SLAM.' },
   },
@@ -42,10 +51,12 @@ const META = {
     en: { title: `Contact · ${BRAND}`, desc: 'Questions about our training programmes? Write to us – we look forward to your message.' },
   },
   '/tenniscamps': {
+    img: '/tenniscamp.jpg',
     de: { title: `Tenniscamps Sommerferien 2026 · ${BRAND}`, desc: 'Tenniscamps in den Sommerferien Berlin 2026, Mo–Fr 9:30–15:00 Uhr, inkl. Mittagessen und Getränke.' },
     en: { title: `Tennis Camps Summer 2026 · ${BRAND}`, desc: 'Tennis camps during the Berlin 2026 summer holidays, Mon–Fri 9:30 am–3:00 pm, including lunch and drinks.' },
   },
   '/tenniscamp-anmeldung': {
+    img: '/tenniscamp4.jpg',
     de: { title: `Camp-Anmeldung · ${BRAND}`, desc: 'Jetzt online verbindlich für eine Woche unseres Tenniscamps in den Sommerferien 2026 anmelden.' },
     en: { title: `Camp Registration · ${BRAND}`, desc: 'Register online now for a week of our summer 2026 tennis camp.' },
   },
@@ -82,18 +93,43 @@ function setMeta(attr, key, content) {
   el.setAttribute('content', content);
 }
 
+function setCanonical(href) {
+  let el = document.head.querySelector('link[rel="canonical"]');
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', 'canonical');
+    document.head.appendChild(el);
+  }
+  el.setAttribute('href', href);
+}
+
 export default function DocumentMeta() {
   const { pathname } = useLocation();
   const { lang } = useLang();
 
   useEffect(() => {
-    const entry = (META[pathname] || FALLBACK)[lang];
+    const route = META[pathname];
+    const entry = (route || FALLBACK)[lang];
+    // Trailing Slash abschneiden, damit /preise/ und /preise nicht als zwei
+    // Seiten gezaehlt werden.
+    const path = pathname.length > 1 ? pathname.replace(/\/+$/, '') : '/';
+    const url = SITE + path;
+    const image = SITE + ((route && route.img) || DEFAULT_IMG);
+
     document.title = entry.title;
     setMeta('name', 'description', entry.desc);
+    // Der Vercel-Rewrite liefert fuer jede erfundene URL ein 200 zurueck. Ohne
+    // noindex wuerde Google Tippfehler-Adressen als eigene Seiten aufnehmen.
+    setMeta('name', 'robots', route ? 'index, follow' : 'noindex, follow');
+    setCanonical(url);
+    setMeta('property', 'og:url', url);
     setMeta('property', 'og:title', entry.title);
     setMeta('property', 'og:description', entry.desc);
+    setMeta('property', 'og:image', image);
+    setMeta('property', 'twitter:url', url);
     setMeta('property', 'twitter:title', entry.title);
     setMeta('property', 'twitter:description', entry.desc);
+    setMeta('property', 'twitter:image', image);
     document.documentElement.lang = lang;
   }, [pathname, lang]);
 
