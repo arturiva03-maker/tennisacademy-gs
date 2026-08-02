@@ -83,7 +83,7 @@ const OFFERINGS = {
 
 const T = {
   de: {
-    kicker: 'DTB / VDT anerkannte Tennisschule  ·  Berlin-Wilmersdorf',
+    kicker: 'DTB / VDT anerkannte Tennisschule',
     heroSub:
       'Tennistraining für alle Spielklassen und Altersgruppen – von der Ballschule bis zum Wettkampftraining.',
     ctaPrices: 'Preise ansehen',
@@ -108,7 +108,7 @@ const T = {
     tennisNewsSub: 'Aktuelle Nachrichten aus der Tenniswelt via tennis.de',
   },
   en: {
-    kicker: 'DTB / VDT accredited tennis school  ·  Berlin-Wilmersdorf',
+    kicker: 'DTB / VDT accredited tennis school',
     heroSub:
       'Tennis coaching for all levels and age groups – from ball school to competitive training.',
     ctaPrices: 'View prices',
