@@ -436,12 +436,6 @@ export function TeamSectionBlock() {
           transition={shouldReduceMotion ? undefined : { duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <Badge
-            variant="secondary"
-            className="mb-4 bg-primary/10 text-primary hover:bg-primary/20"
-          >
-            Tennis Academy Grand Slam
-          </Badge>
           <h2 className="mb-4 text-4xl font-bold tracking-tight text-[--text-dark] sm:text-5xl">
             {header.title}
           </h2>

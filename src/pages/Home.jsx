@@ -85,7 +85,7 @@ const T = {
   de: {
     kicker: 'DTB / VDT anerkannte Tennisschule  ·  Berlin-Wilmersdorf',
     heroSub:
-      'Professionelles Training für alle Spielklassen und Altersgruppen – von der Ballschule bis zum Wettkampftraining.',
+      'Tennistraining für alle Spielklassen und Altersgruppen – von der Ballschule bis zum Wettkampftraining.',
     ctaPrices: 'Preise ansehen',
     ctaTeam: 'Unser Team',
     campBoardAria: 'Tenniscamp Sommerferien 2026 — zur Anmeldung',
@@ -110,7 +110,7 @@ const T = {
   en: {
     kicker: 'DTB / VDT accredited tennis school  ·  Berlin-Wilmersdorf',
     heroSub:
-      'Professional coaching for all levels and age groups – from ball school to competitive training.',
+      'Tennis coaching for all levels and age groups – from ball school to competitive training.',
     ctaPrices: 'View prices',
     ctaTeam: 'Our team',
     campBoardAria: 'Tennis camp summer holidays 2026 — go to registration',
