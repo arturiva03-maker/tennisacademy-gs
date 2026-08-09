@@ -5,6 +5,7 @@ import { CheckCircle, AlertCircle, Download } from 'lucide-react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
 import { downloadNotfallbogen } from '@/lib/notfallbogen';
+import { openCampWeeks } from '@/lib/campWeeks';
 import { useLang } from '../i18n/LanguageContext';
 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -15,26 +16,6 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const RATE_LIMIT_MS = 60000;
 const MAX_SUBMISSIONS = 3;
-
-// WICHTIG: Die value-Attribute bleiben in JEDER UI-Sprache deutsch.
-// Die abgesendete E-Mail wird aus diesen Werten gebaut und kommt damit
-// immer auf Deutsch an — nur die sichtbaren Labels werden übersetzt.
-const campTermine = [
-  {
-    value: 'Vorletzte Ferienwoche (10.08. – 14.08.2026)',
-    label: {
-      de: 'Vorletzte Ferienwoche · 10.08. – 14.08.2026',
-      en: 'Second-to-last holiday week · 10 – 14 August 2026',
-    },
-  },
-  {
-    value: 'Letzte Ferienwoche (17.08. – 21.08.2026)',
-    label: {
-      de: 'Letzte Ferienwoche · 17.08. – 21.08.2026',
-      en: 'Last holiday week · 17 – 21 August 2026',
-    },
-  },
-];
 
 const geschlechtOptions = [
   { value: 'weiblich', label: { de: 'weiblich', en: 'female' } },
@@ -49,6 +30,10 @@ const T = {
   de: {
     heroTitle: 'Tenniscamp-Anmeldung',
     heroSub: 'Verbindliche Anmeldung für unsere Sommer-Tenniscamps 2026',
+    closedTitle: 'Anmeldung geschlossen',
+    closedText:
+      'Für die Sommer-Tenniscamps 2026 ist die Anmeldung abgeschlossen. Bei Fragen zu freien Plätzen melde dich gern direkt bei uns.',
+    closedCta: 'Zu den Tenniscamps',
     successTitle: 'Anmeldung gesendet!',
     successText: 'Vielen Dank für die Anmeldung. Wir melden uns schnellstmöglich mit allen weiteren Infos.',
     notfallTitleSuccess: 'Notfallbogen für das Camp',
@@ -103,6 +88,7 @@ const T = {
     submit: 'Verbindlich anmelden',
     errors: {
       termin: 'Bitte wähle einen Termin',
+      terminClosed: 'Für diese Camp-Woche ist die Anmeldung bereits geschlossen',
       kindVorname: 'Vorname des Kindes erforderlich',
       kindNachname: 'Nachname des Kindes erforderlich',
       kindGeschlecht: 'Bitte Geschlecht wählen',
@@ -129,6 +115,10 @@ const T = {
   en: {
     heroTitle: 'Tennis Camp Registration',
     heroSub: 'Binding registration for our 2026 summer tennis camps',
+    closedTitle: 'Registration closed',
+    closedText:
+      'Registration for the 2026 summer tennis camps is now closed. If you would like to ask about remaining places, please get in touch with us directly.',
+    closedCta: 'Back to the tennis camps',
     successTitle: 'Registration sent!',
     successText: 'Thank you for registering. We will get back to you with all further information as soon as possible.',
     notfallTitleSuccess: 'Emergency form for the camp',
@@ -183,6 +173,7 @@ const T = {
     submit: 'Register (binding)',
     errors: {
       termin: 'Please choose a camp week',
+      terminClosed: 'Registration for this camp week is already closed',
       kindVorname: "Child's first name is required",
       kindNachname: "Child's last name is required",
       kindGeschlecht: 'Please select a gender',
@@ -231,7 +222,13 @@ const formatIban = (raw) =>
 const validateForm = (data, msg) => {
   const errors = {};
 
-  if (!data.termin) errors.termin = msg.termin;
+  if (!data.termin) {
+    errors.termin = msg.termin;
+  } else if (!openCampWeeks().some((week) => week.value === data.termin)) {
+    // Schutz für lange offene Tabs: Der Anmeldeschluss kann zwischen dem
+    // Öffnen des Formulars und dem Absenden erreicht worden sein.
+    errors.termin = msg.terminClosed;
+  }
 
   if (!data.kindVorname || data.kindVorname.trim().length < 2) {
     errors.kindVorname = msg.kindVorname;
@@ -348,6 +345,7 @@ export default function TenniscampAnmeldung() {
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState(initialFormData);
   const [lastSubmission, setLastSubmission] = useState(null);
+  const verfuegbareTermine = openCampWeeks();
 
   const handleDownloadNotfallbogen = async (data) => {
     try {
@@ -490,7 +488,14 @@ export default function TenniscampAnmeldung() {
         <div className="container">
           <AnimatedSection>
             <div className="kontakt-form-container camp-form-container">
-              {status === 'success' ? (
+              {verfuegbareTermine.length === 0 ? (
+                <div className="camp-closed-notice">
+                  <AlertCircle size={40} />
+                  <h3>{t.closedTitle}</h3>
+                  <p>{t.closedText}</p>
+                  <ButtonWithIcon href="/tenniscamps">{t.closedCta}</ButtonWithIcon>
+                </div>
+              ) : status === 'success' ? (
                 <div className="form-success">
                   <CheckCircle size={48} />
                   <h3>{t.successTitle}</h3>
@@ -540,8 +545,10 @@ export default function TenniscampAnmeldung() {
                         className={errors.termin ? 'input-error' : ''}
                       >
                         <option value="">{t.pleaseSelect}</option>
-                        {campTermine.map((option) => (
-                          <option key={option.value} value={option.value}>{option.label[lang]}</option>
+                        {verfuegbareTermine.map((option) => (
+                          <option key={option.value} value={option.value}>
+                            {option.label[lang]} · {option.dates[lang]}
+                          </option>
                         ))}
                       </select>
                       {errors.termin && <span className="field-error">{errors.termin}</span>}

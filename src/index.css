@@ -668,6 +668,34 @@ img {
   font-weight: 500;
 }
 
+/* Woche, für die die Anmeldung bereits geschlossen ist — bleibt sichtbar,
+   tritt aber optisch zurück. */
+.camp-termin-card--closed {
+  background: var(--bg, #f9f9f7);
+  border-style: dashed;
+}
+
+.camp-termin-card--closed:hover {
+  box-shadow: none;
+  transform: none;
+  border-color: var(--border);
+}
+
+.camp-termin-card--closed .camp-termin-label,
+.camp-termin-card--closed .camp-termin-dates {
+  color: var(--text-light, #888);
+}
+
+.camp-termin-status {
+  margin-top: 4px;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-medium, #555);
+}
+
 .camp-termine-note {
   margin-top: 28px;
   text-align: center;
@@ -777,12 +805,47 @@ img {
   margin-bottom: 12px;
 }
 
+.camp-anmeldung-badge--closed {
+  color: var(--text-medium, #555);
+  background: rgba(0, 0, 0, 0.06);
+}
+
 .camp-anmeldung-text {
   margin: 0;
   font-family: var(--font-ui);
   font-size: 1rem;
   color: var(--text, #222);
   line-height: 1.5;
+}
+
+/* Anmeldeseite, wenn keine Camp-Woche mehr buchbar ist */
+.camp-closed-notice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--text-medium, #555);
+}
+
+.camp-closed-notice svg {
+  color: var(--accent);
+}
+
+.camp-closed-notice h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--navy-dark);
+}
+
+.camp-closed-notice p {
+  margin: 0 auto;
+  max-width: 520px;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 @media (max-width: 900px) {
@@ -4158,6 +4221,13 @@ img {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
 }
+/* Ohne offene Camp-Woche ist das Board kein Link mehr — kein Hover-Feedback. */
+.gs-hero-camp-board--closed:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: none;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+}
 
 .gs-hero-camp-board-head {
   display: flex;
@@ -4236,6 +4306,21 @@ img {
   white-space: nowrap;
   text-align: right;
   justify-self: end;
+}
+
+.gs-hero-camp-board-row--closed .gs-hero-camp-board-dates,
+.gs-hero-camp-board-row--closed .gs-hero-camp-board-week {
+  color: rgba(255, 255, 255, 0.4);
+}
+.gs-hero-camp-board-tag {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-ui);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .gs-hero-camp-board-foot {

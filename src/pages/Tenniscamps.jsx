@@ -1,5 +1,6 @@
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
+import { campWeeks, isCampWeekOpen } from '@/lib/campWeeks';
 import { useLang } from '../i18n/LanguageContext';
 
 const campImages = [
@@ -16,11 +17,8 @@ const T = {
       'Das Tenniscamp findet auf der Anlage des BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin statt. Montag bis Freitag, jeweils von 9:30 bis 15:00 Uhr.',
     termineTitle: 'Termine',
     termineSub: 'Sommerferien Berlin 2026 · Mo – Fr · 9:30 – 15:00 Uhr',
-    termine: [
-      { label: 'Vorletzte Ferienwoche', dates: '10.08. – 14.08.2026' },
-      { label: 'Letzte Ferienwoche', dates: '17.08. – 21.08.2026' },
-    ],
     terminMeta: 'Mo – Fr · 9:30 – 15:00 Uhr',
+    terminClosed: 'Anmeldung geschlossen',
     feeTitle: 'Teilnahmegebühr',
     preise: [
       { label: 'Mitglieder', price: '290 €' },
@@ -30,6 +28,9 @@ const T = {
     regBadge: 'Anmeldung geöffnet',
     regText: 'Jetzt online verbindlich für eine Camp-Woche anmelden.',
     regCta: 'Zur Camp-Anmeldung',
+    regBadgeClosed: 'Anmeldung geschlossen',
+    regTextClosed:
+      'Für die Sommer-Tenniscamps 2026 ist die Anmeldung abgeschlossen. Bei Fragen zu freien Plätzen melde dich gern direkt bei uns.',
     impressionsTitle: 'Impressionen',
     impressionsSub: 'Eindrücke aus unseren vergangenen Tenniscamps',
   },
@@ -39,11 +40,8 @@ const T = {
       'The tennis camp takes place at the BSV 92 grounds, Fritz-Wildung-Str. 23, 14199 Berlin. Monday to Friday, from 9:30 am to 3:00 pm.',
     termineTitle: 'Dates',
     termineSub: 'Berlin summer holidays 2026 · Mon – Fri · 9:30 am – 3:00 pm',
-    termine: [
-      { label: 'Second-to-last holiday week', dates: '10 – 14 August 2026' },
-      { label: 'Last holiday week', dates: '17 – 21 August 2026' },
-    ],
     terminMeta: 'Mon – Fri · 9:30 am – 3:00 pm',
+    terminClosed: 'Registration closed',
     feeTitle: 'Participation Fee',
     preise: [
       { label: 'Members', price: '€290' },
@@ -53,6 +51,9 @@ const T = {
     regBadge: 'Registration open',
     regText: 'Register online now for a camp week (binding registration).',
     regCta: 'Register for a camp',
+    regBadgeClosed: 'Registration closed',
+    regTextClosed:
+      'Registration for the 2026 summer tennis camps is now closed. If you would like to ask about remaining places, please get in touch with us directly.',
     impressionsTitle: 'Impressions',
     impressionsSub: 'Snapshots from our past tennis camps',
   },
@@ -61,6 +62,8 @@ const T = {
 export default function Tenniscamps() {
   const { lang } = useLang();
   const t = T[lang];
+  const termine = campWeeks.map((week) => ({ ...week, open: isCampWeekOpen(week) }));
+  const anmeldungOffen = termine.some((week) => week.open);
 
   return (
     <>
@@ -85,12 +88,15 @@ export default function Tenniscamps() {
           </AnimatedSection>
 
           <div className="camp-termine-grid">
-            {t.termine.map((termin, i) => (
-              <AnimatedSection key={termin.label} delay={i * 0.1}>
-                <div className="camp-termin-card">
-                  <span className="camp-termin-label">{termin.label}</span>
-                  <span className="camp-termin-dates">{termin.dates}</span>
+            {termine.map((termin, i) => (
+              <AnimatedSection key={termin.id} delay={i * 0.1}>
+                <div className={`camp-termin-card${termin.open ? '' : ' camp-termin-card--closed'}`}>
+                  <span className="camp-termin-label">{termin.label[lang]}</span>
+                  <span className="camp-termin-dates">{termin.dates[lang]}</span>
                   <span className="camp-termin-meta">{t.terminMeta}</span>
+                  {!termin.open && (
+                    <span className="camp-termin-status">{t.terminClosed}</span>
+                  )}
                 </div>
               </AnimatedSection>
             ))}
@@ -113,13 +119,19 @@ export default function Tenniscamps() {
 
           <AnimatedSection delay={0.5}>
             <div className="camp-anmeldung-hinweis">
-              <span className="camp-anmeldung-badge">{t.regBadge}</span>
-              <p className="camp-anmeldung-text">{t.regText}</p>
-              <div className="camp-anmeldung-cta">
-                <ButtonWithIcon href="/tenniscamp-anmeldung">
-                  {t.regCta}
-                </ButtonWithIcon>
-              </div>
+              <span className={`camp-anmeldung-badge${anmeldungOffen ? '' : ' camp-anmeldung-badge--closed'}`}>
+                {anmeldungOffen ? t.regBadge : t.regBadgeClosed}
+              </span>
+              <p className="camp-anmeldung-text">
+                {anmeldungOffen ? t.regText : t.regTextClosed}
+              </p>
+              {anmeldungOffen && (
+                <div className="camp-anmeldung-cta">
+                  <ButtonWithIcon href="/tenniscamp-anmeldung">
+                    {t.regCta}
+                  </ButtonWithIcon>
+                </div>
+              )}
             </div>
           </AnimatedSection>
         </div>
