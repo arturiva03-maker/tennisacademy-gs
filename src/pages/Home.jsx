@@ -3,7 +3,7 @@ import { Calendar, Award, Target, Users, Download } from 'lucide-react';
 import { motion } from 'motion/react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import { eventsByLang } from './News';
-import { campWeeks, isCampWeekOpen } from '@/lib/campWeeks';
+import { openCampWeeks } from '@/lib/campWeeks';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
 import { useLang } from '../i18n/LanguageContext';
 
@@ -94,7 +94,6 @@ const T = {
     campWeek: 'Woche',
     campMeta: 'BSV 92 · Mo – Fr · 9:30 – 15:00',
     campCta: 'Zur Anmeldung →',
-    campClosedTag: 'Anmeldung geschlossen',
     offerHeadline: 'Unser Angebot',
     offerIntro:
       'Von ersten koordinativen Übungen bis zum Wettkampfvorbereitungstraining – wir begleiten dich Schritt für Schritt in deinem Tennisleben.',
@@ -120,7 +119,6 @@ const T = {
     campWeek: 'Week',
     campMeta: 'BSV 92 · Mon – Fri · 9:30 am – 3:00 pm',
     campCta: 'Register now →',
-    campClosedTag: 'Registration closed',
     offerHeadline: 'What We Offer',
     offerIntro:
       'From first coordination exercises to competition preparation – we guide you step by step through your tennis journey.',
@@ -217,13 +215,8 @@ export default function Home() {
   const t = T[lang];
   const offerings = OFFERINGS[lang];
   const events = eventsByLang[lang];
-  const campBoardWeeks = campWeeks.map((week) => ({ ...week, open: isCampWeekOpen(week) }));
-  const campAnmeldungOffen = campBoardWeeks.some((week) => week.open);
-  // Ohne offene Woche ist das Board reine Information und verlinkt nicht mehr.
-  const CampBoard = campAnmeldungOffen ? motion.a : motion.div;
-  const campBoardLinkProps = campAnmeldungOffen
-    ? { href: '/tenniscamp-anmeldung', 'aria-label': t.campBoardAria }
-    : {};
+  // Nur buchbare Wochen stehen im Hero-Board; ohne offene Woche fällt es ganz weg.
+  const campBoardWeeks = openCampWeeks();
 
   return (
     <>
@@ -292,40 +285,33 @@ export default function Home() {
               </ButtonWithIcon>
             </motion.div>
 
-            <CampBoard
-              {...campBoardLinkProps}
-              className={`gs-hero-camp-board${campAnmeldungOffen ? '' : ' gs-hero-camp-board--closed'}`}
-              variants={{
-                hidden: { opacity: 0, y: 24 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut', delay: 0.15 } },
-              }}
-            >
-              <div className="gs-hero-camp-board-head">
-                <span className="gs-hero-camp-board-eyebrow">{t.campBoardEyebrow}</span>
-              </div>
-              <div className="gs-hero-camp-board-rows">
-                {campBoardWeeks.map((week) => (
-                  <div
-                    key={week.id}
-                    className={`gs-hero-camp-board-row${week.open ? '' : ' gs-hero-camp-board-row--closed'}`}
-                  >
-                    <span className="gs-hero-camp-board-week">{t.campWeek} {week.weekNo}</span>
-                    <span className="gs-hero-camp-board-dates">
-                      {week.dates[lang]}
-                      {!week.open && (
-                        <span className="gs-hero-camp-board-tag">{t.campClosedTag}</span>
-                      )}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <div className="gs-hero-camp-board-foot">
-                <span className="gs-hero-camp-board-meta">{t.campMeta}</span>
-                {campAnmeldungOffen && (
+            {campBoardWeeks.length > 0 && (
+              <motion.a
+                href="/tenniscamp-anmeldung"
+                className="gs-hero-camp-board"
+                aria-label={t.campBoardAria}
+                variants={{
+                  hidden: { opacity: 0, y: 24 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut', delay: 0.15 } },
+                }}
+              >
+                <div className="gs-hero-camp-board-head">
+                  <span className="gs-hero-camp-board-eyebrow">{t.campBoardEyebrow}</span>
+                </div>
+                <div className="gs-hero-camp-board-rows">
+                  {campBoardWeeks.map((week) => (
+                    <div key={week.id} className="gs-hero-camp-board-row">
+                      <span className="gs-hero-camp-board-week">{t.campWeek} {week.weekNo}</span>
+                      <span className="gs-hero-camp-board-dates">{week.dates[lang]}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="gs-hero-camp-board-foot">
+                  <span className="gs-hero-camp-board-meta">{t.campMeta}</span>
                   <span className="gs-hero-camp-board-cta">{t.campCta}</span>
-                )}
-              </div>
-            </CampBoard>
+                </div>
+              </motion.a>
+            )}
           </motion.div>
         </div>
 

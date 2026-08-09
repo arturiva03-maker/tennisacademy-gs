@@ -59,8 +59,6 @@ export const campWeekDeadline = (week) => {
 export const isCampWeekOpen = (week, now = new Date()) =>
   startOfDay(now).getTime() <= campWeekDeadline(week).getTime();
 
+/** Wochen, die noch buchbar sind — nur diese werden auf der Website gezeigt. */
 export const openCampWeeks = (now = new Date()) =>
   campWeeks.filter((week) => isCampWeekOpen(week, now));
-
-export const hasOpenCampWeek = (now = new Date()) =>
-  campWeeks.some((week) => isCampWeekOpen(week, now));

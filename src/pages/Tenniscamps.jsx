@@ -1,6 +1,6 @@
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
-import { campWeeks, isCampWeekOpen } from '@/lib/campWeeks';
+import { openCampWeeks } from '@/lib/campWeeks';
 import { useLang } from '../i18n/LanguageContext';
 
 const campImages = [
@@ -18,7 +18,6 @@ const T = {
     termineTitle: 'Termine',
     termineSub: 'Sommerferien Berlin 2026 · Mo – Fr · 9:30 – 15:00 Uhr',
     terminMeta: 'Mo – Fr · 9:30 – 15:00 Uhr',
-    terminClosed: 'Anmeldung geschlossen',
     feeTitle: 'Teilnahmegebühr',
     preise: [
       { label: 'Mitglieder', price: '290 €' },
@@ -41,7 +40,6 @@ const T = {
     termineTitle: 'Dates',
     termineSub: 'Berlin summer holidays 2026 · Mon – Fri · 9:30 am – 3:00 pm',
     terminMeta: 'Mon – Fri · 9:30 am – 3:00 pm',
-    terminClosed: 'Registration closed',
     feeTitle: 'Participation Fee',
     preise: [
       { label: 'Members', price: '€290' },
@@ -62,8 +60,9 @@ const T = {
 export default function Tenniscamps() {
   const { lang } = useLang();
   const t = T[lang];
-  const termine = campWeeks.map((week) => ({ ...week, open: isCampWeekOpen(week) }));
-  const anmeldungOffen = termine.some((week) => week.open);
+  // Vorbei bzw. Anmeldeschluss erreicht = die Woche verschwindet von der Seite.
+  const termine = openCampWeeks();
+  const anmeldungOffen = termine.length > 0;
 
   return (
     <>
@@ -80,27 +79,28 @@ export default function Tenniscamps() {
 
       <section className="camp-termine-section">
         <div className="container">
-          <AnimatedSection>
-            <div className="section-header">
-              <h2 className="section-title">{t.termineTitle}</h2>
-              <p className="section-subtitle">{t.termineSub}</p>
-            </div>
-          </AnimatedSection>
+          {anmeldungOffen && (
+            <AnimatedSection>
+              <div className="section-header">
+                <h2 className="section-title">{t.termineTitle}</h2>
+                <p className="section-subtitle">{t.termineSub}</p>
+              </div>
+            </AnimatedSection>
+          )}
 
-          <div className="camp-termine-grid">
-            {termine.map((termin, i) => (
-              <AnimatedSection key={termin.id} delay={i * 0.1}>
-                <div className={`camp-termin-card${termin.open ? '' : ' camp-termin-card--closed'}`}>
-                  <span className="camp-termin-label">{termin.label[lang]}</span>
-                  <span className="camp-termin-dates">{termin.dates[lang]}</span>
-                  <span className="camp-termin-meta">{t.terminMeta}</span>
-                  {!termin.open && (
-                    <span className="camp-termin-status">{t.terminClosed}</span>
-                  )}
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
+          {anmeldungOffen && (
+            <div className="camp-termine-grid">
+              {termine.map((termin, i) => (
+                <AnimatedSection key={termin.id} delay={i * 0.1}>
+                  <div className="camp-termin-card">
+                    <span className="camp-termin-label">{termin.label[lang]}</span>
+                    <span className="camp-termin-dates">{termin.dates[lang]}</span>
+                    <span className="camp-termin-meta">{t.terminMeta}</span>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          )}
 
           <AnimatedSection delay={0.4}>
             <div className="camp-preise-block">
