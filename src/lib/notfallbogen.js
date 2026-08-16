@@ -1,7 +1,13 @@
-const CAMPS_2026 = [
-  { id: 'Vorletzte Ferienwoche', label: 'Sommercamp II', dates: '10.08. bis 14.08.2026' },
-  { id: 'Letzte Ferienwoche', label: 'Sommercamp III', dates: '17.08. bis 21.08.2026' },
-];
+import { campWeeks, openCampWeeks } from '@/lib/campWeeks';
+
+// Auf dem Bogen stehen nur die Wochen, für die man sich noch anmelden kann —
+// vorbei ist vorbei. Fällt der Anmeldeschluss zwischen Formular und Download,
+// bleibt wenigstens die angekreuzte Woche stehen.
+const campsForBogen = (termin) => {
+  const open = openCampWeeks();
+  if (open.length > 0) return open;
+  return campWeeks.filter((week) => week.value === termin);
+};
 
 const loadImageAsDataUrl = (src) =>
   new Promise((resolve) => {
@@ -18,9 +24,6 @@ const loadImageAsDataUrl = (src) =>
     img.onerror = () => resolve(null);
     img.src = src;
   });
-
-const selectedTerminMatches = (terminValue, campId) =>
-  typeof terminValue === 'string' && terminValue.toLowerCase().startsWith(campId.toLowerCase());
 
 export async function generateNotfallbogenPdf(formData = {}) {
   const { jsPDF } = await import('jspdf');
@@ -60,11 +63,12 @@ export async function generateNotfallbogenPdf(formData = {}) {
 
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(12);
-  CAMPS_2026.forEach((camp) => {
-    const checked = selectedTerminMatches(formData.termin, camp.id);
+  const camps = campsForBogen(formData.termin);
+  camps.forEach((camp) => {
+    const checked = formData.termin === camp.value;
     const labelX = marginX + 30;
-    doc.text(camp.label, labelX, y);
-    doc.text(camp.dates, labelX + 45, y);
+    doc.text(camp.campName, labelX, y);
+    doc.text(camp.dates.de.replace('–', 'bis'), labelX + 45, y);
 
     const boxX = labelX + 100;
     const boxY = y - 4;

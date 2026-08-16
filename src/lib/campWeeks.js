@@ -17,6 +17,8 @@ export const campWeeks = [
     weekNo: 5,
     start: '2026-08-10',
     value: 'Vorletzte Ferienwoche (10.08. – 14.08.2026)',
+    // So heisst die Woche auf dem Notfallbogen-PDF.
+    campName: 'Sommercamp II',
     label: {
       de: 'Vorletzte Ferienwoche',
       en: 'Second-to-last holiday week',
@@ -34,6 +36,7 @@ export const campWeeks = [
     // letzten Camp-Tag statt 2 Tage vor Start.
     closesAt: '2026-08-21',
     value: 'Letzte Ferienwoche (17.08. – 21.08.2026)',
+    campName: 'Sommercamp III',
     label: {
       de: 'Letzte Ferienwoche',
       en: 'Last holiday week',
