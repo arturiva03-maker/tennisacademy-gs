@@ -4,6 +4,9 @@
 // Tage vor dem ersten Camp-Tag. Danach stehen Gruppen, Essen und Shirts fest —
 // wer später bucht, taucht in der Planung nicht mehr auf.
 //
+// Einzelne Wochen können mit `closesAt` (letzter Anmeldetag, ISO) davon
+// abweichen — z. B. wenn Nachzügler doch noch aufgenommen werden.
+//
 // WICHTIG: `value` ist der Wert, der in die Anmelde-E-Mail geschrieben wird
 // und bleibt deshalb in jeder UI-Sprache deutsch.
 const CLOSE_DAYS_BEFORE_START = 2;
@@ -27,6 +30,9 @@ export const campWeeks = [
     id: 'woche-6',
     weekNo: 6,
     start: '2026-08-17',
+    // Nachzügler sind hier weiterhin willkommen: Anmeldung läuft bis zum
+    // letzten Camp-Tag statt 2 Tage vor Start.
+    closesAt: '2026-08-21',
     value: 'Letzte Ferienwoche (17.08. – 21.08.2026)',
     label: {
       de: 'Letzte Ferienwoche',
@@ -51,6 +57,7 @@ const startOfDay = (date) =>
 
 /** Letzter Tag, an dem man sich für diese Woche noch anmelden kann. */
 export const campWeekDeadline = (week) => {
+  if (week.closesAt) return toLocalDate(week.closesAt);
   const deadline = toLocalDate(week.start);
   deadline.setDate(deadline.getDate() - CLOSE_DAYS_BEFORE_START);
   return deadline;
