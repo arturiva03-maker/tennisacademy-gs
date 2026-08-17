@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { MotionConfig } from 'motion/react';
 import { LanguageProvider } from './i18n/LanguageContext';
@@ -18,7 +18,8 @@ import Datenschutz from './pages/Datenschutz';
 import AGB from './pages/AGB';
 import AgbTenniscamp from './pages/AgbTenniscamp';
 import Tenniscamps from './pages/Tenniscamps';
-import TenniscampAnmeldung from './pages/TenniscampAnmeldung';
+// Die Camp-Anmeldung ist ausser Betrieb — TenniscampAnmeldung.jsx bleibt fuer
+// die naechste Saison liegen, wird aber bewusst nicht mehr eingebunden.
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -43,7 +44,8 @@ function AnimatedRoutes() {
       <Route path="/agb" element={<AGB />} />
       <Route path="/agb-tenniscamp" element={<AgbTenniscamp />} />
       <Route path="/tenniscamps" element={<Tenniscamps />} />
-      <Route path="/tenniscamp-anmeldung" element={<TenniscampAnmeldung />} />
+      {/* Alte Flyer- und Google-Links sollen nicht ins Leere laufen. */}
+      <Route path="/tenniscamp-anmeldung" element={<Navigate to="/" replace />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

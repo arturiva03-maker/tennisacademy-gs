@@ -46,18 +46,6 @@ export const eventsByLang = {
       },
     },
     {
-      title: 'Tenniscamps Sommerferien 2026',
-      subtitle: 'Anmeldung jetzt online möglich',
-      date: 'Sommerferien 2026',
-      location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
-      description: 'Die Anmeldung für unsere Tenniscamps in den Sommerferien Berlin 2026 ist online möglich.\n\nZwei Camp-Wochen, jeweils Mo–Fr von 9:30 – 15:00 Uhr, inklusive Training, Mittagessen und Getränke.\n\n• Vorletzte Ferienwoche: 10.08. – 14.08.2026\n• Letzte Ferienwoche: 17.08. – 21.08.2026\n\nTeilnahmegebühr: Mitglieder 290 €, Nicht-Mitglieder 350 €.\n\nWir freuen uns auf euch!\n\nEure TENNIS ACADEMY GRAND SLAM',
-      image: '/tenniscamp.jpg',
-      cta: {
-        label: 'Zur Camp-Anmeldung',
-        link: '/tenniscamp-anmeldung',
-      },
-    },
-    {
       title: 'Start der Sommersaison 2026',
       subtitle: 'Trainingsbetrieb ab 4. Mai 2026',
       date: '4. Mai 2026',
@@ -125,18 +113,6 @@ export const eventsByLang = {
       download: {
         label: 'Registration form as PDF (in German)',
         href: '/cujic-mini-cup-2026-anmeldeformular.pdf',
-      },
-    },
-    {
-      title: 'Tennis Camps – Summer Holidays 2026',
-      subtitle: 'Registration now open online',
-      date: 'Summer holidays 2026',
-      location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
-      description: 'Registration for our tennis camps during the Berlin 2026 summer holidays is open online.\n\nTwo camp weeks, each Mon–Fri from 9:30 am – 3:00 pm, including coaching, lunch and drinks.\n\n• Second-to-last holiday week: 10 – 14 August 2026\n• Last holiday week: 17 – 21 August 2026\n\nParticipation fee: members €290, non-members €350.\n\nWe look forward to seeing you!\n\nYour TENNIS ACADEMY GRAND SLAM',
-      image: '/tenniscamp.jpg',
-      cta: {
-        label: 'Register for a camp',
-        link: '/tenniscamp-anmeldung',
       },
     },
     {

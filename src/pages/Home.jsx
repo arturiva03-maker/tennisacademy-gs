@@ -3,7 +3,6 @@ import { Calendar, Award, Target, Users, Download } from 'lucide-react';
 import { motion } from 'motion/react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import { eventsByLang } from './News';
-import { openCampWeeks } from '@/lib/campWeeks';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
 import { useLang } from '../i18n/LanguageContext';
 
@@ -89,11 +88,6 @@ const T = {
       'Tennistraining für alle Spielklassen und Altersgruppen – von der Ballschule bis zum Wettkampftraining.',
     ctaPrices: 'Preise ansehen',
     ctaTeam: 'Unser Team',
-    campBoardAria: 'Tenniscamp Sommerferien 2026 — zur Anmeldung',
-    campBoardEyebrow: 'Tenniscamp · Sommerferien 2026',
-    campWeek: 'Woche',
-    campMeta: 'BSV 92 · Mo – Fr · 9:30 – 15:00',
-    campCta: 'Zur Anmeldung →',
     offerHeadline: 'Unser Angebot',
     offerIntro:
       'Von ersten koordinativen Übungen bis zum Wettkampfvorbereitungstraining – wir begleiten dich Schritt für Schritt in deinem Tennisleben.',
@@ -114,11 +108,6 @@ const T = {
       'Tennis coaching for all levels and age groups – from ball school to competitive training.',
     ctaPrices: 'View prices',
     ctaTeam: 'Our team',
-    campBoardAria: 'Tennis camp summer holidays 2026 — go to registration',
-    campBoardEyebrow: 'Tennis Camp · Summer Holidays 2026',
-    campWeek: 'Week',
-    campMeta: 'BSV 92 · Mon – Fri · 9:30 am – 3:00 pm',
-    campCta: 'Register now →',
     offerHeadline: 'What We Offer',
     offerIntro:
       'From first coordination exercises to competition preparation – we guide you step by step through your tennis journey.',
@@ -215,8 +204,6 @@ export default function Home() {
   const t = T[lang];
   const offerings = OFFERINGS[lang];
   const events = eventsByLang[lang];
-  // Nur buchbare Wochen stehen im Hero-Board; ohne offene Woche fällt es ganz weg.
-  const campBoardWeeks = openCampWeeks();
 
   return (
     <>
@@ -284,34 +271,6 @@ export default function Home() {
                 {t.ctaTeam}
               </ButtonWithIcon>
             </motion.div>
-
-            {campBoardWeeks.length > 0 && (
-              <motion.a
-                href="/tenniscamp-anmeldung"
-                className="gs-hero-camp-board"
-                aria-label={t.campBoardAria}
-                variants={{
-                  hidden: { opacity: 0, y: 24 },
-                  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut', delay: 0.15 } },
-                }}
-              >
-                <div className="gs-hero-camp-board-head">
-                  <span className="gs-hero-camp-board-eyebrow">{t.campBoardEyebrow}</span>
-                </div>
-                <div className="gs-hero-camp-board-rows">
-                  {campBoardWeeks.map((week) => (
-                    <div key={week.id} className="gs-hero-camp-board-row">
-                      <span className="gs-hero-camp-board-week">{t.campWeek} {week.weekNo}</span>
-                      <span className="gs-hero-camp-board-dates">{week.dates[lang]}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="gs-hero-camp-board-foot">
-                  <span className="gs-hero-camp-board-meta">{t.campMeta}</span>
-                  <span className="gs-hero-camp-board-cta">{t.campCta}</span>
-                </div>
-              </motion.a>
-            )}
           </motion.div>
         </div>
 

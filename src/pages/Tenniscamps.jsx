@@ -1,6 +1,6 @@
+// Die Seite ist ein reiner Rueckblick: Termine, Gebuehren und Anmeldung sind
+// raus, geblieben sind Hero und Impressionen.
 import { AnimatedSection } from '../hooks/useScrollAnimation';
-import ButtonWithIcon from '@/components/ui/button-with-icon';
-import { openCampWeeks } from '@/lib/campWeeks';
 import { useLang } from '../i18n/LanguageContext';
 
 const campImages = [
@@ -14,44 +14,14 @@ const T = {
   de: {
     heroTitle: 'Tenniscamps',
     heroSub:
-      'Das Tenniscamp findet auf der Anlage des BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin statt. Montag bis Freitag, jeweils von 9:30 bis 15:00 Uhr.',
-    termineTitle: 'Termine',
-    termineSub: 'Sommerferien Berlin 2026 · Mo – Fr · 9:30 – 15:00 Uhr',
-    terminMeta: 'Mo – Fr · 9:30 – 15:00 Uhr',
-    feeTitle: 'Teilnahmegebühr',
-    preise: [
-      { label: 'Mitglieder', price: '290 €' },
-      { label: 'Nicht-Mitglieder', price: '350 €' },
-    ],
-    feeInfo: 'Inkl. Training, Mittagessen und Getränke.',
-    regBadge: 'Anmeldung geöffnet',
-    regText: 'Jetzt online verbindlich für eine Camp-Woche anmelden.',
-    regCta: 'Zur Camp-Anmeldung',
-    regBadgeClosed: 'Anmeldung geschlossen',
-    regTextClosed:
-      'Für die Sommer-Tenniscamps 2026 ist die Anmeldung abgeschlossen. Bei Fragen zu freien Plätzen melde dich gern direkt bei uns.',
+      'Ein Rückblick auf unsere Tenniscamps auf der Anlage des BSV 92 in Berlin.',
     impressionsTitle: 'Impressionen',
     impressionsSub: 'Eindrücke aus unseren vergangenen Tenniscamps',
   },
   en: {
     heroTitle: 'Tennis Camps',
     heroSub:
-      'The tennis camp takes place at the BSV 92 grounds, Fritz-Wildung-Str. 23, 14199 Berlin. Monday to Friday, from 9:30 am to 3:00 pm.',
-    termineTitle: 'Dates',
-    termineSub: 'Berlin summer holidays 2026 · Mon – Fri · 9:30 am – 3:00 pm',
-    terminMeta: 'Mon – Fri · 9:30 am – 3:00 pm',
-    feeTitle: 'Participation Fee',
-    preise: [
-      { label: 'Members', price: '€290' },
-      { label: 'Non-members', price: '€350' },
-    ],
-    feeInfo: 'Including coaching, lunch and drinks.',
-    regBadge: 'Registration open',
-    regText: 'Register online now for a camp week (binding registration).',
-    regCta: 'Register for a camp',
-    regBadgeClosed: 'Registration closed',
-    regTextClosed:
-      'Registration for the 2026 summer tennis camps is now closed. If you would like to ask about remaining places, please get in touch with us directly.',
+      'A look back at our tennis camps at the BSV 92 grounds in Berlin.',
     impressionsTitle: 'Impressions',
     impressionsSub: 'Snapshots from our past tennis camps',
   },
@@ -60,9 +30,6 @@ const T = {
 export default function Tenniscamps() {
   const { lang } = useLang();
   const t = T[lang];
-  // Vorbei bzw. Anmeldeschluss erreicht = die Woche verschwindet von der Seite.
-  const termine = openCampWeeks();
-  const anmeldungOffen = termine.length > 0;
 
   return (
     <>
@@ -74,66 +41,6 @@ export default function Tenniscamps() {
         <div className="container">
           <h1>{t.heroTitle}</h1>
           <p>{t.heroSub}</p>
-        </div>
-      </section>
-
-      <section className="camp-termine-section">
-        <div className="container">
-          {anmeldungOffen && (
-            <AnimatedSection>
-              <div className="section-header">
-                <h2 className="section-title">{t.termineTitle}</h2>
-                <p className="section-subtitle">{t.termineSub}</p>
-              </div>
-            </AnimatedSection>
-          )}
-
-          {anmeldungOffen && (
-            <div className="camp-termine-grid">
-              {termine.map((termin, i) => (
-                <AnimatedSection key={termin.id} delay={i * 0.1}>
-                  <div className="camp-termin-card">
-                    <span className="camp-termin-label">{termin.label[lang]}</span>
-                    <span className="camp-termin-dates">{termin.dates[lang]}</span>
-                    <span className="camp-termin-meta">{t.terminMeta}</span>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
-          )}
-
-          <AnimatedSection delay={0.4}>
-            <div className="camp-preise-block">
-              <h3 className="camp-preise-title">{t.feeTitle}</h3>
-              <div className="camp-preise-grid">
-                {t.preise.map((p) => (
-                  <div key={p.label} className="camp-preis-card">
-                    <span className="camp-preis-label">{p.label}</span>
-                    <span className="camp-preis-amount">{p.price}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="camp-preise-info">{t.feeInfo}</p>
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.5}>
-            <div className="camp-anmeldung-hinweis">
-              <span className={`camp-anmeldung-badge${anmeldungOffen ? '' : ' camp-anmeldung-badge--closed'}`}>
-                {anmeldungOffen ? t.regBadge : t.regBadgeClosed}
-              </span>
-              <p className="camp-anmeldung-text">
-                {anmeldungOffen ? t.regText : t.regTextClosed}
-              </p>
-              {anmeldungOffen && (
-                <div className="camp-anmeldung-cta">
-                  <ButtonWithIcon href="/tenniscamp-anmeldung">
-                    {t.regCta}
-                  </ButtonWithIcon>
-                </div>
-              )}
-            </div>
-          </AnimatedSection>
         </div>
       </section>
 

@@ -52,13 +52,8 @@ const META = {
   },
   '/tenniscamps': {
     img: '/tenniscamp.jpg',
-    de: { title: `Tenniscamps Sommerferien 2026 · ${BRAND}`, desc: 'Tenniscamps in den Sommerferien Berlin 2026, Mo–Fr 9:30–15:00 Uhr, inkl. Mittagessen und Getränke.' },
-    en: { title: `Tennis Camps Summer 2026 · ${BRAND}`, desc: 'Tennis camps during the Berlin 2026 summer holidays, Mon–Fri 9:30 am–3:00 pm, including lunch and drinks.' },
-  },
-  '/tenniscamp-anmeldung': {
-    img: '/tenniscamp4.jpg',
-    de: { title: `Camp-Anmeldung · ${BRAND}`, desc: 'Jetzt online verbindlich für eine Woche unseres Tenniscamps in den Sommerferien 2026 anmelden.' },
-    en: { title: `Camp Registration · ${BRAND}`, desc: 'Register online now for a week of our summer 2026 tennis camp.' },
+    de: { title: `Tenniscamps · ${BRAND}`, desc: 'Impressionen aus den Tenniscamps der TENNIS ACADEMY GRAND SLAM auf der Anlage des BSV 92 in Berlin.' },
+    en: { title: `Tennis Camps · ${BRAND}`, desc: 'Impressions from the tennis camps of TENNIS ACADEMY GRAND SLAM at the BSV 92 grounds in Berlin.' },
   },
   '/impressum': {
     de: { title: `Impressum · ${BRAND}`, desc: 'Impressum der TENNIS ACADEMY GRAND SLAM.' },
