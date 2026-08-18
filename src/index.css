@@ -4858,3 +4858,19 @@ img {
 }
 
 .mobile-nav.open a:nth-child(9) { transition-delay: 0.45s; }
+
+/* Der Mini-Cup-Hero ist das hellste Foto der Website (Sandplatz + gruener
+   Windschutz). Der Gold-Kicker verschwand darauf, deshalb bekommt die
+   Textzone unten einen kraeftigeren Navy-Verlauf und der Kicker einen
+   helleren Goldton mit Schatten. Die obere Bildhaelfte bleibt unangetastet. */
+.page-hero--minicup .page-hero-overlay {
+  background:
+    radial-gradient(120% 80% at 10% 100%, rgba(201, 162, 39, 0.14) 0%, rgba(201, 162, 39, 0) 50%),
+    linear-gradient(to top, rgba(11, 37, 56, 0.94) 0%, rgba(11, 37, 56, 0.74) 34%, rgba(11, 37, 56, 0.26) 64%, rgba(11, 37, 56, 0.04) 100%);
+}
+
+.page-hero--minicup .page-hero-kicker {
+  color: #f5e3a8;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(4, 16, 28, 0.6), 0 2px 16px rgba(4, 16, 28, 0.45);
+}
