@@ -9,6 +9,7 @@ const navItems = [
   { path: '/preise', label: { de: 'Preise', en: 'Prices' } },
   { path: '/kids-on-court', label: { de: 'Kids', en: 'Kids' } },
   { path: '/tenniscamps', label: { de: 'Camps', en: 'Camps' } },
+  { path: '/mini-cup', label: { de: 'Mini Cup', en: 'Mini Cup' } },
   { path: '/dtb-vdt', label: { de: 'DTB/VDT', en: 'DTB/VDT' } },
   { path: '/news', label: { de: 'News', en: 'News' } },
   { path: '/kontakt', label: { de: 'Kontakt', en: 'Contact' } },

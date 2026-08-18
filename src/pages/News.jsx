@@ -3,27 +3,18 @@ import { AnimatedSection } from '../hooks/useScrollAnimation';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
 import { useLang } from '../i18n/LanguageContext';
 
+// Die vollstaendige Mini-Cup-Ausschreibung steht seit dem eigenen Tab auf
+// /mini-cup. Hier bleibt nur die Meldung mit den drei Eckdaten, damit dieselbe
+// Ausschreibung nicht auf zwei Seiten gepflegt (und von Google doppelt
+// indexiert) wird.
 export const eventsByLang = {
   de: [
     {
       title: '16. Čujić-Mini-Cup 2026',
-      subtitle: 'Kleinfeldturnier mit Mehrkampf – die Ausschreibung',
+      subtitle: 'Kleinfeldturnier mit Mehrkampf beim BSV 92',
       date: 'Sonntag, 30. August 2026',
       location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
-      description: 'Der BSV 92 veranstaltet am Sonntag, den 30. August 2026 auf seiner Anlage in der Fritz-Wildung-Str. 23 wieder den beliebten Čujić-Mini-Cup. Die inzwischen 16. Auflage dieses Kleinfeldturniers richtet sich besonders an Kinder, die ihre ersten Schritte im Wettkampf gehen wollen.\n\nGespielt wird in Vierergruppen, in Ausnahmefällen auch in Dreiergruppen. Die Einteilung erfolgt nach Spielstärke und Alter, sodass jedes Kind passende Gegner findet. Bei witterungsbedingter Unbespielbarkeit der Außenplätze kann das Turnier leider nicht stattfinden.',
-      details: [
-        { label: 'Termin', value: 'Sonntag, 30.08.2026' },
-        { label: 'Spielbeginn', value: '14.30 Uhr (Spielende ca. 18.30 Uhr)' },
-        { label: 'Sign-In', value: '13.00 Uhr bis 13.45 Uhr' },
-        { label: 'Konkurrenz', value: 'U10 Mixed – Mädchen und Jungen, Jahrgang 2016 und jünger' },
-        { label: 'Teilnehmerzahl', value: 'maximal 48 Kinder' },
-        { label: 'Spielball', value: 'Dunlop Starter Balls rot' },
-        { label: 'Spielort', value: 'Berliner Sport-Verein 1892 e.V. – Tennisabteilung, Fritz-Wildung-Str. 23, 14199 Berlin' },
-        { label: 'Meldeschluss', value: 'Donnerstag, 27.08.2026, 23:59 Uhr' },
-        { label: 'Nenngeld', value: '33 € inklusive Turnier-Shirt, Barzahlung beim Sign-In' },
-        { label: 'Veranstalter', value: 'Berliner Sport-Verein 1892 e.V. – Tennisabteilung' },
-      ],
-      note: 'Anmeldung über die Turnierplattform TVPro-online oder mit dem ausgefüllten Anmeldeformular per E-Mail an info@tennisacademy-gs.de.',
+      description: 'Der BSV 92 veranstaltet am Sonntag, den 30. August 2026 auf seiner Anlage in der Fritz-Wildung-Str. 23 wieder den beliebten Čujić-Mini-Cup. Die inzwischen 16. Auflage dieses Kleinfeldturniers richtet sich besonders an Kinder, die ihre ersten Schritte im Wettkampf gehen wollen.',
       image: '/cujic-cup.jpg',
       layout: 'banner',
       teaserDetails: [
@@ -32,17 +23,8 @@ export const eventsByLang = {
         { label: 'Nenngeld', value: '33 € inklusive Turnier-Shirt' },
       ],
       cta: {
-        label: 'Anmeldung über TVPro-online',
-        link: 'https://www.tvpro-online.de/turniere/item/46863',
-        external: true,
-      },
-      homeCta: {
-        label: 'Zur vollständigen Ausschreibung',
-        link: '/news',
-      },
-      download: {
-        label: 'Anmeldeformular als PDF',
-        href: '/cujic-mini-cup-2026-anmeldeformular.pdf',
+        label: 'Zur Ausschreibung und Anmeldung',
+        link: '/mini-cup',
       },
     },
     {
@@ -63,37 +45,14 @@ export const eventsByLang = {
       image: '/logo.png',
       archived: true,
     },
-    {
-      title: '15. Čujić-Mini-Cup 2025',
-      subtitle: 'Kleinfeldturnier mit Mehrkampf',
-      date: 'Sonntag, 07.09.2025',
-      location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
-      description: 'Der BSV 92 veranstaltet auf seiner Anlage in der Fritz-Wildung-Str. 23, 14199 Berlin, am Sonntag, den 07.09.2025 wieder den sehr beliebten Čujić-Mini-Cup 2025. Die inzwischen 15. Auflage dieses Kleinfeldturniers richtet sich besonders an die Kinder, die den Einstieg in die faszinierende Sportart Tennis beginnen wollen.',
-      image: '/cujic-cup.jpg',
-      layout: 'banner',
-      archived: true,
-    },
   ],
   en: [
     {
       title: '16th Čujić Mini Cup 2026',
-      subtitle: 'Small-court tournament with multi-event competition – the announcement',
+      subtitle: 'Small-court tournament with multi-event competition at BSV 92',
       date: 'Sunday, 30 August 2026',
       location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
-      description: 'On Sunday, 30 August 2026, BSV 92 will once again host the popular Čujić Mini Cup at its grounds at Fritz-Wildung-Str. 23. Now in its 16th edition, this small-court tournament is aimed especially at children taking their first steps in competitive tennis.\n\nMatches are played in groups of four, in exceptional cases in groups of three. Children are allocated by playing level and age so that everyone finds suitable opponents. If the outdoor courts are unplayable due to weather, the tournament unfortunately cannot take place.',
-      details: [
-        { label: 'Date', value: 'Sunday, 30 August 2026' },
-        { label: 'Start of play', value: '2.30 pm (end of play approx. 6.30 pm)' },
-        { label: 'Sign-in', value: '1.00 pm to 1.45 pm' },
-        { label: 'Competition', value: 'U10 mixed – girls and boys born 2016 or later' },
-        { label: 'Number of participants', value: 'maximum 48 children' },
-        { label: 'Ball', value: 'Dunlop Starter Balls red' },
-        { label: 'Venue', value: 'Berliner Sport-Verein 1892 e.V. – tennis department, Fritz-Wildung-Str. 23, 14199 Berlin' },
-        { label: 'Registration deadline', value: 'Thursday, 27 August 2026, 11:59 pm' },
-        { label: 'Entry fee', value: '€33 including tournament shirt, cash payment at sign-in' },
-        { label: 'Organiser', value: 'Berliner Sport-Verein 1892 e.V. – tennis department' },
-      ],
-      note: 'Register via the TVPro-online tournament platform or send the completed registration form by email to info@tennisacademy-gs.de.',
+      description: 'On Sunday, 30 August 2026, BSV 92 will once again host the popular Čujić Mini Cup at its grounds at Fritz-Wildung-Str. 23. Now in its 16th edition, this small-court tournament is aimed especially at children taking their first steps in competitive tennis.',
       image: '/cujic-cup.jpg',
       layout: 'banner',
       teaserDetails: [
@@ -102,17 +61,8 @@ export const eventsByLang = {
         { label: 'Entry fee', value: '€33 including tournament shirt' },
       ],
       cta: {
-        label: 'Register via TVPro-online',
-        link: 'https://www.tvpro-online.de/turniere/item/46863',
-        external: true,
-      },
-      homeCta: {
-        label: 'Read the full announcement',
-        link: '/news',
-      },
-      download: {
-        label: 'Registration form as PDF (in German)',
-        href: '/cujic-mini-cup-2026-anmeldeformular.pdf',
+        label: 'Announcement and registration',
+        link: '/mini-cup',
       },
     },
     {
@@ -131,16 +81,6 @@ export const eventsByLang = {
       location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
       description: 'After more than 16 successful years, the tennis school Ritter & Lingner is taking a big step forward: fittingly for the 125th anniversary of BSV 92, the well-established tennis school becomes the newly founded TENNIS ACADEMY GRAND SLAM.\n\nWith Jana Hladka-Kissal, Artur Ivanenko, Zlatan Palazov and Michael Lingner as partners and a strong team behind them, the goal is clear – to raise the quality of our youth programme even further.\n\nWhat began as a tennis school is now becoming an academy. The next chapter begins.\n\nWe are looking forward to a successful 2026 summer season.\n\nYour TENNIS ACADEMY GRAND SLAM & team',
       image: '/logo.png',
-      archived: true,
-    },
-    {
-      title: '15th Čujić Mini Cup 2025',
-      subtitle: 'Small-court tournament with multi-event competition',
-      date: 'Sunday, 7 September 2025',
-      location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
-      description: 'On Sunday, 7 September 2025, BSV 92 will once again host the very popular Čujić Mini Cup 2025 at its grounds at Fritz-Wildung-Str. 23, 14199 Berlin. Now in its 15th edition, this small-court tournament is aimed especially at children who want to take their first steps in the fascinating sport of tennis.',
-      image: '/cujic-cup.jpg',
-      layout: 'banner',
       archived: true,
     },
   ],

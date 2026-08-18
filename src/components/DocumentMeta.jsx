@@ -55,6 +55,11 @@ const META = {
     de: { title: `Tenniscamps · ${BRAND}`, desc: 'Impressionen aus den Tenniscamps der TENNIS ACADEMY GRAND SLAM auf der Anlage des BSV 92 in Berlin.' },
     en: { title: `Tennis Camps · ${BRAND}`, desc: 'Impressions from the tennis camps of TENNIS ACADEMY GRAND SLAM at the BSV 92 grounds in Berlin.' },
   },
+  '/mini-cup': {
+    img: '/cujic-cup.jpg',
+    de: { title: `Čujić-Mini-Cup · ${BRAND}`, desc: 'Čujić-Mini-Cup beim BSV 92 in Berlin: Kleinfeldturnier U10 mit Mehrkampf – Ausschreibung, Termin und Anmeldung.' },
+    en: { title: `Čujić Mini Cup · ${BRAND}`, desc: 'Čujić Mini Cup at BSV 92 in Berlin: U10 small-court tournament with multi-event competition – announcement, date and registration.' },
+  },
   '/impressum': {
     de: { title: `Impressum · ${BRAND}`, desc: 'Impressum der TENNIS ACADEMY GRAND SLAM.' },
     en: { title: `Legal Notice · ${BRAND}`, desc: 'Legal notice of TENNIS ACADEMY GRAND SLAM.' },

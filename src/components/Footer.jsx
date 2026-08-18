@@ -10,6 +10,7 @@ const T = {
     team: 'Trainerteam',
     prices: 'Preise und Angebote',
     more: 'Mehr',
+    miniCup: 'Čujić-Mini-Cup',
     news: 'News & Events',
     contact: 'Kontakt',
     legal: 'Rechtliches',
@@ -27,6 +28,7 @@ const T = {
     team: 'Coaching Team',
     prices: 'Prices & Programs',
     more: 'More',
+    miniCup: 'Čujić Mini Cup',
     news: 'News & Events',
     contact: 'Contact',
     legal: 'Legal',
@@ -62,6 +64,7 @@ export default function Footer() {
             <h4>{t.more}</h4>
             <ul>
               <li><Link to="/dtb-vdt">DTB/VDT</Link></li>
+              <li><Link to="/mini-cup">{t.miniCup}</Link></li>
               <li><Link to="/news">{t.news}</Link></li>
               <li><Link to="/kontakt">{t.contact}</Link></li>
             </ul>

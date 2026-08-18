@@ -31,6 +31,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.tennisacademy-gs.de/mini-cup</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.tennisacademy-gs.de/news</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

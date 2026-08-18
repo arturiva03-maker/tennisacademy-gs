@@ -4722,3 +4722,139 @@ img {
   color: var(--gold-light);
   border-color: var(--gold-light);
 }
+
+
+/* ========== MINI CUP (eigene Turnierseite) ==========
+   Die Ausschreibung ist der laengste Fliesstext der Website: erst eine ruhige
+   Lesespalte, darunter die Eckdaten als typografische Zeilen (dieselben
+   .news-card-details wie im News-Teaser) - bewusst keine Kacheln. */
+.minicup-section {
+  padding: 80px 0;
+  background: var(--bg);
+}
+
+.minicup-lead {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.minicup-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  padding-bottom: 18px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+}
+
+.minicup-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-medium);
+}
+
+.minicup-meta svg {
+  color: var(--gold-ink);
+  flex-shrink: 0;
+}
+
+.minicup-lead p {
+  font-size: 1rem;
+  color: var(--text-medium);
+  line-height: 1.8;
+}
+
+.minicup-lead p + p {
+  margin-top: 16px;
+}
+
+.minicup-panel {
+  max-width: 860px;
+  margin: 48px auto 0;
+  padding: 36px 40px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.minicup-panel-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--text-dark);
+}
+
+.minicup-panel .news-card-details {
+  margin-top: 18px;
+}
+
+.minicup-note {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: var(--text-medium);
+  line-height: 1.7;
+}
+
+.minicup-section .news-archive {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Im Rueckblick steht Text statt einer News-Karte - die Haarlinie unter der
+   aufgeklappten Zeile muss deshalb der Absatz mitbringen. */
+.minicup-archive-body p:first-child {
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.minicup-archive-body p + p {
+  margin-top: 14px;
+}
+
+/* Der Panorama-Hero ist flach: Kicker, Titel und Subline muessen zusammen
+   unter die 340px-Mindesthoehe passen. */
+@media (max-width: 900px) {
+  .page-hero--minicup .page-hero-kicker {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    margin-bottom: 8px;
+  }
+
+  .page-hero--minicup h1 {
+    margin-bottom: 14px;
+  }
+
+  .page-hero--minicup p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .minicup-section {
+    padding: 48px 0;
+  }
+
+  .minicup-panel {
+    padding: 24px 20px;
+    margin-top: 32px;
+  }
+}
+
+/* Neun Tabs passen auf schmalen Desktops nicht mehr neben die Wortmarke:
+   zwischen 901 und 1150 px traegt die Kapsel nur das Logo, die Tabs ruecken
+   enger zusammen. Darunter uebernimmt ohnehin das Burger-Menue. */
+@media (min-width: 901px) and (max-width: 1150px) {
+  .nav-logo span {
+    display: none;
+  }
+
+  .nav-links a {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+.mobile-nav.open a:nth-child(9) { transition-delay: 0.45s; }

@@ -18,6 +18,7 @@ import Datenschutz from './pages/Datenschutz';
 import AGB from './pages/AGB';
 import AgbTenniscamp from './pages/AgbTenniscamp';
 import Tenniscamps from './pages/Tenniscamps';
+import MiniCup from './pages/MiniCup';
 // Die Camp-Anmeldung ist ausser Betrieb — TenniscampAnmeldung.jsx bleibt fuer
 // die naechste Saison liegen, wird aber bewusst nicht mehr eingebunden.
 
@@ -44,6 +45,7 @@ function AnimatedRoutes() {
       <Route path="/agb" element={<AGB />} />
       <Route path="/agb-tenniscamp" element={<AgbTenniscamp />} />
       <Route path="/tenniscamps" element={<Tenniscamps />} />
+      <Route path="/mini-cup" element={<MiniCup />} />
       {/* Alte Flyer- und Google-Links sollen nicht ins Leere laufen. */}
       <Route path="/tenniscamp-anmeldung" element={<Navigate to="/" replace />} />
       <Route path="*" element={<NotFound />} />
