@@ -264,8 +264,10 @@ textarea {
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  line-height: 1.15;
-  font-weight: 800;
+  line-height: 1.12;
+  font-weight: 700;
+  font-optical-sizing: auto;
+  text-wrap: balance;
 }
 
 h3 {
@@ -1214,18 +1216,20 @@ img {
 
 .hero-title-large {
   font-size: clamp(3.2rem, 7vw, 5.6rem);
-  font-weight: 900;
+  font-weight: 700;
   margin-bottom: 24px;
   color: var(--white);
-  letter-spacing: -0.04em;
-  line-height: 1.0;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
   font-family: var(--font-display);
 }
 
+/* Kein font-style: italic — Fraunces liegt hier ohne Kursivschnitt vor,
+   der Browser wuerde eine Schraeglage errechnen. */
 .hero-title-large span {
   color: var(--gold-light);
   display: block;
-  font-style: italic;
+  font-weight: 500;
 }
 
 .hero-title {
@@ -1364,46 +1368,45 @@ img {
   background: linear-gradient(90deg, transparent, var(--border), transparent);
 }
 
+/* Ein einziges Header-System fuer die ganze Seite: linksbuendig und
+   editorial, wie es .gs-offer-header auf der Startseite schon vormacht.
+   Zuvor standen zwei widerspruechliche Systeme nebeneinander — zentrierter
+   Titel mit kurzem Gold-Strich darunter ist das Muster, das jede
+   Template-Site benutzt, und liess die Seite generisch wirken. */
 .section-header {
-  text-align: center;
-  margin-bottom: 48px;
+  text-align: left;
+  max-width: 660px;
+  margin-bottom: 56px;
 }
 
 .section-tag {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--navy);
-  margin-bottom: 8px;
+  letter-spacing: 0.2em;
+  color: var(--gold-ink);
+  margin-bottom: 18px;
 }
 
 .section-title {
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-  color: var(--text-dark);
-  margin-bottom: 12px;
-  letter-spacing: -0.02em;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.08;
+  color: var(--navy-dark);
+  margin-bottom: 16px;
+  letter-spacing: -0.025em;
   font-family: var(--font-display);
-  position: relative;
-}
-
-.section-title::after {
-  content: '';
-  display: block;
-  width: 50px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold), transparent);
-  margin: 14px auto 0;
-  border-radius: 2px;
+  text-wrap: balance;
 }
 
 .section-subtitle {
-  font-size: 1rem;
+  font-size: 1.0625rem;
   color: var(--text-medium);
-  max-width: 560px;
-  margin: 0 auto;
-  line-height: 1.7;
+  max-width: 540px;
+  margin: 0;
+  line-height: 1.65;
 }
 
 .features-grid {
@@ -3658,23 +3661,19 @@ img {
   font-size: clamp(2.5rem, 6vw, 4.2rem);
   margin-bottom: 20px;
   color: var(--white);
-  letter-spacing: -0.015em;
-  line-height: 1.04;
-  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+  font-weight: 700;
   font-family: var(--font-display);
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
   animation: heroTitleReveal 0.8s var(--ease-out) 0.2s forwards;
   opacity: 0;
 }
 
-.page-hero h1::after {
-  content: "";
-  display: block;
-  width: 64px;
-  height: 3px;
-  margin-top: 20px;
-  background: var(--gold);
-  border-radius: 2px;
+/* Kein Zier-Strich unter der H1 mehr — der Abstand traegt die Trennung.
+   Gold bleibt Akzent fuer Kicker und Goldrahmen, nicht fuer Deko-Balken. */
+.page-hero h1 {
+  margin-bottom: 26px;
 }
 
 .page-hero p {
@@ -3749,6 +3748,9 @@ img {
    typografische Hierarchie (klein-gold, gross-weiss, Subline).
    Verschachtelter Selektor, um die .page-hero p-Regel zu ueberstimmen. */
 .page-hero .page-hero-kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.24em;
@@ -4111,38 +4113,46 @@ img {
 }
 
 .gs-hero-kicker {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  gap: 14px;
   font-family: var(--font-ui);
   font-size: 0.74rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: #fff;
-  margin-bottom: 30px;
-  padding: 9px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 26px;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+}
+
+.gs-hero-kicker::before,
+.page-hero .page-hero-kicker::before {
+  content: "";
+  flex: none;
+  width: 30px;
+  height: 1px;
+  background: var(--gold-light);
+  opacity: 0.85;
 }
 
 .gs-hero-title {
   font-size: clamp(3.4rem, 8.5vw, 6.8rem);
   font-family: var(--font-display);
-  font-weight: 800;
-  line-height: 1.0;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: -0.035em;
   color: var(--white);
   margin-bottom: 28px;
   text-shadow: 0 4px 40px rgba(0, 0, 0, 0.35);
 }
 
 .gs-hero-title em {
-  font-style: italic;
+  font-style: normal;
   display: block;
   color: var(--gold-light);
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 .gs-hero-sub {
@@ -4357,7 +4367,7 @@ img {
 .gs-offer-headline {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.1;
   color: var(--navy-dark);
@@ -4366,7 +4376,7 @@ img {
 
 .gs-offer-intro {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.0625rem;
   line-height: 1.65;
   color: var(--text-medium);
   max-width: 540px;
