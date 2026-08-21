@@ -297,7 +297,7 @@ function TeamMemberCard({
             <motion.img
               src={member.image}
               alt={member.name}
-              className="h-full w-full object-cover"
+              className="gs-photo h-full w-full object-cover"
               style={
                 member.imagePosition
                   ? { objectPosition: member.imagePosition }

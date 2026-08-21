@@ -357,7 +357,7 @@ export default function Home() {
       </section>
 
       {/* DTB/VDT QUALITÄTSSIEGEL */}
-      <section className="dtb-section">
+      <section className="dtb-section dtb-section--band">
         <div className="container">
           <AnimatedSection animation="scale">
             <div className="dtb-quality-seal">
@@ -386,7 +386,7 @@ export default function Home() {
                     <span>{t.dtbFeature3}</span>
                   </div>
                 </div>
-                <ButtonWithIcon href="/dtb-vdt">{t.dtbMore}</ButtonWithIcon>
+                <ButtonWithIcon href="/dtb-vdt" onDark>{t.dtbMore}</ButtonWithIcon>
               </div>
             </div>
           </AnimatedSection>
