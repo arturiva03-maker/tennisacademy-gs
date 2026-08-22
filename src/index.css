@@ -3135,20 +3135,6 @@ img {
   align-items: start;
 }
 
-.kontakt-info h2 {
-  font-size: 1.8rem;
-  color: var(--text-dark);
-  margin-bottom: 16px;
-  letter-spacing: -0.02em;
-  font-family: var(--font-display);
-}
-
-.kontakt-info > p {
-  color: var(--text-medium);
-  line-height: 1.7;
-  margin-bottom: 32px;
-}
-
 .kontakt-hinweis {
   background: color-mix(in srgb, var(--gold) 8%, var(--white));
   border: 1px solid color-mix(in srgb, var(--gold) 32%, transparent);

@@ -18,8 +18,6 @@ const T = {
   de: {
     heroTitle: 'Kontakt',
     heroSub: 'Wir freuen uns auf deine Nachricht',
-    infoTitle: 'So erreichst du uns',
-    infoText: 'Hast du Fragen zu unserem Trainingsangebot? Schreib uns!',
     whatsappLabel: 'WhatsApp-Chat mit uns starten',
     noticeTitle: 'Aufnahmestopp',
     noticeText: 'Wir nehmen derzeit keine neuen Jugendlichen auf. Anfragen sind weiterhin möglich – wir nehmen dein Kind auf die Warteliste auf und melden uns, sobald ein Platz frei wird.',
@@ -53,8 +51,6 @@ const T = {
   en: {
     heroTitle: 'Contact',
     heroSub: 'We look forward to your message',
-    infoTitle: 'How to Reach Us',
-    infoText: 'Questions about our training programmes? Write to us!',
     whatsappLabel: 'Start a WhatsApp chat with us',
     noticeTitle: 'Intake closed',
     noticeText: 'We are currently not accepting new junior players. You are still welcome to get in touch – we will add your child to the waiting list and contact you as soon as a place becomes available.',
@@ -240,39 +236,33 @@ export default function Kontakt() {
           <div className="kontakt-grid">
             <AnimatedSection>
               <div className="kontakt-info">
-                <h2>{t.infoTitle}</h2>
-              <p>{t.infoText}</p>
-
-              <div className="kontakt-hinweis">
-                <strong>{t.noticeTitle}</strong>
-                <p>{t.noticeText}</p>
-              </div>
-
-              <div className="kontakt-details">
-                <div className="kontakt-item">
-                  <strong>TENNIS ACADEMY GRAND SLAM</strong>
+                <div className="kontakt-hinweis">
+                  <strong>{t.noticeTitle}</strong>
+                  <p>{t.noticeText}</p>
                 </div>
-                <div className="kontakt-item">
-                  <span>E-Mail: info@tennisacademy-gs.de</span>
+
+                <div className="kontakt-details">
+                  <div className="kontakt-item">
+                    <span>E-Mail: info@tennisacademy-gs.de</span>
+                  </div>
+                  <a
+                    className="kontakt-whatsapp"
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={t.whatsappLabel}
+                  >
+                    <span className="kontakt-whatsapp-code">
+                      <WhatsAppQR size={148} />
+                    </span>
+                    {/* Am Handy wird nicht gescannt, sondern getippt - dort
+                        steht statt des Codes ein sichtbarer Knopf. */}
+                    <span className="kontakt-whatsapp-tap" aria-hidden="true">
+                      <WhatsAppGlyph size={20} />
+                      WhatsApp
+                    </span>
+                  </a>
                 </div>
-                <a
-                  className="kontakt-whatsapp"
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={t.whatsappLabel}
-                >
-                  <span className="kontakt-whatsapp-code">
-                    <WhatsAppQR size={148} />
-                  </span>
-                  {/* Am Handy wird nicht gescannt, sondern getippt - dort steht
-                      statt des Codes ein sichtbarer Knopf. */}
-                  <span className="kontakt-whatsapp-tap" aria-hidden="true">
-                    <WhatsAppGlyph size={20} />
-                    WhatsApp
-                  </span>
-                </a>
-              </div>
               </div>
             </AnimatedSection>
 
