@@ -4,8 +4,8 @@ import { useLang } from '../i18n/LanguageContext';
 
 const T = {
   de: {
-    open: 'WhatsApp-Kontakt oeffnen',
-    close: 'WhatsApp-Kontakt schliessen',
+    open: 'WhatsApp-Kontakt öffnen',
+    close: 'WhatsApp-Kontakt schließen',
     qr: 'QR-Code scannen oder antippen, um einen WhatsApp-Chat mit der Tennis Academy Grand Slam zu starten',
   },
   en: {
@@ -16,9 +16,9 @@ const T = {
 };
 
 /**
- * Schwebender WhatsApp-Schalter auf jeder Seite. Geoeffnet zeigt er nur den
+ * Schwebender WhatsApp-Schalter auf jeder Seite. Geöffnet zeigt er nur den
  * Code - am Rechner scannt man ihn, am Handy tippt man ihn an, beide Wege
- * fuehren in denselben Chat.
+ * führen in denselben Chat.
  */
 export default function WhatsAppToggle() {
   const { lang } = useLang();

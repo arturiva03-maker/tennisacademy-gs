@@ -3241,16 +3241,23 @@ img {
   visibility: hidden;
   transform: translateY(8px) scale(0.96);
   transform-origin: 100% 100%;
+  /* visibility springt statt zu blenden: beim Oeffnen sofort, beim Schliessen
+     erst nach dem Ausblenden - sonst haengt das Panel die halbe Dauer unsichtbar
+     im Bild und der Link bleibt zu lange fokussierbar. */
   transition:
     opacity var(--duration-fast) var(--ease-out),
     transform var(--duration-fast) var(--ease-out),
-    visibility var(--duration-fast);
+    visibility 0s linear var(--duration-fast);
 }
 
 .wa-toggle.is-open .wa-toggle-panel {
   opacity: 1;
   visibility: visible;
   transform: translateY(0) scale(1);
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out),
+    visibility 0s;
 }
 
 .wa-toggle-code {
