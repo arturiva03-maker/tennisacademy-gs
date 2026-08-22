@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser';
 import { CheckCircle, AlertCircle } from 'lucide-react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
-import WhatsAppQR, { WHATSAPP_URL } from '../components/WhatsAppQR';
+import WhatsAppQR, { WhatsAppGlyph, WHATSAPP_URL } from '../components/WhatsAppQR';
 import { useLang } from '../i18n/LanguageContext';
 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -20,7 +20,7 @@ const T = {
     heroSub: 'Wir freuen uns auf deine Nachricht',
     infoTitle: 'So erreichst du uns',
     infoText: 'Hast du Fragen zu unserem Trainingsangebot? Schreib uns!',
-    whatsappQrAlt: 'QR-Code scannen oder antippen, um einen WhatsApp-Chat mit uns zu starten',
+    whatsappLabel: 'WhatsApp-Chat mit uns starten',
     noticeTitle: 'Aufnahmestopp',
     noticeText: 'Wir nehmen derzeit keine neuen Jugendlichen auf. Anfragen sind weiterhin möglich – wir nehmen dein Kind auf die Warteliste auf und melden uns, sobald ein Platz frei wird.',
     successTitle: 'Nachricht gesendet!',
@@ -55,7 +55,7 @@ const T = {
     heroSub: 'We look forward to your message',
     infoTitle: 'How to Reach Us',
     infoText: 'Questions about our training programmes? Write to us!',
-    whatsappQrAlt: 'Scan or tap the QR code to start a WhatsApp chat with us',
+    whatsappLabel: 'Start a WhatsApp chat with us',
     noticeTitle: 'Intake closed',
     noticeText: 'We are currently not accepting new junior players. You are still welcome to get in touch – we will add your child to the waiting list and contact you as soon as a place becomes available.',
     successTitle: 'Message sent!',
@@ -260,9 +260,17 @@ export default function Kontakt() {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={t.whatsappQrAlt}
+                  aria-label={t.whatsappLabel}
                 >
-                  <WhatsAppQR size={148} />
+                  <span className="kontakt-whatsapp-code">
+                    <WhatsAppQR size={148} />
+                  </span>
+                  {/* Am Handy wird nicht gescannt, sondern getippt - dort steht
+                      statt des Codes ein sichtbarer Knopf. */}
+                  <span className="kontakt-whatsapp-tap" aria-hidden="true">
+                    <WhatsAppGlyph size={20} />
+                    WhatsApp
+                  </span>
                 </a>
               </div>
               </div>

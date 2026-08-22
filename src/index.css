@@ -3191,7 +3191,8 @@ img {
   color: var(--text-dark);
 }
 
-/* WhatsApp-Kurzweg: nur der Code - am Rechner scannen, am Handy antippen */
+/* WhatsApp-Kurzweg: am Rechner der Code zum Scannen, am Handy ein Knopf zum
+   Tippen. Beide stecken im Markup und werden hier getauscht. */
 .kontakt-whatsapp {
   display: block;
   width: fit-content;
@@ -3199,16 +3200,36 @@ img {
   padding-top: 18px;
   border-top: 1px solid var(--border);
   line-height: 0;
-  transition: opacity var(--transition);
 }
 
-.kontakt-whatsapp:hover {
-  opacity: 0.82;
+.kontakt-whatsapp-code {
+  display: block;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.kontakt-whatsapp:hover .kontakt-whatsapp-code {
+  border-color: color-mix(in srgb, var(--gold) 55%, transparent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.kontakt-whatsapp:active .kontakt-whatsapp-code {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
 }
 
 .kontakt-whatsapp:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.kontakt-whatsapp-tap {
+  display: none;
 }
 
 .whatsapp-qr {
@@ -3269,7 +3290,7 @@ img {
   outline-offset: 3px;
 }
 
-.wa-toggle-button {
+.wa-fab {
   display: grid;
   place-items: center;
   width: 54px;
@@ -3284,12 +3305,12 @@ img {
   transition: background var(--transition), transform var(--transition);
 }
 
-.wa-toggle-button:hover {
+.wa-fab:hover {
   background: var(--navy-dark);
   transform: translateY(-2px);
 }
 
-.wa-toggle-button:focus-visible {
+.wa-fab:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 3px;
 }
@@ -3298,9 +3319,15 @@ img {
   background: var(--navy-dark);
 }
 
+/* Der Direktlink ersetzt den Schalter erst am Handy. */
+.wa-toggle-direct {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .wa-toggle-panel,
-  .wa-toggle-button {
+  .wa-fab,
+  .kontakt-whatsapp-code {
     transition: none;
   }
 }
@@ -3643,9 +3670,28 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .kontakt-whatsapp .whatsapp-qr {
-    width: 128px;
-    height: 128px;
+  /* Am Handy wird nicht gescannt: Code raus, Knopf rein. */
+  .kontakt-whatsapp-code {
+    display: none;
+  }
+
+  .kontakt-whatsapp-tap {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 22px;
+    border-radius: var(--radius-pill);
+    background: var(--navy);
+    color: var(--white);
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    box-shadow: var(--shadow-md);
+  }
+
+  .kontakt-whatsapp:active .kontakt-whatsapp-tap {
+    background: var(--navy-dark);
   }
 
   .wa-toggle {
@@ -3653,14 +3699,13 @@ img {
     bottom: 16px;
   }
 
-  .wa-toggle-button {
-    width: 50px;
-    height: 50px;
+  .wa-toggle-button,
+  .wa-toggle-panel {
+    display: none;
   }
 
-  .wa-toggle-panel .whatsapp-qr {
-    width: 148px;
-    height: 148px;
+  .wa-toggle-direct {
+    display: grid;
   }
 
   .kontakt-form-container {
