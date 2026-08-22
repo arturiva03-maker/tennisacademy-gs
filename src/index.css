@@ -3191,60 +3191,111 @@ img {
   color: var(--text-dark);
 }
 
-/* WhatsApp-Kurzweg: QR fuer Desktop-Besucher, tippbare Nummer am Handy */
+/* WhatsApp-Kurzweg: nur der Code - am Rechner scannen, am Handy antippen */
 .kontakt-whatsapp {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 22px;
-  margin-top: 16px;
-  padding: 22px 24px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  display: block;
+  width: fit-content;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  line-height: 0;
+  transition: opacity var(--transition);
 }
 
-.kontakt-whatsapp-qr {
-  padding: 8px;
-  background: var(--white);
-  border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
-  border-radius: var(--radius-sm);
-  line-height: 0;
+.kontakt-whatsapp:hover {
+  opacity: 0.82;
+}
+
+.kontakt-whatsapp:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
 }
 
 .whatsapp-qr {
   display: block;
-  width: 132px;
-  height: 132px;
+  max-width: 100%;
+  height: auto;
 }
 
-.kontakt-whatsapp-title {
+/* ========== WHATSAPP-SCHALTER (auf jeder Seite) ========== */
+.wa-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  /* unter dem mobilen Vollbildmenue (999), ueber allem anderen Seiteninhalt */
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.wa-toggle-panel {
+  padding: 12px;
+  background: var(--white);
+  border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  line-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px) scale(0.96);
+  transform-origin: 100% 100%;
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out),
+    visibility var(--duration-fast);
+}
+
+.wa-toggle.is-open .wa-toggle-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.wa-toggle-code {
   display: block;
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  letter-spacing: -0.01em;
-  color: var(--navy-dark);
-  margin-bottom: 6px;
 }
 
-.kontakt-whatsapp-body p {
-  margin: 0 0 12px;
-  color: var(--text-medium);
-  font-size: 0.9rem;
-  line-height: 1.6;
+.wa-toggle-code:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
 }
 
-.kontakt-whatsapp-number {
-  font-weight: 600;
-  color: var(--navy);
-  text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
-  transition: color var(--transition), border-color var(--transition);
+.wa-toggle-button {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+  border-radius: var(--radius-pill);
+  background: var(--navy);
+  color: var(--white);
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: background var(--transition), transform var(--transition);
 }
 
-.kontakt-whatsapp-number:hover {
-  color: var(--gold-ink);
-  border-bottom-color: var(--gold);
+.wa-toggle-button:hover {
+  background: var(--navy-dark);
+  transform: translateY(-2px);
+}
+
+.wa-toggle-button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.wa-toggle.is-open .wa-toggle-button {
+  background: var(--navy-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-toggle-panel,
+  .wa-toggle-button {
+    transition: none;
+  }
 }
 
 .kontakt-form-container {
@@ -3585,16 +3636,24 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .kontakt-whatsapp {
-    grid-template-columns: 1fr;
-    justify-items: start;
-    gap: 18px;
-    padding: 20px;
+  .kontakt-whatsapp .whatsapp-qr {
+    width: 128px;
+    height: 128px;
   }
 
-  .whatsapp-qr {
-    width: 112px;
-    height: 112px;
+  .wa-toggle {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .wa-toggle-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .wa-toggle-panel .whatsapp-qr {
+    width: 148px;
+    height: 148px;
   }
 
   .kontakt-form-container {

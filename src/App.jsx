@@ -5,6 +5,7 @@ import { LanguageProvider } from './i18n/LanguageContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import DocumentMeta from './components/DocumentMeta';
+import WhatsAppToggle from './components/WhatsAppToggle';
 import NotFound from './pages/NotFound';
 import Home from './pages/Home';
 import Trainer from './pages/Trainer';
@@ -65,6 +66,7 @@ function App() {
             <AnimatedRoutes />
           </main>
           <Footer />
+          <WhatsAppToggle />
         </BrowserRouter>
       </MotionConfig>
     </LanguageProvider>
