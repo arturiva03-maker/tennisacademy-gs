@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 import { CheckCircle, AlertCircle } from 'lucide-react';
 import { AnimatedSection } from '../hooks/useScrollAnimation';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
+import WhatsAppQR, { WHATSAPP_URL } from '../components/WhatsAppQR';
 import { useLang } from '../i18n/LanguageContext';
 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -19,6 +20,9 @@ const T = {
     heroSub: 'Wir freuen uns auf deine Nachricht',
     infoTitle: 'So erreichst du uns',
     infoText: 'Hast du Fragen zu unserem Trainingsangebot? Schreib uns!',
+    whatsappTitle: 'Direkt über WhatsApp',
+    whatsappText: 'QR-Code mit der Handykamera scannen – oder am Handy einfach auf die Nummer tippen.',
+    whatsappQrAlt: 'QR-Code: WhatsApp-Chat mit der Tennis Academy Grand Slam',
     noticeTitle: 'Aufnahmestopp',
     noticeText: 'Wir nehmen derzeit keine neuen Jugendlichen auf. Anfragen sind weiterhin möglich – wir nehmen dein Kind auf die Warteliste auf und melden uns, sobald ein Platz frei wird.',
     successTitle: 'Nachricht gesendet!',
@@ -53,6 +57,9 @@ const T = {
     heroSub: 'We look forward to your message',
     infoTitle: 'How to Reach Us',
     infoText: 'Questions about our training programmes? Write to us!',
+    whatsappTitle: 'Straight to WhatsApp',
+    whatsappText: 'Scan the QR code with your phone camera – or simply tap the number on mobile.',
+    whatsappQrAlt: 'QR code: WhatsApp chat with Tennis Academy Grand Slam',
     noticeTitle: 'Intake closed',
     noticeText: 'We are currently not accepting new junior players. You are still welcome to get in touch – we will add your child to the waiting list and contact you as soon as a place becomes available.',
     successTitle: 'Message sent!',
@@ -251,6 +258,24 @@ export default function Kontakt() {
                 </div>
                 <div className="kontakt-item">
                   <span>E-Mail: info@tennisacademy-gs.de</span>
+                </div>
+              </div>
+
+              <div className="kontakt-whatsapp">
+                <div className="kontakt-whatsapp-qr">
+                  <WhatsAppQR title={t.whatsappQrAlt} />
+                </div>
+                <div className="kontakt-whatsapp-body">
+                  <span className="kontakt-whatsapp-title">{t.whatsappTitle}</span>
+                  <p>{t.whatsappText}</p>
+                  <a
+                    className="kontakt-whatsapp-number"
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    +49 162 9300590
+                  </a>
                 </div>
               </div>
               </div>
