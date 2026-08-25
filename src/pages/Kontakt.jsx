@@ -19,6 +19,14 @@ const T = {
     heroTitle: 'Kontakt',
     heroSub: 'Wir freuen uns auf deine Nachricht',
     whatsappLabel: 'WhatsApp-Chat mit uns starten',
+    directKicker: 'Direktkontakt',
+    directTitle: 'Schreib uns auf WhatsApp',
+    directLead: 'Kurze Fragen beantworten wir am liebsten direkt im Chat.',
+    directCta: 'WhatsApp öffnen',
+    scanHint: 'Mit dem Handy scannen',
+    mailLabel: 'E-Mail:',
+    formTitle: 'Oder per Formular',
+    formLead: 'Wenn du uns lieber ausführlich schreibst.',
     noticeTitle: 'Aufnahmestopp',
     noticeText: 'Wir nehmen derzeit keine neuen Jugendlichen auf. Anfragen sind weiterhin möglich – wir nehmen dein Kind auf die Warteliste auf und melden uns, sobald ein Platz frei wird.',
     successTitle: 'Nachricht gesendet!',
@@ -52,6 +60,14 @@ const T = {
     heroTitle: 'Contact',
     heroSub: 'We look forward to your message',
     whatsappLabel: 'Start a WhatsApp chat with us',
+    directKicker: 'Direct contact',
+    directTitle: 'Message us on WhatsApp',
+    directLead: 'For quick questions, a chat is the easiest way to reach us.',
+    directCta: 'Open WhatsApp',
+    scanHint: 'Scan with your phone',
+    mailLabel: 'Email:',
+    formTitle: 'Or use the form',
+    formLead: 'If you would rather write to us in detail.',
     noticeTitle: 'Intake closed',
     noticeText: 'We are currently not accepting new junior players. You are still welcome to get in touch – we will add your child to the waiting list and contact you as soon as a place becomes available.',
     successTitle: 'Message sent!',
@@ -241,27 +257,48 @@ export default function Kontakt() {
                   <p>{t.noticeText}</p>
                 </div>
 
-                <div className="kontakt-details">
-                  <div className="kontakt-item">
-                    <span>E-Mail: info@tennisacademy-gs.de</span>
+                {/* Der Direktweg steht vor dem Formular und traegt als einziger
+                    Block der Seite die dunkle Flaeche: die Rangfolge entsteht
+                    ueber Kontrast und Position, nicht ueber Groesse oder Grellheit. */}
+                <div className="kontakt-direkt-frame gold-frame">
+                  <div className="kontakt-direkt">
+                    <span className="kontakt-direkt-kicker">{t.directKicker}</span>
+
+                    <div className="kontakt-direkt-main">
+                      <div className="kontakt-direkt-text">
+                        <h2 className="kontakt-direkt-title">{t.directTitle}</h2>
+                        <p className="kontakt-direkt-lead">{t.directLead}</p>
+                        <a
+                          className="kontakt-wa-cta"
+                          href={WHATSAPP_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <WhatsAppGlyph size={20} />
+                          {t.directCta}
+                        </a>
+                      </div>
+
+                      {/* Am Handy wird nicht gescannt, sondern getippt - dort
+                          faellt der Code weg, der Knopf oben bleibt. */}
+                      <a
+                        className="kontakt-direkt-code"
+                        href={WHATSAPP_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={t.whatsappLabel}
+                      >
+                        <span className="kontakt-direkt-code-frame">
+                          <WhatsAppQR size={116} />
+                        </span>
+                        <span className="kontakt-direkt-code-hint" aria-hidden="true">
+                          {t.scanHint}
+                        </span>
+                      </a>
+                    </div>
+
+                    <p className="kontakt-direkt-mail">{t.mailLabel} info@tennisacademy-gs.de</p>
                   </div>
-                  <a
-                    className="kontakt-whatsapp"
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={t.whatsappLabel}
-                  >
-                    <span className="kontakt-whatsapp-code">
-                      <WhatsAppQR size={148} />
-                    </span>
-                    {/* Am Handy wird nicht gescannt, sondern getippt - dort
-                        steht statt des Codes ein sichtbarer Knopf. */}
-                    <span className="kontakt-whatsapp-tap" aria-hidden="true">
-                      <WhatsAppGlyph size={20} />
-                      WhatsApp
-                    </span>
-                  </a>
                 </div>
               </div>
             </AnimatedSection>
@@ -278,6 +315,14 @@ export default function Kontakt() {
                   </ButtonWithIcon>
                 </div>
               ) : (
+                <>
+                {/* Benennt den zweiten Weg, damit die Rangfolge lesbar wird
+                    und nicht nur gefuehlt ist. */}
+                <div className="kontakt-form-head">
+                  <h2>{t.formTitle}</h2>
+                  <p>{t.formLead}</p>
+                </div>
+
                 <form ref={formRef} onSubmit={handleSubmit} className="kontakt-form" noValidate>
                   <input
                     type="text"
@@ -390,11 +435,13 @@ export default function Kontakt() {
 
                   <ButtonWithIcon
                     type="submit"
+                    variant="outline"
                     disabled={status === 'sending'}
                   >
                     {status === 'sending' ? t.sending : t.send}
                   </ButtonWithIcon>
                 </form>
+                </>
               )}
               </div>
             </AnimatedSection>

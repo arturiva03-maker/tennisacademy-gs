@@ -3130,7 +3130,9 @@ img {
 
 .kontakt-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  /* Fast gleich breit: das Formular hatte zuvor 1.5fr und damit allein durch
+     die Flaeche den Vortritt vor dem Direktweg. */
+  grid-template-columns: 1fr 1.15fr;
   gap: 48px;
   align-items: start;
 }
@@ -3161,61 +3163,143 @@ img {
   margin: 0;
 }
 
-.kontakt-details {
-  background: var(--white);
-  padding: 24px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
+/* WhatsApp-Direktweg: der einzige dunkle Block der Seite. Er zieht das Auge
+   ueber Kontrast statt ueber WhatsApp-Gruen, Groesse oder Dauerbewegung; das
+   Formular bleibt vollstaendig daneben stehen, nur eine Stufe leiser. */
+.kontakt-direkt-frame {
+  /* Platz fuer den versetzten Gold-Rahmen, der unten/rechts uebersteht. */
+  margin-bottom: 12px;
 }
 
-.kontakt-item {
-  padding: 8px 0;
-  color: var(--text-medium);
+.kontakt-direkt {
+  position: relative;
+  background: var(--navy-dark);
+  color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 30px 32px 28px;
+  box-shadow: var(--shadow-lg);
 }
 
-.kontakt-item strong {
-  color: var(--text-dark);
+.kontakt-direkt-kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gold-light);
+  margin-bottom: 20px;
 }
 
-/* WhatsApp-Kurzweg: am Rechner der Code zum Scannen, am Handy ein Knopf zum
-   Tippen. Beide stecken im Markup und werden hier getauscht. */
-.kontakt-whatsapp {
-  display: block;
-  width: fit-content;
-  margin-top: 18px;
-  padding-top: 18px;
-  border-top: 1px solid var(--border);
-  line-height: 0;
+.kontakt-direkt-kicker::before {
+  content: "";
+  flex: none;
+  width: 30px;
+  height: 1px;
+  background: var(--gold-light);
+  opacity: 0.85;
 }
 
-.kontakt-whatsapp-code {
-  display: block;
-  padding: 10px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
+.kontakt-direkt-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px;
+  align-items: start;
 }
 
-.kontakt-whatsapp:hover .kontakt-whatsapp-code {
-  border-color: color-mix(in srgb, var(--gold) 55%, transparent);
+.kontakt-direkt-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin: 0 0 12px;
+}
+
+.kontakt-direkt-lead {
+  margin: 0 0 24px;
+  max-width: 32ch;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.kontakt-wa-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  border-radius: var(--radius-pill);
+  background: var(--gold);
+  color: var(--navy-dark);
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1;
   box-shadow: var(--shadow-md);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.kontakt-wa-cta:hover {
+  background: var(--gold-light);
   transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
-.kontakt-whatsapp:active .kontakt-whatsapp-code {
+.kontakt-wa-cta:active {
   transform: translateY(0);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
 }
 
-.kontakt-whatsapp:focus-visible {
-  outline: 2px solid var(--gold);
+.kontakt-wa-cta:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
+}
+
+.kontakt-direkt-code {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.kontakt-direkt-code-frame {
+  display: block;
+  padding: 8px;
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  line-height: 0;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.kontakt-direkt-code:hover .kontakt-direkt-code-frame {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.kontakt-direkt-code-hint {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.kontakt-direkt-code:focus-visible {
+  outline: 2px solid var(--gold-light);
   outline-offset: 4px;
   border-radius: var(--radius-sm);
 }
 
-.kontakt-whatsapp-tap {
-  display: none;
+.kontakt-direkt-mail {
+  margin: 26px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.62);
 }
 
 .whatsapp-qr {
@@ -3313,7 +3397,8 @@ img {
 @media (prefers-reduced-motion: reduce) {
   .wa-toggle-panel,
   .wa-fab,
-  .kontakt-whatsapp-code {
+  .kontakt-wa-cta,
+  .kontakt-direkt-code-frame {
     transition: none;
   }
 }
@@ -3323,6 +3408,30 @@ img {
   padding: 32px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
+}
+
+/* Benennt den zweiten Weg. Bewusst klein und ohne Gold - der Kopf soll die
+   Rangfolge erklaeren, nicht mit dem Direktweg konkurrieren. */
+.kontakt-form-head {
+  margin-bottom: 28px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+}
+
+.kontakt-form-head h2 {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--navy-dark);
+}
+
+.kontakt-form-head p {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--text-light);
 }
 
 .kontakt-form {
@@ -3656,28 +3765,23 @@ img {
     grid-template-columns: 1fr;
   }
 
-  /* Am Handy wird nicht gescannt: Code raus, Knopf rein. */
-  .kontakt-whatsapp-code {
+  /* Am Handy wird nicht gescannt: Code raus, Knopf auf volle Breite. */
+  .kontakt-direkt {
+    padding: 26px 22px 24px;
+  }
+
+  .kontakt-direkt-code {
     display: none;
   }
 
-  .kontakt-whatsapp-tap {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 13px 22px;
-    border-radius: var(--radius-pill);
-    background: var(--navy);
-    color: var(--white);
-    font-family: var(--font-ui);
-    font-size: 0.95rem;
-    font-weight: 600;
-    line-height: 1;
-    box-shadow: var(--shadow-md);
+  .kontakt-direkt-lead {
+    max-width: none;
   }
 
-  .kontakt-whatsapp:active .kontakt-whatsapp-tap {
-    background: var(--navy-dark);
+  .kontakt-wa-cta {
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   .wa-toggle {
