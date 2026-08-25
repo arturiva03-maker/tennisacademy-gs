@@ -3774,6 +3774,13 @@ img {
     display: none;
   }
 
+  /* Ohne diese Zeile bleibt die Spur des ausgeblendeten Codes als Luecke
+     stehen und der Knopf wird um die Gap-Breite zu schmal. */
+  .kontakt-direkt-main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
   .kontakt-direkt-lead {
     max-width: none;
   }
