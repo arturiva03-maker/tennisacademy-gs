@@ -3180,28 +3180,6 @@ img {
   box-shadow: var(--shadow-lg);
 }
 
-.kontakt-direkt-kicker {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--gold-light);
-  margin-bottom: 20px;
-}
-
-.kontakt-direkt-kicker::before {
-  content: "";
-  flex: none;
-  width: 30px;
-  height: 1px;
-  background: var(--gold-light);
-  opacity: 0.85;
-}
-
 .kontakt-direkt-main {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -3211,20 +3189,13 @@ img {
 
 .kontakt-direkt-title {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.4vw, 1.85rem);
+  font-size: clamp(1.7rem, 3vw, 2.1rem);
   font-weight: 700;
-  line-height: 1.14;
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
   color: var(--white);
-  margin: 0 0 12px;
-}
-
-.kontakt-direkt-lead {
-  margin: 0 0 24px;
-  max-width: 32ch;
-  font-size: 0.98rem;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 26px;
+  max-width: 14ch;
 }
 
 .kontakt-wa-cta {
@@ -3260,12 +3231,6 @@ img {
 }
 
 .kontakt-direkt-code {
-  display: grid;
-  justify-items: center;
-  gap: 10px;
-}
-
-.kontakt-direkt-code-frame {
   display: block;
   padding: 8px;
   background: var(--white);
@@ -3274,18 +3239,9 @@ img {
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
-.kontakt-direkt-code:hover .kontakt-direkt-code-frame {
+.kontakt-direkt-code:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
-}
-
-.kontakt-direkt-code-hint {
-  font-family: var(--font-ui);
-  font-size: 0.68rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: rgba(255, 255, 255, 0.5);
 }
 
 .kontakt-direkt-code:focus-visible {
@@ -3398,7 +3354,7 @@ img {
   .wa-toggle-panel,
   .wa-fab,
   .kontakt-wa-cta,
-  .kontakt-direkt-code-frame {
+  .kontakt-direkt-code {
     transition: none;
   }
 }
@@ -3410,28 +3366,17 @@ img {
   border: 1px solid var(--border);
 }
 
-/* Benennt den zweiten Weg. Bewusst klein und ohne Gold - der Kopf soll die
-   Rangfolge erklaeren, nicht mit dem Direktweg konkurrieren. */
+/* Benennt den zweiten Weg. Eine Zeile, klein und ohne Gold - der Kopf soll
+   die Rangfolge erklaeren, nicht mit dem Direktweg konkurrieren. */
 .kontakt-form-head {
-  margin-bottom: 28px;
-  padding-bottom: 22px;
+  margin: 0 0 28px;
+  padding-bottom: 20px;
   border-bottom: 1px solid var(--border);
-}
-
-.kontakt-form-head h2 {
-  margin: 0 0 6px;
   font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: -0.015em;
   color: var(--navy-dark);
-}
-
-.kontakt-form-head p {
-  margin: 0;
-  font-size: 0.93rem;
-  line-height: 1.6;
-  color: var(--text-light);
 }
 
 .kontakt-form {
@@ -3779,10 +3724,6 @@ img {
   .kontakt-direkt-main {
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
-  }
-
-  .kontakt-direkt-lead {
-    max-width: none;
   }
 
   .kontakt-wa-cta {

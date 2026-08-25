@@ -19,14 +19,10 @@ const T = {
     heroTitle: 'Kontakt',
     heroSub: 'Wir freuen uns auf deine Nachricht',
     whatsappLabel: 'WhatsApp-Chat mit uns starten',
-    directKicker: 'Direktkontakt',
     directTitle: 'Schreib uns auf WhatsApp',
-    directLead: 'Kurze Fragen beantworten wir am liebsten direkt im Chat.',
-    directCta: 'WhatsApp öffnen',
-    scanHint: 'Mit dem Handy scannen',
+    directCta: 'Chat öffnen',
     mailLabel: 'E-Mail:',
     formTitle: 'Oder per Formular',
-    formLead: 'Wenn du uns lieber ausführlich schreibst.',
     noticeTitle: 'Aufnahmestopp',
     noticeText: 'Wir nehmen derzeit keine neuen Jugendlichen auf. Anfragen sind weiterhin möglich – wir nehmen dein Kind auf die Warteliste auf und melden uns, sobald ein Platz frei wird.',
     successTitle: 'Nachricht gesendet!',
@@ -60,14 +56,10 @@ const T = {
     heroTitle: 'Contact',
     heroSub: 'We look forward to your message',
     whatsappLabel: 'Start a WhatsApp chat with us',
-    directKicker: 'Direct contact',
     directTitle: 'Message us on WhatsApp',
-    directLead: 'For quick questions, a chat is the easiest way to reach us.',
-    directCta: 'Open WhatsApp',
-    scanHint: 'Scan with your phone',
+    directCta: 'Open chat',
     mailLabel: 'Email:',
     formTitle: 'Or use the form',
-    formLead: 'If you would rather write to us in detail.',
     noticeTitle: 'Intake closed',
     noticeText: 'We are currently not accepting new junior players. You are still welcome to get in touch – we will add your child to the waiting list and contact you as soon as a place becomes available.',
     successTitle: 'Message sent!',
@@ -262,12 +254,9 @@ export default function Kontakt() {
                     ueber Kontrast und Position, nicht ueber Groesse oder Grellheit. */}
                 <div className="kontakt-direkt-frame gold-frame">
                   <div className="kontakt-direkt">
-                    <span className="kontakt-direkt-kicker">{t.directKicker}</span>
-
                     <div className="kontakt-direkt-main">
                       <div className="kontakt-direkt-text">
                         <h2 className="kontakt-direkt-title">{t.directTitle}</h2>
-                        <p className="kontakt-direkt-lead">{t.directLead}</p>
                         <a
                           className="kontakt-wa-cta"
                           href={WHATSAPP_URL}
@@ -279,8 +268,9 @@ export default function Kontakt() {
                         </a>
                       </div>
 
-                      {/* Am Handy wird nicht gescannt, sondern getippt - dort
-                          faellt der Code weg, der Knopf oben bleibt. */}
+                      {/* Ohne Bildunterschrift: ein Code mit WhatsApp-Logo in der
+                          Mitte erklaert sich selbst, die Beschriftung traegt das
+                          aria-label. Am Handy faellt der Code ganz weg. */}
                       <a
                         className="kontakt-direkt-code"
                         href={WHATSAPP_URL}
@@ -288,12 +278,7 @@ export default function Kontakt() {
                         rel="noopener noreferrer"
                         aria-label={t.whatsappLabel}
                       >
-                        <span className="kontakt-direkt-code-frame">
-                          <WhatsAppQR size={116} />
-                        </span>
-                        <span className="kontakt-direkt-code-hint" aria-hidden="true">
-                          {t.scanHint}
-                        </span>
+                        <WhatsAppQR size={116} />
                       </a>
                     </div>
 
@@ -317,11 +302,8 @@ export default function Kontakt() {
               ) : (
                 <>
                 {/* Benennt den zweiten Weg, damit die Rangfolge lesbar wird
-                    und nicht nur gefuehlt ist. */}
-                <div className="kontakt-form-head">
-                  <h2>{t.formTitle}</h2>
-                  <p>{t.formLead}</p>
-                </div>
+                    und nicht nur gefuehlt ist. Eine Zeile reicht dafuer. */}
+                <h2 className="kontakt-form-head">{t.formTitle}</h2>
 
                 <form ref={formRef} onSubmit={handleSubmit} className="kontakt-form" noValidate>
                   <input
