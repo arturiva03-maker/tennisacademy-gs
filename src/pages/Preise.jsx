@@ -28,13 +28,13 @@ const TRAINERS = {
   de: [
     { id: 'c-lizenz', name: 'C-Lizenz', sub: 'Trainer', prices: [48, 26, 18, 14, 11.6, 10] },
     { id: 'b-lizenz', name: 'B-Lizenz', sub: 'Trainer', prices: [54, 29, 20, 15.5, 12.8, 11] },
-    { id: 'zja', name: 'Zlatan, Jana, Artur', sub: 'B-Lizenz Trainer', prices: [58, 31, 21.33, 16.5, 13.6, 11.67] },
+    { id: 'zjam', name: 'Zlatan, Jana, Artur, Marc', sub: 'B-Lizenz Trainer', prices: [58, 31, 21.33, 16.5, 13.6, 11.67] },
     { id: 'lingner', name: 'Michael Lingner', sub: 'A-Lizenz Trainer', prices: [62, 33, 22.67, 17.5, 14.4, 12.33] },
   ],
   en: [
     { id: 'c-lizenz', name: 'C licence', sub: 'Coach', prices: [48, 26, 18, 14, 11.6, 10] },
     { id: 'b-lizenz', name: 'B licence', sub: 'Coach', prices: [54, 29, 20, 15.5, 12.8, 11] },
-    { id: 'zja', name: 'Zlatan, Jana, Artur', sub: 'B-licence coaches', prices: [58, 31, 21.33, 16.5, 13.6, 11.67] },
+    { id: 'zjam', name: 'Zlatan, Jana, Artur, Marc', sub: 'B-licence coaches', prices: [58, 31, 21.33, 16.5, 13.6, 11.67] },
     { id: 'lingner', name: 'Michael Lingner', sub: 'A-licence coach', prices: [62, 33, 22.67, 17.5, 14.4, 12.33] },
   ],
 };
