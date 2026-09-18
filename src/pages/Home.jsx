@@ -215,7 +215,7 @@ export default function Home() {
         <div className="gs-hero-inner container">
           <motion.div
             className="gs-hero-content"
-            initial="hidden"
+            initial={false}
             animate="show"
             variants={{
               hidden: {},

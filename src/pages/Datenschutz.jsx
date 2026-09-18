@@ -121,9 +121,8 @@ function DatenschutzDe() {
 
       <h2>7. Schriftarten (Self-Hosting)</h2>
       <p>
-        Zur einheitlichen Darstellung verwenden wir die Schriftarten „DM Sans"
-        (Fließtext) und „Fraunces" (Überschriften). Die
-        Schriftdateien werden ausschließlich von unserem eigenen Server geladen
+        Zur einheitlichen Darstellung verwenden wir die Schriftart „DM Sans".
+        Die Schriftdateien werden ausschließlich von unserem eigenen Server geladen
         (Self-Hosting). Eine Verbindung zu Servern Dritter (z.B. Google Fonts) findet
         dabei <strong>nicht</strong> statt. Es werden insbesondere keine Daten an Google
         übertragen.
@@ -595,8 +594,8 @@ function DatenschutzEn() {
 
       <h2>7. Fonts (Self-Hosting)</h2>
       <p>
-        For a consistent presentation we use the "DM Sans" (body text) and "Fraunces"
-        (headings) typefaces. The font files are
+        For a consistent presentation we use the "DM Sans" typeface.
+        The font files are
         loaded exclusively from our own server (self-hosting). No connection to
         third-party servers (e.g. Google Fonts) takes place. In particular, no data is
         transmitted to Google.

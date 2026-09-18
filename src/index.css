@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fraunces (Variable) — Display-Serif nur fuer Ueberschriften. Selbst
-   gehostet, damit keine Build-Abhaengigkeit und CSP-konform (font-src self). */
-@font-face {
-  font-family: 'Fraunces Variable';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 300 900;
-  src: url('/fonts/fraunces-wght-normal.woff2') format('woff2-variations');
-}
-
 :root {
   --tw-background: 0 0% 100%;
   --tw-foreground: 222.2 84% 4.9%;
@@ -63,7 +53,8 @@
   --radius-pill: 999px;
   --transition: 0.2s ease;
   --font-sans: 'DM Sans Variable', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+  /* Ueberschriften in derselben Schrift wie der Text: ruhiger, sachlicher. */
+  --font-display: var(--font-sans);
   --font-body: var(--font-sans);
   --font-ui: var(--font-sans);
 
@@ -5187,4 +5178,28 @@ img {
   color: #f5e3a8;
   font-weight: 700;
   text-shadow: 0 1px 2px rgba(4, 16, 28, 0.6), 0 2px 16px rgba(4, 16, 28, 0.45);
+}
+
+/* Keine Einblend-Animationen: Inhalte stehen sofort da. Hover-Uebergaenge
+   auf Knoepfen und Links bleiben. */
+.animate-on-scroll,
+.animate-fade-left,
+.animate-fade-right,
+.animate-scale,
+.page-wrapper,
+.page-wrapper.fadeIn,
+.page-wrapper.fadeOut,
+.hero-text,
+.hero-badge-large,
+.hero-title-large,
+.hero-subtitle,
+.hero-cta,
+.page-hero h1,
+.page-hero p,
+.page-hero .page-hero-kicker,
+.coming-soon-content {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition-delay: 0s !important;
 }

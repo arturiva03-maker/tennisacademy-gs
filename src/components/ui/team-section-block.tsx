@@ -3,7 +3,6 @@ import { Card } from "@/components/ui/card";
 import {
   motion,
   useMotionValue,
-  useReducedMotion,
   useSpring,
   useTransform,
   type Variants,
@@ -219,7 +218,7 @@ function TeamMemberCard({
   index: number;
 }) {
   const [isHovered, setIsHovered] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = true; // Kipp-, Verlauf- und Einblendeffekte bewusst aus
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -390,7 +389,7 @@ const headerByLang = {
 };
 
 export function TeamSectionBlock() {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = true; // Kipp-, Verlauf- und Einblendeffekte bewusst aus
   const { lang } = useLang();
   const members = teamMembersByLang[lang as "de" | "en"] ?? teamMembers;
   const header = headerByLang[lang as "de" | "en"] ?? headerByLang.de;
@@ -447,7 +446,7 @@ export function TeamSectionBlock() {
         {/* Team grid */}
         <motion.div
           variants={containerVariants}
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
