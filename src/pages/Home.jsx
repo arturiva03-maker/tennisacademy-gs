@@ -203,7 +203,8 @@ export default function Home() {
   const { lang } = useLang();
   const t = T[lang];
   const offerings = OFFERINGS[lang];
-  const events = eventsByLang[lang];
+  // Vergangenes gehoert in den Rueckblick auf /news, nicht unter "Aktuelles".
+  const events = eventsByLang[lang].filter((event) => !event.archived);
 
   return (
     <>

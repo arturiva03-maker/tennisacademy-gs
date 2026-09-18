@@ -14,18 +14,13 @@ export const eventsByLang = {
       subtitle: 'Kleinfeldturnier mit Mehrkampf beim BSV 92',
       date: 'Sonntag, 30. August 2026',
       location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
-      description: 'Der BSV 92 veranstaltet am Sonntag, den 30. August 2026 auf seiner Anlage in der Fritz-Wildung-Str. 23 wieder den beliebten Čujić-Mini-Cup. Die inzwischen 16. Auflage dieses Kleinfeldturniers richtet sich besonders an Kinder, die ihre ersten Schritte im Wettkampf gehen wollen.',
+      description: 'Der BSV 92 veranstaltete am Sonntag, den 30. August 2026 auf seiner Anlage in der Fritz-Wildung-Str. 23 wieder den beliebten Čujić-Mini-Cup. Die 16. Auflage dieses Kleinfeldturniers richtete sich besonders an Kinder, die ihre ersten Schritte im Wettkampf gehen wollten.',
       image: '/cujic-cup.jpg',
-      layout: 'banner',
-      teaserDetails: [
-        { label: 'Termin', value: 'Sonntag, 30.08.2026, ab 14.30 Uhr' },
-        { label: 'Meldeschluss', value: 'Donnerstag, 27.08.2026' },
-        { label: 'Nenngeld', value: '33 € inklusive Turnier-Shirt' },
-      ],
       cta: {
-        label: 'Zur Ausschreibung und Anmeldung',
+        label: 'Mehr zum Mini-Cup',
         link: '/mini-cup',
       },
+      archived: true,
     },
     {
       title: 'Start der Sommersaison 2026',
@@ -52,18 +47,13 @@ export const eventsByLang = {
       subtitle: 'Small-court tournament with multi-event competition at BSV 92',
       date: 'Sunday, 30 August 2026',
       location: 'BSV 92, Fritz-Wildung-Str. 23, 14199 Berlin',
-      description: 'On Sunday, 30 August 2026, BSV 92 will once again host the popular Čujić Mini Cup at its grounds at Fritz-Wildung-Str. 23. Now in its 16th edition, this small-court tournament is aimed especially at children taking their first steps in competitive tennis.',
+      description: 'On Sunday, 30 August 2026, BSV 92 once again hosted the popular Čujić Mini Cup at its grounds at Fritz-Wildung-Str. 23. The 16th edition of this small-court tournament was aimed especially at children taking their first steps in competitive tennis.',
       image: '/cujic-cup.jpg',
-      layout: 'banner',
-      teaserDetails: [
-        { label: 'Date', value: 'Sunday, 30 August 2026, from 2.30 pm' },
-        { label: 'Registration deadline', value: 'Thursday, 27 August 2026' },
-        { label: 'Entry fee', value: '€33 including tournament shirt' },
-      ],
       cta: {
-        label: 'Announcement and registration',
+        label: 'More about the Mini Cup',
         link: '/mini-cup',
       },
+      archived: true,
     },
     {
       title: 'Start of the 2026 Summer Season',

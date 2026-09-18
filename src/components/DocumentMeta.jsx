@@ -57,8 +57,8 @@ const META = {
   },
   '/mini-cup': {
     img: '/cujic-cup.jpg',
-    de: { title: `Čujić-Mini-Cup · ${BRAND}`, desc: 'Čujić-Mini-Cup beim BSV 92 in Berlin: Kleinfeldturnier U10 mit Mehrkampf – Ausschreibung, Termin und Anmeldung.' },
-    en: { title: `Čujić Mini Cup · ${BRAND}`, desc: 'Čujić Mini Cup at BSV 92 in Berlin: U10 small-court tournament with multi-event competition – announcement, date and registration.' },
+    de: { title: `Čujić-Mini-Cup · ${BRAND}`, desc: 'Čujić-Mini-Cup beim BSV 92 in Berlin: Kleinfeldturnier U10 mit Mehrkampf – Rückblick auf die 16. Auflage am 30. August 2026.' },
+    en: { title: `Čujić Mini Cup · ${BRAND}`, desc: 'Čujić Mini Cup at BSV 92 in Berlin: U10 small-court tournament with multi-event competition – looking back on the 16th edition on 30 August 2026.' },
   },
   '/impressum': {
     de: { title: `Impressum · ${BRAND}`, desc: 'Impressum der TENNIS ACADEMY GRAND SLAM.' },
